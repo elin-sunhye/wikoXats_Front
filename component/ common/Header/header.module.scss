@@ -1,0 +1,103 @@
+.header_wrap {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--white);
+  z-index: 99999;
+
+  .header_box {
+    gap: 1rem;
+    z-index: 99999;
+    // transition: var(--transition-03);
+
+    .logo {
+      z-index: 9999;
+      border-radius: var(--br-10);
+      background-color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: var(--blur-1);
+
+      a {
+        width: 6rem;
+        height: 4.5rem;
+
+        .pc_logo {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+// 스크롤 시
+.header_wrap.scroll {
+  top: 2rem;
+  background-color: transparent;
+
+  .header_box {
+    width: 102.4rem;
+    gap: 5rem;
+
+    .logo {
+      box-shadow: var(--menu-shadow);
+      opacity: 0;
+      animation: rotate 0.5s;
+      animation-delay: 0.3s;
+      animation-fill-mode: forwards;
+      //  animation: name duration timing-function delay iteration-count direction fill-mode;
+
+      @keyframes rotate {
+        from {
+          transform: rotateY(0deg);
+          opacity: 0;
+        }
+        to {
+          transform: rotateY(360deg);
+          opacity: 1;
+        }
+      }
+
+      a {
+        width: 7rem;
+        height: 6rem;
+
+        .pc_logo {
+          width: 5.5rem;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header_wrap {
+    .header_box {
+      .logo {
+        a {
+          .mo_logo {
+            width: 5rem;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  // 스크롤 시
+  .header_wrap.scroll {
+    .header_box {
+      width: 100%;
+      padding: 0 calc((100% - 85%) / 2);
+      justify-content: space-between;
+
+      .logo {
+        a {
+          padding: 1.4rem 0.25rem;
+        }
+      }
+    }
+  }
+}

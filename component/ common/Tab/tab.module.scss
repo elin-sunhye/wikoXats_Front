@@ -1,0 +1,40 @@
+// 탭 버튼 공통
+.tab_btn,
+.swiper_pagination {
+  width: auto !important;
+  background-color: var(--sub-color-3);
+  border-radius: var(--br-50);
+  padding: 1rem;
+}
+
+// 탭버튼 - swiper
+.tab_swiper {
+  width: 100%;
+}
+
+// 탭버튼 - 기본
+.tab_btn {
+  button {
+    width: 15rem;
+    padding: 1rem 0;
+    border-radius: var(--br-50);
+    z-index: 9;
+
+    &.active {
+      background-color: var(--sub-color-1);
+      color: var(--white);
+    }
+  }
+}
+
+// 탭 컨트
+.tab_cont {
+  width: 100%;
+
+  &.on {
+    display: flex;
+  }
+  &.off {
+    display: none;
+  }
+}

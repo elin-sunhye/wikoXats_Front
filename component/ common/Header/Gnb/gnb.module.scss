@@ -1,0 +1,324 @@
+.gnb_wrap {
+  .pc_gnb {
+    display: inline-flex;
+    border-radius: var(--br-10);
+    gap: 4rem;
+
+    .left,
+    .right {
+      gap: 2rem;
+
+      & > li {
+        padding: 1rem;
+        a {
+          padding: 1rem;
+          border-radius: var(--br-10);
+
+          & > .scroll_ico {
+            display: none;
+          }
+
+          // active
+          &.active {
+            background-color: var(--gray-1);
+          }
+        }
+        // hover
+        &:hover {
+          a {
+            transition: var(--transition-03);
+            background-color: var(--gray-1);
+          }
+        }
+      }
+    }
+
+    .left,
+    .right > li {
+      height: 6rem;
+      padding: 0 1rem;
+      background-color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: var(--blur-1);
+      border-radius: var(--br-10);
+    }
+    .right > li {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .separate_bar {
+      display: block;
+      width: 0.1rem;
+      height: 1.8rem;
+      background-color: var(--gray-2);
+    }
+  }
+
+  // 모바일 햄버거 바
+  .mo_gnb_hamburger {
+    width: 5.5rem;
+    height: 6rem;
+    border-radius: var(--br-10);
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: var(--blur-1);
+    position: relative;
+    z-index: 9999;
+
+    & > span {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+      width: 2.2rem;
+      height: 0.2rem;
+      background-color: var(--black);
+      transition: var(--transition-03);
+    }
+    // hover
+    &:hover > span:nth-of-type(2) {
+      transform: translate(-30%, -50%);
+    }
+  }
+  .mo_gnb_hamburger_close {
+    & > span {
+      &:nth-of-type(1) {
+        top: 2rem;
+      }
+      &:nth-of-type(2) {
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &:nth-of-type(3) {
+        bottom: 2rem;
+      }
+    }
+  }
+  .mo_gnb_hamburger_open {
+    & > span {
+      &:nth-of-type(1) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      &:nth-of-type(2) {
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+      }
+      &:nth-of-type(3) {
+        bottom: 50%;
+        transform: translate(-50%, 50%) rotate(-45deg);
+      }
+    }
+  }
+
+  // 모바일 gnb
+  .mo_gnb {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--white);
+    position: fixed;
+    left: 0;
+    transition: var(--transition-03);
+
+    .mo_wrap {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 3.5rem;
+      padding-top: 8rem;
+
+      .left,
+      .right {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3.5rem;
+
+        li {
+          a {
+            padding: 0 1.3rem;
+          }
+        }
+      }
+
+      .separate_bar {
+        display: block;
+        width: 100%;
+        height: 0.1rem;
+        background-color: var(--gray-2);
+      }
+    }
+  }
+  .mo_gnb_open {
+    bottom: -100vh;
+  }
+  .mo_gnb_close {
+    bottom: 100vh;
+  }
+}
+
+// 스크롤 시
+.gnb_wrap.scroll {
+  .pc_gnb {
+    font-size: var(--fs-16);
+
+    .left {
+      box-shadow: var(--menu-shadow);
+      padding: 0 1rem;
+    }
+    .right {
+      li {
+        width: 6.5rem;
+        padding: 0;
+        box-shadow: var(--menu-shadow);
+        margin-top: -23rem;
+        animation: margin 0.7s;
+        animation-fill-mode: forwards;
+
+        &:nth-of-type(1) {
+          animation-delay: 0.7s;
+
+          @keyframes margin {
+            from {
+              margin-top: -23rem;
+              opacity: 0;
+            }
+            to {
+              margin-top: 0;
+              opacity: 1;
+            }
+          }
+        }
+        &:nth-of-type(2) {
+          animation-delay: 1s;
+
+          @keyframes margin {
+            from {
+              margin-top: -23rem;
+              opacity: 0;
+            }
+            to {
+              margin-top: 0;
+              opacity: 1;
+            }
+          }
+        }
+        &:nth-of-type(3) {
+          animation-delay: 1.3s;
+
+          @keyframes margin {
+            from {
+              margin-top: -23rem;
+              opacity: 0;
+            }
+            to {
+              margin-top: 0;
+              opacity: 1;
+            }
+          }
+        }
+
+        & > a {
+          // margin: 0 auto;
+          width: 100%;
+          height: 100%;
+          position: relative;
+          overflow: hidden;
+          font-size: var(--fs-14);
+
+          & > p,
+          & > .scroll_ico {
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: var(--transition-03);
+          }
+          & > p {
+            bottom: -50%;
+            opacity: 0;
+          }
+          & > .scroll_ico {
+            width: 2rem;
+            height: 2rem;
+            bottom: 50%;
+            transform: translate(-50%, 50%);
+          }
+        }
+        // hover
+        &:hover {
+          a {
+            & > p {
+              bottom: 50%;
+              transform: translate(-50%, 50%);
+              opacity: 1;
+            }
+            & > .scroll_ico {
+              bottom: -50%;
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .separate_bar {
+      display: none;
+    }
+  }
+  // 모바일 햄버거 바
+  .mo_gnb_hamburger {
+    width: 5rem;
+    height: 5rem;
+    box-shadow: var(--menu-shadow);
+
+    & > span {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+      width: 2.2rem;
+      height: 0.2rem;
+      background-color: var(--black);
+      transition: var(--transition-03);
+    }
+    // hover
+    &:hover > span:nth-of-type(2) {
+      transform: translate(-30%, -50%);
+    }
+  }
+  .mo_gnb_hamburger_close {
+    & > span {
+      &:nth-of-type(1) {
+        top: 1.6rem;
+      }
+      &:nth-of-type(2) {
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &:nth-of-type(3) {
+        bottom: 1.6rem;
+      }
+    }
+  }
+  .mo_gnb_hamburger_open {
+    & > span {
+      &:nth-of-type(1) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      &:nth-of-type(2) {
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+      }
+      &:nth-of-type(3) {
+        bottom: 50%;
+        transform: translate(-50%, 50%) rotate(-45deg);
+      }
+    }
+  }
+}
