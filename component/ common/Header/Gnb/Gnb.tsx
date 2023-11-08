@@ -1,76 +1,76 @@
-'use client'
+'use client';
 
-import React, { useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
-import styled from './gnb.module.scss'
-import Link from 'next/link'
-import { FaRegHandshake } from 'react-icons/fa'
-import { MdOutlineContactSupport } from 'react-icons/md'
-import { FiMail } from 'react-icons/fi'
+import React, { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import styled from './gnb.module.scss';
+import Link from 'next/link';
+import { FaRegHandshake } from 'react-icons/fa';
+import { MdOutlineContactSupport } from 'react-icons/md';
+import { FiMail } from 'react-icons/fi';
 // dummyData
-import menus from '@
+import menus from '@/dummyData/menus.json';
 
 //AOS
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-import { MenusType } from '@/types/menus'
-import { useBodyScrollLock } from '@/hook/noScroll'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { MenusType } from '@/types/menus';
+import { useBodyScrollLock } from '@/hook/noScroll';
 
 interface GnbProps {
-  scroll: boolean
+  scroll: boolean;
 }
 
 export const Gnb = ({ scroll }: GnbProps) => {
   //AOS 초기화
   useEffect(() => {
-    AOS.init()
-  })
+    AOS.init();
+  });
 
   // 모바일 gnb 열기
   /**
    * true: 열림
    * false : 닫힘
    */
-  const [moGnbOpen, setMoGnbOpen] = useState<boolean>(false)
+  const [moGnbOpen, setMoGnbOpen] = useState<boolean>(false);
 
   // 모바일 메뉴 띄울 시 스크롤 막기
-  const { lockScroll, openScroll } = useBodyScrollLock()
+  const { lockScroll, openScroll } = useBodyScrollLock();
   useEffect(() => {
     if (moGnbOpen) {
-      lockScroll()
+      lockScroll();
     } else {
-      openScroll()
+      openScroll();
     }
-  }, [moGnbOpen])
+  }, [moGnbOpen]);
 
   // 동적으로 윈도우 사이즈 구하기
-  const [innerWidth, setInnerWidth] = useState<number | null>(null)
+  const [innerWidth, setInnerWidth] = useState<number | null>(null);
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const resizeListener = () => {
-        setInnerWidth(window.innerWidth)
-      }
-      window.addEventListener('resize', resizeListener)
+        setInnerWidth(window.innerWidth);
+      };
+      window.addEventListener('resize', resizeListener);
     }
-  }, [])
+  }, []);
 
   // 모바일 메뉴 열고 반응형 시 모바일 메뉴 닫기
   useEffect(() => {
     if (innerWidth !== null && innerWidth < 1024) {
-      setMoGnbOpen(false)
+      setMoGnbOpen(false);
     }
-  }, [innerWidth])
+  }, [innerWidth]);
 
   // url 가져오기
-  const pathName = usePathname()
+  const pathName = usePathname();
 
   useEffect(() => {
     // 모바일 링크 이동시 메뉴 닫기
-    setMoGnbOpen(false)
+    setMoGnbOpen(false);
 
     // 링크와 같은 메뉴 액티브
-    console.log('pathName', pathName.split('/'))
-  }, [pathName])
+    console.log('pathName', pathName.split('/'));
+  }, [pathName]);
 
   return (
     <div className={`${styled.gnb_wrap} ${scroll ? styled.scroll : ''}`}>
@@ -90,7 +90,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
                     <p>{menu.menu}</p>
                   </Link>
                 </li>
-              )
+              );
             }
           })}
         </ul>
@@ -128,7 +128,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
                     )}
                   </Link>
                 </li>
-              )
+              );
             }
           })}
         </ul>
@@ -144,7 +144,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
             : styled.mo_gnb_hamburger_close
         }`}
         onClick={() => {
-          setMoGnbOpen(!moGnbOpen)
+          setMoGnbOpen(!moGnbOpen);
         }}
       >
         <span></span>
@@ -166,7 +166,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
                     <p>{menu.menu}</p>
                   </Link>
                 </li>
-              )
+              );
             })}
           </ul>
 
@@ -181,12 +181,12 @@ export const Gnb = ({ scroll }: GnbProps) => {
                       <p>{menu.menu}</p>
                     </Link>
                   </li>
-                )
+                );
               }
             })}
           </ul>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
