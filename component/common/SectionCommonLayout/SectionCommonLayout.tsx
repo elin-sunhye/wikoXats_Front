@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { BtnLink } from "../BtnLink/BtnLink";
-import { SectionTitle } from "../SectionTitle/SectionTitle";
-import style from "./sectionCommonLayout.module.scss";
+import { BtnLink } from '@/component/common/BtnLink/BtnLink';
+import { SectionTitle } from '@/component/common/SectionTitle/SectionTitle';
+import style from './sectionCommonLayout.module.scss';
 
 interface sectionCommonLayoutProps {
   sectionId: string;
@@ -12,7 +12,7 @@ interface sectionCommonLayoutProps {
   title: String;
   desc: string;
   color?: string;
-  textAlign?: "center" | "right";
+  textAlign?: 'center' | 'right';
   moTextCenter?: boolean;
 
   btnYn: boolean;
@@ -21,7 +21,7 @@ interface sectionCommonLayoutProps {
   btnHref?: string;
   btnColorStyle?: React.CSSProperties;
   btnIco?: JSX.Element;
-  btnIcoPosition?: "left" | "right";
+  btnIcoPosition?: 'left' | 'right';
   btnHover?: boolean;
 }
 
@@ -87,7 +87,7 @@ export default function SectionCommonLayout({
     <section
       id={sectionId}
       className="section_padding"
-      style={{ background: sectionBg ? sectionBg : "var(--white)" }}
+      style={{ background: sectionBg ? sectionBg : 'var(--white)' }}
     >
       <div className={`wrap flex_start ${style.section_box}`}>
         <SectionTitle
@@ -100,9 +100,9 @@ export default function SectionCommonLayout({
 
         {btnYn === true ? (
           <BtnLink
-            title={btnTitle ? btnTitle : ""}
-            id={btnId ? btnId : ""}
-            href={btnHref ? btnHref : ""}
+            title={btnTitle ? btnTitle : ''}
+            id={btnId ? btnId : ''}
+            href={btnHref ? btnHref : ''}
             colorStyle={btnColorStyle}
             icoPosition={btnIcoPosition}
             ico={btnIco}

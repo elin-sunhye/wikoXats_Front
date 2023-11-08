@@ -1,8 +1,8 @@
-"use client";
-import CSS from "csstype";
-import React, { Ref, forwardRef, useEffect, useRef, useState } from "react";
-import style from "./Table.module.scss";
-// import { CommonCheckBox } from "../CommonCheckBox/CommonCheckBox";
+'use client';
+import CSS from 'csstype';
+import React, { Ref, forwardRef, useEffect, useRef, useState } from 'react';
+import style from './Table.module.scss';
+// import { CommonCheckBox } from "@/component/common/CommonCheckBox/CommonCheckBox";
 // import { CheckedState } from "@radix-ui/react-checkbox";
 
 export interface TableHeader {
@@ -29,7 +29,7 @@ export interface TableHeader {
   /**
    * 테이블에 폼을 넣을 경우 사용. 지금은 checkbox만 가능 추후 필요하면 추가
    */
-  form?: "check";
+  form?: 'check';
   /**
    * form에서 select를 선택 했을시 select의 option 데이터
    */
@@ -52,7 +52,7 @@ interface TableProps<T> {
   /**
    * 테이블 형태
    */
-  tableType: "vertical" | "horizontal";
+  tableType: 'vertical' | 'horizontal';
   /**
    * 데이터 로딩 중일 때 tbody에 데이터 불러오는 중입니다 메세지 제공
    */
@@ -148,14 +148,14 @@ const Table = forwardRef(
 
     // const allCheck;
 
-    return tableType === "vertical" ? (
+    return tableType === 'vertical' ? (
       <table className={style.tb_st1} ref={ref}>
         <colgroup>
           {headers.map((width: TableHeader, index: number) => {
             return (
               <col
                 key={`vertical_${index}`}
-                width={width.width ? width.width : "auto"}
+                width={width.width ? width.width : 'auto'}
               />
             );
           })}
@@ -165,19 +165,19 @@ const Table = forwardRef(
           <tr>
             {headers.map((thead: TableHeader, thIndex: number) => {
               switch (thead.form) {
-                case "check":
+                case 'check':
                   return (
                     <th
                       key={`thCheck_${thead.value}`}
                       className={`${
                         pcNone?.find((num) => num === thIndex + 1) !== undefined
                           ? style.pc_none
-                          : ""
+                          : ''
                       } ${
                         mobileNone?.find((num) => num === thIndex + 1) !==
                         undefined
                           ? style.mo_none
-                          : ""
+                          : ''
                       }`}
                     >
                       {/* <CommonCheckBox
@@ -218,12 +218,12 @@ const Table = forwardRef(
                       className={`${
                         pcNone?.find((num) => num === thIndex + 1) !== undefined
                           ? style.pc_none
-                          : ""
+                          : ''
                       } ${
                         mobileNone?.find((num) => num === thIndex + 1) !==
                         undefined
                           ? style.mo_none
-                          : ""
+                          : ''
                       }`}
                     >
                       {thead.name}
@@ -244,12 +244,12 @@ const Table = forwardRef(
                 <tr
                   key={`tbody_${trIndex}`}
                   className={`${
-                    trHover && trHover === true ? style.hover : ""
+                    trHover && trHover === true ? style.hover : ''
                   }`}
                 >
                   {headers.map((thead: TableHeader, tdIndex) => {
                     switch (thead.form) {
-                      case "check":
+                      case 'check':
                         return (
                           <td
                             key={`check_${thead.value}`}
@@ -257,12 +257,12 @@ const Table = forwardRef(
                               pcNone?.find((num) => num === tdIndex + 1) !==
                               undefined
                                 ? style.pc_none
-                                : ""
+                                : ''
                             } ${
                               mobileNone?.find((num) => num === tdIndex + 1) !==
                               undefined
                                 ? style.mo_none
-                                : ""
+                                : ''
                             }`}
                           >
                             {/* <CommonCheckBox
@@ -396,7 +396,7 @@ const Table = forwardRef(
                             /> */}
                             <span className="screen_out">
                               {/* @ts-ignore */}
-                              {tbody[itemTitle] + " 선택"}
+                              {tbody[itemTitle] + ' 선택'}
                             </span>
                           </td>
                         );
@@ -408,12 +408,12 @@ const Table = forwardRef(
                               pcNone?.find((num) => num === tdIndex + 1) !==
                               undefined
                                 ? style.pc_none
-                                : ""
+                                : ''
                             } ${
                               mobileNone?.find((num) => num === tdIndex + 1) !==
                               undefined
                                 ? style.mo_none
-                                : ""
+                                : ''
                             }`}
                             style={{
                               textAlign: thead.align,
@@ -439,12 +439,12 @@ const Table = forwardRef(
         <colgroup>
           <col
             width={
-              headers.length > 0 && headers[0].width ? headers[0].width : "auto"
+              headers.length > 0 && headers[0].width ? headers[0].width : 'auto'
             }
           />
           <col
             width={
-              headers.length > 0 && headers[1].width ? headers[1].width : "auto"
+              headers.length > 0 && headers[1].width ? headers[1].width : 'auto'
             }
           />
         </colgroup>
@@ -462,7 +462,7 @@ const Table = forwardRef(
                   {data.length === 0
                     ? thead.accessFn
                       ? thead.accessFn(headers[trIndex], trIndex)
-                      : ""
+                      : ''
                     : data.map((tbody: T, index: number) => {
                         return (
                           <>
@@ -484,7 +484,7 @@ const Table = forwardRef(
   }
 );
 
-Table.displayName = "Table";
+Table.displayName = 'Table';
 export default Table as <T extends {}>(
   props: TableProps<T> & {
     ref: Ref<HTMLTableElement | HTMLButtonElement | HTMLButtonElement[]>;

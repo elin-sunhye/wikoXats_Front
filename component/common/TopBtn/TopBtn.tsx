@@ -3,7 +3,7 @@
 import style from './TopBtn.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import { IoArrowUp } from 'react-icons/io5';
-import { Btn } from '../Btn/Btn';
+import { Btn } from '@/component/common/Btn/Btn';
 
 export default function TopBtn() {
   const [sticky, setSticky] = useState(true);

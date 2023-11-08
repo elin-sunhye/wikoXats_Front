@@ -1,6 +1,6 @@
 'use client';
 
-import { SectionTitle } from '../../SectionTitle/SectionTitle';
+import { SectionTitle } from '@/component/common/SectionTitle/SectionTitle';
 import style from './subTop.module.scss';
 
 interface SubTopProps {

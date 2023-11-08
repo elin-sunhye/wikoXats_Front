@@ -1,7 +1,7 @@
 'use client';
 
-import { BtnLink } from '../BtnLink/BtnLink';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { BtnLink } from '@/component/common/BtnLink/BtnLink';
+import { SectionTitle } from '@/component/common/SectionTitle/SectionTitle';
 import style from './sectionVarticalLayout.module.scss';
 
 interface sectionVarticalLayoutProps {
