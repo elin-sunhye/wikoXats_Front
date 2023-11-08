@@ -1,5 +1,5 @@
-import styles from './page.module.scss';
+import MainClient from './mainClient';
 
 export default function Home() {
-  return <main>메인</main>;
+  return <MainClient />;
 }

@@ -1,0 +1,8 @@
+.plan_ico_card_box {
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  & > div {
+    width: calc((100% - 20px) / 2);
+  }
+}

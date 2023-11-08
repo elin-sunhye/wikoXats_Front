@@ -1,0 +1,31 @@
+.strength_tab_cont {
+  width: 100%;
+  height: 630px;
+  gap: 2rem;
+
+  .strength_tab_cont_left,
+  .strength_tab_cont_right {
+    width: 50%;
+    height: 100%;
+  }
+  .strength_tab_cont_left,
+  .strength_tab_cont_right > div {
+    background-color: var(--sub-color-2);
+    border-radius: var(--br-10);
+  }
+
+  .strength_tab_cont_right {
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    & > div {
+      width: 100%;
+      height: calc((100% - 20px) / 2);
+
+      &:first-of-type {
+        background-color: var(--main-color);
+        color: var(--white);
+      }
+    }
+  }
+}
