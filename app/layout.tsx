@@ -1,3 +1,6 @@
+import AutoAlert from '@/component/common/AutoAlert/AutoAlert';
+import { Footer } from '@/component/common/Footer/Footer';
+import { Header } from '@/component/common/Header/Header';
 import '@/style/globals.scss';
 import localFont from 'next/font/local';
 
@@ -80,14 +83,17 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`${pretendard.variable} ${Gmarket.variable}`}>
         {/* header */}
+        <Header />
 
         {/* content */}
         <div style={{ position: 'relative', zIndex: '999' }}>{children}</div>
         {/* <div className="wrap"></div> */}
 
         {/* autoAlert */}
+        <AutoAlert />
 
         {/* footer */}
+        <Footer />
       </body>
     </html>
   );
