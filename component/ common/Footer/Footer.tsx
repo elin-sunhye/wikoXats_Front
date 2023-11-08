@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import footer_style from "./footer.module.scss";
-import { MenusType } from "@/types/menus";
-import { AiFillYoutube } from "react-icons/ai";
-import { FaFacebookF } from "react-icons/fa";
-import { SiNaver } from "react-icons/si";
-import { FaLinkedinIn } from "react-icons/fa";
+import Link from 'next/link';
+import footer_style from './footer.module.scss';
+import { MenusType } from '@/types/menus';
+import { AiFillYoutube } from 'react-icons/ai';
+import { FaFacebookF } from 'react-icons/fa';
+import { SiNaver } from 'react-icons/si';
+import { FaLinkedinIn } from 'react-icons/fa';
 // dummyData
-import menus from "../../dummyData/menus.json";
+import menus from '@/dummyData/menus.json';
 
 interface FooterProps {}
 

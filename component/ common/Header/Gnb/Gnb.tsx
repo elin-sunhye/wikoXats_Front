@@ -8,7 +8,7 @@ import { FaRegHandshake } from 'react-icons/fa'
 import { MdOutlineContactSupport } from 'react-icons/md'
 import { FiMail } from 'react-icons/fi'
 // dummyData
-import menus from '../../../dummyData/menus.json'
+import menus from '@
 
 //AOS
 import AOS from 'aos'
