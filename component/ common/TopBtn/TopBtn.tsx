@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import style from "./TopBtn.module.scss";
-import { useEffect, useRef, useState } from "react";
-import { IoArrowUp } from "react-icons/io5";
-import { Btn } from "@/component/Btn/Btn";
+import style from './TopBtn.module.scss';
+import { useEffect, useRef, useState } from 'react';
+import { IoArrowUp } from 'react-icons/io5';
+import { Btn } from '../Btn/Btn';
 
 export default function TopBtn() {
   const [sticky, setSticky] = useState(true);
 
   useEffect(() => {
     let mounted = true;
-    window.addEventListener("scroll", () => {
+    window.addEventListener('scroll', () => {
       //   console.log("window.scrollY", window.scrollY);
       //   console.log("document.body.scrollHeight", document.body.scrollHeight);
       //   console.log("window.innerHeight", window.innerHeight);
@@ -37,14 +37,14 @@ export default function TopBtn() {
   }, []);
 
   return (
-    <div className={`${style.top_btn} ${sticky ? style.sticky : ""}`}>
+    <div className={`${style.top_btn} ${sticky ? style.sticky : ''}`}>
       <Btn
-        title={"상단으로 가기"}
-        btnType={"ico"}
+        title={'상단으로 가기'}
+        btnType={'ico'}
         ico={<IoArrowUp role="img" aria-label="위로 화살표 아이콘" />}
-        type={"button"}
-        id={"BtnTop"}
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        type={'button'}
+        id={'BtnTop'}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         hover={false}
       />
     </div>
