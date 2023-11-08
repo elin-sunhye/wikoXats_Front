@@ -1,7 +1,6 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import style from "./cardGradient.module.scss";
+import style from './cardGradient.module.scss';
 
 interface CardGradientProps {
   title: string;
@@ -33,13 +32,13 @@ export default function CardGradientProps({
     <div
       className={`flex_center ${style.card}`}
       style={{
-        background: cardBg ? cardBg : "var(--sub-color-2)",
-        color: textColor ? textColor : "var(--main_color)",
+        background: cardBg ? cardBg : 'var(--sub-color-2)',
+        color: textColor ? textColor : 'var(--main_color)',
       }}
     >
       <p
         className={style.card_title}
-        style={{ background: textBg ? textBg : "var(--sub-color-2)" }}
+        style={{ background: textBg ? textBg : 'var(--sub-color-2)' }}
       >
         {title.split(`<br />`).map((text: string) => {
           return (

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { SectionTitle } from "@/component/SectionTitle/SectionTitle";
-import style from "./subTop.module.scss";
+import { SectionTitle } from '../../SectionTitle/SectionTitle';
+import style from './subTop.module.scss';
 
 interface SubTopProps {
   maginBg?: string;
@@ -33,11 +33,11 @@ export default function SubTop({
   return (
     <main
       className={`section_padding`}
-      style={{ background: maginBg ? maginBg : "var(--white)" }}
+      style={{ background: maginBg ? maginBg : 'var(--white)' }}
     >
       <div
         className={`wrap flex_center ${style.sub_top} ${
-          mainPadding || mainPadding === false ? style.no_padding : ""
+          mainPadding || mainPadding === false ? style.no_padding : ''
         }`}
       >
         <SectionTitle title={title} desc={desc} textAlign={`center`} />

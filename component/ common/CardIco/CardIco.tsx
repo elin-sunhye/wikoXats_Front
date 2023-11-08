@@ -1,12 +1,11 @@
-import Image from 'next/image'
-import style from './cardIco.module.scss'
+import style from './cardIco.module.scss';
 
 interface CardIcoProps {
-  title: string
-  desc?: string
-  cardBg?: string
-  ico?: JSX.Element
-  children?: React.ReactNode
+  title: string;
+  desc?: string;
+  cardBg?: string;
+  ico?: JSX.Element;
+  children?: React.ReactNode;
 }
 
 /**
@@ -38,7 +37,7 @@ export default function CardIco({
                 <>
                   {text} <br />
                 </>
-              )
+              );
             })}
           </p>
           {desc !== '' && desc ? (
@@ -48,7 +47,7 @@ export default function CardIco({
                   <>
                     {text} <br />
                   </>
-                )
+                );
               })}
             </span>
           ) : (
@@ -59,5 +58,5 @@ export default function CardIco({
       </div>
       {children ? <div className={style.bottom}>{children}</div> : <></>}
     </div>
-  )
+  );
 }

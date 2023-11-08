@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import style from "./sectionVarticalLayout.module.scss";
-import { BtnLink } from "@/component/BtnLink/BtnLink";
-import { SectionTitle } from "@/component/SectionTitle/SectionTitle";
+import { BtnLink } from '../BtnLink/BtnLink';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
+import style from './sectionVarticalLayout.module.scss';
 
 interface sectionVarticalLayoutProps {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ interface sectionVarticalLayoutProps {
   title: String;
   desc: string;
   color?: string;
-  textAlign?: "center" | "right";
+  textAlign?: 'center' | 'right';
   moTextCenter?: boolean;
 
   btnYn: boolean;
@@ -21,7 +21,7 @@ interface sectionVarticalLayoutProps {
   btnHref?: string;
   btnColorStyle?: React.CSSProperties;
   btnIco?: JSX.Element;
-  btnIcoPosition?: "left" | "right";
+  btnIcoPosition?: 'left' | 'right';
   btnHover?: boolean;
 }
 
@@ -87,7 +87,7 @@ export default function SectionVarticalLayout({
     <section
       id={style.lastSection}
       className={`section_padding`}
-      style={{ background: sectionBg ? sectionBg : "var(--white)" }}
+      style={{ background: sectionBg ? sectionBg : 'var(--white)' }}
     >
       <div className={`wrap flex_between ${style.section_box}`}>
         {reverse === undefined || reverse === false ? (
@@ -99,8 +99,8 @@ export default function SectionVarticalLayout({
         <div
           className={`${
             reverse !== undefined || reverse === true
-              ? "flex_start"
-              : "flex_end"
+              ? 'flex_start'
+              : 'flex_end'
           } ${style.title}`}
           style={
             {
@@ -119,9 +119,9 @@ export default function SectionVarticalLayout({
 
           {btnYn === true ? (
             <BtnLink
-              title={btnTitle ? btnTitle : ""}
-              id={btnId ? btnId : ""}
-              href={btnHref ? btnHref : ""}
+              title={btnTitle ? btnTitle : ''}
+              id={btnId ? btnId : ''}
+              href={btnHref ? btnHref : ''}
               colorStyle={btnColorStyle}
               icoPosition={btnIcoPosition}
               ico={btnIco}
