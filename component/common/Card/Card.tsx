@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import style from "./card.module.scss";
+import Image from 'next/image';
+import style from './card.module.scss';
 
 interface CardProps {
   title: string;
   desc: string;
   cardBg?: string;
-  imgYn?: "top" | "bottom";
+  imgYn?: 'top' | 'bottom';
   imgSrc?: string;
   imgAlt?: string;
   imgBg?: string;
@@ -35,20 +35,20 @@ export default function Card({
     <div
       className={`flex_start ${style.card}`}
       style={{
-        background: cardBg ? cardBg : "var(--sub-color-2)",
+        background: cardBg ? cardBg : 'var(--gray-1)',
       }}
     >
-      {imgYn === "top" ? (
+      {imgYn === 'top' ? (
         <>
           <div
             className={style.card_img_box}
             style={{ backgroundColor: imgBg }}
           >
             <Image
-              src={imgSrc !== undefined ? imgSrc : ""}
-              alt={imgAlt !== undefined ? imgAlt : ""}
-              width={"10"}
-              height={"10"}
+              src={imgSrc !== undefined ? imgSrc : ''}
+              alt={imgAlt !== undefined ? imgAlt : ''}
+              width={'10'}
+              height={'10'}
               className={style.card_img}
             />
           </div>
@@ -73,7 +73,7 @@ export default function Card({
             </span>
           </div>
         </>
-      ) : imgYn === "bottom" ? (
+      ) : imgYn === 'bottom' ? (
         <>
           <div className={style.card_title_box}>
             <p className={style.card_title}>
@@ -100,10 +100,10 @@ export default function Card({
             style={{ backgroundColor: imgBg }}
           >
             <Image
-              src={imgSrc !== undefined ? imgSrc : ""}
-              alt={imgAlt !== undefined ? imgAlt : ""}
-              width={"10"}
-              height={"10"}
+              src={imgSrc !== undefined ? imgSrc : ''}
+              alt={imgAlt !== undefined ? imgAlt : ''}
+              width={'10'}
+              height={'10'}
               className={style.card_img}
             />
           </div>

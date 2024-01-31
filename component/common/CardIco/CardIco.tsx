@@ -1,7 +1,7 @@
 import style from './cardIco.module.scss';
 
 interface CardIcoProps {
-  title: string;
+  title?: string;
   desc?: string;
   cardBg?: string;
   ico?: JSX.Element;
@@ -9,7 +9,7 @@ interface CardIcoProps {
 }
 
 /**
- * @param title : 카드 제목
+ * @param title ?: 카드 제목
  *
  * @param desc ?: 카드 설명
  *
@@ -31,15 +31,19 @@ export default function CardIco({
     >
       <div className={`flex_between ${style.top}`}>
         <div className={`${style.title_box} ${ico ? '' : style.width_100}`}>
-          <p>
-            {title.split(`<br />`).map((text: string) => {
-              return (
-                <>
-                  {text} <br />
-                </>
-              );
-            })}
-          </p>
+          {title !== '' && title ? (
+            <p>
+              {title.split(`<br />`).map((text: string) => {
+                return (
+                  <>
+                    {text} <br />
+                  </>
+                );
+              })}
+            </p>
+          ) : (
+            <></>
+          )}
           {desc !== '' && desc ? (
             <span>
               {desc.split(`<br />`).map((text: string) => {

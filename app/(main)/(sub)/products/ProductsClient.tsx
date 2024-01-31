@@ -1,9 +1,8 @@
 'use client';
 
-import ProductCase from './ProductCase/ProductCase';
-import ProductPlan from './ProductPlan/ProductPlan';
-import ProductsSubVisual from './ProductSubVisual/ProductsSubVisual';
-import page_style from './productsClient.module.scss';
+import ProductCase from '@/component/sub/products/ProductCase/ProductCase';
+import ProductPlan from '@/component/sub/products/ProductPlan/ProductPlan';
+import ProductsSubVisual from '@/component/sub/products/ProductSubVisual/ProductsSubVisual';
 
 export default function ProductsClient() {
   return (

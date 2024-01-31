@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import SectionMoreInfo from './SectionMoreInfo/SectionMoreInfo'
-import SectionPartners from './SectionPartners/SectionPartners'
-import SectionPoint from './SectionPoint/SectionPoint'
-import SectionServe from './SectionServe/SectionServe'
-import SectionSimpleIntro from './SectionSimpleIntro/SectionSimpleIntro'
-import SectionStrong from './SectionStrong/SectionStrong'
-import StorySubVisual from './StorySubVisual/StorySubVisual'
-import page_style from './storyClient.module.scss'
+import SectionMoreInfo from '@/component/sub/story/SectionMoreInfo/SectionMoreInfo';
+import SectionPartners from '@/component/sub/story/SectionPartners/SectionPartners';
+import SectionPoint from '@/component/sub/story/SectionPoint/SectionPoint';
+import SectionServe from '@/component/sub/story/SectionServe/SectionServe';
+import SectionSimpleIntro from '@/component/sub/story/SectionSimpleIntro/SectionSimpleIntro';
+import SectionStrong from '@/component/sub/story/SectionStrong/SectionStrong';
+import StorySubVisual from '@/component/sub/story/StorySubVisual/StorySubVisual';
+import page_style from './storyClient.module.scss';
 
 export default function StoryClient() {
   return (
@@ -33,5 +33,5 @@ export default function StoryClient() {
       {/* 문의하기 */}
       <SectionMoreInfo />
     </>
-  )
+  );
 }

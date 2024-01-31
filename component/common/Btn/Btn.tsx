@@ -1,24 +1,24 @@
-"use client";
+'use client';
 
-import style from "./btn.module.scss";
+import style from './btn.module.scss';
 
 interface BtnProps {
-  btnType: "all" | "text" | "ico";
+  btnType: 'all' | 'text' | 'ico';
   btnBg?: string;
   btnColor?: string;
-  btnSize?: "small" | "large";
-  type: "button" | "submit" | "reset";
+  btnSize?: 'small' | 'large';
+  type: 'button' | 'submit' | 'reset';
   title: string;
   id: string;
   ico?: JSX.Element;
-  icoPosition?: "left";
+  icoPosition?: 'left';
   hover: boolean;
 }
 
 /**
  * @btnType : 버튼 종류 - 텍스트 버튼, 아이콘 버튼, 텍스트 아이콘 버튼
  *
- * @btnBg ?: 버튼 배경 색 - 기본 sub-color-1
+ * @btnBg ?: 버튼 배경 색 - 기본 sub-yellow-1
  *
  * @btnColor ?: 버튼 글자 색 - 기본 white
  *
@@ -75,20 +75,20 @@ export const Btn = ({
       aria-label={title}
       id={id}
       className={`flex_center ${style.btn} ${
-        btnSize === "small"
+        btnSize === 'small'
           ? style.small
-          : btnSize === "large"
+          : btnSize === 'large'
           ? style.large
-          : ""
-      } ${hover ? style.hover : ""}`}
+          : ''
+      } ${hover ? style.hover : ''}`}
       {...props}
       style={{
-        background: btnBg ? btnBg : "var(--sub-color-1)",
-        color: btnColor ? btnColor : "var(--white)",
+        background: btnBg ? btnBg : 'var(--sub-yellow-1)',
+        color: btnColor ? btnColor : 'var(--white)',
       }}
     >
-      {btnType === "all" ? (
-        icoPosition && icoPosition === "left" ? (
+      {btnType === 'all' ? (
+        icoPosition && icoPosition === 'left' ? (
           <>
             <span className={`${style.ico_btn} ${style.mg_right}`}>{ico}</span>
             {title}
@@ -99,7 +99,7 @@ export const Btn = ({
             <span className={`${style.ico_btn}`}>{ico}</span>
           </>
         )
-      ) : btnType === "text" ? (
+      ) : btnType === 'text' ? (
         title
       ) : (
         ico

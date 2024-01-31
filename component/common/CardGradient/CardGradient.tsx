@@ -32,13 +32,13 @@ export default function CardGradientProps({
     <div
       className={`flex_center ${style.card}`}
       style={{
-        background: cardBg ? cardBg : 'var(--sub-color-2)',
+        background: cardBg ? cardBg : 'var(--gray-1)',
         color: textColor ? textColor : 'var(--main_color)',
       }}
     >
       <p
         className={style.card_title}
-        style={{ background: textBg ? textBg : 'var(--sub-color-2)' }}
+        style={{ background: textBg ? textBg : 'var(--gray-1)' }}
       >
         {title.split(`<br />`).map((text: string) => {
           return (

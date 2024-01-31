@@ -6,7 +6,7 @@
   & > li {
     & > a {
       padding: 0.3rem 1.5rem;
-      background-color: var(--sub-color-3);
+      background-color: var(--gray-1-trans);
       border-radius: var(--br-50);
       transition: var(--transition-03);
 
@@ -23,7 +23,7 @@
   position: sticky;
   bottom: 0;
   padding: 8rem 0;
-  background-color: var(--main-color);
+  background-color: var(--main-green-1);
 
   & > .footer_box {
     .left,
@@ -49,6 +49,12 @@
       .title {
         font-size: var(--fs-24);
         font-weight: var(--fw-700);
+
+        a {
+          font-size: var(--fs-14);
+          width: 10rem;
+          margin-top: 0.5rem;
+        }
       }
 
       .adress {
@@ -64,7 +70,7 @@
       & > li {
         & > a {
           display: inline-block;
-          color: var(--sub-color-3);
+          color: var(--gray-1-trans);
           transition: var(--transition-03);
 
           // hover
@@ -93,7 +99,7 @@
               width: 3.2rem;
               height: 3.2rem;
               border-radius: var(--br-50pro);
-              background-color: var(--sub-color-3);
+              background-color: var(--gray-1-trans);
               transition: var(--transition-03);
 
               & > .ico_sns {

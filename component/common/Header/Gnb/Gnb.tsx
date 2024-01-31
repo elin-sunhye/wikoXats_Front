@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import styled from './gnb.module.scss';
+import style from './gnb.module.scss';
 import Link from 'next/link';
 import { FaRegHandshake } from 'react-icons/fa';
 import { MdOutlineContactSupport } from 'react-icons/md';
@@ -73,9 +73,9 @@ export const Gnb = ({ scroll }: GnbProps) => {
   }, [pathName]);
 
   return (
-    <div className={`${styled.gnb_wrap} ${scroll ? styled.scroll : ''}`}>
-      <div className={`pc_gnb flex_between ${styled.pc_gnb} `}>
-        <ul className={`flex_start ${styled.left}`}>
+    <div className={`${style.gnb_wrap} ${scroll ? style.scroll : ''}`}>
+      <div className={`pc_gnb flex_between ${style.pc_gnb} `}>
+        <ul className={`flex_start ${style.left}`}>
           {menus.map((menu: MenusType) => {
             if (menu.level === 1 && menu.seq >= 1 && menu.seq <= 7) {
               return (
@@ -84,7 +84,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
                     href={menu.url}
                     title={menu.title}
                     className={`${
-                      pathName.split('/')[1] === menu.url ? styled.active : ''
+                      pathName.split('/')[1] === menu.url ? style.active : ''
                     }`}
                   >
                     <p>{menu.menu}</p>
@@ -96,11 +96,11 @@ export const Gnb = ({ scroll }: GnbProps) => {
         </ul>
 
         <span
-          className={styled.separate_bar}
+          className={style.separate_bar}
           data-aos={scroll ? '' : 'zoom-in'}
         ></span>
 
-        <ul className={`flex_start ${styled.right}`} data-aos="fade-left">
+        <ul className={`flex_start ${style.right}`} data-aos="fade-left">
           {menus.map((menu: MenusType) => {
             if (menu.level === 1 && menu.seq >= 8 && menu.seq <= 10) {
               return (
@@ -111,19 +111,19 @@ export const Gnb = ({ scroll }: GnbProps) => {
                       <FaRegHandshake
                         role={`img`}
                         aria-label={`악수 아이콘`}
-                        className={styled.scroll_ico}
+                        className={style.scroll_ico}
                       />
                     ) : menu.menu === 'FAQ' ? (
                       <MdOutlineContactSupport
                         role={`img`}
                         aria-label={`말풍선 물음표 아이콘`}
-                        className={styled.scroll_ico}
+                        className={style.scroll_ico}
                       />
                     ) : (
                       <FiMail
                         role={`img`}
                         aria-label={`문자 아이콘`}
-                        className={styled.scroll_ico}
+                        className={style.scroll_ico}
                       />
                     )}
                   </Link>
@@ -138,10 +138,8 @@ export const Gnb = ({ scroll }: GnbProps) => {
       <button
         type="button"
         title={`모바일 메뉴 ${moGnbOpen ? '열림' : '닫힘'}`}
-        className={`mo_gnb_hamburger ${styled.mo_gnb_hamburger} ${
-          moGnbOpen
-            ? styled.mo_gnb_hamburger_open
-            : styled.mo_gnb_hamburger_close
+        className={`mo_gnb_hamburger ${style.mo_gnb_hamburger} ${
+          moGnbOpen ? style.mo_gnb_hamburger_open : style.mo_gnb_hamburger_close
         }`}
         onClick={() => {
           setMoGnbOpen(!moGnbOpen);
@@ -153,12 +151,12 @@ export const Gnb = ({ scroll }: GnbProps) => {
       </button>
 
       <div
-        className={`mo_gnb ${styled.mo_gnb} ${
-          moGnbOpen ? styled.mo_gnb_open : styled.mo_gnb_close
+        className={`mo_gnb ${style.mo_gnb} ${
+          moGnbOpen ? style.mo_gnb_open : style.mo_gnb_close
         }`}
       >
-        <div className={`wrap ${styled.mo_wrap}`}>
-          <ul className={styled.left}>
+        <div className={`wrap ${style.mo_wrap}`}>
+          <ul className={style.left}>
             {menus.map((menu: MenusType) => {
               return (
                 <li key={menu.seq}>
@@ -170,9 +168,9 @@ export const Gnb = ({ scroll }: GnbProps) => {
             })}
           </ul>
 
-          <span className={styled.separate_bar} data-aos="fade-left"></span>
+          <span className={style.separate_bar} data-aos="fade-left"></span>
 
-          <ul className={styled.right} data-aos="fade-left">
+          <ul className={style.right} data-aos="fade-left">
             {menus.map((menu: MenusType) => {
               if (menu.level === 1 && menu.seq >= 8 && menu.seq <= 10) {
                 return (

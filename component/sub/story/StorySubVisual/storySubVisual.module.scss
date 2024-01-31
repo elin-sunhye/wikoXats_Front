@@ -1,0 +1,41 @@
+.swiper {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    width: 3rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0.7;
+    z-index: 9;
+  }
+  &::before {
+    left: 0;
+    background: url('/img/img_swiper_shadow.svg') no-repeat 0 0 / cover;
+  }
+  &::after {
+    right: 0;
+    background: url('/img/img_swiper_shadow.svg') no-repeat 0 0 / cover;
+    transform: rotate(180deg);
+  }
+
+  .slide_box {
+    height: 40vw;
+    max-height: 500px;
+    min-height: 370px;
+    background-color: var(--white);
+    color: var(--black);
+  }
+
+  .swiper_button_prev,
+  .swiper_button_next {
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: var(--br-50pro);
+    background-color: var(--gray-1-trans);
+    padding: 1rem;
+    backdrop-filter: var(--blur-1);
+  }
+}

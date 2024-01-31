@@ -9,6 +9,8 @@ import { SiNaver } from 'react-icons/si';
 import { FaLinkedinIn } from 'react-icons/fa';
 // dummyData
 import menus from '@/dummyData/menus.json';
+import { BtnLink } from '../BtnLink/BtnLink';
+import { FiArrowRight } from 'react-icons/fi';
 
 interface FooterProps {}
 
@@ -17,7 +19,23 @@ export const Footer = ({}: FooterProps) => {
     <footer className={footer_style.footer_wrap}>
       <div className={`wrap flex_between ${footer_style.footer_box}`}>
         <div className={`flex_start ${footer_style.left}`}>
-          <p className={footer_style.title}>에이티에스</p>
+          <p className={footer_style.title}>
+            에이티에스
+            <BtnLink
+              title={`CMS`}
+              id={`cms`}
+              href={`/cms`}
+              size="sm"
+              icoPosition={'right'}
+              ico={
+                <FiArrowRight
+                  role={`img`}
+                  aria-label={`오른쪽 화살표 아이콘`}
+                />
+              }
+              hover={true}
+            />
+          </p>
           <span className={footer_style.adress}>
             에이티에스(ATS) <br />
             경상남도 창원특례시 의창구 용동로 45, 13층 <br />

@@ -27,13 +27,13 @@
 
 .tb_st1 thead {
   border-top: solid 2px var(--gray-700);
-  background: var(--gray-200);
+  background: var(--gray-300);
 }
 .tb_st1 th,
 .tb_st1 td {
   padding: 15px;
-  border-bottom: solid 1px var(--gray-300);
-  border-left: solid 1px var(--gray-300);
+  border-bottom: solid 1px var(--gray-400);
+  border-left: solid 1px var(--gray-400);
   text-align: center;
 }
 .tb_st1 th:first-of-type,
@@ -45,7 +45,7 @@
 }
 //hover
 .tb_st1 tbody tr.hover:hover {
-  background-color: var(--gray-200);
+  background-color: var(--gray-300);
 }
 
 // tb_st2
@@ -56,7 +56,7 @@
   border-top: solid 2px var(--gray-700);
 }
 .tb_st2 th {
-  background: var(--gray-200);
+  background: var(--gray-300);
   color: #0a1032;
   font-size: 18px;
   font-weight: 500;
@@ -66,8 +66,8 @@
   font-size: 16px;
   font-weight: 400;
   text-align: left;
-  border-left: solid 1px var(--gray-300);
-  border-right: solid 1px var(--gray-300);
+  border-left: solid 1px var(--gray-400);
+  border-right: solid 1px var(--gray-400);
   line-height: 150%;
 }
 .tb_st2 tr td:nth-last-of-type(1) {
@@ -76,7 +76,7 @@
 .tb_st2 th,
 .tb_st2 td {
   padding: 15px;
-  border-bottom: solid 1px var(--gray-300);
+  border-bottom: solid 1px var(--gray-400);
   position: relative;
 }
 .tb_st2 td ul li {
@@ -87,7 +87,7 @@
   padding-left: 10px;
 }
 .tb_st2 td ul li::before {
-  content: ".";
+  content: '.';
   position: absolute;
   top: -10px;
   left: -2px;
@@ -172,7 +172,7 @@
         justify-content: flex-start;
         align-items: flex-start;
         flex-wrap: wrap;
-        border-bottom: solid 1px var(--gray-300);
+        border-bottom: solid 1px var(--gray-400);
         padding: 1.2rem;
         box-sizing: border-box;
 

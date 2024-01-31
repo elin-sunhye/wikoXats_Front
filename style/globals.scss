@@ -7,9 +7,11 @@
 // h6 : 섹션 타이틀 48-24
 
 :root {
+  // font fam
   --pretendard: 'Pretendard';
   --gmarket: 'Gmarket';
 
+  // font size
   --fs-14: 1.4rem;
   --fs-16: 1.6rem;
   --fs-18: 1.8rem;
@@ -20,39 +22,68 @@
   --fs-60: 6rem;
   --fs-72: 7.2rem;
 
+  // font weight
   --fw-100: 100;
   --fw-400: 400;
   --fw-700: 700;
 
+  // line height
   --lh-12: 1.2;
   --lh-15: 1.5;
 
+  // border radius
+  --br-5: 0.5rem;
   --br-10: 1rem;
   --br-50: 5rem;
   --br-50pro: 50%;
 
+  // gray scale
   --white: #fff;
   --gray-1: #eee;
-  --gray-2: #ccc;
-  --gray-3: #a3a3a3;
-  --gray-4: #747474;
+  --gray-1-trans: #eeeeee61;
+  --gray-3: #ccc;
+  --gray-4: #a3a3a3;
+  --gray-5: #747474;
   --black: #333;
 
-  --main-color: #164400;
-  --sub-color-1: #ffc421;
-  --sub-color-2: #efefef;
-  --sub-color-3: #efefef61;
+  // main color
+  --main-green-1: #164400;
 
-  --error-red: #ed5e5e;
-  --warning-yellow: #ffc421;
-  --info-green: #3ebe4b;
-  --success-blue: #6495f7;
+  // sub color
+  --sub-yellow-1: #ffc421;
 
+  // error
+  --error-1: #fdeaea;
+  --error-2: #fab2a9;
+  --error-3: #ed5e5e;
+  --error03: #f40000;
+
+  // warning
+  --warning-1: #fff5e9;
+  --warning-2: #ffde8a;
+  --warning-3: #ffc421;
+  --warning-4: #ff8a00;
+
+  // info
+  --info-1: #e8f5e8;
+  --info-2: #8adaa0;
+  --info-3: #3ebe4b;
+  --info-4: #006434;
+
+  // success
+  --success-1: #e8edf5;
+  --success-2: #b4cfff;
+  --success-3: #6495f7;
+  --success-4: #013872;
+
+  // shadow
   --menu-shadow: 1rem 1rem 3rem rgba(36, 36, 36, 0.2);
   --shadow-1: 2rem 2rem 4rem rgba(36, 36, 36, 0.2);
 
+  // blur
   --blur-1: blur(1rem);
 
+  // transition
   --transition-03: all 0.3s;
 }
 
@@ -109,7 +140,7 @@ html {
 
 body {
   font-size: var(--fs-18);
-  color: var(--main-color);
+  color: var(--main-green-1);
   background: var(--white);
   // line-height: var(--lh-12);
 }
@@ -132,7 +163,7 @@ img {
 //   height: 7px; /*스크롤 가로 바의 세로 길이*/
 // }
 // ::-webkit-scrollbar-thumb {
-//   background-color: var(--gray-4); /*스크롤바의 색상*/
+//   background-color: var(--gray-5); /*스크롤바의 색상*/
 //   border: 3px solid var(--white);
 //   border-radius: var(--br-10);
 //   box-sizing: border-box;
@@ -253,7 +284,7 @@ button.swiper-pagination-bullet {
   opacity: 1;
 }
 button.swiper-pagination-bullet-active {
-  background-color: var(--sub-color-1);
+  background-color: var(--sub-yellow-1);
   color: var(--white);
 }
 
@@ -265,7 +296,7 @@ button.swiper-pagination-bullet-active {
 //   opacity: 0.7;
 // }
 
-// 공통 btn_class
+// 공통 section
 .section_padding {
   padding: 13rem 0;
 }

@@ -1,8 +1,20 @@
 .link_btn {
-  background-color: var(--sub-color-1);
+  background-color: var(--sub-yellow-1);
   color: var(--white);
-  border-radius: var(--br-10);
-  padding: 1.5rem 2rem;
+
+  // size
+  &.sm {
+    border-radius: var(--br-5);
+    padding: 0.5rem 1rem;
+  }
+  &.md {
+    border-radius: var(--br-5);
+    padding: 1rem 1.5rem;
+  }
+  &.lg {
+    border-radius: var(--br-10);
+    padding: 1.5rem 2rem;
+  }
 
   & > .ico_link_btn {
     display: inline-block;

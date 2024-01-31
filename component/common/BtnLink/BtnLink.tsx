@@ -1,19 +1,22 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import style from "./btnLink.module.scss";
+import Link from 'next/link';
+import style from './btnLink.module.scss';
 
 interface BtnLinkProps {
   title: string;
   id: string;
   href: string;
+  size?: 'sm' | 'md';
   colorStyle?: React.CSSProperties;
   ico?: JSX.Element;
-  icoPosition?: "left" | "right";
+  icoPosition?: 'left' | 'right';
   hover: boolean;
 }
 
 /**
+ * @size ?: 버튼의 사이즈 기본 lg
+ *
  * @href : 링크
  *
  * @colorStyle ?: 링크 버튼 색상 (배경, 텍스트)
@@ -34,6 +37,7 @@ export const BtnLink = ({
   title,
   id,
   href,
+  size,
   colorStyle,
   icoPosition,
   ico,
@@ -44,17 +48,19 @@ export const BtnLink = ({
       href={href}
       title={title}
       id={id}
-      className={`flex_center ${style.link_btn} ${hover ? style.hover : ""}`}
+      className={`flex_center ${style.link_btn} ${hover ? style.hover : ''} ${
+        size ? style[size] : style.lg
+      }`}
       style={{ ...colorStyle }}
     >
-      {icoPosition === "left" ? (
+      {icoPosition === 'left' ? (
         <>
           <span className={`${style.ico_link_btn} ${style.mg_right}`}>
             {ico}
           </span>
           {title}
         </>
-      ) : icoPosition === "right" ? (
+      ) : icoPosition === 'right' ? (
         <>
           {title}
           <span className={`${style.ico_link_btn}`}>{ico}</span>
