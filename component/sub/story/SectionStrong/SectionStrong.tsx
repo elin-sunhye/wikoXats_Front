@@ -2,7 +2,6 @@
 
 import style from './sectionStrong.module.scss';
 import SectionCommonLayout from '@/component/common/SectionCommonLayout/SectionCommonLayout';
-import Tab from '@/component/common/Tab/Tab';
 import { TabBtnType } from '@/types/tabBtn';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'; // basic
 import 'swiper/css'; // basic
 import 'swiper/swiper-bundle.css'; // basic
 import 'swiper/css/navigation';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 interface SectionStrongProps {}
 export default function SectionStrong({}: SectionStrongProps) {
@@ -32,8 +32,39 @@ export default function SectionStrong({}: SectionStrongProps) {
     },
   ];
 
-  // swiprtParams
-  const [swiperParams, setSwiperParams] = useState<any>({});
+  // swiper setting
+  const swiperParams: any = {
+    modules: [Navigation, Pagination, Scrollbar, A11y],
+    slidesOffsetBefore: 0, // 슬라이드 시작 부분 여백
+    slidesOffsetAfter: 0, // 슬라이드 끝 부분 여백
+    spaceBetween: 0, // 슬라이드 사이 여백
+
+    slidesPerView: 1, //  한 슬라이드에 보여줄 개수
+
+    initialSlide: 0, // 시작 위치 값
+    centeredSlides: true, // center 정렬
+
+    pagination: {
+      // 페이징 적용
+      el: '.swiper-pagination', // 페이저 버튼 클래스명
+      clickable: true, // 버튼 클릭 여부
+      type: 'bullets', // 버튼 모양 결정, bullets, fraction
+      renderBullet: function (index: number, className: string) {
+        return (
+          `<button type="button" title="` +
+          tabInfos[index].title +
+          `" id="` +
+          tabInfos[index].id +
+          `" class="` +
+          className +
+          `">` +
+          tabInfos[index].title +
+          '</button>'
+        );
+      },
+    },
+    allowTouchMove: false, // false시에 스와이핑이 되지 않으며 버튼으로만 슬라이드 조작이 가능
+  };
 
   return (
     <SectionCommonLayout
@@ -42,58 +73,26 @@ export default function SectionStrong({}: SectionStrongProps) {
       desc={`네이티브, 전면배너, 띠 · 중간 배너를 아우르는 이미지 광고와<br />인스트림과 아웃스트림 비디오 광고까지, 폭 넓고 다양한 광고 경험을 만나 보세요`}
       btnYn={false}
     >
-      <Tab
-        tabInfo={tabInfos}
-        tabBtnPosition={`center`}
-        type={`swiper`}
-        swiperParam={(params: any) => {
-          // console.log("params", params);
-          setSwiperParams(params);
-        }}
-      >
-        <div className={`flex_between ${style.strength_tab_cont}`}>
-          <Swiper {...swiperParams} className={style.strength_tab_cont_left}>
-            <SwiperSlide>asdasd</SwiperSlide>
-            <SwiperSlide>asdasd</SwiperSlide>
-            <SwiperSlide>asdasd</SwiperSlide>
+      <div className={`flex_between ${style.strength_box}`}>
+        <div className={`swiper-pagination ${style.swiper_pagination}`}></div>
+        <Swiper {...swiperParams} className={style.left}>
+          <SwiperSlide>asdasd</SwiperSlide>
+          <SwiperSlide>asdasd</SwiperSlide>
+          <SwiperSlide>asdasd</SwiperSlide>
+        </Swiper>
+        <div className={`flex_center ${style.right}`}>
+          <Swiper {...swiperParams}>
+            <SwiperSlide>123123</SwiperSlide>
+            <SwiperSlide>123123</SwiperSlide>
+            <SwiperSlide>123123</SwiperSlide>
           </Swiper>
-          <div className={`flex_center ${style.strength_tab_cont_right}`}>
-            <Swiper {...swiperParams}>
-              <SwiperSlide>123123</SwiperSlide>
-              <SwiperSlide>123123</SwiperSlide>
-              <SwiperSlide>123123</SwiperSlide>
-            </Swiper>
-            <Swiper {...swiperParams}>
-              <SwiperSlide>ㅁㄴㅇㅁㄴㅇ</SwiperSlide>
-              <SwiperSlide>ㅁㄴㅇㅁㄴㅇ</SwiperSlide>
-              <SwiperSlide>ㅁㄴㅇㅁㄴㅇ</SwiperSlide>
-            </Swiper>
-          </div>
+          <Swiper {...swiperParams}>
+            <SwiperSlide>ㅁㄴㅇㅁㄴㅇ</SwiperSlide>
+            <SwiperSlide>ㅁㄴㅇㅁㄴㅇ</SwiperSlide>
+            <SwiperSlide>ㅁㄴㅇㅁㄴㅇ</SwiperSlide>
+          </Swiper>
         </div>
-      </Tab>
-
-      {/* <Tab tabInfo={tabInfos} tabBtnPosition={`center`}>
-        <div className={`flex_between ${style.strength_tab_cont}`}>
-          <div className={style.strength_tab_cont_left}>ㅁㄴㅇㄴㅁㅇ</div>
-          <div className={`flex_center ${style.strength_tab_cont_right}`}>
-            123123
-          </div>
-        </div>
-
-        <div className={`flex_between ${style.strength_tab_cont}`}>
-          <div className={style.strength_tab_cont_left}>ㅁㄴㅇㄴㅁㅇ</div>
-          <div className={`flex_center ${style.strength_tab_cont_right}`}>
-            asd
-          </div>
-        </div>
-
-        <div className={`flex_between ${style.strength_tab_cont}`}>
-          <div className={style.strength_tab_cont_left}>ㅁㄴㅇㄴㅁㅇ</div>
-          <div className={`flex_center ${style.strength_tab_cont_right}`}>
-            xcvsdg
-          </div>
-        </div>
-      </Tab> */}
+      </div>
     </SectionCommonLayout>
   );
 }
