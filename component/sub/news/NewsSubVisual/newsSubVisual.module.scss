@@ -1,13 +1,10 @@
 .sub_top_cont_box {
   width: 80%;
-  height: 330px;
+  // height: 330px;
   margin: 0 auto;
   background-color: #3333337c;
   border-radius: var(--br-10);
   padding: 5rem;
-  gap: 3rem;
-  flex-wrap: wrap;
-  align-items: flex-start;
 
   .swiper_progressbar {
     width: 100%;
@@ -16,15 +13,32 @@
     left: unset !important;
     top: unset !important;
     position: relative !important;
+    margin-bottom: 3rem;
   }
 
-  .left,
-  .right {
-    width: calc((100% - 3rem) / 2);
-    height: 20rem;
+  .swiper_box {
+    gap: 3rem;
 
-    .count_box {
-      height: 10rem;
+    .left,
+    .right {
+      width: calc((100% - 3rem) / 2);
+      // height: 20rem;
+
+      .count_box {
+        height: 10rem;
+      }
+    }
+
+    .left {
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      button {
+        width: 100%;
+        border-radius: var(--br-10);
+        background-color: var(--main-green-1);
+        padding: 2rem 1rem !important;
+      }
     }
   }
 }

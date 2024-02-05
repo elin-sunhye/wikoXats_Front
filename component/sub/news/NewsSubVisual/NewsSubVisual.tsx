@@ -1,15 +1,15 @@
 'use client';
 
-import { HiOutlinePlusSm } from 'react-icons/hi';
 import style from './newsSubVisual.module.scss';
+import './swiper.scss';
 import SubTop from '@/component/common/Sub/SubTop/SubTop';
-import { useState } from 'react';
 
 // react-swiper
 import { Swiper, SwiperSlide } from 'swiper/react'; // basic
 import 'swiper/css'; //basic
 import 'swiper/swiper-bundle.css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import {
   Navigation,
   Pagination,
@@ -96,7 +96,7 @@ export default function NewsSubVisual({}: NewsSubVisualProps) {
     allowTouchMove: false, // false시에 스와이핑이 되지 않으며 버튼으로만 슬라이드 조작이 가능
   };
 
-  const two = {
+  const progressbar: any = {
     pagination: {
       // 페이징 적용
       el: '.swiper-progressbar', // 페이저 버튼 클래스명
@@ -110,16 +110,26 @@ export default function NewsSubVisual({}: NewsSubVisualProps) {
       title={`에이티에스가 제공하는<br />완전히 새로운 방식의 제품`}
       desc={`국내 유일하게 SKP와 롯데 두 대기업의 고객 행동 데이터를 포함한 풍부한 온·오프라인 통합 DMP를 활용,<br />5대 BIG 매체에서도 할 수 없었던 초정밀 타겟팅 광고가 가능합니다`}
     >
-      <div className={`flex_center ${style.sub_top_cont_box}`}>
+      <div className={style.sub_top_cont_box}>
         <div className={`swiper-progressbar ${style.swiper_progressbar}`}></div>
-        <div className={`swiper-pagination ${style.swiper_pagination}`}></div>
-        <Swiper {...swiperParams} controller={{ control: two }}>
-          <SwiperSlide className={style.count_box}>a1</SwiperSlide>
-          <SwiperSlide className={style.count_box}>a2</SwiperSlide>
-          <SwiperSlide className={style.count_box}>a3</SwiperSlide>
-          <SwiperSlide className={style.count_box}>a4</SwiperSlide>
-          <SwiperSlide className={style.count_box}>a5</SwiperSlide>
-        </Swiper>
+
+        <div className={`flex_between ${style.swiper_box}`}>
+          <div className={`swiper-pagination flex_between ${style.left}`}></div>
+
+          <Swiper
+            className={style.right}
+            {...swiperParams}
+            controller={{ control: progressbar }}
+          >
+            <Swiper {...progressbar}>
+              <SwiperSlide className={style.count_box}>a1</SwiperSlide>
+              <SwiperSlide className={style.count_box}>a2</SwiperSlide>
+              <SwiperSlide className={style.count_box}>a3</SwiperSlide>
+              <SwiperSlide className={style.count_box}>a4</SwiperSlide>
+              <SwiperSlide className={style.count_box}>a5</SwiperSlide>
+            </Swiper>
+          </Swiper>
+        </div>
       </div>
     </SubTop>
   );
