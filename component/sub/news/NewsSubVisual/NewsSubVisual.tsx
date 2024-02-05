@@ -67,13 +67,6 @@ export default function NewsSubVisual({}: NewsSubVisualProps) {
       disableOnInteraction: false,
     },
 
-    // pagination: {
-    //   // 페이징 적용
-    //   el: '.swiper-progressbar', // 페이저 버튼 클래스명
-    //   // clickable: true, // 버튼 클릭 여부
-    //   type: 'progressbar', // 버튼 모양 결정, bullets, fraction
-    // },
-
     pagination: {
       // 페이징 적용
       el: '.swiper-pagination', // 페이저 버튼 클래스명
@@ -93,14 +86,13 @@ export default function NewsSubVisual({}: NewsSubVisualProps) {
         );
       },
     },
-    allowTouchMove: false, // false시에 스와이핑이 되지 않으며 버튼으로만 슬라이드 조작이 가능
+    // allowTouchMove: false, // false시에 스와이핑이 되지 않으며 버튼으로만 슬라이드 조작이 가능
   };
 
   const progressbar: any = {
     pagination: {
       // 페이징 적용
       el: '.swiper-progressbar', // 페이저 버튼 클래스명
-      // clickable: true, // 버튼 클릭 여부
       type: 'progressbar', // 버튼 모양 결정, bullets, fraction
     },
   };
@@ -117,9 +109,9 @@ export default function NewsSubVisual({}: NewsSubVisualProps) {
           <div className={`swiper-pagination flex_between ${style.left}`}></div>
 
           <Swiper
-            className={style.right}
             {...swiperParams}
             controller={{ control: progressbar }}
+            className={style.right}
           >
             <Swiper {...progressbar}>
               <SwiperSlide className={style.count_box}>a1</SwiperSlide>
