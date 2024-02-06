@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import style from "./sectionTitle.module.scss";
+import style from './sectionTitle.module.scss';
 
 interface SectionTitleProps {
-  title: String;
+  title: string;
   desc: string;
   titleFs?: string;
   color?: string;
-  textAlign?: "center" | "right";
+  textAlign?: 'center' | 'right';
   moTextCenter?: boolean;
 }
 
@@ -35,18 +35,18 @@ export const SectionTitle = ({
   return (
     <div
       className={`${style.section_title_box} ${
-        moTextCenter && moTextCenter === true ? style.mo_center : ""
+        moTextCenter && moTextCenter === true ? style.mo_center : ''
       }`}
       style={{
         color: color,
-        textAlign: textAlign ? textAlign : "left",
+        textAlign: textAlign ? textAlign : 'left',
       }}
     >
       <h6
         className={style.section_title}
         style={{
-          marginBottom: desc !== "" ? "1.5rem" : "0",
-          fontSize: titleFs ? titleFs : "var(--fs-48)",
+          marginBottom: desc !== '' ? '1.5rem' : '0',
+          fontSize: titleFs ? titleFs : 'var(--fs-48)',
         }}
       >
         {title.split(`<br />`).map((text: string) => {
@@ -57,7 +57,7 @@ export const SectionTitle = ({
           );
         })}
       </h6>
-      {desc !== "" ? (
+      {desc !== '' ? (
         <p className={style.section_desc}>
           {desc.split(`<br />`).map((text: string) => {
             return (

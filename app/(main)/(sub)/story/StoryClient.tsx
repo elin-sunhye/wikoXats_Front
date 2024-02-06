@@ -7,7 +7,7 @@ import SectionServe from '@/component/sub/story/SectionServe/SectionServe';
 import SectionSimpleIntro from '@/component/sub/story/SectionSimpleIntro/SectionSimpleIntro';
 import SectionStrong from '@/component/sub/story/SectionStrong/SectionStrong';
 import StorySubVisual from '@/component/sub/story/StorySubVisual/StorySubVisual';
-import page_style from './storyClient.module.scss';
+import style from './storyClient.module.scss';
 
 export default function StoryClient() {
   return (

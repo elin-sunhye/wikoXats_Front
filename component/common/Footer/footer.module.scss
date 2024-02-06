@@ -20,10 +20,13 @@
 
 //푸터
 .footer_wrap {
-  position: sticky;
-  bottom: 0;
   padding: 8rem 0;
   background-color: var(--main-green-1);
+
+  &.sticky {
+    position: sticky;
+    bottom: 0;
+  }
 
   & > .footer_box {
     .left,

@@ -34,10 +34,12 @@
     }
   }
 
-  // btnSize === "small"
-  &.small {
+  // size
+  &.sm {
+    height: 3rem;
+    line-height: 3rem;
+    padding: 0 1rem;
     font-size: var(--fs-14);
-    padding: 1rem;
 
     & > .ico_btn {
       width: 1.4rem;
@@ -49,10 +51,43 @@
     }
   }
 
-  // btnSize === "large"
-  &.large {
+  &.md {
+    height: 4rem;
+    line-height: 4rem;
+    padding: 0 1.5rem;
+    font-size: var(--fs-14);
+
+    & > .ico_btn {
+      width: 1.4rem;
+      height: 1.4rem;
+
+      & > svg {
+        font-size: var(--fs-14);
+      }
+    }
+  }
+
+  &.lg {
+    height: 5rem;
+    line-height: 5rem;
+    padding: 0 2rem;
     font-size: var(--fs-20);
-    padding: 2.5rem;
+
+    & > .ico_btn {
+      width: 2rem;
+      height: 2rem;
+
+      & > svg {
+        font-size: var(--fs-20);
+      }
+    }
+  }
+
+  &.xlg {
+    font-size: var(--fs-20);
+    height: 6rem;
+    line-height: 6rem;
+    padding: 0 2rem;
 
     & > .ico_btn {
       width: 2rem;

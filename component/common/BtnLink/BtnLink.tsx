@@ -7,7 +7,7 @@ interface BtnLinkProps {
   title: string;
   id: string;
   href: string;
-  size?: 'sm' | 'md';
+  size?: 'sm' | 'md' | 'xlg';
   colorStyle?: React.CSSProperties;
   ico?: JSX.Element;
   icoPosition?: 'left' | 'right';

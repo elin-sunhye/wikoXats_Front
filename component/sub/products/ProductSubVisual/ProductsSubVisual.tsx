@@ -37,7 +37,7 @@ export default function ProductsSubVisual({}: ProductsSubVisualProps) {
                 }
                 btnBg={`#3333337c`}
                 btnColor={`var(--gray-1-trans)`}
-                btnSize={`small`}
+                btnSize={`sm`}
                 hover={false}
                 onClick={() => {
                   setViweMoreClick(true);
@@ -65,7 +65,7 @@ export default function ProductsSubVisual({}: ProductsSubVisualProps) {
                 }
                 btnBg={`#3333337c`}
                 btnColor={`var(--gray-1-trans)`}
-                btnSize={`small`}
+                btnSize={`sm`}
                 hover={false}
                 onClick={() => {
                   setViweMoreClick(false);

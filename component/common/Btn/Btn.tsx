@@ -6,7 +6,7 @@ interface BtnProps {
   btnType: 'all' | 'text' | 'ico';
   btnBg?: string;
   btnColor?: string;
-  btnSize?: 'small' | 'large';
+  btnSize?: 'sm' | 'md' | 'xlg';
   type: 'button' | 'submit' | 'reset';
   title: string;
   id: string;
@@ -51,8 +51,6 @@ interface BtnProps {
  * @title : title, aria-label, 버튼이름
  *
  * @id : id
- *
- * * <Btn className={""}>을 지정하면 컴포넌트 css 다 초기화
  */
 export const Btn = ({
   btnType,
@@ -74,17 +72,14 @@ export const Btn = ({
       title={title}
       aria-label={title}
       id={id}
-      className={`flex_center ${style.btn} ${
-        btnSize === 'small'
-          ? style.small
-          : btnSize === 'large'
-          ? style.large
-          : ''
-      } ${hover ? style.hover : ''}`}
+      className={`flex_center ${style.btn} ${btnSize ? style[btnSize] : 'lg'} ${
+        hover ? style.hover : ''
+      } ${props.className}`}
       {...props}
       style={{
         background: btnBg ? btnBg : 'var(--sub-yellow-1)',
         color: btnColor ? btnColor : 'var(--white)',
+        ...props.style,
       }}
     >
       {btnType === 'all' ? (

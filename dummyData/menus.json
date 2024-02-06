@@ -3,7 +3,7 @@
     "seq": 1,
     "parentSeq": 0,
     "menu": "A.T.S.",
-    "url": "story",
+    "url": "/story",
     "title": "회사 소개 바로가기",
     "level": 1
   },
@@ -11,7 +11,7 @@
     "seq": 2,
     "parentSeq": 0,
     "menu": "Products",
-    "url": "products",
+    "url": "/products",
     "title": "제품 바로가기",
     "level": 1
   },
@@ -19,7 +19,7 @@
     "seq": 3,
     "parentSeq": 0,
     "menu": "Service",
-    "url": "service",
+    "url": "/service",
     "title": "서비스 바로가기",
     "level": 1
   },
@@ -27,7 +27,7 @@
     "seq": 4,
     "parentSeq": 0,
     "menu": "News",
-    "url": "news",
+    "url": "/news",
     "title": "뉴스 바로가기",
     "level": 1
   },
@@ -44,7 +44,7 @@
     "seq": 9,
     "parentSeq": 0,
     "menu": "FAQ",
-    "url": "faq",
+    "url": "/faq",
     "title": "자주하는 질문 바로가기",
     "level": 1
   },
@@ -52,7 +52,7 @@
     "seq": 10,
     "parentSeq": 0,
     "menu": "Contact",
-    "url": "contact",
+    "url": "/contact",
     "title": "문의 바로가기",
     "level": 1
   }

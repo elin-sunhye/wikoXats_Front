@@ -6,7 +6,8 @@ import style from './subTop.module.scss';
 interface SubTopProps {
   maginBg?: string;
   mainPadding?: boolean;
-  title: String;
+  subTopColor?: string;
+  title: string;
   desc: string;
   children: React.ReactNode;
 }
@@ -15,6 +16,8 @@ interface SubTopProps {
  * @maginBg ?: 서브탑 배경 색 - 기본 - main color
  *
  * @mainPadding ?: 서브탑 배경 패딩 - 기본 5rem
+ *
+ * @subTopColor ?: 서브탑 배경색 - 기본 var(--main-green-1)
  *
  * @title : 섹션 제목 - 서비스 설명 `<br />`풍부한 데이터로부터
  *
@@ -26,6 +29,7 @@ interface SubTopProps {
 export default function SubTop({
   maginBg,
   mainPadding,
+  subTopColor,
   title,
   desc,
   children,
@@ -39,6 +43,9 @@ export default function SubTop({
         className={`wrap flex_center ${style.sub_top} ${
           mainPadding || mainPadding === false ? style.no_padding : ''
         }`}
+        style={{
+          backgroundColor: subTopColor ? subTopColor : 'var(--main-green-1)',
+        }}
       >
         <SectionTitle title={title} desc={desc} textAlign={`center`} />
 

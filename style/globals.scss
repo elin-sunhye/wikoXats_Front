@@ -6,6 +6,12 @@
 // h3 : 서브탑 타이틀 60-36
 // h6 : 섹션 타이틀 48-24
 
+// 사이즈
+// sm : height: 3rem
+// md : height: 4rem
+// lg : height: 5rem
+// xlg : height: 6rem
+
 :root {
   // font fam
   --pretendard: 'Pretendard';
@@ -123,6 +129,7 @@
 * {
   box-sizing: border-box;
   -webkit-text-size-adjust: none;
+  outline-color: var(--main-green-1);
 }
 
 html,

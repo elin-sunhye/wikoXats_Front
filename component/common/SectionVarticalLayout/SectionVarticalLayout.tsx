@@ -9,7 +9,7 @@ interface sectionVarticalLayoutProps {
   sectionBg?: string;
   reverse?: boolean;
 
-  title: String;
+  title: string;
   desc: string;
   color?: string;
   textAlign?: 'center' | 'right';

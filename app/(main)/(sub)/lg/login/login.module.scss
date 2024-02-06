@@ -1,0 +1,41 @@
+.login_section {
+  background-color: var(--white);
+
+  .login_wrap {
+    box-shadow: var(--shadow-1);
+    border-radius: var(--br-10);
+    padding: 6rem;
+
+    .login_box {
+      width: 50%;
+      margin: 3rem auto 0;
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      input {
+        margin-bottom: 3rem;
+      }
+
+      .bottom {
+        margin-top: 2rem;
+        gap: 1rem;
+
+        li {
+          border-right: 1px solid var(--gray-3);
+          padding-right: 1rem;
+
+          &:last-of-type {
+            border-right: 0;
+            padding-right: 0;
+          }
+
+          a {
+            color: var(--gray-4);
+          }
+        }
+      }
+    }
+  }
+}

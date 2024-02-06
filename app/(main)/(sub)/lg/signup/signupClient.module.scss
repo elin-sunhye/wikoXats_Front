@@ -1,0 +1,50 @@
+// step
+.step_box {
+  width: 50rem;
+  margin: 0 auto;
+  position: relative;
+
+  &::before {
+    content: '';
+    width: 95%;
+    height: 0.2rem;
+    background-color: var(--gray-3);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+  li {
+    height: 6rem;
+
+    span {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 6rem;
+      height: 100%;
+      background-color: var(--white);
+      border: 1px solid var(--gray-1);
+      border-radius: var(--br-50);
+      color: var(--gray-3);
+    }
+
+    p {
+      margin-top: 1rem;
+      color: var(--gray-3);
+    }
+
+    &.active {
+      span {
+        color: var(--main-green-1);
+        background-color: var(--sub-yellow-1);
+        border-color: var(--sub-yellow-1);
+      }
+      p {
+        color: var(--main-green-1);
+      }
+    }
+  }
+}

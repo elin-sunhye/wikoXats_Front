@@ -9,7 +9,7 @@ interface sectionCommonLayoutProps {
   sectionBg?: string;
   children: React.ReactNode;
 
-  title: String;
+  title: string;
   desc: string;
   color?: string;
   textAlign?: 'center' | 'right';

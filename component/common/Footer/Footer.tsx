@@ -11,12 +11,20 @@ import { FaLinkedinIn } from 'react-icons/fa';
 import menus from '@/dummyData/menus.json';
 import { BtnLink } from '../BtnLink/BtnLink';
 import { FiArrowRight } from 'react-icons/fi';
+import { usePathname } from 'next/navigation';
 
 interface FooterProps {}
 
 export const Footer = ({}: FooterProps) => {
+  //
+  const path = usePathname();
+
   return (
-    <footer className={footer_style.footer_wrap}>
+    <footer
+      className={`${footer_style.footer_wrap} ${
+        path.includes('/lg') ? '' : footer_style.sticky
+      }`}
+    >
       <div className={`wrap flex_between ${footer_style.footer_box}`}>
         <div className={`flex_start ${footer_style.left}`}>
           <p className={footer_style.title}>
@@ -24,7 +32,8 @@ export const Footer = ({}: FooterProps) => {
             <BtnLink
               title={`CMS`}
               id={`cms`}
-              href={`/cms`}
+              // TODO: 로그인이 안되어있으면 /lg/login 로그인 되어있으면 /cms
+              href={`/lg/login`}
               size="sm"
               icoPosition={'right'}
               ico={
