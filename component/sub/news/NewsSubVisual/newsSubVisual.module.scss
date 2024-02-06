@@ -14,6 +14,32 @@
     top: unset !important;
     position: relative !important;
     margin-bottom: 3rem;
+
+    span {
+      display: inline-block;
+      height: 100%;
+      transition: var(--transition-03);
+      background-color: var(--sub-yellow-1);
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      &.width_0 {
+        width: 0;
+      }
+      &.width_1 {
+        width: calc((100% / 4) * 1);
+      }
+      &.width_2 {
+        width: calc((100% / 4) * 2);
+      }
+      &.width_3 {
+        width: calc((100% / 4) * 3);
+      }
+      &.width_4 {
+        width: 100%;
+      }
+    }
   }
 
   .swiper_box {
