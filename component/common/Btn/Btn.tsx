@@ -3,13 +3,13 @@
 import style from './btn.module.scss';
 
 interface BtnProps {
+  type: 'button' | 'submit' | 'reset';
+  title: string;
+  id: string;
   btnType: 'all' | 'text' | 'ico';
   btnBg?: string;
   btnColor?: string;
   btnSize?: 'sm' | 'md' | 'xlg';
-  type: 'button' | 'submit' | 'reset';
-  title: string;
-  id: string;
   ico?: JSX.Element;
   icoPosition?: 'left';
   hover: boolean;
@@ -53,13 +53,13 @@ interface BtnProps {
  * @id : id
  */
 export const Btn = ({
+  type,
+  title,
+  id,
   btnType,
   btnBg,
   btnColor,
   btnSize,
-  type,
-  title,
-  id,
   ico,
   icoPosition,
   hover,
@@ -75,12 +75,12 @@ export const Btn = ({
       className={`flex_center ${style.btn} ${btnSize ? style[btnSize] : 'lg'} ${
         hover ? style.hover : ''
       } ${props.className}`}
-      {...props}
       style={{
         background: btnBg ? btnBg : 'var(--sub-yellow-1)',
         color: btnColor ? btnColor : 'var(--white)',
         ...props.style,
       }}
+      {...props}
     >
       {btnType === 'all' ? (
         icoPosition && icoPosition === 'left' ? (

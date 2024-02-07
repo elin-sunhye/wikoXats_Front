@@ -36,7 +36,7 @@
     "seq": 8,
     "parentSeq": 0,
     "menu": "Partners",
-    "url": "Partners",
+    "url": "/partners",
     "title": "파트너 바로가기",
     "level": 1
   },

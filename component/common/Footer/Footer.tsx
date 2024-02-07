@@ -29,7 +29,7 @@ export const Footer = ({}: FooterProps) => {
         <div className={`flex_start ${footer_style.left}`}>
           <p className={footer_style.title}>
             에이티에스
-            <BtnLink
+            {/* <BtnLink
               title={`CMS`}
               id={`cms`}
               // TODO: 로그인이 안되어있으면 /lg/login 로그인 되어있으면 /cms
@@ -43,7 +43,7 @@ export const Footer = ({}: FooterProps) => {
                 />
               }
               hover={true}
-            />
+            /> */}
           </p>
           <span className={footer_style.adress}>
             에이티에스(ATS) <br />
