@@ -17,6 +17,10 @@
       input {
         margin-bottom: 3rem;
       }
+      span {
+        font-size: var(--fs-14);
+        color: var(--error-3);
+      }
 
       .bottom {
         margin-top: 2rem;

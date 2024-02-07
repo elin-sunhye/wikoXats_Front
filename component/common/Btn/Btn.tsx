@@ -85,13 +85,15 @@ export const Btn = ({
       {btnType === 'all' ? (
         icoPosition && icoPosition === 'left' ? (
           <>
-            <span className={`${style.ico_btn} ${style.mg_right}`}>{ico}</span>
+            <span className={`flex_center ${style.ico_btn} ${style.mg_right}`}>
+              {ico}
+            </span>
             {title}
           </>
         ) : (
           <>
             {title}
-            <span className={`${style.ico_btn}`}>{ico}</span>
+            <span className={`flex_center ${style.ico_btn}`}>{ico}</span>
           </>
         )
       ) : btnType === 'text' ? (

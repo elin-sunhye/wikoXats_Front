@@ -41,7 +41,7 @@ export default function SectionProducts() {
       desc={`국내시장 전역을 커버할 수 있는 풍부한 데이터를 활용하여<br />정교한 오디언스 타겟팅으로 광고 효과를 상승 시킬 수 있습니다`}
       color={`var(--white)`}
       btnYn={true}
-      btnTitle={`ATS의 제품 더보기`}
+      btnTitle={`WIKO의 제품 더보기`}
       btnId={`viewMore`}
       btnHref={`/products`}
       btnIcoPosition={`right`}

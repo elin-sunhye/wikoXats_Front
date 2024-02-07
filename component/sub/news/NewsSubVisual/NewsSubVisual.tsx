@@ -104,7 +104,7 @@ export default function NewsSubVisual({}: NewsSubVisualProps) {
 
   return (
     <SubTop
-      title={`에이티에스가 제공하는<br />완전히 새로운 방식의 제품`}
+      title={`위코가 제공하는<br />완전히 새로운 방식의 제품`}
       desc={`국내 유일하게 SKP와 롯데 두 대기업의 고객 행동 데이터를 포함한 풍부한 온·오프라인 통합 DMP를 활용,<br />5대 BIG 매체에서도 할 수 없었던 초정밀 타겟팅 광고가 가능합니다`}
     >
       <div className={style.sub_top_cont_box}>

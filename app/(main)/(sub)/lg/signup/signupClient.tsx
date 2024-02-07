@@ -6,11 +6,26 @@ import { useEffect, useState } from 'react';
 import { Btn } from '@/component/common/Btn/Btn';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import { LiaUserSolid, LiaUsersSolid } from 'react-icons/lia';
+import Input from '@/component/common/Input/Input';
+import { useForm } from 'react-hook-form';
+
+interface signupForm {
+  id: string;
+  pw: string;
+  name: string;
+  email: string;
+  pn: string;
+  bizFile?: string;
+  link?: string;
+}
 
 export default function SignupClient() {
   //
   const router = useRouter();
   const params = useSearchParams();
+
+  // useform
+  const { register } = useForm();
 
   // step, type
   const [step, setStep] = useState<number>(
@@ -73,14 +88,73 @@ export default function SignupClient() {
             </button>
           </div>
         ) : step === 2 ? (
-          <>정보입력</>
+          <form>
+            <p>아이디</p>
+            <Input
+              type={'text'}
+              id={''}
+              labelNm={''}
+              {...register('id', { required: true })}
+            />
+
+            <p>비번</p>
+            <Input
+              type={'password'}
+              id={''}
+              labelNm={''}
+              {...register('pw', { required: true, maxLength: 10 })}
+            />
+
+            <p>이름</p>
+            <Input
+              type={'text'}
+              id={''}
+              labelNm={''}
+              {...register('name', { required: true })}
+            />
+            <p>이메일</p>
+            <Input
+              type={'text'}
+              id={''}
+              labelNm={''}
+              {...register('email', { required: true })}
+            />
+            <p>전화번호</p>
+            <Input
+              type={'text'}
+              id={''}
+              labelNm={''}
+              {...register('pn', { required: true })}
+            />
+            {type === 'employee' ? (
+              <>
+                <p>직급</p>
+                <Input
+                  type={'text'}
+                  id={''}
+                  labelNm={''}
+                  {...register('rank', { required: true })}
+                />
+              </>
+            ) : (
+              <>
+                <p>시업자등록증</p>
+                <Input
+                  type={'text'}
+                  id={''}
+                  labelNm={''}
+                  {...register('bizFile', { required: true })}
+                />
+              </>
+            )}
+          </form>
         ) : (
           <>가입완료</>
         )}
 
         {/* 이전 다음 버튼 */}
         <div className={`flex_center ${style.btn_box}`}>
-          {step !== 1 ? (
+          {step === 2 ? (
             <Btn
               type={'button'}
               title={'이전'}
@@ -103,31 +177,26 @@ export default function SignupClient() {
             <></>
           )}
 
-          {step !== 3 ? (
-            <Btn
-              type={'button'}
-              title={'다음'}
-              id={''}
-              btnType={'all'}
-              hover={true}
-              ico={
-                <FiArrowRight
-                  role={`img`}
-                  aria-label={`오른쪽 화살표 아이콘`}
-                />
+          <Btn
+            type={'button'}
+            title={step === 3 ? '로그인' : '다음'}
+            id={''}
+            btnType={'all'}
+            hover={true}
+            ico={
+              <FiArrowRight role={`img`} aria-label={`오른쪽 화살표 아이콘`} />
+            }
+            disabled={type === '' ? true : false}
+            onClick={() => {
+              if (step === 1) {
+                setStep(2);
+              } else if (step === 2) {
+                setStep(3);
+              } else {
+                router.replace(`/lg/login`);
               }
-              disabled={type === '' || step === 3 ? true : false}
-              onClick={() => {
-                if (step === 1) {
-                  setStep(2);
-                } else if (step === 2) {
-                  setStep(3);
-                }
-              }}
-            />
-          ) : (
-            <></>
-          )}
+            }}
+          />
         </div>
       </div>
     </section>

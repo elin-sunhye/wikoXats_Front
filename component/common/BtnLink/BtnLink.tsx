@@ -19,8 +19,6 @@ interface BtnLinkProps {
  *
  * @href : 링크
  *
- * @colorStyle ?: 링크 버튼 색상 (배경, 텍스트)
- *
  * @ico ?: 링크 버튼 아이콘 태그
  *
  * @icoPosition ?: 링크 버튼 아이콘 위치
@@ -38,11 +36,11 @@ export const BtnLink = ({
   id,
   href,
   size,
-  colorStyle,
   icoPosition,
   ico,
   hover,
-}: BtnLinkProps) => {
+  ...props
+}: BtnLinkProps & React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   return (
     <Link
       href={href}
@@ -51,11 +49,13 @@ export const BtnLink = ({
       className={`flex_center ${style.link_btn} ${hover ? style.hover : ''} ${
         size ? style[size] : style.lg
       }`}
-      style={{ ...colorStyle }}
+      {...props}
     >
       {icoPosition === 'left' ? (
         <>
-          <span className={`${style.ico_link_btn} ${style.mg_right}`}>
+          <span
+            className={`flex_center ${style.ico_link_btn} ${style.mg_right}`}
+          >
             {ico}
           </span>
           {title}
@@ -63,7 +63,7 @@ export const BtnLink = ({
       ) : icoPosition === 'right' ? (
         <>
           {title}
-          <span className={`${style.ico_link_btn}`}>{ico}</span>
+          <span className={`flex_center ${style.ico_link_btn}`}>{ico}</span>
         </>
       ) : (
         title

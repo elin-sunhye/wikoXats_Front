@@ -28,8 +28,8 @@ export const Footer = ({}: FooterProps) => {
       <div className={`wrap flex_between ${footer_style.footer_box}`}>
         <div className={`flex_start ${footer_style.left}`}>
           <p className={footer_style.title}>
-            에이티에스
-            {/* <BtnLink
+            위코
+            <BtnLink
               title={`CMS`}
               id={`cms`}
               // TODO: 로그인이 안되어있으면 /lg/login 로그인 되어있으면 /cms
@@ -43,10 +43,10 @@ export const Footer = ({}: FooterProps) => {
                 />
               }
               hover={true}
-            /> */}
+            />
           </p>
           <span className={footer_style.adress}>
-            에이티에스(ATS) <br />
+            위코(WIKO) <br />
             경상남도 창원특례시 의창구 용동로 45, 13층 <br />
             +82(0)10-2222-3333 | ats@ats.com
           </span>
@@ -57,8 +57,8 @@ export const Footer = ({}: FooterProps) => {
               </Link>
             </li>
             <li>
-              <Link href={`#`} title={`ATS 계약`}>
-                <p>ATS 계약</p>
+              <Link href={`#`} title={`WIKO 계약`}>
+                <p>WIKO 계약</p>
               </Link>
             </li>
             <li>
@@ -145,7 +145,7 @@ export const Footer = ({}: FooterProps) => {
             </ul>
           </div>
           <div className={footer_style.copy_right}>
-            &#169; 2023.ATS Co. All right reserved.
+            &#169; 2023.WIKO Co. All right reserved.
           </div>
 
           <ul className={`mo_legals flex_start ${footer_style.legals}`}>
@@ -155,8 +155,8 @@ export const Footer = ({}: FooterProps) => {
               </Link>
             </li>
             <li>
-              <Link href={`#`} title={`ATS 계약`}>
-                <p>ATS 계약</p>
+              <Link href={`#`} title={`WIKO 계약`}>
+                <p>WIKO 계약</p>
               </Link>
             </li>
             <li>

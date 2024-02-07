@@ -12,7 +12,7 @@ interface SectionMoreInfoProps {}
 export default function ServiceMoreInfo({}: SectionMoreInfoProps) {
   return (
     <SectionVarticalLayout
-      title={`에이티에스에 대해<br />더 궁금하신것이 있으신가요?`}
+      title={`위코에 대해<br />더 궁금하신것이 있으신가요?`}
       desc={``}
       textAlign={`right`}
       moTextCenter={true}
@@ -27,19 +27,19 @@ export default function ServiceMoreInfo({}: SectionMoreInfoProps) {
     >
       <div className={`flex_start ${style.left}`}>
         <p>
-          에이티에스 대해 더 궁금하신것이 있으신가요? <br />
+          위코 대해 더 궁금하신것이 있으신가요? <br />
           문서를 통하여 더욱 자세한 정보를 찾아 보실 수 있어요
         </p>
 
         <ul>
           <li>
-            <Link href={'#'} title={`에이티에스 소개서`} target="_blank">
+            <Link href={'#'} title={`위코 소개서`} target="_blank">
               <VscFilePdf
                 role={`img`}
                 aria-label={`pdf 파일 아이콘`}
                 className={style.ico_pdf}
               />
-              에이티에스 소개서 &#40;PDF&#41;
+              위코 소개서 &#40;PDF&#41;
               <VscLink role={`img`} aria-label={`외부 링크 아이콘`} />
             </Link>
           </li>
