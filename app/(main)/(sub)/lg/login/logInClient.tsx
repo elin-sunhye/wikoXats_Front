@@ -13,10 +13,22 @@ export default function LogInClient() {
         <SectionTitle title={'로그인'} desc={''} />
         <div className={style.login_box}>
           <p>아이디</p>
-          <Input id={'id'} labelNm={'아이디'} type={'text'} />
+          <Input
+            ref={null}
+            id={'id'}
+            labelNm={'아이디'}
+            type={'text'}
+            value=""
+          />
           {/* <span>아이디가 일치하지 않습니다.</span> */}
           <p>비밀번호</p>
-          <Input id={'pw'} labelNm={'비밀번호'} type={'text'} />
+          <Input
+            ref={null}
+            id={'pw'}
+            labelNm={'비밀번호'}
+            type={'text'}
+            value=""
+          />
           {/* <span>비밀번호가 일치하지 않습니다.</span> */}
           <Btn
             btnType={'text'}

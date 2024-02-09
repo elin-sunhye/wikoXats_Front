@@ -69,7 +69,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
     setMoGnbOpen(false);
 
     // 링크와 같은 메뉴 액티브
-    console.log('pathName', pathName.split('/'));
+    // console.log('pathName', pathName.split('/'));
   }, [pathName]);
 
   return (

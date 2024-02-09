@@ -1,42 +1,100 @@
 'use client';
 
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import style from './signupClient.module.scss';
-import { useEffect, useState } from 'react';
+import inputStyle from '@/component/common/Input/input.module.scss';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import { Btn } from '@/component/common/Btn/Btn';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import { LiaUserSolid, LiaUsersSolid } from 'react-icons/lia';
 import Input from '@/component/common/Input/Input';
 import { useForm } from 'react-hook-form';
+import _ from 'lodash';
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 
 interface signupForm {
+  type: string;
   id: string;
   pw: string;
+  pwCheck: string;
   name: string;
   email: string;
   pn: string;
-  bizFile?: string;
-  link?: string;
+  bizFile?: FileList;
+  rank?: string;
 }
 
 export default function SignupClient() {
-  //
+  // ------------------------------
   const router = useRouter();
   const params = useSearchParams();
+  const fileRef = useRef<HTMLInputElement>(null);
 
-  // useform
-  const { register } = useForm();
-
-  // step, type
+  // step, type ------------------------------
   const [step, setStep] = useState<number>(
     params.get('step') ? Number(params.get('step')) : 1
   );
   const [type, setType] = useState<string>(
     params.get('type') ? String(params.get('type')) : ''
   );
+
+  useEffect(() => {
+    setStep(params.get('step') ? Number(params.get('step')) : 1);
+    setType(params.get('type') ? String(params.get('type')) : '');
+  }, [params]);
   useEffect(() => {
     router.push(`/lg/signup?step=${step}&type=${type}`);
   }, [step, type]);
+
+  // useform ------------------------------
+  const {
+    register,
+    formState: { errors },
+    watch,
+    reset,
+    handleSubmit,
+    setValue,
+    getValues,
+    setError,
+    setFocus,
+  } = useForm<signupForm>({
+    mode: 'onChange',
+    defaultValues: {
+      type: type,
+      id: '',
+      pw: '',
+      pwCheck: '',
+      name: '',
+      email: '',
+      pn: '',
+    },
+  });
+
+  // id 중복확인
+  const [duplicateId, setDuplicateId] = useState<boolean>(false);
+
+  useEffect(() => {
+    watch((value, { name, type }) => {
+      console.log(value, name, type);
+      if (value.id === '') {
+        setDuplicateId(false);
+      }
+    });
+    // return () => subscription.unsubscribe();
+  }, [watch]);
+
+  useEffect(() => {
+    setDuplicateId(false);
+  }, [watch('id')]);
+
+  // pw 보기 숨기기
+  const [pwShow, setPwShow] = useState<boolean>(false);
+  const [pwCheckShow, setPwCheckShow] = useState<boolean>(false);
+
+  // 타입 변경 시 데이터 초기화
+  useEffect(() => {
+    reset();
+  }, [type]);
 
   return (
     <section className="section_padding">
@@ -65,7 +123,7 @@ export default function SignupClient() {
               id={'boss'}
               className={`flex_center ${type === 'boss' ? style.active : ''}`}
               onClick={() => {
-                // TODO: 대표로 회원가입되어있는 아이디가 있는지 체크 해야함 (대표 권한으로 회원가입은 한번밖에 안됨 / 대표 회원 탈퇴 시 재가입 가능)
+                // TODO: 대표로 회원 가입되어있는 아이디가 있는지 체크 해야함 (대표 권한으로 회원가입은 한번밖에 안됨 / 대표 회원 탈퇴 시 재가입 가능)
                 setType('boss');
               }}
             >
@@ -89,62 +147,256 @@ export default function SignupClient() {
           </div>
         ) : step === 2 ? (
           <form>
-            <p>아이디</p>
-            <Input
+            <label htmlFor="id">아이디</label>
+            <input
+              id={'id'}
+              className={`${inputStyle.input} ${inputStyle.lg}`}
               type={'text'}
+              value={watch('id')}
+              {...register('id', { required: '필수입력 사항입니다.' })}
+            />
+            <Btn
+              type={'button'}
+              title={'중복확인'}
+              id={'idCheck'}
+              btnType={'text'}
+              hover={false}
+              disabled={watch('id') === '' ? true : false}
+              onClick={() => {
+                setDuplicateId(true);
+              }}
+            />
+            <p className={style.message}>
+              {errors.id ? (
+                <span className={style.error}>{errors.id.message}</span>
+              ) : (
+                ''
+              )}
+              {duplicateId ? (
+                <span className={style.success}>
+                  중복확인이 완료되었습니다.
+                </span>
+              ) : watch('id') !== '' && !duplicateId ? (
+                <span className={style.caution}>중복확인을 해주세요.</span>
+              ) : (
+                <></>
+              )}
+            </p>
+
+            <label htmlFor="pw">비밀번호</label>
+            <input
+              id={'pw'}
+              className={`${inputStyle.input} ${inputStyle.lg}`}
+              type={pwShow ? 'text' : 'password'}
+              value={watch('pw')}
+              {...register('pw', {
+                required: '필수입력 사항입니다.',
+                pattern: {
+                  value:
+                    /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[`~!@#$%^&*()_+=])(?=\S+$).{8,20}$/,
+                  message:
+                    '영문, 숫자, 특수문자( `~!@#$%^&*()_+= )를 포함하여 입력헤주세요.',
+                },
+              })}
+            />
+            <Btn
+              type={'button'}
+              title={'비밀번호 보기'}
               id={''}
-              labelNm={''}
-              {...register('id', { required: true })}
+              btnType={'ico'}
+              hover={false}
+              ico={
+                pwShow ? (
+                  <FaRegEye role={'img'} aria-label={'비밀번호 보기 아이콘'} />
+                ) : (
+                  <FaRegEyeSlash
+                    role={'img'}
+                    aria-label={'비밀번호 숨기기 아이콘'}
+                  />
+                )
+              }
+              onClick={() => {
+                setPwShow(!pwShow);
+              }}
             />
 
-            <p>비번</p>
-            <Input
-              type={'password'}
+            <p className={style.message}>
+              {errors.pw && errors.pw.type === 'required' ? (
+                <span className={style.error}>{errors.pw.message}</span>
+              ) : errors.pw && errors.pw.type === 'pattern' ? (
+                <span className={style.caution}>{errors.pw.message}</span>
+              ) : (
+                ''
+              )}
+            </p>
+
+            <label htmlFor="pwCheck">비밀번호 확인</label>
+            <input
+              id={'pwCheck'}
+              className={`${inputStyle.input} ${inputStyle.lg}`}
+              type={pwCheckShow ? 'text' : 'password'}
+              value={watch('pwCheck')}
+              {...register('pwCheck', {
+                required: '필수입력 사항입니다.',
+                validate: {
+                  matchPw: (value) => {
+                    const { pw } = getValues();
+                    return pw === value || '비밀번호가 일치하지 않습니다';
+                  },
+                },
+              })}
+            />
+            <Btn
+              type={'button'}
+              title={'비밀번호 보기'}
               id={''}
-              labelNm={''}
-              {...register('pw', { required: true, maxLength: 10 })}
+              btnType={'ico'}
+              hover={false}
+              ico={
+                pwCheckShow ? (
+                  <FaRegEye role={'img'} aria-label={'비밀번호 보기 아이콘'} />
+                ) : (
+                  <FaRegEyeSlash
+                    role={'img'}
+                    aria-label={'비밀번호 숨기기 아이콘'}
+                  />
+                )
+              }
+              onClick={() => {
+                setPwCheckShow(!pwCheckShow);
+              }}
             />
 
-            <p>이름</p>
-            <Input
+            <p className={style.message}>
+              {errors.pwCheck ? (
+                <span className={style.error}>{errors.pwCheck.message}</span>
+              ) : (
+                ''
+              )}
+            </p>
+
+            <label htmlFor="name">이름</label>
+            <input
+              id={'name'}
+              className={`${inputStyle.input} ${inputStyle.lg}`}
               type={'text'}
-              id={''}
-              labelNm={''}
-              {...register('name', { required: true })}
+              value={watch('name')}
+              {...register('name', {
+                required: '필수입력 사항입니다.',
+                pattern: {
+                  value: /^[ㄱ-ㅎ가-힣a-zA-Z]+$/,
+                  message: '한글, 영문만 입력해주세요.',
+                },
+              })}
             />
-            <p>이메일</p>
-            <Input
+
+            <p className={style.message}>
+              {errors.name && errors.name.type === 'required' ? (
+                <span className={style.error}>{errors.name.message}</span>
+              ) : errors.name && errors.name.type === 'pattern' ? (
+                <span className={style.caution}>{errors.name.message}</span>
+              ) : (
+                ''
+              )}
+            </p>
+
+            <label htmlFor="email">이메일</label>
+            <input
+              id={'email'}
+              className={`${inputStyle.input} ${inputStyle.lg}`}
               type={'text'}
-              id={''}
-              labelNm={''}
-              {...register('email', { required: true })}
+              value={watch('email')}
+              {...register('email', {
+                required: '필수입력 사항입니다.',
+                pattern: {
+                  value:
+                    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/,
+                  message: '올바른 이메일 형식을 입력해주세요.',
+                },
+              })}
             />
-            <p>전화번호</p>
-            <Input
+
+            <p className={style.message}>
+              {errors.email && errors.email.type === 'required' ? (
+                <span className={style.error}>{errors.email.message}</span>
+              ) : errors.email && errors.email.type === 'pattern' ? (
+                <span className={style.caution}>{errors.email.message}</span>
+              ) : (
+                ''
+              )}
+            </p>
+
+            <label htmlFor="pn">연락처</label>
+            <input
+              id={'pn'}
+              className={`${inputStyle.input} ${inputStyle.lg}`}
               type={'text'}
-              id={''}
-              labelNm={''}
-              {...register('pn', { required: true })}
+              value={watch('pn').replace(
+                /^(\d{3})(\d{3,4})(\d{4})$/,
+                `$1-$2-$3`
+              )}
+              {...register('pn', {
+                required: '필수입력 사항입니다.',
+                pattern: {
+                  value: /(01[016789])-(\d{3,4})-(\d{4})/,
+                  message: '숫자만 입력해주세요.',
+                },
+              })}
             />
-            {type === 'employee' ? (
+
+            <p className={style.message}>
+              {errors.pn && errors.pn.type === 'required' ? (
+                <span className={style.error}>{errors.pn.message}</span>
+              ) : errors.pn && errors.pn.type === 'pattern' ? (
+                <span className={style.caution}>{errors.pn.message}</span>
+              ) : (
+                ''
+              )}
+            </p>
+
+            {type === 'boss' ? (
               <>
-                <p>직급</p>
-                <Input
-                  type={'text'}
-                  id={''}
-                  labelNm={''}
-                  {...register('rank', { required: true })}
+                <label htmlFor="bizFile">사업자등록증</label>
+                <input
+                  id={'bizFile'}
+                  className={`${inputStyle.input} ${inputStyle.lg}`}
+                  type={'file'}
+                  // value={watch('bizFile')}
+                  {...register('bizFile', {
+                    required: '필수입력 사항입니다.',
+                  })}
                 />
+
+                <p className={style.message}>
+                  {errors.bizFile && errors.bizFile.type === 'required' ? (
+                    <span className={style.error}>
+                      {errors.bizFile.message}
+                    </span>
+                  ) : (
+                    ''
+                  )}
+                </p>
               </>
             ) : (
               <>
-                <p>시업자등록증</p>
-                <Input
+                <label htmlFor="rank">직급</label>
+                <input
+                  id={'rank'}
+                  className={`${inputStyle.input} ${inputStyle.lg}`}
                   type={'text'}
-                  id={''}
-                  labelNm={''}
-                  {...register('bizFile', { required: true })}
+                  value={watch('rank')}
+                  {...register('rank', {
+                    required: '필수입력 사항입니다.',
+                  })}
                 />
+
+                <p className={style.message}>
+                  {errors.rank && errors.rank.type === 'required' ? (
+                    <span className={style.error}>{errors.rank.message}</span>
+                  ) : (
+                    ''
+                  )}
+                </p>
               </>
             )}
           </form>
@@ -186,7 +438,26 @@ export default function SignupClient() {
             ico={
               <FiArrowRight role={`img`} aria-label={`오른쪽 화살표 아이콘`} />
             }
-            disabled={type === '' ? true : false}
+            disabled={
+              step === 1
+                ? type === ''
+                  ? true
+                  : false
+                : step === 2
+                ? (watch('id') === '' ||
+                    watch('pw') === '' ||
+                    watch('pwCheck') === '' ||
+                    watch('name') === '' ||
+                    watch('email') === '' ||
+                    watch('pn') === '' ||
+                    (watch('bizFile') && watch('bizFile')?.length === 0) ||
+                    (watch('rank') && watch('rank') === '')) &&
+                  !errors &&
+                  !duplicateId
+                  ? true
+                  : false
+                : false
+            }
             onClick={() => {
               if (step === 1) {
                 setStep(2);

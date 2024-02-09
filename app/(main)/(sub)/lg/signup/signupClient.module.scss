@@ -90,6 +90,32 @@
   }
 }
 
+// step 2
+.message {
+  height: 5rem;
+
+  span {
+    font-size: var(--fs-14);
+    margin-bottom: 0.5rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &.success {
+      color: var(--success-3);
+    }
+
+    &.caution {
+      color: var(--warning-3);
+    }
+
+    &.error {
+      color: var(--error-3);
+    }
+  }
+}
+
 // 이전 다음 버튼
 .btn_box {
   gap: 1rem;
