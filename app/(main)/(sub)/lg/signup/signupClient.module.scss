@@ -116,6 +116,22 @@
   }
 }
 
+// step 3
+.step_3 {
+  flex-direction: column;
+  gap: 1rem;
+
+  svg {
+    font-size: var(--fs-60);
+  }
+
+  p {
+    font-size: var(--fs-24);
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
 // 이전 다음 버튼
 .btn_box {
   gap: 1rem;

@@ -10,7 +10,7 @@ import { LiaUserSolid, LiaUsersSolid } from 'react-icons/lia';
 import Input from '@/component/common/Input/Input';
 import { useForm } from 'react-hook-form';
 import _ from 'lodash';
-import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
+import { FaRegEye, FaRegEyeSlash, FaUserCheck } from 'react-icons/fa';
 
 interface signupForm {
   type: string;
@@ -23,6 +23,9 @@ interface signupForm {
   bizFile?: FileList;
   rank?: string;
 }
+
+// TODO: 뒤로가기 클릭 시 데이터 날라감,,,
+// TODO: 타입 변경시에만 데이터 날라가야함
 
 export default function SignupClient() {
   // ------------------------------
@@ -43,7 +46,7 @@ export default function SignupClient() {
     setType(params.get('type') ? String(params.get('type')) : '');
   }, [params]);
   useEffect(() => {
-    router.push(`/lg/signup?step=${step}&type=${type}`);
+    router.replace(`/lg/signup?step=${step}&type=${type}`);
   }, [step, type]);
 
   // useform ------------------------------
@@ -146,7 +149,7 @@ export default function SignupClient() {
             </button>
           </div>
         ) : step === 2 ? (
-          <form>
+          <form className={style.step_2}>
             <label htmlFor="id">아이디</label>
             <input
               id={'id'}
@@ -401,7 +404,10 @@ export default function SignupClient() {
             )}
           </form>
         ) : (
-          <>가입완료</>
+          <div className={`flex_center ${style.step_3}`}>
+            <FaUserCheck role={'img'} aria-label={'가입완료 아이콘'} />
+            <p>가입완료</p>
+          </div>
         )}
 
         {/* 이전 다음 버튼 */}
@@ -444,16 +450,17 @@ export default function SignupClient() {
                   ? true
                   : false
                 : step === 2
-                ? (watch('id') === '' ||
-                    watch('pw') === '' ||
-                    watch('pwCheck') === '' ||
-                    watch('name') === '' ||
-                    watch('email') === '' ||
-                    watch('pn') === '' ||
-                    (watch('bizFile') && watch('bizFile')?.length === 0) ||
-                    (watch('rank') && watch('rank') === '')) &&
-                  !errors &&
-                  !duplicateId
+                ? watch('id') === '' ||
+                  watch('pw') === '' ||
+                  watch('pwCheck') === '' ||
+                  watch('name') === '' ||
+                  watch('email') === '' ||
+                  watch('pn') === '' ||
+                  (watch('bizFile') && watch('bizFile')?.length === 0) ||
+                  (watch('rank') &&
+                    watch('rank') === '' &&
+                    !errors &&
+                    !duplicateId)
                   ? true
                   : false
                 : false
