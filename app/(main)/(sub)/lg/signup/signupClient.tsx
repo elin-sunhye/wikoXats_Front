@@ -2,12 +2,11 @@
 
 import style from './signupClient.module.scss';
 import inputStyle from '@/component/common/Input/input.module.scss';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
-import { FormEvent, useEffect, useRef, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 import { Btn } from '@/component/common/Btn/Btn';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import { LiaUserSolid, LiaUsersSolid } from 'react-icons/lia';
-import Input from '@/component/common/Input/Input';
 import { useForm } from 'react-hook-form';
 import _ from 'lodash';
 import { FaRegEye, FaRegEyeSlash, FaUserCheck } from 'react-icons/fa';
@@ -23,9 +22,6 @@ interface signupForm {
   bizFile?: FileList;
   rank?: string;
 }
-
-// TODO: 뒤로가기 클릭 시 데이터 날라감,,,
-// TODO: 타입 변경시에만 데이터 날라가야함
 
 export default function SignupClient() {
   // ------------------------------
@@ -457,10 +453,8 @@ export default function SignupClient() {
                   watch('email') === '' ||
                   watch('pn') === '' ||
                   (watch('bizFile') && watch('bizFile')?.length === 0) ||
-                  (watch('rank') &&
-                    watch('rank') === '' &&
-                    !errors &&
-                    !duplicateId)
+                  (watch('rank') && watch('rank') === '') ||
+                  (!errors && !duplicateId)
                   ? true
                   : false
                 : false

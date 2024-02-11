@@ -37,7 +37,6 @@ export default function LogInClient() {
             id={'login'}
             btnSize={`xlg`}
             hover={false}
-            style={{ width: '100%' }}
             onClick={() => {}}
           />
 

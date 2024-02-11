@@ -1,0 +1,36 @@
+.wrap {
+  width: 100%;
+  height: auto;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.left,
+.right {
+  width: 100%;
+}
+
+.left {
+  &.active {
+    position: sticky;
+    top: 0;
+    left: 0;
+  }
+}
+
+.right {
+  div {
+    height: auto;
+
+    & > p {
+      margin-bottom: 1rem;
+    }
+
+    & > span {
+      display: block;
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 0;
+      transition: var(--transition-03);
+    }
+  }
+}
