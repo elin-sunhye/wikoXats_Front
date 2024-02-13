@@ -10,6 +10,11 @@
 }
 
 .left {
+  li {
+    button {
+      padding: 1rem 0;
+    }
+  }
   &.active {
     position: sticky;
     top: 0;
@@ -22,7 +27,7 @@
     height: auto;
 
     & > p {
-      margin-bottom: 1rem;
+      margin-bottom: 3rem;
     }
 
     & > span {
@@ -31,6 +36,11 @@
       overflow: hidden;
       margin-bottom: 0;
       transition: var(--transition-03);
+
+      &.open {
+        height: 20rem;
+        margin-bottom: 5rem;
+      }
     }
   }
 }

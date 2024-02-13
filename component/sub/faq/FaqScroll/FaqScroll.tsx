@@ -5,6 +5,10 @@ import SectionCommonLayout from '@/component/common/SectionCommonLayout/SectionC
 import { useEffect, useState } from 'react';
 import { Btn } from '@/component/common/Btn/Btn';
 
+// dummyData
+import qnaList from '@/dummyData/faq/questions.json';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+
 interface NewsSubVisualProps {}
 
 export default function FaqScroll({}: NewsSubVisualProps) {
@@ -31,7 +35,8 @@ export default function FaqScroll({}: NewsSubVisualProps) {
   // type = scroll
   // btn click
   // TODO: 클릭 할떄마다 hook api 데이터 조회하기
-  const [groupClick, setGroupClick] = useState('first');
+  const [groupClick, setGroupClick] = useState<number>(qnaList[0].seq);
+  const [qnaClick, setQnaClick] = useState<number>(0);
 
   return (
     <SectionCommonLayout
@@ -42,106 +47,71 @@ export default function FaqScroll({}: NewsSubVisualProps) {
     >
       <div className={`wrap flex_between ${style.wrap}`}>
         <ul className={`${style.left} ${scroll ? style.active : ''}`}>
-          <li>
-            <Btn
-              type={'button'}
-              title={'그룹1'}
-              id={''}
-              btnType={'text'}
-              hover={false}
-              btnBg="transparent"
-              btnColor={
-                groupClick === 'first' ? 'var(--black)' : 'var(--gray-3)'
-              }
-              onClick={() => {
-                setGroupClick('first');
-              }}
-            />
-          </li>
-          <li>
-            <Btn
-              type={'button'}
-              title={'그룹2'}
-              id={''}
-              btnType={'text'}
-              hover={false}
-              btnBg="transparent"
-              btnColor={groupClick === 'sec' ? 'var(--black)' : 'var(--gray-3)'}
-              onClick={() => {
-                setGroupClick('sec');
-              }}
-            />
-          </li>
-          <li>
-            <Btn
-              type={'button'}
-              title={'그룹3'}
-              id={''}
-              btnType={'text'}
-              hover={false}
-              btnBg="transparent"
-              btnColor={
-                groupClick === 'third' ? 'var(--black)' : 'var(--gray-3)'
-              }
-              onClick={() => {
-                setGroupClick('third');
-              }}
-            />
-          </li>
-          <li>
-            <Btn
-              type={'button'}
-              title={'그룹4'}
-              id={''}
-              btnType={'text'}
-              hover={false}
-              btnBg="transparent"
-              btnColor={
-                groupClick === 'fourth' ? 'var(--black)' : 'var(--gray-3)'
-              }
-              onClick={() => {
-                setGroupClick('fourth');
-              }}
-            />
-          </li>
+          {qnaList.map((group) => {
+            return (
+              <li key={group.seq}>
+                <Btn
+                  type={'button'}
+                  title={group.group}
+                  id={`qnaGroup${group.seq}`}
+                  btnType={'text'}
+                  hover={false}
+                  btnBg="transparent"
+                  btnColor={
+                    groupClick === group.seq ? 'var(--black)' : 'var(--gray-3)'
+                  }
+                  onClick={() => {
+                    setGroupClick(group.seq);
+                    setQnaClick(0);
+                  }}
+                />
+              </li>
+            );
+          })}
         </ul>
 
         <div className={style.right}>
-          <div>
-            <p>질문</p>
-            <span>
-              답답답 답답답답답답답답 답답답답답답 답답답답답 답답답 답 답 답
-              답답답답답답답 답답답
-            </span>
-          </div>
-          <div>
-            <p>질문</p>
-            <span>
-              답답답 답답답답답답답답 답답답답답답 답답답답답 답답답 답 답 답
-              답답답답답답답 답답답
-            </span>
-          </div>
-          <div>
-            <p>질문</p>
-            <span>
-              답답답 답답답답답답답답 답답답답답답 답답답답답 답답답 답 답 답
-              답답답답답답답 답답답
-            </span>
-          </div>
-          <div>
-            <p>질문</p>
-            <span>
-              답답답 답답답답답답답답 답답답답답답 답답답답답 답답답 답 답 답
-              답답답답답답답 답답답
-            </span>
-          </div>
-          <div>
-            <p>질문</p>
-            <span>
-              답답답 답답답답답답답답 답답답답답답 답답답답답 답답답 답 답 답
-              답답답답답답답 답답답
-            </span>
-          </div>
+          {qnaList.map((group) => {
+            if (group.seq === groupClick) {
+              return group.qnas.map((qna) => {
+                return (
+                  <div>
+                    <p
+                      className="flex_between"
+                      onClick={() => {
+                        if (qnaClick === qna.seq) {
+                          setQnaClick(0);
+                        } else {
+                          setQnaClick(qna.seq);
+                        }
+                      }}
+                    >
+                      {qna.qna}
+                      <span>
+                        <FiChevronDown
+                          role={'img'}
+                          aria-label={'다운 화살표'}
+                          style={{
+                            display: qnaClick === qna.seq ? 'none' : 'block',
+                          }}
+                        />
+                        <FiChevronUp
+                          role={'img'}
+                          aria-label={'업 화살표'}
+                          style={{
+                            display: qnaClick === qna.seq ? 'block' : 'none',
+                          }}
+                        />
+                      </span>
+                    </p>
+                    <span className={qnaClick === qna.seq ? style.open : ''}>
+                      {qna.anw}
+                    </span>
+                  </div>
+                );
+              });
+            }
+          })}
         </div>
       </div>
     </SectionCommonLayout>
