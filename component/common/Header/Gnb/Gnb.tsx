@@ -158,13 +158,15 @@ export const Gnb = ({ scroll }: GnbProps) => {
         <div className={`wrap ${style.mo_wrap}`}>
           <ul className={style.left}>
             {menus.map((menu: MenusType) => {
-              return (
-                <li key={menu.seq}>
-                  <Link href={menu.url} title={menu.title}>
-                    <p>{menu.menu}</p>
-                  </Link>
-                </li>
-              );
+              if (menu.level === 1 && menu.seq >= 1 && menu.seq <= 7) {
+                return (
+                  <li key={menu.seq}>
+                    <Link href={menu.url} title={menu.title}>
+                      <p>{menu.menu}</p>
+                    </Link>
+                  </li>
+                );
+              }
             })}
           </ul>
 
