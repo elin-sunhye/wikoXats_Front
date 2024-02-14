@@ -1,0 +1,48 @@
+.contact_box {
+  width: 100%;
+
+  & > div {
+    width: 100%;
+
+    & > p {
+      font-size: var(--fs-20);
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    & > .inp_box {
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+  }
+
+  .btn_box {
+    display: table;
+    width: auto;
+    margin-left: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .contact_box {
+    & > div {
+      & > p {
+        font-size: var(--fs-16);
+        margin-bottom: 0.5rem;
+      }
+
+      & > .inp_box {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .btn_box {
+      display: block;
+      width: 100%;
+      margin-left: unset;
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
