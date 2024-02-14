@@ -3,7 +3,7 @@
 import style from './signupClient.module.scss';
 import inputStyle from '@/component/common/Input/input.module.scss';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { Btn } from '@/component/common/Btn/Btn';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import { LiaUserSolid, LiaUsersSolid } from 'react-icons/lia';
@@ -341,6 +341,13 @@ export default function SignupClient() {
                   message: '숫자만 입력해주세요.',
                 },
               })}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                const value = e.currentTarget.value
+                  .replace(/[^0-9]/g, '')
+                  .replaceAll('-', '');
+
+                setValue('pn', value);
+              }}
             />
 
             <p className={style.message}>
