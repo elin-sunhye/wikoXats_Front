@@ -6,3 +6,13 @@
     width: calc((100% - 20px) / 2);
   }
 }
+
+@media screen and (max-width: 768px) {
+  .plan_ico_card_box {
+    gap: 1rem;
+
+    & > div {
+      width: 100%;
+    }
+  }
+}

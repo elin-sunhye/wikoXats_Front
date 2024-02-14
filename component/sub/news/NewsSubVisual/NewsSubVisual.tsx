@@ -98,10 +98,6 @@ export default function NewsSubVisual({}: NewsSubVisualProps) {
     allowTouchMove: false, // false시에 스와이핑이 되지 않으며 버튼으로만 슬라이드 조작이 가능
   };
 
-  useEffect(() => {
-    console.log('swiper', swiper);
-  }, [swiper]);
-
   return (
     <SubTop
       title={`위코가 제공하는<br />완전히 새로운 방식의 제품`}

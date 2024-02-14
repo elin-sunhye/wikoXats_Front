@@ -39,6 +39,7 @@
   .header_box {
     width: 102.4rem;
     gap: 5rem;
+    padding: 0 5rem;
 
     .logo {
       box-shadow: var(--menu-shadow);
@@ -90,7 +91,6 @@
   .header_wrap.scroll {
     .header_box {
       width: 100%;
-      padding: 0 calc((100% - 85%) / 2);
       justify-content: space-between;
 
       .logo {

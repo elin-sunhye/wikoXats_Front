@@ -49,3 +49,26 @@
     background-color: var(--white);
   }
 }
+
+@media only screen and (max-width: 630px) {
+  .right_cont {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .swiper_box {
+      width: 100%;
+
+      .swiper_vertical {
+        width: 100%;
+      }
+    }
+
+    .ico_right {
+      transform: rotate(90deg);
+    }
+
+    .right_cont_result {
+      width: 100%;
+    }
+  }
+}

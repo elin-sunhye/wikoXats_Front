@@ -33,8 +33,8 @@ export default function MainVisual() {
           </p>
           <BtnLink
             title={`문의하기`}
-            id={`faq`}
-            href={`#`}
+            id={`contact`}
+            href={`/contact`}
             icoPosition="right"
             ico={
               <FiArrowRight role={`img`} aria-label={`오른쪽 화살표 아이콘`} />

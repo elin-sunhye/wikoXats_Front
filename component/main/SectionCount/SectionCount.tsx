@@ -93,8 +93,8 @@ export default function SectionCount({}: SectionCountProps) {
       moTextCenter={true}
       btnYn={true}
       btnTitle={`문의하기`}
-      btnId={`faq`}
-      btnHref={`#`}
+      btnId={`contact`}
+      btnHref={`/contact`}
       btnIcoPosition={`right`}
       btnIco={<FiArrowRight role={`img`} aria-label={`오른쪽 화살표 아이콘`} />}
       btnHover={true}

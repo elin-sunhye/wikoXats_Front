@@ -1,7 +1,7 @@
 'use client';
 
+import SectionMoreInfo from '@/component/common/SectionMoreInfo/SectionMoreInfo';
 import ServiceDiffer from '@/component/sub/service/ServiceDiffer/ServiceDiffer';
-import ServiceMoreInfo from '@/component/sub/service/ServiceMoreInfo/ServiceMoreInfo';
 import ServicePlan from '@/component/sub/service/ServicePlan/ServicePlan';
 import ServiceSubVisual from '@/component/sub/service/ServiceSubVisual/ServiceSubVisual';
 import ServiceTech from '@/component/sub/service/ServiceTech/ServiceTech';
@@ -18,7 +18,7 @@ export default function ServiceClient() {
       {/* 서비스 차별점 */}
       <ServiceDiffer />
       {/* 서비스 인포 */}
-      <ServiceMoreInfo />
+      <SectionMoreInfo sectionBg="var(--gray-3)" />
     </>
   );
 }

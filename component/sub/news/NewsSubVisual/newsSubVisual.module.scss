@@ -76,3 +76,23 @@
     flex-wrap: wrap;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .sub_top_cont_box {
+    .swiper_box {
+      gap: 1rem;
+      flex-wrap: wrap;
+
+      .left,
+      .right {
+        width: 100%;
+      }
+
+      .left {
+        button {
+          padding: 1rem !important;
+        }
+      }
+    }
+  }
+}

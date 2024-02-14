@@ -14,3 +14,17 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .tech_box {
+    gap: 1rem;
+
+    & > div {
+      height: 30rem;
+
+      &:not(:first-of-type) {
+        width: 100%;
+      }
+    }
+  }
+}

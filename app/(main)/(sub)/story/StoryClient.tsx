@@ -1,6 +1,6 @@
 'use client';
 
-import SectionMoreInfo from '@/component/sub/story/SectionMoreInfo/SectionMoreInfo';
+import SectionMoreInfo from '@/component/common/SectionMoreInfo/SectionMoreInfo';
 import SectionPartners from '@/component/sub/story/SectionPartners/SectionPartners';
 import SectionPoint from '@/component/sub/story/SectionPoint/SectionPoint';
 import SectionServe from '@/component/sub/story/SectionServe/SectionServe';

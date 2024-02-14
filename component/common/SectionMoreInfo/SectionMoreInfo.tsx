@@ -1,15 +1,17 @@
 'use client';
 
-import style from './serviceMoreInfo.module.scss';
+import style from './sectionMoreInfo.module.scss';
 import SectionVarticalLayout from '@/component/common/SectionVarticalLayout/SectionVarticalLayout';
 import Link from 'next/link';
 import { FiArrowRight } from 'react-icons/fi';
 import { SiMicrosoftexcel } from 'react-icons/si';
 import { VscFilePdf, VscLink } from 'react-icons/vsc';
 
-interface SectionMoreInfoProps {}
+interface SectionMoreInfoProps {
+  sectionBg?: string;
+}
 
-export default function ServiceMoreInfo({}: SectionMoreInfoProps) {
+export default function SectionMoreInfo({ sectionBg }: SectionMoreInfoProps) {
   return (
     <SectionVarticalLayout
       title={`위코에 대해<br />더 궁금하신것이 있으신가요?`}
@@ -18,12 +20,12 @@ export default function ServiceMoreInfo({}: SectionMoreInfoProps) {
       moTextCenter={true}
       btnYn={true}
       btnTitle={`문의하기`}
-      btnId={`faq`}
-      btnHref={`#`}
+      btnId={`contact`}
+      btnHref={`/contact`}
       btnIcoPosition={`right`}
       btnIco={<FiArrowRight role={`img`} aria-label={`오른쪽 화살표 아이콘`} />}
       btnHover={true}
-      sectionBg="var(--gray-1)"
+      sectionBg={sectionBg}
     >
       <div className={`flex_start ${style.left}`}>
         <p>
