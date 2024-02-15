@@ -124,25 +124,25 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
-  .btn {
-    padding: 1rem 1.5rem;
+// @media screen and (max-width: 1024px) {
+//   .btn {
+//     padding: 1rem 1.5rem;
 
-    & > .ico_btn {
-      width: 1.6rem;
-      height: 1.6rem;
-      margin-left: 0.3rem;
+//     & > .ico_btn {
+//       width: 1.6rem;
+//       height: 1.6rem;
+//       margin-left: 0.3rem;
 
-      &.mg_right {
-        margin-right: 0.3rem;
-      }
-      & > svg {
-        font-size: var(--fs-16);
-      }
-    }
+//       &.mg_right {
+//         margin-right: 0.3rem;
+//       }
+//       & > svg {
+//         font-size: var(--fs-16);
+//       }
+//     }
 
-    & > .ico_btn.hover {
-      margin-left: -1.6rem;
-    }
-  }
-}
+//     & > .ico_btn.hover {
+//       margin-left: -1.6rem;
+//     }
+//   }
+// }

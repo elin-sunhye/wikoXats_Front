@@ -63,3 +63,27 @@
     text-align: center;
   }
 }
+
+@media screen and (max-width: 768px) {
+  // step 1
+  .step_1 {
+    padding: 3rem;
+
+    .find_pw_box {
+      width: 100%;
+      margin: 2rem auto 0;
+
+      label {
+        margin-bottom: 0.5rem;
+      }
+
+      input {
+        margin-bottom: 0.5rem;
+      }
+
+      .message {
+        height: 4rem;
+      }
+    }
+  }
+}

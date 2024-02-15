@@ -146,222 +146,237 @@ export default function SignupClient() {
           </div>
         ) : step === 2 ? (
           <form className={style.step_2}>
-            <label htmlFor="id">아이디</label>
-            <input
-              id={'id'}
-              className={`${inputStyle.input} ${inputStyle.lg}`}
-              type={'text'}
-              value={watch('id')}
-              {...register('id', { required: '필수입력 사항입니다.' })}
-            />
-            <Btn
-              type={'button'}
-              title={'중복확인'}
-              id={'idCheck'}
-              btnType={'text'}
-              hover={false}
-              disabled={watch('id') === '' ? true : false}
-              onClick={() => {
-                setDuplicateId(true);
-              }}
-            />
-            <p className={style.message}>
-              {errors.id ? (
-                <span className={style.error}>{errors.id.message}</span>
-              ) : (
-                ''
-              )}
-              {duplicateId ? (
-                <span className={style.success}>
-                  중복확인이 완료되었습니다.
-                </span>
-              ) : watch('id') !== '' && !duplicateId ? (
-                <span className={style.caution}>중복확인을 해주세요.</span>
-              ) : (
-                <></>
-              )}
-            </p>
+            <div className={`flex_start ${style.row}`}>
+              <label htmlFor="id">아이디</label>
+              <input
+                id={'id'}
+                className={`${inputStyle.input} ${inputStyle.lg}`}
+                type={'text'}
+                value={watch('id')}
+                {...register('id', { required: '필수입력 사항입니다.' })}
+              />
+              <Btn
+                type={'button'}
+                title={'중복확인'}
+                id={'idCheck'}
+                btnType={'text'}
+                hover={false}
+                disabled={watch('id') === '' ? true : false}
+                onClick={() => {
+                  setDuplicateId(true);
+                }}
+              />
 
-            <label htmlFor="pw">비밀번호</label>
-            <input
-              id={'pw'}
-              className={`${inputStyle.input} ${inputStyle.lg}`}
-              type={pwShow ? 'text' : 'password'}
-              value={watch('pw')}
-              {...register('pw', {
-                required: '필수입력 사항입니다.',
-                pattern: {
-                  value:
-                    /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[`~!@#$%^&*()_+=])(?=\S+$).{8,20}$/,
-                  message:
-                    '영문, 숫자, 특수문자( `~!@#$%^&*()_+= )를 포함하여 입력헤주세요.',
-                },
-              })}
-            />
-            <Btn
-              type={'button'}
-              title={'비밀번호 보기'}
-              id={''}
-              btnType={'ico'}
-              hover={false}
-              ico={
-                pwShow ? (
-                  <FaRegEye role={'img'} aria-label={'비밀번호 보기 아이콘'} />
+              <p className={style.message}>
+                {errors.id ? (
+                  <span className={style.error}>{errors.id.message}</span>
                 ) : (
-                  <FaRegEyeSlash
-                    role={'img'}
-                    aria-label={'비밀번호 숨기기 아이콘'}
-                  />
-                )
-              }
-              onClick={() => {
-                setPwShow(!pwShow);
-              }}
-            />
-
-            <p className={style.message}>
-              {errors.pw && errors.pw.type === 'required' ? (
-                <span className={style.error}>{errors.pw.message}</span>
-              ) : errors.pw && errors.pw.type === 'pattern' ? (
-                <span className={style.caution}>{errors.pw.message}</span>
-              ) : (
-                ''
-              )}
-            </p>
-
-            <label htmlFor="pwCheck">비밀번호 확인</label>
-            <input
-              id={'pwCheck'}
-              className={`${inputStyle.input} ${inputStyle.lg}`}
-              type={pwCheckShow ? 'text' : 'password'}
-              value={watch('pwCheck')}
-              {...register('pwCheck', {
-                required: '필수입력 사항입니다.',
-                validate: {
-                  matchPw: (value) => {
-                    const { pw } = getValues();
-                    return pw === value || '비밀번호가 일치하지 않습니다';
+                  ''
+                )}
+                {duplicateId ? (
+                  <span className={style.success}>
+                    중복확인이 완료되었습니다.
+                  </span>
+                ) : watch('id') !== '' && !duplicateId ? (
+                  <span className={style.caution}>중복확인을 해주세요.</span>
+                ) : (
+                  <></>
+                )}
+              </p>
+            </div>
+            <div className={`flex_start ${style.row}`}>
+              <label htmlFor="pw">비밀번호</label>
+              <input
+                id={'pw'}
+                className={`${inputStyle.input} ${inputStyle.lg}`}
+                type={pwShow ? 'text' : 'password'}
+                value={watch('pw')}
+                {...register('pw', {
+                  required: '필수입력 사항입니다.',
+                  pattern: {
+                    value:
+                      /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[`~!@#$%^&*()_+=])(?=\S+$).{8,20}$/,
+                    message:
+                      '영문, 숫자, 특수문자( `~!@#$%^&*()_+= )를 포함하여 입력헤주세요.',
                   },
-                },
-              })}
-            />
-            <Btn
-              type={'button'}
-              title={'비밀번호 보기'}
-              id={''}
-              btnType={'ico'}
-              hover={false}
-              ico={
-                pwCheckShow ? (
-                  <FaRegEye role={'img'} aria-label={'비밀번호 보기 아이콘'} />
+                })}
+              />
+              <Btn
+                type={'button'}
+                title={'비밀번호 보기'}
+                id={''}
+                btnType={'ico'}
+                hover={false}
+                ico={
+                  pwShow ? (
+                    <FaRegEye
+                      role={'img'}
+                      aria-label={'비밀번호 보기 아이콘'}
+                    />
+                  ) : (
+                    <FaRegEyeSlash
+                      role={'img'}
+                      aria-label={'비밀번호 숨기기 아이콘'}
+                    />
+                  )
+                }
+                onClick={() => {
+                  setPwShow(!pwShow);
+                }}
+              />
+
+              <p className={style.message}>
+                {errors.pw && errors.pw.type === 'required' ? (
+                  <span className={style.error}>{errors.pw.message}</span>
+                ) : errors.pw && errors.pw.type === 'pattern' ? (
+                  <span className={style.caution}>{errors.pw.message}</span>
                 ) : (
-                  <FaRegEyeSlash
-                    role={'img'}
-                    aria-label={'비밀번호 숨기기 아이콘'}
-                  />
-                )
-              }
-              onClick={() => {
-                setPwCheckShow(!pwCheckShow);
-              }}
-            />
+                  ''
+                )}
+              </p>
+            </div>
+            <div className={`flex_start ${style.row}`}>
+              <label htmlFor="pwCheck">비밀번호 확인</label>
+              <input
+                id={'pwCheck'}
+                className={`${inputStyle.input} ${inputStyle.lg}`}
+                type={pwCheckShow ? 'text' : 'password'}
+                value={watch('pwCheck')}
+                {...register('pwCheck', {
+                  required: '필수입력 사항입니다.',
+                  validate: {
+                    matchPw: (value) => {
+                      const { pw } = getValues();
+                      return pw === value || '비밀번호가 일치하지 않습니다';
+                    },
+                  },
+                })}
+              />
+              <Btn
+                type={'button'}
+                title={'비밀번호 보기'}
+                id={''}
+                btnType={'ico'}
+                hover={false}
+                ico={
+                  pwCheckShow ? (
+                    <FaRegEye
+                      role={'img'}
+                      aria-label={'비밀번호 보기 아이콘'}
+                    />
+                  ) : (
+                    <FaRegEyeSlash
+                      role={'img'}
+                      aria-label={'비밀번호 숨기기 아이콘'}
+                    />
+                  )
+                }
+                onClick={() => {
+                  setPwCheckShow(!pwCheckShow);
+                }}
+              />
 
-            <p className={style.message}>
-              {errors.pwCheck ? (
-                <span className={style.error}>{errors.pwCheck.message}</span>
-              ) : (
-                ''
-              )}
-            </p>
+              <p className={style.message}>
+                {errors.pwCheck ? (
+                  <span className={style.error}>{errors.pwCheck.message}</span>
+                ) : (
+                  ''
+                )}
+              </p>
+            </div>
+            <div className={`flex_start ${style.row}`}>
+              <label htmlFor="name">이름</label>
+              <input
+                id={'name'}
+                className={`${inputStyle.input} ${inputStyle.lg}`}
+                type={'text'}
+                value={watch('name')}
+                {...register('name', {
+                  required: '필수입력 사항입니다.',
+                  pattern: {
+                    value: /^[ㄱ-ㅎ가-힣a-zA-Z]+$/,
+                    message: '한글, 영문만 입력해주세요.',
+                  },
+                })}
+              />
 
-            <label htmlFor="name">이름</label>
-            <input
-              id={'name'}
-              className={`${inputStyle.input} ${inputStyle.lg}`}
-              type={'text'}
-              value={watch('name')}
-              {...register('name', {
-                required: '필수입력 사항입니다.',
-                pattern: {
-                  value: /^[ㄱ-ㅎ가-힣a-zA-Z]+$/,
-                  message: '한글, 영문만 입력해주세요.',
-                },
-              })}
-            />
+              <p className={style.message}>
+                {errors.name && errors.name.type === 'required' ? (
+                  <span className={style.error}>{errors.name.message}</span>
+                ) : errors.name && errors.name.type === 'pattern' ? (
+                  <span className={style.caution}>{errors.name.message}</span>
+                ) : (
+                  ''
+                )}
+              </p>
+            </div>
+            <div className={`flex_start ${style.row}`}>
+              <label htmlFor="email">이메일</label>
+              <input
+                id={'email'}
+                className={`${inputStyle.input} ${inputStyle.lg}`}
+                type={'text'}
+                value={watch('email')}
+                {...register('email', {
+                  required: '필수입력 사항입니다.',
+                  pattern: {
+                    value:
+                      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/,
+                    message: '올바른 이메일 형식을 입력해주세요.',
+                  },
+                })}
+              />
 
-            <p className={style.message}>
-              {errors.name && errors.name.type === 'required' ? (
-                <span className={style.error}>{errors.name.message}</span>
-              ) : errors.name && errors.name.type === 'pattern' ? (
-                <span className={style.caution}>{errors.name.message}</span>
-              ) : (
-                ''
-              )}
-            </p>
+              <p className={style.message}>
+                {errors.email && errors.email.type === 'required' ? (
+                  <span className={style.error}>{errors.email.message}</span>
+                ) : errors.email && errors.email.type === 'pattern' ? (
+                  <span className={style.caution}>{errors.email.message}</span>
+                ) : (
+                  ''
+                )}
+              </p>
+            </div>
 
-            <label htmlFor="email">이메일</label>
-            <input
-              id={'email'}
-              className={`${inputStyle.input} ${inputStyle.lg}`}
-              type={'text'}
-              value={watch('email')}
-              {...register('email', {
-                required: '필수입력 사항입니다.',
-                pattern: {
-                  value:
-                    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/,
-                  message: '올바른 이메일 형식을 입력해주세요.',
-                },
-              })}
-            />
+            <div className={`flex_start ${style.row}`}>
+              <label htmlFor="pn">연락처</label>
+              <input
+                id={'pn'}
+                className={`${inputStyle.input} ${inputStyle.lg}`}
+                type={'text'}
+                value={watch('pn').replace(
+                  /^(\d{3})(\d{3,4})(\d{4})$/,
+                  `$1-$2-$3`
+                )}
+                {...register('pn', {
+                  required: '필수입력 사항입니다.',
+                  pattern: {
+                    value: /(01[016789])-(\d{3,4})-(\d{4})/,
+                    message: '숫자만 입력해주세요.',
+                  },
+                })}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  const value = e.currentTarget.value
+                    .replace(/[^0-9]/g, '')
+                    .replaceAll('-', '');
 
-            <p className={style.message}>
-              {errors.email && errors.email.type === 'required' ? (
-                <span className={style.error}>{errors.email.message}</span>
-              ) : errors.email && errors.email.type === 'pattern' ? (
-                <span className={style.caution}>{errors.email.message}</span>
-              ) : (
-                ''
-              )}
-            </p>
+                  setValue('pn', value);
+                }}
+              />
 
-            <label htmlFor="pn">연락처</label>
-            <input
-              id={'pn'}
-              className={`${inputStyle.input} ${inputStyle.lg}`}
-              type={'text'}
-              value={watch('pn').replace(
-                /^(\d{3})(\d{3,4})(\d{4})$/,
-                `$1-$2-$3`
-              )}
-              {...register('pn', {
-                required: '필수입력 사항입니다.',
-                pattern: {
-                  value: /(01[016789])-(\d{3,4})-(\d{4})/,
-                  message: '숫자만 입력해주세요.',
-                },
-              })}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                const value = e.currentTarget.value
-                  .replace(/[^0-9]/g, '')
-                  .replaceAll('-', '');
-
-                setValue('pn', value);
-              }}
-            />
-
-            <p className={style.message}>
-              {errors.pn && errors.pn.type === 'required' ? (
-                <span className={style.error}>{errors.pn.message}</span>
-              ) : errors.pn && errors.pn.type === 'pattern' ? (
-                <span className={style.caution}>{errors.pn.message}</span>
-              ) : (
-                ''
-              )}
-            </p>
+              <p className={style.message}>
+                {errors.pn && errors.pn.type === 'required' ? (
+                  <span className={style.error}>{errors.pn.message}</span>
+                ) : errors.pn && errors.pn.type === 'pattern' ? (
+                  <span className={style.caution}>{errors.pn.message}</span>
+                ) : (
+                  ''
+                )}
+              </p>
+            </div>
 
             {type === 'boss' ? (
-              <>
+              <div className={`flex_start ${style.row}`}>
                 <label htmlFor="bizFile">사업자등록증</label>
                 <input
                   id={'bizFile'}
@@ -382,9 +397,9 @@ export default function SignupClient() {
                     ''
                   )}
                 </p>
-              </>
+              </div>
             ) : (
-              <>
+              <div className={`flex_start ${style.row}`}>
                 <label htmlFor="rank">직급</label>
                 <input
                   id={'rank'}
@@ -403,7 +418,7 @@ export default function SignupClient() {
                     ''
                   )}
                 </p>
-              </>
+              </div>
             )}
           </form>
         ) : (
