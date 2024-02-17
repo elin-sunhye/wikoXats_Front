@@ -72,9 +72,9 @@ export const Btn = ({
       title={title}
       aria-label={title}
       id={id}
-      className={`flex_center ${style.btn} ${btnSize ? style[btnSize] : 'lg'} ${
-        hover ? style.hover : ''
-      } ${props.className}`}
+      className={`flex_center ${style.btn} ${
+        btnSize ? style[btnSize] : style.lg
+      } ${hover ? style.hover : ''} ${props.className}`}
       style={{
         background: btnBg ? btnBg : 'var(--sub-yellow-1)',
         color: btnColor ? btnColor : 'var(--white)',
