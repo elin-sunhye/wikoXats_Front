@@ -77,7 +77,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
       <div className={`pc_gnb flex_between ${style.pc_gnb} `}>
         <ul className={`flex_start ${style.left}`}>
           {menus.map((menu: MenusType) => {
-            if (menu.level === 1 && menu.seq >= 1 && menu.seq <= 7) {
+            if (menu.level === 1 && menu.main === 'Y') {
               return (
                 <li key={menu.seq}>
                   <Link
@@ -102,7 +102,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
 
         <ul className={`flex_start ${style.right}`} data-aos="fade-left">
           {menus.map((menu: MenusType) => {
-            if (menu.level === 1 && menu.seq >= 8 && menu.seq <= 10) {
+            if (menu.level === 1 && menu.main === 'N') {
               return (
                 <li key={menu.seq}>
                   <Link href={menu.url} title={menu.title}>
