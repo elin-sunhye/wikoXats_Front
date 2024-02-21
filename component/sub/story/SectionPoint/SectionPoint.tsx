@@ -3,8 +3,6 @@
 import CardIco from '@/component/common/CardIco/CardIco';
 import style from './sectionPoint.module.scss';
 import SectionCommonLayout from '@/component/common/SectionCommonLayout/SectionCommonLayout';
-import TabSwiper from '@/component/common/Tab/Tab';
-import { TabBtnType } from '@/types/tabBtn';
 
 interface SectionPointProps {}
 export default function SectionPoint({}: SectionPointProps) {
