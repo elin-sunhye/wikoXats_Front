@@ -1,0 +1,18 @@
+.cont_point {
+  width: 100%;
+  gap: 2rem;
+  flex-wrap: wrap;
+
+  .card_ico {
+    width: calc((100% - 40px) / 3);
+  }
+}
+
+// 반응형
+@media screen and (max-width: 1024px) {
+  .cont_point {
+    .card_ico {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.wrap {
+  width: 100%;
+  height: auto;
+  gap: 2rem;
+  align-items: flex-start;
+
+  .left,
+  .right {
+    width: 100%;
+  }
+
+  .left {
+    &:has(.active) {
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
+
+    ul {
+      li {
+        a {
+          &.active {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+
+  .right {
+    div {
+      height: 50rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrap {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}

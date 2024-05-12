@@ -1,0 +1,89 @@
+// step 1
+.step_1 {
+  box-shadow: var(--shadow-1);
+  border-radius: var(--br-10);
+  padding: 6rem;
+
+  .find_pw_box {
+    width: 50%;
+    margin: 3rem auto 0;
+
+    label {
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    input {
+      margin-bottom: 1rem;
+    }
+
+    .message {
+      height: 5rem;
+
+      span {
+        font-size: var(--fs-14);
+        margin-bottom: 0.5rem;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        &.success {
+          color: var(--success-3);
+        }
+
+        &.caution {
+          color: var(--warning-3);
+        }
+
+        &.error {
+          color: var(--error-3);
+        }
+      }
+    }
+
+    & > button {
+      width: 100%;
+    }
+  }
+}
+
+// step 2
+.step_2 {
+  flex-direction: column;
+  gap: 3rem;
+
+  svg {
+    font-size: var(--fs-60);
+  }
+
+  p {
+    font-size: var(--fs-24);
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  // step 1
+  .step_1 {
+    padding: 3rem;
+
+    .find_pw_box {
+      width: 100%;
+      margin: 2rem auto 0;
+
+      label {
+        margin-bottom: 0.5rem;
+      }
+
+      input {
+        margin-bottom: 0.5rem;
+      }
+
+      .message {
+        height: 4rem;
+      }
+    }
+  }
+}
