@@ -10,22 +10,22 @@ import localFont from 'next/font/local';
 const pretendard = localFont({
   src: [
     {
-      path: '../../fonts/Pretendard/Pretendard-Light.woff2',
+      path: '../fonts/Pretendard/Pretendard-Light.woff2',
       weight: '300',
       style: 'normal',
     },
     {
-      path: '../../fonts/Pretendard/Pretendard-Regular.woff2',
+      path: '../fonts/Pretendard/Pretendard-Regular.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../../fonts/Pretendard/Pretendard-Medium.woff2',
+      path: '../fonts/Pretendard/Pretendard-Medium.woff2',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../../fonts/Pretendard/Pretendard-Bold.woff2',
+      path: '../fonts/Pretendard/Pretendard-Bold.woff2',
       weight: '700',
       style: 'normal',
     },
@@ -36,17 +36,17 @@ const pretendard = localFont({
 const Gmarket = localFont({
   src: [
     {
-      path: '../../fonts/Gmarket/GmarketSansLight.woff2',
+      path: '../fonts/Gmarket/GmarketSansLight.woff2',
       weight: '100',
       style: 'normal',
     },
     {
-      path: '../../fonts/Gmarket/GmarketSansMedium.woff2',
+      path: '../fonts/Gmarket/GmarketSansMedium.woff2',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../../fonts/Gmarket/GmarketSansBold.woff2',
+      path: '../fonts/Gmarket/GmarketSansBold.woff2',
       weight: '900',
       style: 'normal',
     },
