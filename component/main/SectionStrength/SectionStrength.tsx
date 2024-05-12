@@ -1,6 +1,6 @@
 'use client';
 
-import style from '@/component/main/sectionProducts/sectionProducts.module.scss';
+import style from '@/component/main/SectionProducts/sectionProducts.module.scss';
 import CardGradientProps from '@/component/common/CardGradient/CardGradient';
 import SectionCommonLayout from '@/component/common/SectionCommonLayout/SectionCommonLayout';
 
