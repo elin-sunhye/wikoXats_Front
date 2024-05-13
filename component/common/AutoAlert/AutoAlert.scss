@@ -6,7 +6,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  z-index: -1;
+  z-index: -9;
   opacity: 0;
   transition: all 0.2s;
 
@@ -27,7 +27,7 @@
     width: 95%;
     height: 46px;
     padding: 12px;
-    background: var(--gray-1);
+    background: var(--white);
     text-align: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     border-radius: var(--br-10);
@@ -40,7 +40,6 @@
     align-items: center;
     justify-content: center;
 
-    color: #000000;
     gap: 12px;
 
     &.animation_p {
@@ -56,22 +55,27 @@
 }
 // error 색깔
 .alert.error p {
-  border: 2px solid var(--error-color);
+  border: 2px solid var(--error-3);
+  color: var(--error-3);
 }
 // warning 색깔
 .alert.warning p {
-  border: 2px solid var(--warning-color);
+  border: 2px solid var(--warning-3);
+  color: var(--warning-3);
 }
 // info 색깔
 .alert.info p {
-  border: 2px solid var(--blue01);
+  border: 2px solid var(--inf0-3);
+  color: var(--info-3);
 }
 // success 색깔
 .alert.success p {
-  border: 2px solid var(--success-color);
+  border: 2px solid var(--success-3);
+  color: var(--success-3);
 }
 .alert.disabled p {
-  border: 2px solid var(--disabled-color);
+  border: 2px solid var(--gray-3);
+  color: var(--gray-3);
 }
 
 @media screen and (max-width: 743px) {

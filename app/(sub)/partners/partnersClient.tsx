@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import style from './partners.module.scss';
-import SectionCommonLayout from '@/component/common/SectionCommonLayout/SectionCommonLayout';
+import Link from "next/link";
+import style from "./partners.module.scss";
+import SectionCommonLayout from "@/component/common/SectionCommonLayout/SectionCommonLayout";
 
 export default function PartnersClient() {
   return (
     <>
       <SectionCommonLayout
-        sectionId={'partners'}
-        title={'파트너와 함께 놀라운 성과를 실현하는 ATS'}
+        sectionId={"partners"}
+        title={"파트너와 함께 놀라운 성과를 실현하는 WIKO"}
         desc={
-          'ATS는 최고의 기술력을 바탕으로 캠페인을 지원하며 이로인한 성공적인 성과를 보장합니다.'
+          "WIKO는 최고의 기술력을 바탕으로 캠페인을 지원하며 이로인한 성공적인 성과를 보장합니다."
         }
         btnYn={false}
       >
@@ -23,25 +23,25 @@ export default function PartnersClient() {
           <div className={style.right}>
             <ul className="flex_start">
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
             </ul>
           </div>
@@ -54,25 +54,25 @@ export default function PartnersClient() {
           <div className={style.right}>
             <ul className="flex_start">
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
             </ul>
           </div>
@@ -85,25 +85,25 @@ export default function PartnersClient() {
           <div className={style.right}>
             <ul className="flex_start">
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
             </ul>
           </div>
@@ -116,25 +116,25 @@ export default function PartnersClient() {
           <div className={style.right}>
             <ul className="flex_start">
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
             </ul>
           </div>
@@ -147,25 +147,25 @@ export default function PartnersClient() {
           <div className={style.right}>
             <ul className="flex_start">
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
               <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
+                <Link href={"/"}>정밀주조 파트너</Link>
               </li>
             </ul>
           </div>

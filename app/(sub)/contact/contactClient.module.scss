@@ -21,6 +21,32 @@
     width: auto;
     margin-left: auto;
   }
+
+  .message {
+    width: 100%;
+    height: 3rem;
+
+    span {
+      font-size: var(--fs-14);
+      // margin-bottom: 0.5rem;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      &.success {
+        color: var(--success-3);
+      }
+
+      &.caution {
+        color: var(--warning-3);
+      }
+
+      &.error {
+        color: var(--error-3);
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 768px) {
