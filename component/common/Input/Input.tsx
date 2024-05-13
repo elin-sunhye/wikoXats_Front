@@ -1,15 +1,16 @@
-'use client';
+"use client";
 
-import { ChangeEventHandler, Ref, forwardRef } from 'react';
-import style from './input.module.scss';
+import { ChangeEventHandler, Ref, forwardRef } from "react";
+import style from "./input.module.scss";
 interface InputProps {
-  size?: 'sm' | 'md' | 'xlg';
+  size?: "sm" | "md" | "xlg";
   onChange?: ChangeEventHandler<HTMLInputElement>;
   // 웹접근성
   id: string;
   labelNm: string;
   type: string;
-  value: string;
+  value?: string;
+  name: string;
 }
 
 /**
@@ -26,6 +27,8 @@ interface InputProps {
  * @type : 인풋 타입
  *
  * @value : value
+ *
+ * @name : name
  */
 const Input = forwardRef(
   (
@@ -36,6 +39,7 @@ const Input = forwardRef(
       type,
       value,
       onChange,
+      name,
       ...props
     }: InputProps & React.InputHTMLAttributes<HTMLInputElement>,
     ref: Ref<HTMLInputElement>
@@ -52,6 +56,7 @@ const Input = forwardRef(
           id={id}
           className={`${style.input} ${size ? style[size] : style.lg}`}
           onChange={onChange}
+          name={name}
           {...props}
         />
       </>
@@ -59,7 +64,7 @@ const Input = forwardRef(
   }
 );
 
-Input.displayName = 'Input';
+Input.displayName = "Input";
 export default Input as <T extends {}>(
   props: InputProps & {
     ref: Ref<HTMLInputElement>;
