@@ -17,10 +17,10 @@ export default function MainClient() {
       <SectionService />
 
       {/* contStrength - 강점 소개 */}
-      <SectionStrength />
+      {/* <SectionStrength /> */}
 
       {/* contCount - 사이트 카운트 */}
-      <SectionCount />
+      {/* <SectionCount /> */}
     </>
   );
 }
