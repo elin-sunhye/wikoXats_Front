@@ -30,9 +30,9 @@ export default function SignupClient() {
   const fileRef = useRef<HTMLInputElement>(null);
 
   // step, type ------------------------------
-  const [step, setStep] = useState<number>(
-    params.get('step') ? Number(params.get('step')) : 1
-  );
+  // const [step, setStep] = useState<number>(
+  //   params.get('step') ? Number(params.get('step')) : 1
+  // );
   const [type, setType] = useState<string>(
     params.get('type') ? String(params.get('type')) : ''
   );
@@ -100,22 +100,41 @@ export default function SignupClient() {
     <section className="section_padding">
       <div className="wrap">
         <ul className={`flex_between ${style.step_box}`}>
-          <li className={step === 1 ? style.active : ''}>
+          <li
+            className={
+              params.get('step') && params.get('step') === '1'
+                ? style.active
+                : ''
+            }
+          >
             <span>1</span>
             <p>회원선택</p>
           </li>
-          <li className={step === 2 ? style.active : ''}>
+          <li
+            className={
+              params.get('step') && params.get('step') === '2'
+                ? style.active
+                : ''
+            }
+          >
             <span>2</span>
             <p>정보입력</p>
           </li>
-          <li className={step === 3 ? style.active : ''}>
+          <li
+            className={
+              params.get('step') && params.get('step') === '3'
+                ? style.active
+                : ''
+            }
+          >
             <span>3</span>
             <p>가입완료</p>
           </li>
         </ul>
 
         {/* step1 */}
-        {step === 1 ? (
+        {!params.get('step') ||
+        (params.get('step') && params.get('step') === '1') ? (
           <div className={`flex_center ${style.step_1}`}>
             <button
               type={'button'}
@@ -145,7 +164,7 @@ export default function SignupClient() {
               <span>직원</span>
             </button>
           </div>
-        ) : step === 2 ? (
+        ) : params.get('step') && params.get('step') === '2' ? (
           <form className={style.step_2}>
             <div className={`flex_start ${style.row}`}>
               <label htmlFor="id">아이디</label>
@@ -432,7 +451,7 @@ export default function SignupClient() {
 
         {/* 이전 다음 버튼 */}
         <div className={`flex_center ${style.btn_box}`}>
-          {step === 2 ? (
+          {params.get('step') && params.get('step') === '2' ? (
             <Btn
               type={'button'}
               title={'이전'}
@@ -444,11 +463,13 @@ export default function SignupClient() {
               }
               icoPosition={'left'}
               onClick={() => {
-                if (step === 2) {
-                  setStep(1);
+                if (params.get('step') && params.get('step') === '2') {
+                  // setStep(1);
+                  reset();
                   router.replace(`/lg/signup?step=1&type=${type}`);
-                } else if (step === 3) {
-                  setStep(2);
+                } else if (params.get('step') && params.get('step') === '3') {
+                  // setStep(2);
+                  reset();
                   router.replace(`/lg/signup?step=2&type=${type}`);
                 }
               }}
@@ -459,7 +480,11 @@ export default function SignupClient() {
 
           <Btn
             type={'button'}
-            title={step === 3 ? '로그인' : '다음'}
+            title={
+              params.get('step') && params.get('step') === '3'
+                ? '로그인'
+                : '다음'
+            }
             id={''}
             btnType={'all'}
             hover={true}
@@ -467,11 +492,12 @@ export default function SignupClient() {
               <FiArrowRight role={`img`} aria-label={`오른쪽 화살표 아이콘`} />
             }
             disabled={
-              step === 1
+              !params.get('step') ||
+              (params.get('step') && params.get('step') === '1')
                 ? type === ''
                   ? true
                   : false
-                : step === 2
+                : params.get('step') && params.get('step') === '2'
                 ? watch('id') === '' ||
                   watch('pw') === '' ||
                   watch('pwCheck') === '' ||
@@ -486,11 +512,14 @@ export default function SignupClient() {
                 : false
             }
             onClick={() => {
-              if (step === 1) {
-                setStep(2);
+              if (
+                !params.get('step') ||
+                (params.get('step') && params.get('step') === '1')
+              ) {
+                // setStep(2);
                 router.replace(`/lg/signup?step=2&type=${type}`);
-              } else if (step === 2) {
-                setStep(3);
+              } else if (params.get('step') && params.get('step') === '2') {
+                // setStep(3);
                 router.replace(`/lg/signup?step=3&type=${type}`);
               } else {
                 router.replace(`/lg/login`);
