@@ -41,7 +41,7 @@ export default function SignupClient() {
     setStep(params.get('step') ? Number(params.get('step')) : 1);
     setType(params.get('type') ? String(params.get('type')) : '');
     console.log('123');
-  }, [params]);
+  }, []);
   useEffect(() => {
     router.replace(`/lg/signup?step=${step}&type=${type}`);
     console.log('asd');
