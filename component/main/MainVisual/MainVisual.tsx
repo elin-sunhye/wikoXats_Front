@@ -13,23 +13,21 @@ export default function MainVisual() {
       <div className={`wrap flex_between ${style.main_visual_wrap}`}>
         <div className={`flex_start ${style.left}`}>
           <h2>
-            채널의 경계가 없는 <br />
-            데이터 마케팅{' '}
+            혁신적인 기술로
             <p>
-              자동화를
+              세상을 바꾸는 서비스,
               <HiOutlineCursorClick
                 role={`img`}
                 aria-label={`포인트 커서 아이콘`}
                 className={style.ico_cursor}
               />
-            </p>{' '}
+            </p>
             <br />
-            제공합니다
+            함께 미래를 만들어가요!
           </h2>
           <p>
-            국경, 크리에이티브, 디바이스 제약을 뛰어넘는 <br />
-            광고 자동화를 통해 전세계 어디에나 <br />
-            광고주가 원하는 고객에게 메시지를 전달할 수 있습니다
+            세계적인 기술과 다양한 경험을 바탕으로 <br />
+            귀사의 주조환 경에 알맞은 기술을 서비스 합니다.
           </p>
           <BtnLink
             title={`문의하기`}
