@@ -72,7 +72,7 @@ export default function SectionService() {
     slidesOffsetAfter: 0, // 슬라이드 끝 부분 여백
     spaceBetween: 10, // 슬라이드 사이 여백
 
-    slidesPerView: 3, //  한 슬라이드에 보여줄 개수
+    slidesPerView: 1, //  한 슬라이드에 보여줄 개수
 
     initialSlide: 0, // 시작 위치 값
     centeredSlides: true, // center 정렬
@@ -110,7 +110,15 @@ export default function SectionService() {
 
     //allowTouchMove: true, // false시에 스와이핑이 되지 않으며 버튼으로만 슬라이드 조작이 가능
 
-    // breakpoints: { // 반응형 설정 },
+    breakpoints: {
+      // 반응형 설정
+      876: {
+        slidesPerView: 2,
+      },
+      640: {
+        slidesPerView: 3,
+      },
+    },
 
     // onbeforeinput: (swiper: any) => {
     //   swiper.params.navigation.prevEl = "swiper-button-prev";
