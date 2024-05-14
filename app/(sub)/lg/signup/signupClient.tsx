@@ -37,15 +37,15 @@ export default function SignupClient() {
     params.get('type') ? String(params.get('type')) : ''
   );
 
-  useEffect(() => {
-    setStep(params.get('step') ? Number(params.get('step')) : 1);
-    setType(params.get('type') ? String(params.get('type')) : '');
-    console.log('123');
-  }, []);
-  useEffect(() => {
-    router.replace(`/lg/signup?step=${step}&type=${type}`);
-    console.log('asd');
-  }, [step, type]);
+  // useEffect(() => {
+  //   setStep(params.get('step') ? Number(params.get('step')) : 1);
+  //   setType(params.get('type') ? String(params.get('type')) : '');
+  //   console.log('123');
+  // }, []);
+  // useEffect(() => {
+  //   router.replace(`/lg/signup?step=${step}&type=${type}`);
+  //   console.log('asd');
+  // }, [step, type]);
 
   // useform ------------------------------
   const {
@@ -446,8 +446,10 @@ export default function SignupClient() {
               onClick={() => {
                 if (step === 2) {
                   setStep(1);
+                  router.replace(`/lg/signup?step=1&type=${type}`);
                 } else if (step === 3) {
                   setStep(2);
+                  router.replace(`/lg/signup?step=2&type=${type}`);
                 }
               }}
             />
@@ -486,8 +488,10 @@ export default function SignupClient() {
             onClick={() => {
               if (step === 1) {
                 setStep(2);
+                router.replace(`/lg/signup?step=2&type=${type}`);
               } else if (step === 2) {
                 setStep(3);
+                router.replace(`/lg/signup?step=3&type=${type}`);
               } else {
                 router.replace(`/lg/login`);
               }
