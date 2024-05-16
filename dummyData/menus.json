@@ -2,8 +2,8 @@
   {
     "seq": 1,
     "parentSeq": 0,
-    "menu": "WIKO",
-    "url": "/story",
+    "menu": "About us",
+    "url": "/about us",
     "title": "회사 소개 바로가기",
     "main": "Y",
     "level": 1
@@ -33,16 +33,6 @@
     "url": "/news",
     "title": "뉴스 바로가기",
     "main": "Y",
-    "level": 1
-  },
-
-  {
-    "seq": 5,
-    "parentSeq": 0,
-    "menu": "Partners",
-    "url": "/partners",
-    "title": "파트너 바로가기",
-    "main": "N",
     "level": 1
   },
   {
