@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import header_style from "./header.module.scss";
+import React, { useEffect, useState } from 'react';
+import header_style from './header.module.scss';
 
 //AOS
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { Gnb } from "./Gnb/Gnb";
-import Image from "next/image";
-import Link from "next/link";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { Gnb } from './Gnb/Gnb';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface HeaderProps {}
 
@@ -26,9 +26,9 @@ export const Header = ({}: HeaderProps) => {
   const [scroll, setScroll] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll); //clean up
+      window.removeEventListener('scroll', handleScroll); //clean up
     };
   }, []);
 
@@ -44,24 +44,24 @@ export const Header = ({}: HeaderProps) => {
   return (
     <header
       className={`${header_style.header_wrap} ${
-        scroll ? header_style.scroll : ""
+        scroll ? header_style.scroll : ''
       }`}
     >
       <div className={`wrap flex_between ${header_style.header_box}`}>
         <h1 className={header_style.logo}>
           <Link href={`/`} className="flex_center">
             <Image
-              src={scroll ? "/img/ico_logo.svg" : "/img/img_logo.svg"}
+              src={scroll ? '/img/ico_logo.svg' : '/img/img_logo.svg'}
               alt="로고 이미지"
-              width={"10"}
-              height={"10"}
+              width={'10'}
+              height={'10'}
               className={`pc_logo ${header_style.pc_logo}`}
             />
             <Image
               src={`/img/ico_logo.svg`}
               alt="로고 아이콘"
-              width={"10"}
-              height={"10"}
+              width={'10'}
+              height={'10'}
               className={`mo_logo ${header_style.mo_logo}`}
             />
           </Link>
