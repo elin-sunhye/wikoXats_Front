@@ -1,7 +1,6 @@
 'use client';
 
-import style from '@/component/main/SectionProducts/sectionProducts.module.scss';
-import Image from 'next/image';
+import style from '@/component/main/sectionService.module.scss';
 import Card from '@/component/common/Card/Card';
 import SectionCommonLayout from '@/component/common/SectionCommonLayout/SectionCommonLayout';
 

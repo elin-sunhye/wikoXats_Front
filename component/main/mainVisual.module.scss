@@ -1,0 +1,122 @@
+// 메인비주얼
+#mainVisual {
+  width: 100%;
+  height: fit-content;
+  background-color: var(--white);
+  position: relative;
+  overflow: hidden;
+
+  .swiper_box {
+    // img
+    .img {
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
+    }
+
+    & > button {
+      width: auto;
+      height: 6rem !important;
+    }
+  }
+
+  .main_visual_wrap {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    h2 {
+      font-size: var(--fs-60);
+      font-weight: var(--fw-700);
+
+      p {
+        position: relative;
+        z-index: 1;
+
+        .ico_cursor {
+          color: var(--sub-yellow-1);
+          position: absolute;
+          right: 2rem;
+          bottom: -2rem;
+          animation: curcle 5s;
+          animation-iteration-count: infinite;
+          animation-fill-mode: forwards;
+
+          @keyframes curcle {
+            0% {
+              right: 2rem;
+              bottom: -3rem;
+            }
+            50% {
+              right: calc(100% - 4rem);
+              bottom: -3rem;
+            }
+            100% {
+              right: 2rem;
+              bottom: -3rem;
+            }
+          }
+        }
+      }
+    }
+
+    & > p {
+      width: 100%;
+      line-height: var(--lh-15);
+    }
+  }
+}
+
+// 반응형
+@media screen and (max-width: 1024px) {
+  // 메인비주얼
+  #mainVisual {
+    // height: auto;
+    margin-top: 6rem;
+
+    .main_visual_wrap {
+      gap: 2rem;
+
+      h2 {
+        font-size: var(--fs-36);
+
+        p {
+          .ico_cursor {
+            color: var(--sub-yellow-1);
+            position: absolute;
+            right: 2rem;
+            bottom: -2rem;
+            animation: curcle 5s;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+
+            @keyframes curcle {
+              0% {
+                right: 2rem;
+                bottom: -3rem;
+              }
+              50% {
+                right: calc(100% - 4rem);
+                bottom: -3rem;
+              }
+
+              100% {
+                right: 2rem;
+                bottom: -3rem;
+              }
+            }
+          }
+        }
+      }
+
+      & > p {
+        width: 100%;
+        line-height: var(--lh-15);
+      }
+    }
+  }
+}

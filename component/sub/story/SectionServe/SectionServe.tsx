@@ -1,6 +1,6 @@
 'use client';
 
-import style from '@/component/main/SectionProducts/sectionProducts.module.scss';
+import style from '@/component/main/sectionService.module.scss';
 import Card from '@/component/common/Card/Card';
 import SectionCommonLayout from '@/component/common/SectionCommonLayout/SectionCommonLayout';
 
