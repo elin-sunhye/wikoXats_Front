@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { Btn } from "@/component/common/Btn/Btn";
-import style from "./contactClient.module.scss";
-import SectionCommonLayout from "@/component/common/SectionCommonLayout/SectionCommonLayout";
-import Input from "@/component/common/Input/Input";
-import emailjs from "@emailjs/browser";
-import { FormEvent, useEffect, useRef } from "react";
-import { useAutoAlert } from "@/hook/useAutoAlert";
-import { useForm } from "react-hook-form";
-import Textarea from "@/component/common/Textarea/Textarea";
+import { Btn } from '@/component/common/Btn/Btn';
+import style from './contactClient.module.scss';
+import SectionCommonLayout from '@/component/common/SectionCommonLayout/SectionCommonLayout';
+import Input from '@/component/common/Input/Input';
+import emailjs from '@emailjs/browser';
+import { FormEvent, useEffect, useRef } from 'react';
+import { useAutoAlert } from '@/hook/useAutoAlert';
+import { useForm } from 'react-hook-form';
+import Textarea from '@/component/common/Textarea/Textarea';
 
 interface contactForm {
   category: string;
@@ -36,33 +36,25 @@ export default function ContactClient() {
     setFocus,
     trigger,
   } = useForm<contactForm>({
-    mode: "onChange",
+    mode: 'onChange',
     defaultValues: {
-      category: "",
-      comp_nm: "",
-      user_nm: "",
-      reply_email: "",
-      contents: "",
+      category: '',
+      comp_nm: '',
+      user_nm: '',
+      reply_email: '',
+      contents: '',
     },
   });
 
   useEffect(() => {
-    console.log(watch("contents"));
-  }, [watch("contents")]);
-
-  useEffect(() => {
-    console.log(watch("reply_email"));
-  }, [watch("reply_email")]);
-
-  useEffect(() => {
-    console.log("errors", errors);
-  }, [errors]);
+    console.log(watch('reply_email'));
+  }, [watch('reply_email')]);
 
   return (
     <SectionCommonLayout
-      sectionId={"contact"}
-      title={"위코에 대해 <br />궁금한것이 있으신가요?"}
-      desc={"문의사항을 남겨주시면 <br />확인 후 연락드리겠습니다."}
+      sectionId={'contact'}
+      title={'위코에 대해 <br />궁금한것이 있으신가요?'}
+      desc={'문의사항을 남겨주시면 <br />확인 후 연락드리겠습니다.'}
       btnYn={false}
     >
       <form className={style.contact_box} ref={form}>
@@ -70,12 +62,12 @@ export default function ContactClient() {
           <p className={style.title}>문의구분</p>
           <div className={style.inp_box}>
             <Input
-              id={"category"}
-              labelNm={"category"}
-              type={"text"}
-              value={watch("category")}
-              {...register("category", {
-                required: "필수입력 사항입니다.",
+              id={'category'}
+              labelNm={'category'}
+              type={'text'}
+              value={watch('category')}
+              {...register('category', {
+                required: '필수입력 사항입니다.',
               })}
             />
 
@@ -83,7 +75,7 @@ export default function ContactClient() {
               {errors.category ? (
                 <span className={style.error}>{errors.category.message}</span>
               ) : (
-                ""
+                ''
               )}
             </p>
           </div>
@@ -93,12 +85,12 @@ export default function ContactClient() {
           <p className={style.title}>회사명</p>
           <div className={style.inp_box}>
             <Input
-              id={"comp_nm"}
-              labelNm={"comp_nm"}
-              type={"text"}
-              value={watch("comp_nm")}
-              {...register("comp_nm", {
-                required: "필수입력 사항입니다.",
+              id={'comp_nm'}
+              labelNm={'comp_nm'}
+              type={'text'}
+              value={watch('comp_nm')}
+              {...register('comp_nm', {
+                required: '필수입력 사항입니다.',
               })}
             />
 
@@ -106,26 +98,26 @@ export default function ContactClient() {
               {errors.comp_nm ? (
                 <span className={style.error}>{errors.comp_nm.message}</span>
               ) : (
-                ""
+                ''
               )}
             </p>
           </div>
           <p className={style.title}>담당자명</p>
           <div className={style.inp_box}>
             <Input
-              id={"user_nm"}
-              labelNm={"user_nm"}
-              type={"text"}
-              value={watch("user_nm")}
-              {...register("user_nm", {
-                required: "필수입력 사항입니다.",
+              id={'user_nm'}
+              labelNm={'user_nm'}
+              type={'text'}
+              value={watch('user_nm')}
+              {...register('user_nm', {
+                required: '필수입력 사항입니다.',
               })}
             />
             <p className={style.message}>
               {errors.user_nm ? (
                 <span className={style.error}>{errors.user_nm.message}</span>
               ) : (
-                ""
+                ''
               )}
             </p>
           </div>
@@ -135,32 +127,32 @@ export default function ContactClient() {
           <p className={style.title}>이메일</p>
           <div className={style.inp_box}>
             <Input
-              id={""}
-              labelNm={""}
-              type={"text"}
-              value={watch("reply_email")}
-              {...register("reply_email", {
-                required: "필수입력 사항입니다.",
+              id={''}
+              labelNm={''}
+              type={'text'}
+              value={watch('reply_email')}
+              {...register('reply_email', {
+                required: '필수입력 사항입니다.',
                 pattern: {
                   value:
                     /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/,
-                  message: "올바른 이메일 형식을 입력해주세요.",
+                  message: '올바른 이메일 형식을 입력해주세요.',
                 },
               })}
             />
 
             <p className={style.message}>
-              {errors.reply_email && errors.reply_email.type === "required" ? (
+              {errors.reply_email && errors.reply_email.type === 'required' ? (
                 <span className={style.error}>
                   {errors.reply_email.message}
                 </span>
               ) : errors.reply_email &&
-                errors.reply_email.type === "pattern" ? (
+                errors.reply_email.type === 'pattern' ? (
                 <span className={style.caution}>
                   {errors.reply_email.message}
                 </span>
               ) : (
-                ""
+                ''
               )}
             </p>
           </div>
@@ -171,14 +163,14 @@ export default function ContactClient() {
           <div className={style.inp_box}>
             {/* editor */}
             <Textarea
-              title={"contents"}
-              value={watch("contents")}
-              {...register("contents", {
-                required: "필수입력 사항입니다.",
+              title={'contents'}
+              value={watch('contents')}
+              {...register('contents', {
+                required: '필수입력 사항입니다.',
               })}
               onChange={(e) => {
                 const value = e.currentTarget.value;
-                setValue("contents", value);
+                setValue('contents', value);
               }}
             />
             {/* <textarea
@@ -192,7 +184,7 @@ export default function ContactClient() {
               {errors.contents ? (
                 <span className={style.error}>{errors.contents.message}</span>
               ) : (
-                ""
+                ''
               )}
             </p>
           </div>
@@ -202,52 +194,52 @@ export default function ContactClient() {
 
         <div className={style.btn_box}>
           <Btn
-            type={"button"}
-            title={"문의"}
-            id={"summit"}
-            btnType={"text"}
+            type={'button'}
+            title={'문의'}
+            id={'summit'}
+            btnType={'text'}
             hover={false}
             onClick={async (e) => {
               const result = await trigger(
-                ["category", "comp_nm", "user_nm", "reply_email", "contents"],
+                ['category', 'comp_nm', 'user_nm', 'reply_email', 'contents'],
                 { shouldFocus: true }
               );
 
               if (!result) {
                 if (errors.category) {
                   setError(
-                    "category",
-                    { type: "focus", message: "필수입력 사항입니다." },
+                    'category',
+                    { type: 'focus', message: '필수입력 사항입니다.' },
                     { shouldFocus: true }
                   );
                 } else if (errors.comp_nm) {
                   setError(
-                    "comp_nm",
-                    { type: "focus", message: "필수입력 사항입니다." },
+                    'comp_nm',
+                    { type: 'focus', message: '필수입력 사항입니다.' },
                     { shouldFocus: true }
                   );
                 } else if (errors.user_nm) {
                   setError(
-                    "user_nm",
-                    { type: "focus", message: "필수입력 사항입니다." },
+                    'user_nm',
+                    { type: 'focus', message: '필수입력 사항입니다.' },
                     { shouldFocus: true }
                   );
                 } else if (errors.reply_email) {
                   setError(
-                    "reply_email",
+                    'reply_email',
                     {
-                      type: "focus",
+                      type: 'focus',
                       message:
-                        errors.reply_email.type === "required"
-                          ? "필수입력 사항입니다."
-                          : "올바른 이메일 형식을 입력해주세요.",
+                        errors.reply_email.type === 'required'
+                          ? '필수입력 사항입니다.'
+                          : '올바른 이메일 형식을 입력해주세요.',
                     },
                     { shouldFocus: true }
                   );
                 } else if (errors.contents) {
                   setError(
-                    "contents",
-                    { type: "focus", message: "필수입력 사항입니다." },
+                    'contents',
+                    { type: 'focus', message: '필수입력 사항입니다.' },
                     { shouldFocus: true }
                   );
                 }
@@ -256,17 +248,17 @@ export default function ContactClient() {
                   e.preventDefault();
                   emailjs
                     .sendForm(
-                      "service_th1it0f",
-                      "template_fe49zso",
+                      'service_2au6h99',
+                      'template_meiaiun',
                       form.current,
-                      "hhkqTsslE9yPn7Cod"
+                      'ZpeMXkqsMX992vcEG'
                     )
                     .then(
                       (result) => {
                         if (result.status === 200) {
-                          setText("성공적으로 이메일이 전송되었습니다.");
+                          setText('성공적으로 이메일이 전송되었습니다.');
                           setIsChange(true);
-                          setStatus("success");
+                          setStatus('success');
                           form.current?.reset();
                           reset();
                         } else {
@@ -274,7 +266,7 @@ export default function ContactClient() {
                             `이메일 전송이 실패되었습니다. | ${result.text}`
                           );
                           setIsChange(true);
-                          setStatus("success");
+                          setStatus('success');
                         }
                       },
                       (error) => {
@@ -282,7 +274,7 @@ export default function ContactClient() {
                           `이메일 전송이 실패되었습니다. | ${error.text}`
                         );
                         setIsChange(true);
-                        setStatus("success");
+                        setStatus('success');
                       }
                     );
                 }
