@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("./reset.css");
+@import url('./reset.css');
 // 규칙
 // h1 : 로고
 // h2 : 메인비쥬얼 타이틀 60-36
@@ -181,7 +181,7 @@ img {
 // }
 
 // pc에서 모바일 숨기기
-[class^="mo_"] {
+[class^='mo_'] {
   display: none !important;
 }
 
@@ -270,6 +270,10 @@ img {
 // swiper 버튼
 .swiper-button-prev,
 .swiper-button-next {
+  border-radius: var(--br-50pro);
+  overflow: hidden;
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
   svg {
     color: var(--black);
   }
@@ -331,11 +335,11 @@ button.swiper-pagination-bullet-active {
   // }
 
   // 모바일에서 pc 숨기기
-  [class^="pc_"] {
+  [class^='pc_'] {
     display: none !important;
   }
   // 모바일에서 모바일 생성
-  [class^="mo_"] {
+  [class^='mo_'] {
     display: flex !important;
   }
 

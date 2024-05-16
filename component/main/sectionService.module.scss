@@ -1,0 +1,20 @@
+// 제품 소개, 서비스 소개, 강점소개 공통
+.product_box {
+  width: 100%;
+  gap: 2rem;
+}
+
+// 제품 소개
+
+// 서비스 소개
+
+// 강점 소개
+
+// 반응형
+@media screen and (max-width: 1024px) {
+  // 제품 소개, 서비스 소개, 강점소개 공통
+  .product_box {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+}
