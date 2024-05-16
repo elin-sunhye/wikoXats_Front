@@ -47,8 +47,9 @@ export const Footer = ({}: FooterProps) => {
           </p>
           <span className={footer_style.adress}>
             위코(WIKO) <br />
-            경상남도 창원특례시 의창구 용동로 45, 13층 <br />
-            +82(0)10-2222-3333 | ats@ats.com
+            경상남도 창녕군 영산면 영산월령로 370
+            <br />
+            Tel) 055-521-1255~6 | Fax) 055-521-1257 | wiko6561@hanmail.net
           </span>
           <ul className={`pc_legals flex_start ${footer_style.legals}`}>
             <li>
