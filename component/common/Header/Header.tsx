@@ -2,13 +2,14 @@
 
 import React, { useEffect, useState } from 'react';
 import header_style from './header.module.scss';
+import { Gnb } from './Gnb/Gnb';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 //AOS
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Gnb } from './Gnb/Gnb';
-import Image from 'next/image';
-import Link from 'next/link';
 
 interface HeaderProps {}
 
@@ -49,7 +50,7 @@ export const Header = ({}: HeaderProps) => {
     >
       <div className={`wrap flex_between ${header_style.header_box}`}>
         <h1 className={header_style.logo}>
-          <Link href={`/`} className="flex_center">
+          <Link href={`/`} className={`flex_center`}>
             <Image
               src={scroll ? '/img/ico_logo.svg' : '/img/img_logo.svg'}
               alt="로고 이미지"

@@ -309,6 +309,10 @@ button.swiper-pagination-bullet-active {
 // }
 
 // 공통 section
+section {
+  overflow: hidden;
+}
+
 .section_padding {
   padding: 13rem 0;
 }
