@@ -160,7 +160,7 @@ export default function MainVisual() {
         </h2>
         <p>
           세계적인 기술과 다양한 경험을 바탕으로 <br />
-          귀사의 주조환 경에 알맞은 기술을 서비스 합니다.
+          귀사의 주조 환경에 알맞은 기술을 서비스 합니다.
         </p>
         <BtnLink
           title={`문의하기`}

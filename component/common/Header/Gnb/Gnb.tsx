@@ -7,14 +7,15 @@ import Link from 'next/link';
 import { FaRegHandshake } from 'react-icons/fa';
 import { MdOutlineContactSupport } from 'react-icons/md';
 import { FiMail } from 'react-icons/fi';
+import { MenusType } from '@/types/menus';
+import { useBodyScrollLock } from '@/hook/noScroll';
+
 // dummyData
 import menus from '@/dummyData/menus.json';
 
 //AOS
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { MenusType } from '@/types/menus';
-import { useBodyScrollLock } from '@/hook/noScroll';
 
 interface GnbProps {
   scroll: boolean;
@@ -83,9 +84,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
                   <Link
                     href={menu.url}
                     title={menu.title}
-                    className={`${
-                      pathName.split('/')[1] === menu.url ? style.active : ''
-                    }`}
+                    className={`${pathName === menu.url ? style.active : ''}`}
                   >
                     <p>{menu.menu}</p>
                   </Link>
@@ -105,7 +104,11 @@ export const Gnb = ({ scroll }: GnbProps) => {
             if (menu.level === 1 && menu.main === 'N') {
               return (
                 <li key={menu.seq}>
-                  <Link href={menu.url} title={menu.title}>
+                  <Link
+                    href={menu.url}
+                    title={menu.title}
+                    className={`${pathName === menu.url ? style.active : ''}`}
+                  >
                     <p>{menu.menu}</p>
                     {menu.menu === 'Partners' ? (
                       <FaRegHandshake

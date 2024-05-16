@@ -87,7 +87,9 @@ export default function SectionCommonLayout({
     <section
       id={sectionId}
       className="section_padding"
-      style={{ background: sectionBg ? sectionBg : 'var(--white)' }}
+      style={{
+        background: sectionBg ? sectionBg : 'var(--white)',
+      }}
     >
       <div className={`wrap flex_start ${style.section_box}`}>
         <SectionTitle
