@@ -23,8 +23,9 @@ export default function StoryClient() {
           <div className={`${style.paragraph}`}>
             <p>안녕하십니까? 저희 위코주식회사를 방문해 주셔서 감사합니다.</p>
             <p>
-              저희 '위코주식회사'는 1999년 부산에서 설립된 '코리아캐스트'를
-              기반으로, 2009년 ‘위코주식회사’로 법인 전환 하였습니다.
+              저희 &#39;위코주식회사&#39;는 1999년 부산에서 설립된
+              &#39;코리아캐스트&#39;를 기반으로, 2009년 ‘위코주식회사’로 법인
+              전환 하였습니다.
             </p>
           </div>
           `
@@ -37,7 +38,7 @@ export default function StoryClient() {
           </div>
           <div className={`${style.paragraph}`}>
             <p>
-              바쁘신 와중에도 저희 '위코주식회사'를 방문해 주신 여러분께
+              바쁘신 와중에도 저희 &#39;위코주식회사&#39;를 방문해 주신 여러분께
               진심으로 감사드리며, 앞으로 고객 여러분께 좋은 제품, 기술 서비스를
               제공하는 기업이 될 수 있도록 많은 격려 부탁드립니다.
             </p>
@@ -234,7 +235,7 @@ export default function StoryClient() {
             <p className={`${style.year}`}>2011</p>
             <span></span>
             <ul className={`${style.history}`}>
-              <li>'정밀주조용 패턴의 코팅 자동화 라인' 특허등록</li>
+              <li>&#39;정밀주조용 패턴의 코팅 자동화 라인&#39; 특허등록</li>
               <li>IMERYS 한국 에이전트 계약</li>
               <li>VA - TECH 한국 에이전트 계약</li>
             </ul>
@@ -244,7 +245,7 @@ export default function StoryClient() {
             <p className={`${style.year}`}>2002</p>
             <span></span>
             <ul className={`${style.history}`}>
-              <li>'위코주식회사' 법인 전환</li>
+              <li>&#39;위코주식회사&#39; 법인 전환</li>
             </ul>
           </div>
 
@@ -252,7 +253,7 @@ export default function StoryClient() {
             <p className={`${style.year}`}>1999</p>
             <span></span>
             <ul className={`${style.history}`}>
-              <li>'코리아캐스트' 설립</li>
+              <li>&#39;코리아캐스트&#39; 설립</li>
             </ul>
           </div>
         </div>
