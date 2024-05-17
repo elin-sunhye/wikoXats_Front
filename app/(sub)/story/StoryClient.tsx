@@ -6,8 +6,38 @@ import { MdLocationOn } from 'react-icons/md';
 import { BiSolidPhoneCall } from 'react-icons/bi';
 import { FaFax } from 'react-icons/fa6';
 import { MdMarkEmailUnread } from 'react-icons/md';
+import { RiMapPinRangeFill } from 'react-icons/ri';
+import { RiMapPin3Fill } from 'react-icons/ri';
+
+// kakaoMap
+import {
+  CustomOverlayMap,
+  Map,
+  MapMarker,
+  useKakaoLoader,
+} from 'react-kakao-maps-sdk';
+import { useEffect, useState } from 'react';
 
 export default function StoryClient() {
+  // useKakaoLoader();
+  // // 지도
+  // const [createMap, setCreateMap] = useState<kakao.maps.Map>();
+  // const [isMounted, setIsMounted] = useState<boolean>(false);
+
+  // 지도 센터 위치
+  const [location, setLocation] = useState<{
+    lat: number;
+    lng: number;
+  }>({ lat: 35.4291203410053, lng: 128.48635821889138 });
+  // }>({ lat: 35.4288859, lng: 128.486459 });
+
+  // useEffect(() => {
+  //   if (createMap && isMounted) {
+  //     setLocation({ lat:   35.4288859, lng: 128.486459});
+  // 35.4291203410053, 128.48635821889138
+  //   }
+  // }, [createMap]);
+
   return (
     <>
       <SectionCommonLayout
@@ -28,7 +58,7 @@ export default function StoryClient() {
               전환 하였습니다.
             </p>
           </div>
-          `
+
           <div className={`${style.paragraph}`}>
             <p>
               저희는 향상된 기술 서비스와 안정적인 품질의 제품들을 기반으로,
@@ -48,163 +78,6 @@ export default function StoryClient() {
             대표이사<span>안영도</span>
           </div>
         </div>
-
-        {/* ------------------------------ */}
-        {/* <div className={`flex_between ${style.box_1}`}>
-          <div className={style.left}>
-            <p className={style.title}>정밀주조</p>
-            <span>정밀주조 파트너스에 대한 설명이요요요</span>
-          </div>
-          <div className={style.right}>
-            <ul className="flex_start">
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className={`flex_between ${style.box_2}`}>
-          <div className={style.left}>
-            <p className={style.title}>정밀주조</p>
-            <span>정밀주조 파트너스에 대한 설명이요요요</span>
-          </div>
-          <div className={style.right}>
-            <ul className="flex_start">
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className={`flex_between ${style.box_3}`}>
-          <div className={style.left}>
-            <p className={style.title}>정밀주조</p>
-            <span>정밀주조 파트너스에 대한 설명이요요요</span>
-          </div>
-          <div className={style.right}>
-            <ul className="flex_start">
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className={`flex_between ${style.box_4}`}>
-          <div className={style.left}>
-            <p className={style.title}>정밀주조</p>
-            <span>정밀주조 파트너스에 대한 설명이요요요</span>
-          </div>
-          <div className={style.right}>
-            <ul className="flex_start">
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className={`flex_between ${style.box_5}`}>
-          <div className={style.left}>
-            <p className={style.title}>정밀주조</p>
-            <span>정밀주조 파트너스에 대한 설명이요요요</span>
-          </div>
-          <div className={style.right}>
-            <ul className="flex_start">
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-              <li>
-                <Link href={'/'}>정밀주조 파트너</Link>
-              </li>
-            </ul>
-          </div>
-        </div> */}
       </SectionCommonLayout>
 
       <SectionCommonLayout
@@ -267,7 +140,22 @@ export default function StoryClient() {
         btnYn={false}
       >
         <div className={`flex_between ${style.location_box}`}>
-          <div className={style.left}></div>
+          <div className={style.left}>
+            <Map
+              center={location}
+              level={3}
+              style={{ width: '100%', height: '100%' }}
+            >
+              <CustomOverlayMap position={location}>
+                <div className={style.map_marker}>
+                  <p className="flex_center">
+                    <span>HERE</span>
+                    <span>위코주식회사</span>
+                  </p>
+                </div>
+              </CustomOverlayMap>
+            </Map>
+          </div>
           <div className={style.right}>
             <p>위코주식회사</p>
 

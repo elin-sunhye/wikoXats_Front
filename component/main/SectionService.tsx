@@ -27,7 +27,7 @@ export default function SectionService() {
     },
     {
       title: '세계적인 광물 회사 IMERYS',
-      desc: '각국에위치한광산에서채취한광물을고온 의 공정을 통해 불순물을 제거하고 내화도를 높여, 높은 품질의 제품을 제공합니다.',
+      desc: '각 국에 위치한 광산에서 채취한 광물을 고온의 공정을 통해 불순물을 제거하고 내화도를 높여, 높은 품질의 제품을 제공합니다.',
       imgSrc: `/`,
       imgAlt: `#`,
     },
@@ -38,7 +38,7 @@ export default function SectionService() {
       sectionId={'contProducts'}
       sectionBg={`var(--main-green-1)`}
       title={`세계적 경험과 기술력으로 <br />혁신의 길을 열어 나가다.`}
-      desc={`코팅 장비부터 공조 시스템과 스마트 공장의 디자인. <br />현재의공정상태를면밀히체크할수있는분석시스템.`}
+      desc={`코팅 장비부터 공조 시스템과 스마트 공장의 디자인. <br />현재의 공정상태를 면밀히 체크할 수 있는 분석 시스템.`}
       color={`var(--white)`}
       btnYn={true}
       btnTitle={`WIKO 기술 상담`}
