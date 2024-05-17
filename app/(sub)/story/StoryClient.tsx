@@ -89,45 +89,45 @@ export default function StoryClient() {
       >
         <div className={`flex_end ${style.history_box}`}>
           <div className={`flex_center ${style.row}`}>
-            <p className={`${style.year}`}>2017</p>
-            <span></span>
             <ul className={`${style.history}`}>
               <li>Ransom & Randolph 한국 에이전트 계약 체결</li>
             </ul>
+            <span></span>
+            <p className={`${style.year}`}>2017</p>
           </div>
 
           <div className={`flex_center ${style.row}`}>
-            <p className={`${style.year}`}>2012</p>
-            <span></span>
             <ul className={`${style.history}`}>
               <li>벤처기업 가입</li>
             </ul>
+            <span></span>
+            <p className={`${style.year}`}>2012</p>
           </div>
 
           <div className={`flex_center ${style.row}`}>
-            <p className={`${style.year}`}>2011</p>
-            <span></span>
             <ul className={`${style.history}`}>
               <li>&#39;정밀주조용 패턴의 코팅 자동화 라인&#39; 특허등록</li>
               <li>IMERYS 한국 에이전트 계약</li>
               <li>VA - TECH 한국 에이전트 계약</li>
             </ul>
+            <span></span>
+            <p className={`${style.year}`}>2011</p>
           </div>
 
           <div className={`flex_center ${style.row}`}>
-            <p className={`${style.year}`}>2002</p>
-            <span></span>
             <ul className={`${style.history}`}>
               <li>&#39;위코주식회사&#39; 법인 전환</li>
             </ul>
+            <span></span>
+            <p className={`${style.year}`}>2002</p>
           </div>
 
           <div className={`flex_center ${style.row}`}>
-            <p className={`${style.year}`}>1999</p>
-            <span></span>
             <ul className={`${style.history}`}>
               <li>&#39;코리아캐스트&#39; 설립</li>
             </ul>
+            <span></span>
+            <p className={`${style.year}`}>1999</p>
           </div>
         </div>
       </SectionCommonLayout>

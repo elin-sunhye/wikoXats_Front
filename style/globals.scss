@@ -131,6 +131,7 @@
   box-sizing: border-box;
   -webkit-text-size-adjust: none;
   outline-color: var(--main-green-1);
+  word-break: keep-all;
 }
 
 html,
@@ -337,15 +338,6 @@ section {
   //   padding: 0 calc(15% / 2);
   // }
 
-  // 모바일에서 pc 숨기기
-  [class^='pc_'] {
-    display: none !important;
-  }
-  // 모바일에서 모바일 생성
-  [class^='mo_'] {
-    display: flex !important;
-  }
-
   // 공통 btn_class
   .section_padding {
     padding: 8rem 0;
@@ -355,6 +347,15 @@ section {
 @media screen and (max-width: 768px) {
   br {
     display: none;
+  }
+
+  // 모바일에서 pc 숨기기
+  [class^='pc_'] {
+    display: none !important;
+  }
+  // 모바일에서 모바일 생성
+  [class^='mo_'] {
+    display: flex !important;
   }
 }
 // @media screen and (max-width: 640px){}
