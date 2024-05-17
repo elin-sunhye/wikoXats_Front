@@ -312,7 +312,6 @@ button.swiper-pagination-bullet-active {
 section {
   overflow: hidden;
 }
-
 .section_padding {
   padding: 13rem 0;
 }
@@ -353,7 +352,11 @@ section {
   }
 }
 // 모바일
-// @media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+  br {
+    display: none;
+  }
+}
 // @media screen and (max-width: 640px){}
 // @media screen and (max-width: 425px){}
 // @media screen and (max-width: 375px){}
