@@ -98,13 +98,14 @@ export default function MainVisual() {
         {mvArray.map((img: string, index: number) => {
           return (
             <SwiperSlide key={`mv_${index}`}>
-              <Image
+              {/* <Image
                 src={img}
                 alt={`mv_${index}_이미지`}
                 width={0}
                 height={0}
                 className={style.img}
-              />
+              /> */}
+              <span className={style.swiper_bg}></span>
             </SwiperSlide>
           );
         })}
@@ -146,7 +147,7 @@ export default function MainVisual() {
         />
       </Swiper>
       <div className={`wrap flex_start ${style.main_visual_wrap}`}>
-        <h2>
+        <h2 className={'pc_title'}>
           혁신적인 기술로
           <p>
             세상을 바꾸는 서비스,
@@ -157,6 +158,10 @@ export default function MainVisual() {
             />
           </p>
           함께 미래를 만들어가요!
+        </h2>
+
+        <h2 className={'mo_title'}>
+          혁신적인 기술로 세상을 바꾸는 서비스, 함께 미래를 만들어가요!
         </h2>
         <p>
           세계적인 기술과 다양한 경험을 바탕으로 <br />
