@@ -127,6 +127,7 @@ button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  color: var(--main-green-1);
 }
 /* // input:focus,
 // textarea:focus,

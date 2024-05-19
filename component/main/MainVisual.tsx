@@ -148,16 +148,16 @@ export default function MainVisual() {
       </Swiper>
       <div className={`wrap flex_start ${style.main_visual_wrap}`}>
         <h2 className={'pc_title'}>
-          혁신적인 기술로
+          주물 • 주조 및 산업 부자재
           <p>
-            세상을 바꾸는 서비스,
+            {/* 주물 • 주조 및 산업 부자재
             <HiOutlineCursorClick
               role={`img`}
               aria-label={`포인트 커서 아이콘`}
               className={style.ico_cursor}
-            />
+            /> */}
           </p>
-          함께 미래를 만들어가요!
+          전문 기업
         </h2>
 
         <h2 className={'mo_title'}>
