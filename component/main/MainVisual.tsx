@@ -157,7 +157,7 @@ export default function MainVisual() {
               aria-label={`포인트 커서 아이콘`}
               className={style.ico_cursor}
             /> */}
-          </p>
+          </p>{' '}
           전문 기업
         </h2>
 

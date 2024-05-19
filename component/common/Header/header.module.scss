@@ -101,3 +101,18 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .header_wrap {
+    .header_box {
+      padding: 0 2rem;
+    }
+  }
+
+  // 스크롤 시
+  .header_wrap.scroll {
+    .header_box {
+      padding: 0 2rem;
+    }
+  }
+}

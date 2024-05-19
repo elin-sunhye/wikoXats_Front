@@ -134,3 +134,16 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  // 메인비주얼
+  #mainVisual {
+    .main_visual_wrap {
+      h2 {
+        p {
+          display: none;
+        }
+      }
+    }
+  }
+}
