@@ -44,6 +44,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
       lockScroll();
     } else {
       openScroll();
+      setMoMenuSeq(0);
     }
   }, [moGnbOpen]);
 

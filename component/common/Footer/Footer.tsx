@@ -77,13 +77,25 @@ export const Footer = ({}: FooterProps) => {
             </Link>
           </li>
           {menus.map((menu: MenusType) => {
-            return (
-              <li key={menu.seq}>
-                <Link href={menu.url} title={menu.title}>
-                  <p>{menu.menu}</p>
-                </Link>
-              </li>
-            );
+            if (menu.level === 1) {
+              return (
+                <li key={menu.seq}>
+                  <Link
+                    href={
+                      menu.hasChild
+                        ? menus.find(
+                            (child: MenusType) =>
+                              child.parentSeq === menu.seq && child.level === 2
+                          )?.url || ''
+                        : menu.url
+                    }
+                    title={menu.title}
+                  >
+                    <p>{menu.menu}</p>
+                  </Link>
+                </li>
+              );
+            }
           })}
         </ul>
 
