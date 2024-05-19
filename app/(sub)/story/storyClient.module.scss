@@ -89,7 +89,7 @@
     &:nth-of-type(odd) .history,
     &:nth-of-type(even) .year {
       text-align: right;
-      width: calc(((100% - 2rem) / 3) * 2);
+      width: calc(((100% - 20rem) / 3) * 2);
     }
 
     &:nth-of-type(odd) .year,

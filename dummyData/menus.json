@@ -5,8 +5,9 @@
     "menu": "About us",
     "url": "/story",
     "title": "회사 소개 바로가기",
-    "main": "Y",
-    "level": 1
+    "type": "main",
+    "level": 1,
+    "hasChild": false
   },
   {
     "seq": 2,
@@ -14,8 +15,59 @@
     "menu": "Products",
     "url": "/products",
     "title": "제품 바로가기",
-    "main": "Y",
-    "level": 1
+    "type": "main",
+    "level": 1,
+    "hasChild": true
+  },
+  {
+    "seq": 20,
+    "parentSeq": 2,
+    "menu": "원자재",
+    "url": "/products/rawmaterials",
+    "title": "원자재 바로가기",
+    "type": "main",
+    "level": 2,
+    "hasChild": false
+  },
+  {
+    "seq": 21,
+    "parentSeq": 2,
+    "menu": "정밀주조용 제품",
+    "url": "/products/investmentcasting",
+    "title": "정밀주조용 제품 바로가기",
+    "type": "main",
+    "level": 2,
+    "hasChild": false
+  },
+  {
+    "seq": 22,
+    "parentSeq": 2,
+    "menu": "주강 • 주철용 제품",
+    "url": "/products/foundry",
+    "title": "주강 • 주철용 제품 바로가기",
+    "type": "main",
+    "level": 2,
+    "hasChild": false
+  },
+  {
+    "seq": 23,
+    "parentSeq": 2,
+    "menu": "로봇 장비",
+    "url": "/products/robot",
+    "title": "로봇 장비 바로가기",
+    "type": "main",
+    "level": 2,
+    "hasChild": false
+  },
+  {
+    "seq": 24,
+    "parentSeq": 2,
+    "menu": "기타 제품",
+    "url": "/products/etc",
+    "title": "기타 제품 바로가기",
+    "type": "main",
+    "level": 2,
+    "hasChild": false
   },
   {
     "seq": 3,
@@ -23,8 +75,9 @@
     "menu": "Service",
     "url": "/service",
     "title": "서비스 바로가기",
-    "main": "Y",
-    "level": 1
+    "type": "main",
+    "level": 1,
+    "hasChild": false
   },
   {
     "seq": 4,
@@ -32,25 +85,28 @@
     "menu": "News",
     "url": "/news",
     "title": "뉴스 바로가기",
-    "main": "Y",
-    "level": 1
+    "type": "main",
+    "level": 1,
+    "hasChild": false
   },
   {
-    "seq": 6,
+    "seq": 5,
     "parentSeq": 0,
     "menu": "FAQ",
     "url": "/faq",
     "title": "자주하는 질문 바로가기",
-    "main": "N",
-    "level": 1
+    "type": "sub",
+    "level": 1,
+    "hasChild": false
   },
   {
-    "seq": 7,
+    "seq": 6,
     "parentSeq": 0,
     "menu": "Contact",
     "url": "/contact",
     "title": "문의 바로가기",
-    "main": "N",
-    "level": 1
+    "type": "sub",
+    "level": 1,
+    "hasChild": false
   }
 ]

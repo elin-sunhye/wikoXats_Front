@@ -4,6 +4,7 @@ export type MenusType = {
   menu: string;
   url: string;
   title: string;
-  main: string;
+  type: string;
   level: number;
+  hasChild: boolean;
 };

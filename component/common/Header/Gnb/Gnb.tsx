@@ -27,6 +27,9 @@ export const Gnb = ({ scroll }: GnbProps) => {
     AOS.init();
   });
 
+  // 자식 있는 메뉴 호버 시
+  const [childHover, setChildHover] = useState<boolean>(false);
+
   // 모바일 gnb 열기
   /**
    * true: 열림
@@ -76,20 +79,53 @@ export const Gnb = ({ scroll }: GnbProps) => {
   return (
     <div className={`${style.gnb_wrap} ${scroll ? style.scroll : ''}`}>
       <div className={`pc_gnb flex_between ${style.pc_gnb} `}>
-        <ul className={`flex_start ${style.left}`}>
+        <ul className={`flex_start ${style.left} ${style.depth_1}`}>
           {menus.map((menu: MenusType) => {
-            if (menu.level === 1 && menu.main === 'Y') {
-              return (
-                <li key={menu.seq}>
-                  <Link
-                    href={menu.url}
-                    title={menu.title}
-                    className={`${pathName === menu.url ? style.active : ''}`}
-                  >
-                    <p>{menu.menu}</p>
-                  </Link>
-                </li>
-              );
+            if (menu.level === 1 && menu.type === 'main') {
+              if (menu.hasChild) {
+                return (
+                  <li key={menu.seq}>
+                    <button
+                      type={'button'}
+                      // href={menu.url}
+                      title={menu.title}
+                      className={`${pathName === menu.url ? style.active : ''}`}
+                    >
+                      <p>{menu.menu}</p>
+
+                      <div className={style.depth_2_box}>
+                        <ul className={`flex_start ${style.depth_2}`}>
+                          {menus
+                            .filter(
+                              (depth2Seq) => depth2Seq.parentSeq === menu.seq
+                            )
+                            .map((depth2) => {
+                              return (
+                                <li key={`depth2_${depth2.seq}`}>
+                                  <a href={depth2.url} title={depth2.title}>
+                                    {depth2.menu}
+                                  </a>
+                                </li>
+                              );
+                            })}
+                        </ul>
+                      </div>
+                    </button>
+                  </li>
+                );
+              } else {
+                return (
+                  <li key={menu.seq}>
+                    <Link
+                      href={menu.url}
+                      title={menu.title}
+                      className={`${pathName === menu.url ? style.active : ''}`}
+                    >
+                      <p>{menu.menu}</p>
+                    </Link>
+                  </li>
+                );
+              }
             }
           })}
         </ul>
@@ -101,7 +137,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
 
         <ul className={`flex_start ${style.right}`} data-aos="fade-left">
           {menus.map((menu: MenusType) => {
-            if (menu.level === 1 && menu.main === 'N') {
+            if (menu.level === 1 && menu.type === 'sub') {
               return (
                 <li key={menu.seq}>
                   <Link
