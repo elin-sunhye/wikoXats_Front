@@ -147,7 +147,8 @@ export default function MainVisual() {
         />
       </Swiper>
       <div className={`wrap flex_start ${style.main_visual_wrap}`}>
-        <h2 className={'pc_title'}>
+        <h2>
+          {/* <h2 className={'pc_title'}> */}
           주물 • 주조 및 산업 부자재
           <p>
             {/* 주물 • 주조 및 산업 부자재
@@ -160,9 +161,9 @@ export default function MainVisual() {
           전문 기업
         </h2>
 
-        <h2 className={'mo_title'}>
+        {/* <h2 className={'mo_title'}>
           혁신적인 기술로 세상을 바꾸는 서비스, 함께 미래를 만들어가요!
-        </h2>
+        </h2> */}
         <p>
           세계적인 기술과 다양한 경험을 바탕으로 <br />
           귀사의 주조 환경에 알맞은 기술을 서비스 합니다.

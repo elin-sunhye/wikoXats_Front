@@ -27,15 +27,15 @@ export const Gnb = ({ scroll }: GnbProps) => {
     AOS.init();
   });
 
-  // 자식 있는 메뉴 호버 시
-  const [childHover, setChildHover] = useState<boolean>(false);
-
   // 모바일 gnb 열기
   /**
    * true: 열림
    * false : 닫힘
    */
   const [moGnbOpen, setMoGnbOpen] = useState<boolean>(false);
+
+  // 모바일 메뉴 아코디언
+  const [moMenuSeq, setMoMenuSeq] = useState<number>(0);
 
   // 모바일 메뉴 띄울 시 스크롤 막기
   const { lockScroll, openScroll } = useBodyScrollLock();
@@ -71,6 +71,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
   useEffect(() => {
     // 모바일 링크 이동시 메뉴 닫기
     setMoGnbOpen(false);
+    setMoMenuSeq(0);
 
     // 링크와 같은 메뉴 액티브
     // console.log('pathName', pathName.split('/'));
@@ -197,14 +198,54 @@ export const Gnb = ({ scroll }: GnbProps) => {
         <div className={`wrap ${style.mo_wrap}`}>
           <ul className={style.left}>
             {menus.map((menu: MenusType) => {
-              if (menu.level === 1 && menu.seq >= 1 && menu.seq <= 7) {
-                return (
-                  <li key={menu.seq}>
-                    <Link href={menu.url} title={menu.title}>
-                      <p>{menu.menu}</p>
-                    </Link>
-                  </li>
-                );
+              if (menu.level === 1 && menu.seq >= 1 && menu.seq <= 4) {
+                if (menu.hasChild) {
+                  return (
+                    <li key={menu.seq}>
+                      <button
+                        type={'button'}
+                        title={menu.title}
+                        onClick={() => {
+                          if (moMenuSeq === menu.seq) {
+                            setMoMenuSeq(0);
+                          } else {
+                            setMoMenuSeq(menu.seq);
+                          }
+                        }}
+                      >
+                        <p>{menu.menu}</p>
+                      </button>
+
+                      <ul
+                        className={`${style.depth_2} ${
+                          moMenuSeq === menu.seq ? style.active : ''
+                        }`}
+                      >
+                        {menus
+                          .filter(
+                            (depth2Seq) => depth2Seq.parentSeq === menu.seq
+                          )
+                          .map((depth2) => {
+                            return (
+                              <li key={`mo_depth2_${depth2.seq}`}>
+                                <a href={depth2.url} title={depth2.title}>
+                                  {depth2.menu}
+                                </a>
+                              </li>
+                            );
+                          })}
+                      </ul>
+                    </li>
+                  );
+                } else {
+                  return (
+                    <li key={menu.seq}>
+                      <Link href={menu.url} title={menu.title}>
+                        <p>{menu.menu}</p>
+                      </Link>
+                    </li>
+                  );
+                }
               }
             })}
           </ul>
@@ -213,7 +254,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
 
           <ul className={style.right} data-aos="fade-left">
             {menus.map((menu: MenusType) => {
-              if (menu.level === 1 && menu.seq >= 8 && menu.seq <= 10) {
+              if (menu.level === 1 && menu.seq >= 5 && menu.seq <= 10) {
                 return (
                   <li key={menu.seq}>
                     <Link href={menu.url} title={menu.title}>
