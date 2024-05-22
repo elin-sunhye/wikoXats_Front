@@ -1,56 +1,71 @@
-'use client';
+"use client";
 
-import { SectionTitle } from '@/component/common/SectionTitle/SectionTitle';
-import style from './subTop.module.scss';
+import style from "./subTop.module.scss";
+import { SectionTitle } from "@/component/common/SectionTitle/SectionTitle";
+import { usePathname } from "next/navigation";
+
+// dummyData
+import menus from "@/dummyData/menus.json";
+import { useEffect, useState } from "react";
 
 interface SubTopProps {
-  maginBg?: string;
-  mainPadding?: boolean;
-  subTopColor?: string;
-  title: string;
-  desc: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 /**
- * @maginBg ?: 서브탑 배경 색 - 기본 - main color
- *
- * @mainPadding ?: 서브탑 배경 패딩 - 기본 5rem
- *
- * @subTopColor ?: 서브탑 배경색 - 기본 var(--main-green-1)
- *
- * @title : 섹션 제목 - 서비스 설명 `<br />`풍부한 데이터로부터
- *
- * @desc : 섹션 제목 밑 설명 - 국내시장 전역을 커버할 수 있는 풍부한 데이터를 활용하여 `<br />`정교한 오디언스 타겟팅으로 광고 효과를 상승 시킬 수 있습니다
- *
  * @children : 서브탑 컨텐츠
  */
 
-export default function SubTop({
-  maginBg,
-  mainPadding,
-  subTopColor,
-  title,
-  desc,
-  children,
-}: SubTopProps) {
-  return (
-    <main
-      className={`section_padding`}
-      style={{ background: maginBg ? maginBg : 'var(--white)' }}
-    >
-      <div
-        className={`wrap flex_center ${style.sub_top} ${
-          mainPadding || mainPadding === false ? style.no_padding : ''
-        }`}
-        style={{
-          backgroundColor: subTopColor ? subTopColor : 'var(--main-green-1)',
-        }}
-      >
-        <SectionTitle title={title} desc={desc} textAlign={`center`} />
+export default function SubTop({ children }: SubTopProps) {
+  //
+  const pathNm = usePathname();
+  const [menuNm, setMenuNm] = useState("");
 
-        <div className={style.sub_top_cont}>{children}</div>
+  useEffect(() => {
+    const array = menus.find((nm) => nm.url === pathNm);
+    let idx = 0;
+
+    if (array) {
+      idx = array.url.split("/").length - 1;
+    }
+
+    setMenuNm(array ? array.url.split("/")[idx] : "");
+  }, [pathNm]);
+
+  return (
+    <section
+      className={`flex_center ${style.sub_top} ${
+        style[menuNm]
+        // pathNm.includes("story")
+        //   ? style.story
+        //   : pathNm.includes("product")
+        //   ? style.product
+        //   : pathNm.includes("service")
+        //   ? style.service
+        //   : pathNm.includes("news")
+        //   ? style.news
+        //   : pathNm.includes("fap")
+        //   ? style.fap
+        //   : style.contact
+      }`}
+    >
+      <div className={"wrap"}>
+        <SectionTitle
+          title={menus.find((nm) => nm.url === pathNm)?.menu || ""}
+          desc={
+            pathNm.includes("story")
+              ? "위코 주식회사는 <br />고객의 품질과 생산성 향상을 위해 끊임 없이 발전하는 기술을 제공합니다."
+              : ""
+          }
+          textAlign={`center`}
+        />
+
+        {children ? (
+          <div className={style.sub_top_cont}>{children}</div>
+        ) : (
+          <></>
+        )}
       </div>
-    </main>
+    </section>
   );
 }

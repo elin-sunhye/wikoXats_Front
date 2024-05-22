@@ -2,9 +2,9 @@
   {
     "seq": 1,
     "parentSeq": 0,
-    "menu": "About us",
+    "menu": "회사소개",
     "url": "/story",
-    "title": "회사 소개 바로가기",
+    "title": "회사소개 바로가기",
     "type": "main",
     "level": 1,
     "hasChild": false
@@ -12,7 +12,7 @@
   {
     "seq": 2,
     "parentSeq": 0,
-    "menu": "Products",
+    "menu": "제품",
     "url": "/products",
     "title": "제품 바로가기",
     "type": "main",
@@ -72,7 +72,7 @@
   {
     "seq": 3,
     "parentSeq": 0,
-    "menu": "Service",
+    "menu": "서비스",
     "url": "/service",
     "title": "서비스 바로가기",
     "type": "main",
@@ -82,7 +82,7 @@
   {
     "seq": 4,
     "parentSeq": 0,
-    "menu": "News",
+    "menu": "뉴스",
     "url": "/news",
     "title": "뉴스 바로가기",
     "type": "main",
@@ -102,7 +102,7 @@
   {
     "seq": 6,
     "parentSeq": 0,
-    "menu": "Contact",
+    "menu": "문의",
     "url": "/contact",
     "title": "문의 바로가기",
     "type": "sub",

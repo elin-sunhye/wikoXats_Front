@@ -13,6 +13,7 @@
 
         a,
         button {
+          font-weight: bold;
           padding: 1rem;
           border-radius: var(--br-10);
 
@@ -32,12 +33,12 @@
           & > button {
             transition: var(--transition-03);
             background-color: var(--gray-1);
+          }
 
-            .depth_2_box {
-              .depth_2 {
-                height: 26rem;
-                margin-top: 1rem;
-              }
+          .depth_2_box {
+            .depth_2 {
+              height: 27.7rem;
+              margin-top: 1rem;
             }
           }
         }
@@ -58,23 +59,36 @@
           transition: var(--transition-03);
 
           .depth_2 {
+            width: max-content;
             height: 0;
+            padding: 0 1rem;
             border-radius: var(--br-10);
             box-shadow: var(--menu-shadow);
             overflow: hidden;
-            width: fit-content;
             background-color: var(--white);
             // background-color: rgba(255, 255, 255, 0.7);
             // backdrop-filter: var(--blur-1);
+            // -webkit-backdrop-filter: var(--blur-1);
             transition: var(--transition-03);
             flex-direction: column;
 
             li {
-              width: max-content;
-              padding: 0.5rem;
+              width: 100%;
+              text-align: center;
+
+              &:first-of-type {
+                margin-top: 1rem;
+              }
+              &:last-of-type {
+                margin-bottom: 1rem;
+              }
 
               a,
               button {
+                font-weight: normal;
+                width: 100%;
+                padding: 1.5rem 1rem;
+
                 // active
                 &.active {
                   background-color: var(--gray-1);
@@ -95,9 +109,9 @@
     .right li {
       height: 6rem;
       padding: 0 1rem;
-      background-color: var(--white);
-      // background-color: rgba(255, 255, 255, 0.7);
-      // backdrop-filter: var(--blur-1);
+      // background-color: var(--white);
+      background-color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: var(--blur-1);
       border-radius: var(--br-10);
     }
     .right li {
@@ -224,11 +238,11 @@
               padding: 0.5rem 0;
             }
 
-            &:first-of-type,
+            &:first-of-type {
+              margin-top: 1rem;
+            }
             &:last-of-type {
-              a {
-                padding: 1rem 0;
-              }
+              margin-bottom: 1rem;
             }
           }
 

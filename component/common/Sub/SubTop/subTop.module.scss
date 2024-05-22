@@ -1,13 +1,28 @@
 .sub_top {
   flex-wrap: wrap;
   gap: 3rem;
-  background-color: var(--main-green-1);
-  border-radius: var(--br-10);
+  background: var(--main-green-1) no-repeat center center / cover;
+  // border-radius: var(--br-10);
   color: var(--white);
-  padding: 7rem 5rem;
+  padding: 13rem 0 7rem;
 
-  &.no_padding {
-    padding: 7rem 0 !important;
+  // 배경이미지
+  &.story {
+    background-image: url("/img/subtop/img_story.svg");
+  }
+  &.rawmaterials {
+    background-image: url("/img/subtop/img_rawmaterials.svg");
+  }
+  &.investmentcasting {
+    background-image: url("/img/subtop/img_investmentcasting.svg");
+  }
+  &.service {
+  }
+  &.news {
+  }
+  &.fap {
+  }
+  &.contact {
   }
 
   & > .sub_top_cont {
@@ -17,14 +32,14 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .sub_top {
-    gap: 2rem;
-    border-radius: 0;
-    padding: 4rem 5rem !important;
-    width: 100%;
+  // .sub_top {
+  //   gap: 2rem;
+  //   border-radius: 0;
+  //   padding: 4rem 5rem !important;
+  //   width: 100%;
 
-    &.no_padding {
-      padding: 4rem 0 !important;
-    }
-  }
+  //   &.no_padding {
+  //     padding: 4rem 0 !important;
+  //   }
+  // }
 }

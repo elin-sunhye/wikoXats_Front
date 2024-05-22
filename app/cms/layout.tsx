@@ -51,7 +51,7 @@ const Gmarket = localFont({
       style: "normal",
     },
   ],
-  variable: "--Gmarket",
+  variable: "--gmarket",
   display: "fallback",
 });
 
