@@ -1,13 +1,11 @@
-'use client';
+"use client";
 
-import style from './storyClient.module.scss';
-import SectionCommonLayout from '@/component/common/SectionCommonLayout/SectionCommonLayout';
-import { MdLocationOn } from 'react-icons/md';
-import { BiSolidPhoneCall } from 'react-icons/bi';
-import { FaFax } from 'react-icons/fa6';
-import { MdMarkEmailUnread } from 'react-icons/md';
-import { RiMapPinRangeFill } from 'react-icons/ri';
-import { RiMapPin3Fill } from 'react-icons/ri';
+import style from "./storyClient.module.scss";
+import SectionCommonLayout from "@/component/common/SectionCommonLayout/SectionCommonLayout";
+import { MdLocationOn } from "react-icons/md";
+import { BiSolidPhoneCall } from "react-icons/bi";
+import { FaFax } from "react-icons/fa6";
+import { MdMarkEmailUnread } from "react-icons/md";
 
 // kakaoMap
 import {
@@ -15,8 +13,9 @@ import {
   Map,
   MapMarker,
   useKakaoLoader,
-} from 'react-kakao-maps-sdk';
-import { useEffect, useState } from 'react';
+} from "react-kakao-maps-sdk";
+import { useEffect, useState } from "react";
+import SubTop from "@/component/common/Sub/SubTop/SubTop";
 
 export default function StoryClient() {
   // useKakaoLoader();
@@ -41,15 +40,16 @@ export default function StoryClient() {
   return (
     <>
       <SectionCommonLayout
-        sectionId={'boss'}
+        sectionId={"boss"}
         title={
-          '위코 주식회사는 <br />고객의 품질과 생산성 향상을 위해 <br />끊임 없이 발전하는 기술을 제공합니다.'
+          // "위코 주식회사는 <br />고객의 품질과 생산성 향상을 위해 <br />끊임 없이 발전하는 기술을 제공합니다."
+          "CEO 인사말"
         }
-        desc={''}
+        desc={""}
         btnYn={false}
       >
         <div className={`${style.boss_box}`}>
-          <span className={`${style.img_box}`}></span>
+          {/* <span className={`${style.img_box}`}></span> */}
           <div className={`${style.paragraph}`}>
             <p>안녕하십니까? 저희 위코주식회사를 방문해 주셔서 감사합니다.</p>
             <p>
@@ -81,10 +81,10 @@ export default function StoryClient() {
       </SectionCommonLayout>
 
       <SectionCommonLayout
-        sectionId={'history'}
-        title={'연혁'}
-        desc={''}
-        sectionBg={'var(--gray-1)'}
+        sectionId={"history"}
+        title={"연혁"}
+        desc={""}
+        sectionBg={"var(--gray-1)"}
         btnYn={false}
       >
         <div className={`flex_end ${style.history_box}`}>
@@ -133,10 +133,10 @@ export default function StoryClient() {
       </SectionCommonLayout>
 
       <SectionCommonLayout
-        sectionId={'location'}
-        title={'찾아오시는 길'}
-        desc={''}
-        textAlign={'center'}
+        sectionId={"location"}
+        title={"찾아오시는 길"}
+        desc={""}
+        textAlign={"center"}
         btnYn={false}
       >
         <div className={`flex_between ${style.location_box}`}>
@@ -144,7 +144,7 @@ export default function StoryClient() {
             <Map
               center={location}
               level={3}
-              style={{ width: '100%', height: '100%' }}
+              style={{ width: "100%", height: "100%" }}
             >
               <CustomOverlayMap position={location}>
                 <div className={style.map_marker}>
@@ -159,21 +159,21 @@ export default function StoryClient() {
           <div className={style.right}>
             <p>위코주식회사</p>
 
-            <div className={'flex_start'}>
+            <div className={"flex_start"}>
               <p>
-                <MdLocationOn role={'img'} aria-label={'위치 아이콘'} />
+                <MdLocationOn role={"img"} aria-label={"위치 아이콘"} />
                 경상남도 창녕군 영산면 영산월령로 370
               </p>
               <p>
-                <BiSolidPhoneCall role={'img'} aria-label={'전화 아이콘'} />
+                <BiSolidPhoneCall role={"img"} aria-label={"전화 아이콘"} />
                 055-521-1255~6
               </p>
               <p>
-                <FaFax role={'img'} aria-label={'팩스 아이콘'} />
+                <FaFax role={"img"} aria-label={"팩스 아이콘"} />
                 055-521-1257
               </p>
               <p>
-                <MdMarkEmailUnread role={'img'} aria-label={'이메일 아이콘'} />
+                <MdMarkEmailUnread role={"img"} aria-label={"이메일 아이콘"} />
                 <ul>
                   <li>wiko6561@hanmail.net</li>
                   <li>ahw9201@naver.com</li>

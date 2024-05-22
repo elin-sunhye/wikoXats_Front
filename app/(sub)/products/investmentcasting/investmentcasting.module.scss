@@ -1,0 +1,18 @@
+.items {
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  & > div {
+    width: calc((100% - 20px) / 2);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .items {
+    gap: 1rem;
+
+    & > div {
+      width: 100%;
+    }
+  }
+}
