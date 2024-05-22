@@ -14,9 +14,8 @@ export default function ServiceSubVisual({}: ProductsSubVisualProps) {
 
   return (
     <SubTop
-      title={`프로그래머틱 광고 기술을 적용한 <br />국내 최초, 최대 CTV광고 플랫폼
-`}
-      desc={`크로스타겟 TV는 국내 최초 프로그래머틱과 어드레서블 기술을 적용하여 <br />데이터 기반으로 분석된 타겟에게 맞춤형 광고를 송출할 수 있는 커넥티드 TV 광고 플랫폼입니다`}
+    // title={`프로그래머틱 광고 기술을 적용한 <br />국내 최초, 최대 CTV광고 플랫폼`}
+    // desc={`크로스타겟 TV는 국내 최초 프로그래머틱과 어드레서블 기술을 적용하여 <br />데이터 기반으로 분석된 타겟에게 맞춤형 광고를 송출할 수 있는 커넥티드 TV 광고 플랫폼입니다`}
     >
       <div className={`flex_center ${style.sub_top_cont_box}`}>
         <p>

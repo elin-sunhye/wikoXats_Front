@@ -69,9 +69,9 @@ export default function StorySubVisual({}: SubVisualProps) {
 
   return (
     <SubTop
-      title={`다양한 캠페인 집행부터<br />인사이트 분석까지`}
-      desc={`국내 최대 규모의 행동 데이터와 다양한 미디어로<br />개인 맞춤형 타겟팅 광고를 경험해보세요`}
-      mainPadding={false}
+    // title={`다양한 캠페인 집행부터<br />인사이트 분석까지`}
+    // desc={`국내 최대 규모의 행동 데이터와 다양한 미디어로<br />개인 맞춤형 타겟팅 광고를 경험해보세요`}
+    // mainPadding={false}
     >
       <Swiper {...swiperParams} className={style.swiper}>
         <SwiperSlide>

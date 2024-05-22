@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import style from "./subTop.module.scss";
-import { SectionTitle } from "@/component/common/SectionTitle/SectionTitle";
-import { usePathname } from "next/navigation";
+import style from './subTop.module.scss';
+import { SectionTitle } from '@/component/common/SectionTitle/SectionTitle';
+import { usePathname } from 'next/navigation';
 
 // dummyData
-import menus from "@/dummyData/menus.json";
-import { useEffect, useState } from "react";
+import menus from '@/dummyData/menus.json';
+import { useEffect, useState } from 'react';
 
 interface SubTopProps {
   children?: React.ReactNode;
@@ -19,20 +19,20 @@ interface SubTopProps {
 export default function SubTop({ children }: SubTopProps) {
   //
   const pathNm = usePathname();
-  const [menuNm, setMenuNm] = useState("");
+  const [menuNm, setMenuNm] = useState('');
 
   useEffect(() => {
     const array = menus.find((nm) => nm.url === pathNm);
     let idx = 0;
 
     if (array) {
-      idx = array.url.split("/").length - 1;
+      idx = array.url.split('/').length - 1;
     }
 
-    setMenuNm(array ? array.url.split("/")[idx] : "");
+    setMenuNm(array ? array.url.split('/')[idx] : '');
   }, [pathNm]);
 
-  return (
+  return menus.find((nm) => nm.url === pathNm)?.menu ? (
     <section
       className={`flex_center ${style.sub_top} ${
         style[menuNm]
@@ -49,13 +49,13 @@ export default function SubTop({ children }: SubTopProps) {
         //   : style.contact
       }`}
     >
-      <div className={"wrap"}>
+      <div className={'wrap'}>
         <SectionTitle
-          title={menus.find((nm) => nm.url === pathNm)?.menu || ""}
+          title={menus.find((nm) => nm.url === pathNm)?.menu || ''}
           desc={
-            pathNm.includes("story")
-              ? "위코 주식회사는 <br />고객의 품질과 생산성 향상을 위해 끊임 없이 발전하는 기술을 제공합니다."
-              : ""
+            pathNm.includes('story')
+              ? '위코 주식회사는 <br />고객의 품질과 생산성 향상을 위해 끊임 없이 발전하는 기술을 제공합니다.'
+              : ''
           }
           textAlign={`center`}
         />
@@ -67,5 +67,7 @@ export default function SubTop({ children }: SubTopProps) {
         )}
       </div>
     </section>
+  ) : (
+    <></>
   );
 }
