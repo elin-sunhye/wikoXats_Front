@@ -338,13 +338,16 @@ section {
   //   padding: 0 calc(15% / 2);
   // }
 
-  // 공통 btn_class
   .section_padding {
     padding: 8rem 0;
   }
 }
 // 모바일
 @media screen and (max-width: 768px) {
+  .section_padding {
+    padding: 4rem 0;
+  }
+
   .wrap {
     padding: 0 2rem;
   }

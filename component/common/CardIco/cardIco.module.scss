@@ -26,6 +26,7 @@
       p {
         font-size: var(--fs-20);
         font-weight: var(--fw-700);
+        margin-bottom: 1rem;
       }
     }
 
@@ -40,7 +41,9 @@
 
   .bottom {
     width: 100%;
-    background: var(--gray-1);
+    // background: var(--gray-1);
+    background: var(--white);
     border-radius: var(--br-10);
+    overflow: hidden;
   }
 }
