@@ -70,7 +70,12 @@ export default function Investmentcasting() {
         <div className={`flex_start ${style.items}`}>
           {itemArray.map((item: itemArrayType) => {
             return (
-              <CardIco title={item.item} desc={item.desc} ico={item.img}>
+              <CardIco
+                key={`${item.item}_${item.tab}`}
+                title={item.item}
+                desc={item.desc}
+                ico={item.img}
+              >
                 <Btn
                   type={'button'}
                   title={`자세히 보기`}
