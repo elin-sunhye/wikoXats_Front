@@ -4,6 +4,21 @@
 
   & > div {
     width: calc((100% - 20px) / 2);
+
+    & > div {
+      button {
+        margin-left: auto;
+      }
+
+      &:first-of-type {
+        height: 8rem;
+      }
+    }
+    // width: calc((100% - 20px) / 2);
+
+    &:last-of-type {
+      width: 100%;
+    }
   }
 }
 
