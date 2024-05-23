@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import style from './findPwClient.module.scss';
-import inputStyle from '@/component/common/Input/input.module.scss';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useRef, useState } from 'react';
-import _ from 'lodash';
-import { Btn } from '@/component/common/Btn/Btn';
-import { SectionTitle } from '@/component/common/SectionTitle/SectionTitle';
-import { FaUserCheck } from 'react-icons/fa';
-import { useForm } from 'react-hook-form';
+import style from "./findPwClient.module.scss";
+import inputStyle from "@/component/common/Input/input.module.scss";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useRef, useState } from "react";
+import _ from "lodash";
+import { Btn } from "@/component/common/Btn/Btn";
+import { SectionTitle } from "@/component/common/SectionTitle/SectionTitle";
+import { FaUserCheck } from "react-icons/fa";
+import { useForm } from "react-hook-form";
 
 interface findidForm {
   id: string;
@@ -24,7 +24,7 @@ export default function FindPwClient() {
 
   // step ------------------------------
   const [step, setStep] = useState<number>(
-    params.get('step') ? Number(params.get('step')) : 1
+    params?.get("step") ? Number(params?.get("step")) : 1
   );
 
   // useform ------------------------------
@@ -39,11 +39,11 @@ export default function FindPwClient() {
     setError,
     setFocus,
   } = useForm<findidForm>({
-    mode: 'onChange',
+    mode: "onChange",
     defaultValues: {
-      id: '',
-      name: '',
-      email: '',
+      id: "",
+      name: "",
+      email: "",
     },
   });
 
@@ -53,84 +53,84 @@ export default function FindPwClient() {
         {/* step1 */}
         {step === 1 ? (
           <div className={style.step_1}>
-            <SectionTitle title={'비밀번호 찾기'} desc={''} />
+            <SectionTitle title={"비밀번호 찾기"} desc={""} />
             <div className={style.find_pw_box}>
               <label htmlFor="id">아이디</label>
               <input
-                id={'id'}
+                id={"id"}
                 className={`${inputStyle.input} ${inputStyle.lg}`}
-                type={'text'}
-                value={watch('id')}
-                {...register('id', { required: '필수입력 사항입니다.' })}
+                type={"text"}
+                value={watch("id")}
+                {...register("id", { required: "필수입력 사항입니다." })}
               />
               <p className={style.message}>
-                {errors.id && errors.id.type === 'required' ? (
+                {errors.id && errors.id.type === "required" ? (
                   <span className={style.error}>{errors.id.message}</span>
                 ) : (
-                  ''
+                  ""
                 )}
               </p>
 
               <label htmlFor="name">이름</label>
               <input
-                id={'name'}
+                id={"name"}
                 className={`${inputStyle.input} ${inputStyle.lg}`}
-                type={'text'}
-                value={watch('name')}
-                {...register('name', {
-                  required: '필수입력 사항입니다.',
+                type={"text"}
+                value={watch("name")}
+                {...register("name", {
+                  required: "필수입력 사항입니다.",
                   pattern: {
                     value: /^[ㄱ-ㅎ가-힣a-zA-Z]+$/,
-                    message: '한글, 영문만 입력해주세요.',
+                    message: "한글, 영문만 입력해주세요.",
                   },
                 })}
               />
               <p className={style.message}>
-                {errors.name && errors.name.type === 'required' ? (
+                {errors.name && errors.name.type === "required" ? (
                   <span className={style.error}>{errors.name.message}</span>
-                ) : errors.name && errors.name.type === 'pattern' ? (
+                ) : errors.name && errors.name.type === "pattern" ? (
                   <span className={style.caution}>{errors.name.message}</span>
                 ) : (
-                  ''
+                  ""
                 )}
               </p>
 
               <label htmlFor="email">이메일</label>
               <input
-                id={'email'}
+                id={"email"}
                 className={`${inputStyle.input} ${inputStyle.lg}`}
-                type={'text'}
-                value={watch('email')}
-                {...register('email', {
-                  required: '필수입력 사항입니다.',
+                type={"text"}
+                value={watch("email")}
+                {...register("email", {
+                  required: "필수입력 사항입니다.",
                   pattern: {
                     value:
                       /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/,
-                    message: '올바른 이메일 형식을 입력해주세요.',
+                    message: "올바른 이메일 형식을 입력해주세요.",
                   },
                 })}
               />
               <p className={style.message}>
-                {errors.email && errors.email.type === 'required' ? (
+                {errors.email && errors.email.type === "required" ? (
                   <span className={style.error}>{errors.email.message}</span>
-                ) : errors.email && errors.email.type === 'pattern' ? (
+                ) : errors.email && errors.email.type === "pattern" ? (
                   <span className={style.caution}>{errors.email.message}</span>
                 ) : (
-                  ''
+                  ""
                 )}
               </p>
 
               <Btn
-                btnType={'text'}
-                type={'submit'}
-                title={'비밀번호 찾기'}
-                id={'findPw'}
+                btnType={"text"}
+                type={"submit"}
+                title={"비밀번호 찾기"}
+                id={"findPw"}
                 btnSize={`xlg`}
                 hover={false}
                 disabled={
-                  watch('id') === '' ||
-                  watch('name') === '' ||
-                  watch('email') === ''
+                  watch("id") === "" ||
+                  watch("name") === "" ||
+                  watch("email") === ""
                     ? true
                     : false
                 }
@@ -142,20 +142,20 @@ export default function FindPwClient() {
           </div>
         ) : (
           <div className={`flex_center ${style.step_2}`}>
-            <FaUserCheck role={'img'} aria-label={'가입완료 아이콘'} />
+            <FaUserCheck role={"img"} aria-label={"가입완료 아이콘"} />
             <p>
               찾으신 비밀번호는 가입하신 이메일 <span>***@*.com</span>으로 메일
               발송되었습니다.
             </p>
             <Btn
-              btnType={'text'}
-              type={'submit'}
-              title={'로그인'}
-              id={'login'}
+              btnType={"text"}
+              type={"submit"}
+              title={"로그인"}
+              id={"login"}
               btnSize={`xlg`}
               hover={false}
               onClick={() => {
-                router.replace('/lg/login');
+                router.replace("/lg/login");
               }}
             />
           </div>
