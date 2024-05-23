@@ -16,7 +16,7 @@ export default function NewsClient() {
       <NewsCard />
 
       {/* NewsScroll */}
-      <ScrollSection />
+      {/* <ScrollSection /> */}
     </>
   );
 }

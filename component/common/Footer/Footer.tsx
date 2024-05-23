@@ -24,7 +24,7 @@ export const Footer = ({}: FooterProps) => {
   return (
     <footer
       className={`${footer_style.footer_wrap} ${
-        path.includes("/lg") ? "" : footer_style.sticky
+        path?.includes("/lg") ? "" : footer_style.sticky
       }`}
     >
       <div className={`wrap flex_between ${footer_style.footer_box}`}>
