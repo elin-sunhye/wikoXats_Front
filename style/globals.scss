@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url('./reset.css');
+@import url("./reset.css");
 // 규칙
 // h1 : 로고
 // h2 : 메인비쥬얼 타이틀 60-36
@@ -11,6 +11,9 @@
 // md : height: 4rem
 // lg : height: 5rem
 // xlg : height: 6rem
+
+// animation
+// animation :name | duration | timing-function | delay | iteration-count | direction | fill-mode;
 
 :root {
   // font fam
@@ -182,7 +185,7 @@ img {
 // }
 
 // pc에서 모바일 숨기기
-[class^='mo_'] {
+[class^="mo_"] {
   display: none !important;
 }
 
@@ -357,11 +360,11 @@ section {
   }
 
   // 모바일에서 pc 숨기기
-  [class^='pc_'] {
+  [class^="pc_"] {
     display: none !important;
   }
   // 모바일에서 모바일 생성
-  [class^='mo_'] {
+  [class^="mo_"] {
     display: flex !important;
   }
 }

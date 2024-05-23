@@ -2,11 +2,15 @@
 
 import style from "./subTop.module.scss";
 import { SectionTitle } from "@/component/common/SectionTitle/SectionTitle";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+
+// aos
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // dummyData
 import menus from "@/dummyData/menus.json";
-import { useEffect, useState } from "react";
 
 interface SubTopProps {
   children?: React.ReactNode;
@@ -17,6 +21,11 @@ interface SubTopProps {
  */
 
 export default function SubTop({ children }: SubTopProps) {
+  // aos
+  useEffect(() => {
+    AOS.init();
+  });
+
   //
   const pathNm = usePathname();
   const [menuNm, setMenuNm] = useState("");
@@ -49,7 +58,7 @@ export default function SubTop({ children }: SubTopProps) {
         //   : style.contact
       }`}
     >
-      <div className={"wrap"}>
+      <div className={"wrap"} data-aos="zoom-in" data-aos-duration="1500">
         <SectionTitle
           title={menus.find((nm) => nm.url === pathNm)?.menu || ""}
           desc={

@@ -1,9 +1,26 @@
+// 애니메이션 ---------------------------------
+@mixin aniSetting($name) {
+  animation-name: $name;
+  // 시작되기 전이나 끝나고 난 후 어떤 값 적용
+  // animation-fill-mode: forwards;
+  // 종료 후 다시 처음부터 시작할지 역방향으로 진행할지
+  animation-direction: alternate;
+  // 몇번 진행
+  animation-iteration-count: infinite;
+  // 진행 속도
+  animation-duration: 2s;
+  // 애니메이션 속도
+  animation-timing-function: ease-in-out;
+}
+
 .partners_box {
   gap: 2rem;
   flex-wrap: wrap;
 
   a {
     gap: 1rem;
+    transform: translateY(0);
+    transition: var(--transition-03);
 
     span {
       width: 3rem !important;
@@ -13,6 +30,11 @@
         height: auto;
         background-color: aqua;
       }
+    }
+
+    // hover
+    &:hover {
+      transform: translateY(-1rem);
     }
   }
 }
