@@ -1,31 +1,36 @@
-'use client';
+"use client";
 
 // import main_style from "../main.module.scss";
-import style from './mainVisual.module.scss';
-import {
-  HiOutlineChevronLeft,
-  HiOutlineChevronRight,
-  HiOutlineCursorClick,
-} from 'react-icons/hi';
-import Image from 'next/image';
-import { BtnLink } from '@/component/common/BtnLink/BtnLink';
-import { FiArrowRight } from 'react-icons/fi';
+import style from "./mainVisual.module.scss";
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
+import { BtnLink } from "@/component/common/BtnLink/BtnLink";
+import { HiMiniChevronDoubleRight } from "react-icons/hi2";
+import { Btn } from "../common/Btn/Btn";
+
+// aos
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // react-swiper
-import { Swiper, SwiperSlide } from 'swiper/react'; // basic
-import 'swiper/css'; //basic
-import 'swiper/swiper-bundle.css';
-import 'swiper/css/navigation';
+import { Swiper, SwiperSlide } from "swiper/react"; // basic
+import "swiper/css"; //basic
+import "swiper/swiper-bundle.css";
+import "swiper/css/navigation";
 import {
   Navigation,
   Pagination,
   Scrollbar,
   A11y,
   Autoplay,
-} from 'swiper/modules';
-import { Btn } from '../common/Btn/Btn';
+} from "swiper/modules";
+import { useEffect } from "react";
 
 export default function MainVisual() {
+  // aos
+  useEffect(() => {
+    AOS.init();
+  });
+
   // swiper setting
   const swiperParams = {
     // https://swiperjs.com/react
@@ -49,8 +54,8 @@ export default function MainVisual() {
     },
 
     navigation: {
-      prevEl: '.swiper-button-prev',
-      nextEl: '.swiper-button-next',
+      prevEl: ".swiper-button-prev",
+      nextEl: ".swiper-button-next",
     },
 
     // direction: "horizontal", // 가로 세로 슬라이드 : height 설정 필수
@@ -90,7 +95,7 @@ export default function MainVisual() {
   };
 
   // mvArray
-  const mvArray = ['/img/img_main_visual_1.svg'];
+  const mvArray = ["/img/img_main_visual_1.svg"];
 
   return (
     <main id={style.mainVisual} className="flex_center">
@@ -115,10 +120,10 @@ export default function MainVisual() {
           title={`이전 슬라이드 버튼`}
           id={`swiperButtonPrev`}
           className={`swiper-button-prev`}
-          btnType={'ico'}
-          btnBg={'transparent'}
-          btnColor={'var(--black)'}
-          btnSize={'xlg'}
+          btnType={"ico"}
+          btnBg={"transparent"}
+          btnColor={"var(--black)"}
+          btnSize={"xlg"}
           ico={
             <HiOutlineChevronLeft
               role={`img`}
@@ -133,10 +138,10 @@ export default function MainVisual() {
           title={`다음 슬라이드 버튼`}
           id={`swiperButtonNext`}
           className={`swiper-button-next`}
-          btnType={'ico'}
-          btnBg={'transparent'}
-          btnColor={'var(--black)'}
-          btnSize={'xlg'}
+          btnType={"ico"}
+          btnBg={"transparent"}
+          btnColor={"var(--black)"}
+          btnSize={"xlg"}
           ico={
             <HiOutlineChevronRight
               role={`img`}
@@ -146,7 +151,11 @@ export default function MainVisual() {
           hover={false}
         />
       </Swiper>
-      <div className={`wrap flex_start ${style.main_visual_wrap}`}>
+      <div
+        className={`wrap flex_start ${style.main_visual_wrap}`}
+        data-aos="zoom-in"
+        data-aos-duration="1500"
+      >
         <h2>
           {/* <h2 className={'pc_title'}> */}
           주물 • 주조 및 산업 부자재
@@ -157,7 +166,7 @@ export default function MainVisual() {
               aria-label={`포인트 커서 아이콘`}
               className={style.ico_cursor}
             /> */}
-          </p>{' '}
+          </p>{" "}
           전문 기업
         </h2>
 
@@ -174,9 +183,12 @@ export default function MainVisual() {
           href={`/contact`}
           icoPosition="right"
           ico={
-            <FiArrowRight role={`img`} aria-label={`오른쪽 화살표 아이콘`} />
+            <HiMiniChevronDoubleRight
+              role={`img`}
+              aria-label={`오른쪽 화살표 아이콘`}
+            />
           }
-          hover={true}
+          hover={false}
         />
       </div>
     </main>

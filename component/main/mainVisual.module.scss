@@ -1,3 +1,18 @@
+// 애니메이션 ---------------------------------
+@mixin aniSetting($name) {
+  animation-name: $name;
+  // 시작되기 전이나 끝나고 난 후 어떤 값 적용
+  // animation-fill-mode: forwards;
+  // 종료 후 다시 처음부터 시작할지 역방향으로 진행할지
+  animation-direction: alternate;
+  // 몇번 진행
+  animation-iteration-count: infinite;
+  // 진행 속도
+  animation-duration: 1s;
+  // 애니메이션 속도
+  animation-timing-function: ease-in-out;
+}
+
 // 메인비주얼
 #mainVisual {
   width: 100%;
@@ -56,9 +71,10 @@
           position: absolute;
           right: 2rem;
           bottom: -2rem;
-          animation: curcle 5s;
-          animation-iteration-count: infinite;
-          animation-fill-mode: forwards;
+          @include aniSetting(curcle);
+          // animation: curcle 5s;
+          // animation-iteration-count: infinite;
+          // animation-fill-mode: forwards;
 
           @keyframes curcle {
             0% {
@@ -81,6 +97,24 @@
     & > p {
       width: 100%;
       line-height: var(--lh-15);
+    }
+
+    & > a {
+      span {
+        position: relative;
+        left: 0;
+        transition: var(--transition-03);
+        @include aniSetting(rightToLeft);
+      }
+
+      @keyframes rightToLeft {
+        0% {
+          left: 0;
+        }
+        100% {
+          left: 0.7rem;
+        }
+      }
     }
   }
 }

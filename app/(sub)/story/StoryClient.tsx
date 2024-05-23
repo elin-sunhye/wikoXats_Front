@@ -7,6 +7,10 @@ import { BiSolidPhoneCall } from "react-icons/bi";
 import { FaFax } from "react-icons/fa6";
 import { MdMarkEmailUnread } from "react-icons/md";
 
+// aos
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 // kakaoMap
 import {
   CustomOverlayMap,
@@ -18,6 +22,11 @@ import { useEffect, useState } from "react";
 import SubTop from "@/component/common/Sub/SubTop/SubTop";
 
 export default function StoryClient() {
+  // aos
+  useEffect(() => {
+    AOS.init();
+  });
+
   // useKakaoLoader();
   // // 지도
   // const [createMap, setCreateMap] = useState<kakao.maps.Map>();
@@ -87,7 +96,11 @@ export default function StoryClient() {
         sectionBg={"var(--gray-1)"}
         btnYn={false}
       >
-        <div className={`flex_end ${style.history_box}`}>
+        <div
+          className={`flex_end ${style.history_box}`}
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
           <div className={`flex_center ${style.row}`}>
             <ul className={`${style.history}`}>
               <li>Ransom & Randolph 한국 에이전트 계약 체결</li>
@@ -140,7 +153,11 @@ export default function StoryClient() {
         btnYn={false}
       >
         <div className={`flex_between ${style.location_box}`}>
-          <div className={style.left}>
+          <div
+            className={style.left}
+            data-aos="fade-right"
+            data-aos-duration="1500"
+          >
             <Map
               center={location}
               level={3}
@@ -156,7 +173,11 @@ export default function StoryClient() {
               </CustomOverlayMap>
             </Map>
           </div>
-          <div className={style.right}>
+          <div
+            className={style.right}
+            data-aos="fade-left"
+            data-aos-duration="1500"
+          >
             <p>위코주식회사</p>
 
             <div className={"flex_start"}>

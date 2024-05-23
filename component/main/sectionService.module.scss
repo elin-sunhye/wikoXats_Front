@@ -2,6 +2,10 @@
 .product_box {
   width: 100%;
   gap: 2rem;
+
+  .system {
+    width: calc((100% - 4rem) / 3);
+  }
 }
 
 // 제품 소개
@@ -16,5 +20,23 @@
   .product_box {
     gap: 1.5rem;
     flex-wrap: wrap;
+
+    .system {
+      width: calc((100% - 2rem) / 2);
+      &:last-of-type {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  // 제품 소개, 서비스 소개, 강점소개 공통
+  .product_box {
+    gap: 1rem;
+
+    .system {
+      width: 100%;
+    }
   }
 }
