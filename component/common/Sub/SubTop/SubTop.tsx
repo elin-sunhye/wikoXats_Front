@@ -28,37 +28,41 @@ export default function SubTop({ children }: SubTopProps) {
 
   //
   const pathNm = usePathname();
-  const [menuNm, setMenuNm] = useState("");
+  // const [menuNm, setMenuNm] = useState("");
 
-  useEffect(() => {
-    const array = menus.find((nm) => nm.url === pathNm);
-    let idx = 0;
+  // useEffect(() => {
+  //   const array = menus.find((nm) => nm.url === pathNm);
+  //   let idx = 0;
 
-    if (array) {
-      idx = array.url.split("/").length - 1;
-    }
+  //   if (array) {
+  //     idx = array.url.split("/").length - 1;
+  //   }
 
-    setMenuNm(array ? array.url.split("/")[idx] : "");
-  }, [pathNm]);
+  //   setMenuNm(array ? array.url.split("/")[idx] : "");
+  // }, [pathNm]);
 
   return menus.find((nm) => nm.url === pathNm)?.menu ? (
     <section
-      className={`flex_center ${style.sub_top} ${
-        style[menuNm]
-        // pathNm.includes("story")
-        //   ? style.story
-        //   : pathNm.includes("product")
-        //   ? style.product
-        //   : pathNm.includes("service")
-        //   ? style.service
-        //   : pathNm.includes("news")
-        //   ? style.news
-        //   : pathNm.includes("fap")
-        //   ? style.fap
-        //   : style.contact
+      className={`flex_center ${style.sub_top_section} ${
+        pathNm?.includes("story")
+          ? style.story
+          : pathNm?.includes("product")
+          ? style.product
+          : pathNm?.includes("service")
+          ? style.service
+          : pathNm?.includes("news")
+          ? style.news
+          : pathNm?.includes("fap")
+          ? style.fap
+          : style.contact
+        // style[menuNm]
       }`}
     >
-      <div className={"wrap"} data-aos="zoom-in" data-aos-duration="1500">
+      <div
+        className={`wrap ${style.sub_top}`}
+        data-aos="zoom-in"
+        data-aos-duration="1500"
+      >
         <SectionTitle
           title={menus.find((nm) => nm.url === pathNm)?.menu || ""}
           desc={
