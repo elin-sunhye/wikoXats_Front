@@ -15,6 +15,9 @@ export interface itemArrayType {
   item: string;
   desc: string;
   img: JSX.Element;
+  /**
+   * 첫번쨰 요소는 무조건 "first"여야한다
+   */
   tab: string;
 }
 
@@ -41,7 +44,6 @@ export default function ScrollSection({ tab, children }: ScrollSectionProps) {
     };
   }, []);
 
-  // type = scroll
   // link click
   const [linkClick, setLinkClick] = useState("first");
 
