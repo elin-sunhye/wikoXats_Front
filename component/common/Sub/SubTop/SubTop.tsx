@@ -43,22 +43,26 @@ export default function SubTop({ children }: SubTopProps) {
 
   return menus.find((nm) => nm.url === pathNm)?.menu ? (
     <section
-      className={`flex_center ${style.sub_top} ${
-        style[menuNm]
-        // pathNm.includes("story")
+      className={`flex_center ${style.sub_top_section} ${
+        // pathNm?.includes("story")
         //   ? style.story
-        //   : pathNm.includes("product")
+        //   : pathNm?.includes("product")
         //   ? style.product
-        //   : pathNm.includes("service")
+        //   : pathNm?.includes("service")
         //   ? style.service
-        //   : pathNm.includes("news")
+        //   : pathNm?.includes("news")
         //   ? style.news
-        //   : pathNm.includes("fap")
+        //   : pathNm?.includes("fap")
         //   ? style.fap
         //   : style.contact
+        style[menuNm]
       }`}
     >
-      <div className={"wrap"} data-aos="zoom-in" data-aos-duration="1500">
+      <div
+        className={`wrap ${style.sub_top}`}
+        data-aos="zoom-in"
+        data-aos-duration="1500"
+      >
         <SectionTitle
           title={menus.find((nm) => nm.url === pathNm)?.menu || ""}
           desc={
