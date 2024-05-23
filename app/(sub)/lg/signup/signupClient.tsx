@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import style from './signupClient.module.scss';
-import inputStyle from '@/component/common/Input/input.module.scss';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { Btn } from '@/component/common/Btn/Btn';
-import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
-import { LiaUserSolid, LiaUsersSolid } from 'react-icons/lia';
-import { useForm } from 'react-hook-form';
-import _ from 'lodash';
-import { FaRegEye, FaRegEyeSlash, FaUserCheck } from 'react-icons/fa';
+import style from "./signupClient.module.scss";
+import inputStyle from "@/component/common/Input/input.module.scss";
+import { useRouter, useSearchParams } from "next/navigation";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { Btn } from "@/component/common/Btn/Btn";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { LiaUserSolid, LiaUsersSolid } from "react-icons/lia";
+import { useForm } from "react-hook-form";
+import _ from "lodash";
+import { FaRegEye, FaRegEyeSlash, FaUserCheck } from "react-icons/fa";
 
 interface signupForm {
   type: string;
@@ -31,15 +31,15 @@ export default function SignupClient() {
 
   // step, type ------------------------------
   // const [step, setStep] = useState<number>(
-  //   params.get('step') ? Number(params.get('step')) : 1
+  //   params?.get('step') ? Number(params?.get('step')) : 1
   // );
   const [type, setType] = useState<string>(
-    params.get('type') ? String(params.get('type')) : ''
+    params?.get("type") ? String(params?.get("type")) : ""
   );
 
   // useEffect(() => {
-  //   setStep(params.get('step') ? Number(params.get('step')) : 1);
-  //   setType(params.get('type') ? String(params.get('type')) : '');
+  //   setStep(params?.get('step') ? Number(params?.get('step')) : 1);
+  //   setType(params?.get('type') ? String(params?.get('type')) : '');
   //   console.log('123');
   // }, []);
   // useEffect(() => {
@@ -59,15 +59,15 @@ export default function SignupClient() {
     setError,
     setFocus,
   } = useForm<signupForm>({
-    mode: 'onChange',
+    mode: "onChange",
     defaultValues: {
       type: type,
-      id: '',
-      pw: '',
-      pwCheck: '',
-      name: '',
-      email: '',
-      pn: '',
+      id: "",
+      pw: "",
+      pwCheck: "",
+      name: "",
+      email: "",
+      pn: "",
     },
   });
 
@@ -76,7 +76,7 @@ export default function SignupClient() {
 
   useEffect(() => {
     watch((value, { name, type }) => {
-      if (value.id === '') {
+      if (value.id === "") {
         setDuplicateId(false);
       }
     });
@@ -85,7 +85,7 @@ export default function SignupClient() {
 
   useEffect(() => {
     setDuplicateId(false);
-  }, [watch('id')]);
+  }, [watch("id")]);
 
   // pw 보기 숨기기
   const [pwShow, setPwShow] = useState<boolean>(false);
@@ -102,9 +102,9 @@ export default function SignupClient() {
         <ul className={`flex_between ${style.step_box}`}>
           <li
             className={
-              params.get('step') && params.get('step') === '1'
+              params?.get("step") && params?.get("step") === "1"
                 ? style.active
-                : ''
+                : ""
             }
           >
             <span>1</span>
@@ -112,9 +112,9 @@ export default function SignupClient() {
           </li>
           <li
             className={
-              params.get('step') && params.get('step') === '2'
+              params?.get("step") && params?.get("step") === "2"
                 ? style.active
-                : ''
+                : ""
             }
           >
             <span>2</span>
@@ -122,9 +122,9 @@ export default function SignupClient() {
           </li>
           <li
             className={
-              params.get('step') && params.get('step') === '3'
+              params?.get("step") && params?.get("step") === "3"
                 ? style.active
-                : ''
+                : ""
             }
           >
             <span>3</span>
@@ -133,56 +133,56 @@ export default function SignupClient() {
         </ul>
 
         {/* step1 */}
-        {!params.get('step') ||
-        (params.get('step') && params.get('step') === '1') ? (
+        {!params?.get("step") ||
+        (params?.get("step") && params?.get("step") === "1") ? (
           <div className={`flex_center ${style.step_1}`}>
             <button
-              type={'button'}
-              title={'대표'}
-              id={'boss'}
-              className={`flex_center ${type === 'boss' ? style.active : ''}`}
+              type={"button"}
+              title={"대표"}
+              id={"boss"}
+              className={`flex_center ${type === "boss" ? style.active : ""}`}
               onClick={() => {
                 // TODO: 대표로 회원 가입되어있는 아이디가 있는지 체크 해야함 (대표 권한으로 회원가입은 한번밖에 안됨 / 대표 회원 탈퇴 시 재가입 가능)
-                setType('boss');
+                setType("boss");
               }}
             >
               <LiaUserSolid role={`img`} aria-label={`사람 아이콘`} />
               <span>대표</span>
             </button>
             <button
-              type={'button'}
-              title={'직원'}
-              id={'employee'}
+              type={"button"}
+              title={"직원"}
+              id={"employee"}
               className={`flex_center ${
-                type === 'employee' ? style.active : ''
+                type === "employee" ? style.active : ""
               }`}
               onClick={() => {
-                setType('employee');
+                setType("employee");
               }}
             >
               <LiaUsersSolid role={`img`} aria-label={`사람들 아이콘`} />
               <span>직원</span>
             </button>
           </div>
-        ) : params.get('step') && params.get('step') === '2' ? (
+        ) : params?.get("step") && params?.get("step") === "2" ? (
           <form className={style.step_2}>
             <div className={`flex_start ${style.row}`}>
               <label htmlFor="id">아이디</label>
               <input
-                id={'id'}
+                id={"id"}
                 className={`${inputStyle.input} ${inputStyle.lg}`}
-                type={'text'}
-                value={watch('id')}
-                {...register('id', { required: '필수입력 사항입니다.' })}
-                name={'id'}
+                type={"text"}
+                value={watch("id")}
+                {...register("id", { required: "필수입력 사항입니다." })}
+                name={"id"}
               />
               <Btn
-                type={'button'}
-                title={'중복확인'}
-                id={'idCheck'}
-                btnType={'text'}
+                type={"button"}
+                title={"중복확인"}
+                id={"idCheck"}
+                btnType={"text"}
                 hover={false}
-                disabled={watch('id') === '' ? true : false}
+                disabled={watch("id") === "" ? true : false}
                 onClick={() => {
                   setDuplicateId(true);
                 }}
@@ -192,13 +192,13 @@ export default function SignupClient() {
                 {errors.id ? (
                   <span className={style.error}>{errors.id.message}</span>
                 ) : (
-                  ''
+                  ""
                 )}
                 {duplicateId ? (
                   <span className={style.success}>
                     중복확인이 완료되었습니다.
                   </span>
-                ) : watch('id') !== '' && !duplicateId ? (
+                ) : watch("id") !== "" && !duplicateId ? (
                   <span className={style.caution}>중복확인을 해주세요.</span>
                 ) : (
                   <></>
@@ -208,36 +208,36 @@ export default function SignupClient() {
             <div className={`flex_start ${style.row}`}>
               <label htmlFor="pw">비밀번호</label>
               <input
-                id={'pw'}
+                id={"pw"}
                 className={`${inputStyle.input} ${inputStyle.lg}`}
-                type={pwShow ? 'text' : 'password'}
-                value={watch('pw')}
-                {...register('pw', {
-                  required: '필수입력 사항입니다.',
+                type={pwShow ? "text" : "password"}
+                value={watch("pw")}
+                {...register("pw", {
+                  required: "필수입력 사항입니다.",
                   pattern: {
                     value:
                       /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[`~!@#$%^&*()_+=])(?=\S+$).{8,20}$/,
                     message:
-                      '영문, 숫자, 특수문자( `~!@#$%^&*()_+= )를 포함하여 입력헤주세요.',
+                      "영문, 숫자, 특수문자( `~!@#$%^&*()_+= )를 포함하여 입력헤주세요.",
                   },
                 })}
               />
               <Btn
-                type={'button'}
-                title={'비밀번호 보기'}
-                id={''}
-                btnType={'ico'}
+                type={"button"}
+                title={"비밀번호 보기"}
+                id={""}
+                btnType={"ico"}
                 hover={false}
                 ico={
                   pwShow ? (
                     <FaRegEye
-                      role={'img'}
-                      aria-label={'비밀번호 보기 아이콘'}
+                      role={"img"}
+                      aria-label={"비밀번호 보기 아이콘"}
                     />
                   ) : (
                     <FaRegEyeSlash
-                      role={'img'}
-                      aria-label={'비밀번호 숨기기 아이콘'}
+                      role={"img"}
+                      aria-label={"비밀번호 숨기기 아이콘"}
                     />
                   )
                 }
@@ -247,48 +247,48 @@ export default function SignupClient() {
               />
 
               <p className={style.message}>
-                {errors.pw && errors.pw.type === 'required' ? (
+                {errors.pw && errors.pw.type === "required" ? (
                   <span className={style.error}>{errors.pw.message}</span>
-                ) : errors.pw && errors.pw.type === 'pattern' ? (
+                ) : errors.pw && errors.pw.type === "pattern" ? (
                   <span className={style.caution}>{errors.pw.message}</span>
                 ) : (
-                  ''
+                  ""
                 )}
               </p>
             </div>
             <div className={`flex_start ${style.row}`}>
               <label htmlFor="pwCheck">비밀번호 확인</label>
               <input
-                id={'pwCheck'}
+                id={"pwCheck"}
                 className={`${inputStyle.input} ${inputStyle.lg}`}
-                type={pwCheckShow ? 'text' : 'password'}
-                value={watch('pwCheck')}
-                {...register('pwCheck', {
-                  required: '필수입력 사항입니다.',
+                type={pwCheckShow ? "text" : "password"}
+                value={watch("pwCheck")}
+                {...register("pwCheck", {
+                  required: "필수입력 사항입니다.",
                   validate: {
                     matchPw: (value) => {
                       const { pw } = getValues();
-                      return pw === value || '비밀번호가 일치하지 않습니다';
+                      return pw === value || "비밀번호가 일치하지 않습니다";
                     },
                   },
                 })}
               />
               <Btn
-                type={'button'}
-                title={'비밀번호 보기'}
-                id={''}
-                btnType={'ico'}
+                type={"button"}
+                title={"비밀번호 보기"}
+                id={""}
+                btnType={"ico"}
                 hover={false}
                 ico={
                   pwCheckShow ? (
                     <FaRegEye
-                      role={'img'}
-                      aria-label={'비밀번호 보기 아이콘'}
+                      role={"img"}
+                      aria-label={"비밀번호 보기 아이콘"}
                     />
                   ) : (
                     <FaRegEyeSlash
-                      role={'img'}
-                      aria-label={'비밀번호 숨기기 아이콘'}
+                      role={"img"}
+                      aria-label={"비밀번호 숨기기 아이콘"}
                     />
                   )
                 }
@@ -301,60 +301,60 @@ export default function SignupClient() {
                 {errors.pwCheck ? (
                   <span className={style.error}>{errors.pwCheck.message}</span>
                 ) : (
-                  ''
+                  ""
                 )}
               </p>
             </div>
             <div className={`flex_start ${style.row}`}>
               <label htmlFor="name">이름</label>
               <input
-                id={'name'}
+                id={"name"}
                 className={`${inputStyle.input} ${inputStyle.lg}`}
-                type={'text'}
-                value={watch('name')}
-                {...register('name', {
-                  required: '필수입력 사항입니다.',
+                type={"text"}
+                value={watch("name")}
+                {...register("name", {
+                  required: "필수입력 사항입니다.",
                   pattern: {
                     value: /^[ㄱ-ㅎ가-힣a-zA-Z]+$/,
-                    message: '한글, 영문만 입력해주세요.',
+                    message: "한글, 영문만 입력해주세요.",
                   },
                 })}
               />
 
               <p className={style.message}>
-                {errors.name && errors.name.type === 'required' ? (
+                {errors.name && errors.name.type === "required" ? (
                   <span className={style.error}>{errors.name.message}</span>
-                ) : errors.name && errors.name.type === 'pattern' ? (
+                ) : errors.name && errors.name.type === "pattern" ? (
                   <span className={style.caution}>{errors.name.message}</span>
                 ) : (
-                  ''
+                  ""
                 )}
               </p>
             </div>
             <div className={`flex_start ${style.row}`}>
               <label htmlFor="email">이메일</label>
               <input
-                id={'email'}
+                id={"email"}
                 className={`${inputStyle.input} ${inputStyle.lg}`}
-                type={'text'}
-                value={watch('email')}
-                {...register('email', {
-                  required: '필수입력 사항입니다.',
+                type={"text"}
+                value={watch("email")}
+                {...register("email", {
+                  required: "필수입력 사항입니다.",
                   pattern: {
                     value:
                       /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/,
-                    message: '올바른 이메일 형식을 입력해주세요.',
+                    message: "올바른 이메일 형식을 입력해주세요.",
                   },
                 })}
               />
 
               <p className={style.message}>
-                {errors.email && errors.email.type === 'required' ? (
+                {errors.email && errors.email.type === "required" ? (
                   <span className={style.error}>{errors.email.message}</span>
-                ) : errors.email && errors.email.type === 'pattern' ? (
+                ) : errors.email && errors.email.type === "pattern" ? (
                   <span className={style.caution}>{errors.email.message}</span>
                 ) : (
-                  ''
+                  ""
                 )}
               </p>
             </div>
@@ -362,50 +362,50 @@ export default function SignupClient() {
             <div className={`flex_start ${style.row}`}>
               <label htmlFor="pn">연락처</label>
               <input
-                id={'pn'}
+                id={"pn"}
                 className={`${inputStyle.input} ${inputStyle.lg}`}
-                type={'text'}
-                value={watch('pn').replace(
+                type={"text"}
+                value={watch("pn").replace(
                   /^(\d{3})(\d{3,4})(\d{4})$/,
                   `$1-$2-$3`
                 )}
-                {...register('pn', {
-                  required: '필수입력 사항입니다.',
+                {...register("pn", {
+                  required: "필수입력 사항입니다.",
                   pattern: {
                     value: /(01[016789])-(\d{3,4})-(\d{4})/,
-                    message: '숫자만 입력해주세요.',
+                    message: "숫자만 입력해주세요.",
                   },
                 })}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   const value = e.currentTarget.value
-                    .replace(/[^0-9]/g, '')
-                    .replaceAll('-', '');
+                    .replace(/[^0-9]/g, "")
+                    .replaceAll("-", "");
 
-                  setValue('pn', value);
+                  setValue("pn", value);
                 }}
               />
 
               <p className={style.message}>
-                {errors.pn && errors.pn.type === 'required' ? (
+                {errors.pn && errors.pn.type === "required" ? (
                   <span className={style.error}>{errors.pn.message}</span>
-                ) : errors.pn && errors.pn.type === 'pattern' ? (
+                ) : errors.pn && errors.pn.type === "pattern" ? (
                   <span className={style.caution}>{errors.pn.message}</span>
                 ) : (
-                  ''
+                  ""
                 )}
               </p>
             </div>
 
-            {type === 'boss' ? (
+            {type === "boss" ? (
               <div className={`flex_start ${style.row}`}>
                 <label htmlFor="bizFile">사업자등록증</label>
                 <input
-                  id={'bizFile'}
+                  id={"bizFile"}
                   className={`${inputStyle.input} ${inputStyle.lg}`}
-                  type={'file'}
+                  type={"file"}
                   // value={watch('bizFile')}
-                  {...register('bizFile', {
-                    required: '필수입력 사항입니다.',
+                  {...register("bizFile", {
+                    required: "필수입력 사항입니다.",
                   })}
                 />
 
@@ -415,7 +415,7 @@ export default function SignupClient() {
                       {errors.bizFile.message}
                     </span>
                   ) : (
-                    ''
+                    ""
                   )}
                 </p>
               </div>
@@ -423,12 +423,12 @@ export default function SignupClient() {
               <div className={`flex_start ${style.row}`}>
                 <label htmlFor="rank">직급</label>
                 <input
-                  id={'rank'}
+                  id={"rank"}
                   className={`${inputStyle.input} ${inputStyle.lg}`}
-                  type={'text'}
-                  value={watch('rank')}
-                  {...register('rank', {
-                    required: '필수입력 사항입니다.',
+                  type={"text"}
+                  value={watch("rank")}
+                  {...register("rank", {
+                    required: "필수입력 사항입니다.",
                   })}
                 />
 
@@ -436,7 +436,7 @@ export default function SignupClient() {
                   {errors.rank ? (
                     <span className={style.error}>{errors.rank.message}</span>
                   ) : (
-                    ''
+                    ""
                   )}
                 </p>
               </div>
@@ -444,30 +444,30 @@ export default function SignupClient() {
           </form>
         ) : (
           <div className={`flex_center ${style.step_3}`}>
-            <FaUserCheck role={'img'} aria-label={'가입완료 아이콘'} />
+            <FaUserCheck role={"img"} aria-label={"가입완료 아이콘"} />
             <p>가입완료</p>
           </div>
         )}
 
         {/* 이전 다음 버튼 */}
         <div className={`flex_center ${style.btn_box}`}>
-          {params.get('step') && params.get('step') === '2' ? (
+          {params?.get("step") && params?.get("step") === "2" ? (
             <Btn
-              type={'button'}
-              title={'이전'}
-              id={''}
-              btnType={'all'}
+              type={"button"}
+              title={"이전"}
+              id={""}
+              btnType={"all"}
               hover={true}
               ico={
                 <FiArrowLeft role={`img`} aria-label={`왼쪽 화살표 아이콘`} />
               }
-              icoPosition={'left'}
+              icoPosition={"left"}
               onClick={() => {
-                if (params.get('step') && params.get('step') === '2') {
+                if (params?.get("step") && params?.get("step") === "2") {
                   // setStep(1);
                   reset();
                   router.replace(`/lg/signup?step=1&type=${type}`);
-                } else if (params.get('step') && params.get('step') === '3') {
+                } else if (params?.get("step") && params?.get("step") === "3") {
                   // setStep(2);
                   reset();
                   router.replace(`/lg/signup?step=2&type=${type}`);
@@ -479,33 +479,33 @@ export default function SignupClient() {
           )}
 
           <Btn
-            type={'button'}
+            type={"button"}
             title={
-              params.get('step') && params.get('step') === '3'
-                ? '로그인'
-                : '다음'
+              params?.get("step") && params?.get("step") === "3"
+                ? "로그인"
+                : "다음"
             }
-            id={''}
-            btnType={'all'}
+            id={""}
+            btnType={"all"}
             hover={true}
             ico={
               <FiArrowRight role={`img`} aria-label={`오른쪽 화살표 아이콘`} />
             }
             disabled={
-              !params.get('step') ||
-              (params.get('step') && params.get('step') === '1')
-                ? type === ''
+              !params?.get("step") ||
+              (params?.get("step") && params?.get("step") === "1")
+                ? type === ""
                   ? true
                   : false
-                : params.get('step') && params.get('step') === '2'
-                ? watch('id') === '' ||
-                  watch('pw') === '' ||
-                  watch('pwCheck') === '' ||
-                  watch('name') === '' ||
-                  watch('email') === '' ||
-                  watch('pn') === '' ||
-                  (watch('bizFile') && watch('bizFile')?.length === 0) ||
-                  (watch('rank') && watch('rank') === '') ||
+                : params?.get("step") && params?.get("step") === "2"
+                ? watch("id") === "" ||
+                  watch("pw") === "" ||
+                  watch("pwCheck") === "" ||
+                  watch("name") === "" ||
+                  watch("email") === "" ||
+                  watch("pn") === "" ||
+                  (watch("bizFile") && watch("bizFile")?.length === 0) ||
+                  (watch("rank") && watch("rank") === "") ||
                   (!errors && !duplicateId)
                   ? true
                   : false
@@ -513,12 +513,12 @@ export default function SignupClient() {
             }
             onClick={() => {
               if (
-                !params.get('step') ||
-                (params.get('step') && params.get('step') === '1')
+                !params?.get("step") ||
+                (params?.get("step") && params?.get("step") === "1")
               ) {
                 // setStep(2);
                 router.replace(`/lg/signup?step=2&type=${type}`);
-              } else if (params.get('step') && params.get('step') === '2') {
+              } else if (params?.get("step") && params?.get("step") === "2") {
                 // setStep(3);
                 router.replace(`/lg/signup?step=3&type=${type}`);
               } else {
