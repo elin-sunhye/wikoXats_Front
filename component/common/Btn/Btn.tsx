@@ -1,18 +1,21 @@
-'use client';
+"use client";
 
-import style from './btn.module.scss';
+import { CSSProperties } from "react";
+import style from "./btn.module.scss";
 
 interface BtnProps {
-  type: 'button' | 'submit' | 'reset';
+  type: "button" | "submit" | "reset";
   title: string;
   id: string;
-  btnType: 'all' | 'text' | 'ico';
+  btnType: "all" | "text" | "ico";
   btnBg?: string;
   btnColor?: string;
-  btnSize?: 'sm' | 'md' | 'xlg';
+  btnSize?: "sm" | "md" | "xlg";
   ico?: JSX.Element;
-  icoPosition?: 'left';
+  icoPosition?: "left";
   hover: boolean;
+  btnStyle?: CSSProperties;
+  btnClassNm?: string;
 }
 
 /**
@@ -63,6 +66,8 @@ export const Btn = ({
   ico,
   icoPosition,
   hover,
+  btnStyle,
+  btnClassNm,
   ...props
 }: BtnProps & React.HTMLProps<HTMLButtonElement>) => {
   return (
@@ -74,16 +79,16 @@ export const Btn = ({
       id={id}
       className={`flex_center ${style.btn} ${
         btnSize ? style[btnSize] : style.lg
-      } ${hover ? style.hover : ''} ${props.className}`}
+      } ${hover ? style.hover : ""} ${btnClassNm}`}
       style={{
-        background: btnBg ? btnBg : 'var(--sub-yellow-1)',
-        color: btnColor ? btnColor : 'var(--white)',
-        ...props.style,
+        background: btnBg ? btnBg : "var(--sub-yellow-1)",
+        color: btnColor ? btnColor : "var(--white)",
+        ...btnStyle,
       }}
       {...props}
     >
-      {btnType === 'all' ? (
-        icoPosition && icoPosition === 'left' ? (
+      {btnType === "all" ? (
+        icoPosition && icoPosition === "left" ? (
           <>
             <span className={`flex_center ${style.ico_btn} ${style.mg_right}`}>
               {ico}
@@ -96,7 +101,7 @@ export const Btn = ({
             <span className={`flex_center ${style.ico_btn}`}>{ico}</span>
           </>
         )
-      ) : btnType === 'text' ? (
+      ) : btnType === "text" ? (
         title
       ) : (
         ico
