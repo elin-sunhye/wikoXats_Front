@@ -57,7 +57,7 @@ export default function SectionPartners() {
                 title={partner.name}
                 id={"partners"}
                 style={{
-                  backgroundColor: "var(--gray-2)",
+                  backgroundColor: "var(--gray-1)",
                   color: "var(--black)",
                 }}
                 size={"xlg"}
