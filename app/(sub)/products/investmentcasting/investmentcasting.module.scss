@@ -1,27 +1,27 @@
-// // items ------------------------------
-// .items {
-//   flex-wrap: wrap;
-//   gap: 2rem;
+// items ------------------------------
+.items {
+  flex-wrap: wrap;
+  gap: 2rem;
 
-//   & > div {
-//     width: calc((100% - 20px) / 2);
+  & > div {
+    width: calc((100% - 20px) / 2);
 
-//     & > div {
-//       button {
-//         margin-left: auto;
-//       }
+    & > div {
+      button {
+        margin-left: auto;
+      }
 
-//       &:first-of-type {
-//         height: 8rem;
-//       }
-//     }
-//     // width: calc((100% - 20px) / 2);
+      &:first-of-type {
+        height: 8rem;
+      }
+    }
+    // width: calc((100% - 20px) / 2);
 
-//     &:last-of-type {
-//       width: 100%;
-//     }
-//   }
-// }
+    &:last-of-type {
+      width: 100%;
+    }
+  }
+}
 
 // tab ------------------------------
 .tab {
