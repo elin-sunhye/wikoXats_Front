@@ -1,18 +1,19 @@
-"use client";
+'use client';
 
-import { BtnLink } from "@/component/common/BtnLink/BtnLink";
-import { SectionTitle } from "@/component/common/SectionTitle/SectionTitle";
-import style from "./sectionCommonLayout.module.scss";
+import { BtnLink } from '@/component/common/BtnLink/BtnLink';
+import { SectionTitle } from '@/component/common/SectionTitle/SectionTitle';
+import style from './sectionCommonLayout.module.scss';
 
 interface sectionCommonLayoutProps {
   sectionId: string;
+  sectionClass?: string;
   sectionBg?: string;
   children?: React.ReactNode;
 
   title: string;
   desc: string;
   color?: string;
-  textAlign?: "center" | "right";
+  textAlign?: 'center' | 'right';
   moTextCenter?: boolean;
 
   btnYn: boolean;
@@ -21,12 +22,14 @@ interface sectionCommonLayoutProps {
   btnHref?: string;
   btnColorStyle?: React.CSSProperties;
   btnIco?: JSX.Element;
-  btnIcoPosition?: "left" | "right";
+  btnIcoPosition?: 'left' | 'right';
   btnHover?: boolean;
 }
 
 /**
  * @sectionId : 각 섹션의 고유 id
+ *
+ * @sectionClass ?: 각 섹션의 class
  *
  * @sectionBg : 각 섹션의 배경 컬러 기본은 white
  *
@@ -67,6 +70,7 @@ interface sectionCommonLayoutProps {
 
 export default function SectionCommonLayout({
   sectionId,
+  sectionClass,
   sectionBg,
   children,
   title,
@@ -86,25 +90,29 @@ export default function SectionCommonLayout({
   return (
     <section
       id={sectionId}
-      className="section_padding"
+      className={`section_padding ${sectionClass}`}
       style={{
-        background: sectionBg ? sectionBg : "var(--white)",
+        background: sectionBg ? sectionBg : 'var(--white)',
       }}
     >
       <div className={`wrap flex_start ${style.section_box}`}>
-        <SectionTitle
-          title={title}
-          desc={desc}
-          textAlign={textAlign}
-          moTextCenter={moTextCenter}
-          color={color}
-        />
+        {title === '' && desc === '' ? (
+          <></>
+        ) : (
+          <SectionTitle
+            title={title}
+            desc={desc}
+            textAlign={textAlign}
+            moTextCenter={moTextCenter}
+            color={color}
+          />
+        )}
 
         {btnYn === true ? (
           <BtnLink
-            title={btnTitle ? btnTitle : ""}
-            id={btnId ? btnId : ""}
-            href={btnHref ? btnHref : ""}
+            title={btnTitle ? btnTitle : ''}
+            id={btnId ? btnId : ''}
+            href={btnHref ? btnHref : ''}
             colorStyle={btnColorStyle}
             icoPosition={btnIcoPosition}
             ico={btnIco}
@@ -114,7 +122,7 @@ export default function SectionCommonLayout({
           <></>
         )}
 
-        <>{children ? children : ""}</>
+        <>{children ? children : ''}</>
       </div>
     </section>
   );
