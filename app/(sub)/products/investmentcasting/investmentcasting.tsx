@@ -1,52 +1,52 @@
-'use client';
-import SectionCommonLayout from '@/component/common/SectionCommonLayout/SectionCommonLayout';
-import style from './investmentcasting.module.scss';
-import CardIco from '@/component/common/CardIco/CardIco';
-import { FaFacebook } from 'react-icons/fa';
-import { Btn } from '@/component/common/Btn/Btn';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { SectionTitle } from '@/component/common/SectionTitle/SectionTitle';
+"use client";
+import SectionCommonLayout from "@/component/common/SectionCommonLayout/SectionCommonLayout";
+import style from "./investmentcasting.module.scss";
+import CardIco from "@/component/common/CardIco/CardIco";
+import { FaFacebook } from "react-icons/fa";
+import { Btn } from "@/component/common/Btn/Btn";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { SectionTitle } from "@/component/common/SectionTitle/SectionTitle";
 import ScrollSection, {
   itemArrayType,
-} from '@/component/common/ScrollSection/ScrollSection';
-import SectionMoreInfo from '@/component/common/SectionMoreInfo/SectionMoreInfo';
+} from "@/component/common/ScrollSection/ScrollSection";
+import SectionMoreInfo from "@/component/common/SectionMoreInfo/SectionMoreInfo";
 
 export default function Investmentcasting() {
   const itemArray: itemArrayType[] = [
     {
-      item: '왁스',
-      desc: '정밀 주조 공정에서 코팅 전, 금속 주조물의 원형을 만들 때 사용되는 부자재입니다.',
-      img: <Image src={'/'} alt={'왁스 이미지'} width={0} height={0} />,
-      tab: 'first',
+      item: "왁스",
+      desc: "정밀 주조 공정에서 코팅 전, 금속 주조물의 원형을 만들 때 사용되는 부자재입니다.",
+      img: <Image src={"/"} alt={"왁스 이미지"} width={0} height={0} />,
+      tab: "first",
     },
     {
-      item: '세척제 & 바인더',
-      desc: '왁스의 세척과 Ceramic Slurry를 만들 때 사용되는 재료입니다.',
-      img: <Image src={'/'} alt={'왁스 이미지'} width={0} height={0} />,
-      tab: 'sec',
+      item: "세척제 & 바인더",
+      desc: "왁스의 세척과 Ceramic Slurry를 만들 때 사용되는 재료입니다.",
+      img: <Image src={"/"} alt={"왁스 이미지"} width={0} height={0} />,
+      tab: "sec",
     },
     {
-      item: '세라믹',
-      desc: '제품의 원형을 만드는데 사용되는 정밀주조 전용 왁스입니다.',
-      img: <Image src={'/'} alt={'왁스 이미지'} width={0} height={0} />,
-      tab: 'thir',
+      item: "세라믹",
+      desc: "제품의 원형을 만드는데 사용되는 정밀주조 전용 왁스입니다.",
+      img: <Image src={"/"} alt={"왁스 이미지"} width={0} height={0} />,
+      tab: "thir",
     },
     {
-      item: '첨가제',
-      desc: '제품의 원형을 만드는데 사용되는 정밀주조 전용 왁스입니다.',
-      img: <Image src={'/'} alt={'왁스 이미지'} width={0} height={0} />,
-      tab: 'fourth',
+      item: "첨가제",
+      desc: "제품의 원형을 만드는데 사용되는 정밀주조 전용 왁스입니다.",
+      img: <Image src={"/"} alt={"왁스 이미지"} width={0} height={0} />,
+      tab: "fourth",
     },
     {
-      item: '기타',
-      desc: '제품의 원형을 만드는데 사용되는 정밀주조 전용 왁스입니다.',
-      img: <Image src={'/'} alt={'왁스 이미지'} width={0} height={0} />,
-      tab: 'fifth',
+      item: "기타",
+      desc: "제품의 원형을 만드는데 사용되는 정밀주조 전용 왁스입니다.",
+      img: <Image src={"/"} alt={"왁스 이미지"} width={0} height={0} />,
+      tab: "fifth",
     },
   ];
 
-  const [tab, setTab] = useState<string>('first');
+  const [tab, setTab] = useState<string>("first");
 
   // useEffect(() => {
   //   const location = document.querySelector(`#${tab}`) as HTMLElement;
@@ -62,47 +62,54 @@ export default function Investmentcasting() {
   return (
     <>
       <SectionCommonLayout
-        sectionId={'descSection'}
+        sectionId={"descSection"}
         sectionClass={style.desc_section}
-        title={''}
+        title={"정밀주조"}
         desc={
-          '정밀주조는 금속 제품을 제작하는 정밀한 주조 방법 중 하나이며, 복잡한 형상의 부품을 높은 정밀도로 생산하는 기술입니다. <br />이 공법은 주로 항공, 자동차, 방산, 의료 기기 등 높은 품질과 정밀도가 요구되는 분야에서 사용됩니다.'
+          "매우 정교하고 복잡한 금속 부품을 제작하는 주조 공법입니다. 복잡한 형상의 고정밀 금속 부품을 생산하기 위해 사용되며, <br />주로 항공, 자동차, 방산, 의료 기기 등 높은 품질과 정밀도가 요구되는 분야에서 사용됩니다."
         }
         btnYn={false}
-        sectionBg={'var(--gray-1)'}
+        sectionBg={"var(--gray-1)"}
       >
-        <span className={style.img_box}>공정도</span>
+        <span className={style.img_box}>
+          <Image
+            src={"/img/product/img_product_investment_casting_sort.svg"}
+            alt={"정밀주조 공정 이미지"}
+            width={0}
+            height={0}
+          />
+        </span>
       </SectionCommonLayout>
 
       <SectionCommonLayout
-        sectionId={'productSection'}
+        sectionId={"productSection"}
         sectionClass={style.product_section}
         title={``}
         desc={``}
         btnYn={false}
-        sectionBg={'var(--gray-1)'}
+        sectionBg={"var(--gray-1)"}
       >
         <div className={`flex_start ${style.btn_tab_box}`}>
           {itemArray.map((item: itemArrayType) => {
             return (
               <Btn
                 key={`${item.item}_${item.tab}`}
-                type={'button'}
+                type={"button"}
                 title={item.item}
                 id={`btn${item.tab}`}
-                btnSize={'xlg'}
+                btnSize={"xlg"}
                 btnClassNm={`${style.btn_tab} ${
-                  tab === item.tab ? style.active : ''
+                  tab === item.tab ? style.active : ""
                 }`}
                 btnBg={
                   // tab === item.tab ? "var(--sub-yellow-1)" : "var(--gray-3)"
-                  tab === item.tab ? 'var(--white)' : 'var(--gray-2)'
+                  tab === item.tab ? "var(--white)" : "var(--gray-2)"
                 }
                 btnColor={
                   // tab === item.tab ? "var(--white)" : "var(--main-green-1)"
-                  tab === item.tab ? 'var(--black)' : 'var(--main-green-1)'
+                  tab === item.tab ? "var(--black)" : "var(--main-green-1)"
                 }
-                btnType={'text'}
+                btnType={"text"}
                 hover={false}
                 onClick={() => {
                   setTab(item.tab);
@@ -114,7 +121,7 @@ export default function Investmentcasting() {
       </SectionCommonLayout>
 
       <SectionCommonLayout
-        sectionId={'productDetailSection'}
+        sectionId={"productDetailSection"}
         sectionClass={style.product_detail_section}
         title={``}
         desc={``}
@@ -123,11 +130,11 @@ export default function Investmentcasting() {
         <div className={`flex_start ${style.item_detail}`}>
           {/* <div className={style.title_box}> */}
           <SectionTitle
-            title={itemArray.find((item) => item.tab === tab)?.item || ''}
-            desc={itemArray.find((item) => item.tab === tab)?.desc || ''}
+            title={itemArray.find((item) => item.tab === tab)?.item || ""}
+            desc={itemArray.find((item) => item.tab === tab)?.desc || ""}
           />
           {/* </div> */}
-          {tab === 'first' ? (
+          {tab === "first" ? (
             <div className={`flex_start ${style.list_box}`}>
               <div>
                 {/* <span className={style.img_box}>img</span> */}
@@ -158,7 +165,7 @@ export default function Investmentcasting() {
                     왁스는 대형 주조 작업 에서 중요한 역할을 합니다.
                   </span>
                   <span className={style.desc}>
-                    {' '}
+                    {" "}
                     사용처 : 엔진 블록, 대형 기계 부품, 구조물 등 주로 대형
                     제품이나 외부 충격 • 압력에 견뎌야하는 경우
                   </span>
@@ -209,18 +216,18 @@ export default function Investmentcasting() {
                 </div>
               </div>
             </div>
-          ) : tab === 'sec' ? (
+          ) : tab === "sec" ? (
             <></>
-          ) : tab === 'thir' ? (
+          ) : tab === "thir" ? (
             <></>
-          ) : tab === 'fourth' ? (
+          ) : tab === "fourth" ? (
             <></>
           ) : (
             <></>
           )}
         </div>
       </SectionCommonLayout>
-      <SectionMoreInfo sectionBg={'var(--gray-1)'} />
+      <SectionMoreInfo sectionBg={"var(--gray-1)"} />
     </>
   );
 }
