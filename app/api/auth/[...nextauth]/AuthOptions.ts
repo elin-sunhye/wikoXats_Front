@@ -1,53 +1,53 @@
-import CredentialsProvider from "next-auth/providers/credentials";
-import { AuthOptions, Session, User } from "next-auth";
-import { JWT } from "next-auth/jwt";
-import { AdapterUser } from "next-auth/adapters";
+import CredentialsProvider from 'next-auth/providers/credentials';
+import { AuthOptions, Session, User } from 'next-auth';
+import { JWT } from 'next-auth/jwt';
+import { AdapterUser } from 'next-auth/adapters';
 
 export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
-      name: "Credentials",
+      name: 'Credentials',
       credentials: {
-        userId: { label: "userId", type: "text" },
-        userPw: { label: "userPw", type: "password" },
+        userId: { label: 'userId', type: 'text' },
+        userPw: { label: 'userPw', type: 'password' },
       },
       async authorize(
-        credentials: Record<"userId" | "userPw", string> | undefined
+        credentials: Record<'userId' | 'userPw', string> | undefined
       ): Promise<User | null> {
         if (
-          credentials?.userId === "boss" &&
-          credentials?.userPw === "asdf1234!"
+          credentials?.userId === 'boss' &&
+          credentials?.userPw === 'asdf1234!'
         ) {
           return {
             userSeq: 1,
             userId: credentials.userId,
-            userNm: "안영도",
+            userNm: '안영도',
             auth: credentials.userId,
             id: credentials.userId,
-            userBirth: "1958-05-04",
-            userEmail: "",
-            userTelno: "010-3047-5858",
+            userBirth: '1958-05-04',
+            userEmail: '',
+            userTelno: '010-3047-5858',
           };
 
           // {
           //   isLogin: true,
           // } as any;
         } else if (
-          credentials?.userId === "manager" &&
-          credentials?.userPw === "asdf1234!"
+          credentials?.userId === 'manager' &&
+          credentials?.userPw === 'asdf1234!'
         ) {
           return {
             userSeq: 2,
             userId: credentials.userId,
             id: credentials.userId,
-            userNm: "안형우",
+            userNm: '안형우',
             auth: credentials.userId,
-            userBirth: "1992-01-06",
-            userEmail: "",
-            userTelno: "010-2567-0624",
+            userBirth: '1992-01-06',
+            userEmail: '',
+            userTelno: '010-2567-0624',
           };
         } else {
-          throw new Error("아이디 및 비밀번호를 확인해주세요.");
+          throw new Error('아이디 및 비밀번호를 확인해주세요.');
         }
       },
     }),
@@ -68,17 +68,21 @@ export const authOptions: AuthOptions = {
       return session;
     },
     async redirect({ url, baseUrl }: { url: string; baseUrl: string }) {
-      if (!url.includes("http")) {
+      if (!url.includes('http')) {
         return process.env.NEXT_PUBLIC_HOST + url;
       }
       return url;
     },
   },
+  // pages: {
+  //   signIn: "/",
+  // },
   pages: {
-    signIn: "/",
+    signIn: '/cms',
+    error: '/', // 에러 페이지 경로 설정
   },
   session: {
-    strategy: "jwt",
+    strategy: 'jwt',
     maxAge: 8 * 60 * 60,
   },
 };
