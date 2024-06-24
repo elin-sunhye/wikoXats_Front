@@ -3,5 +3,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div style={{ position: "relative", zIndex: "999" }}>{children}</div>;
+  return <div style={{ position: 'relative', zIndex: '999' }}>{children}</div>;
 }
