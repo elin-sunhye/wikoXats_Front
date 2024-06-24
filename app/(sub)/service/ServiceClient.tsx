@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import SectionMoreInfo from '@/component/common/SectionMoreInfo/SectionMoreInfo';
-import ServiceDiffer from '@/component/sub/service/ServiceDiffer/ServiceDiffer';
-import ServicePlan from '@/component/sub/service/ServicePlan/ServicePlan';
-import ServiceSubVisual from '@/component/sub/service/ServiceSubVisual/ServiceSubVisual';
-import ServiceTech from '@/component/sub/service/ServiceTech/ServiceTech';
+import SectionMoreInfo from "@/component/common/SectionMoreInfo/SectionMoreInfo";
+import ServiceDiffer from "@/component/sub/service/ServiceDiffer/ServiceDiffer";
+import ServicePlan from "@/component/sub/service/ServicePlan/ServicePlan";
+import ServiceSubVisual from "@/component/sub/service/ServiceSubVisual/ServiceSubVisual";
+import ServiceTech from "@/component/sub/service/ServiceTech/ServiceTech";
 
 export default function ServiceClient() {
   return (
@@ -18,7 +18,7 @@ export default function ServiceClient() {
       {/* 서비스 차별점 */}
       <ServiceDiffer />
       {/* 서비스 인포 */}
-      <SectionMoreInfo sectionBg="var(--gray-3)" />
+      {/* <SectionMoreInfo sectionBg="var(--gray-3)" /> */}
     </>
   );
 }

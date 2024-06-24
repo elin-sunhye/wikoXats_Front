@@ -164,7 +164,6 @@ export default function SectionProdect() {
                   style={{ opacity: "1" }}
                 >
                   <Card
-                    key={index}
                     title={item.title}
                     desc={item.desc}
                     cardBg="var(--white)"

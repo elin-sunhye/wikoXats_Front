@@ -53,7 +53,8 @@
         font-size: var(--fs-24);
         font-weight: var(--fw-700);
 
-        a {
+        a,
+        button {
           font-size: var(--fs-14);
           width: 10rem;
           margin-top: 0.5rem;
