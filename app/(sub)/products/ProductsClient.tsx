@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import ProductCase from '@/component/sub/products/ProductCase/ProductCase';
-import ProductPlan from '@/component/sub/products/ProductPlan/ProductPlan';
-import ProductsSubVisual from '@/component/sub/products/ProductSubVisual/ProductsSubVisual';
-import SectionMoreInfo from '@/component/common/SectionMoreInfo/SectionMoreInfo';
+import ProductCase from "@/component/sub/products/ProductCase/ProductCase";
+import ProductPlan from "@/component/sub/products/ProductPlan/ProductPlan";
+import ProductsSubVisual from "@/component/sub/products/ProductSubVisual/ProductsSubVisual";
+import SectionMoreInfo from "@/component/common/SectionMoreInfo/SectionMoreInfo";
 
 export default function ProductsClient() {
   return (
@@ -18,7 +18,7 @@ export default function ProductsClient() {
       <ProductCase />
 
       {/* asdasd */}
-      <SectionMoreInfo sectionBg="var(--gray-3)" />
+      {/* <SectionMoreInfo sectionBg="var(--gray-3)" /> */}
     </>
   );
 }

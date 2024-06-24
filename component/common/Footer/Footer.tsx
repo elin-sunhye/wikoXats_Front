@@ -14,12 +14,18 @@ import { usePathname } from "next/navigation";
 
 // dummyData
 import menus from "@/dummyData/menus.json";
+import { Btn } from "../Btn/Btn";
+import { signOut, useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 interface FooterProps {}
 
 export const Footer = ({}: FooterProps) => {
   //
   const path = usePathname();
+
+  // 세션
+  const { data: session } = useSession();
 
   return (
     <footer
@@ -32,10 +38,14 @@ export const Footer = ({}: FooterProps) => {
           <p className={footer_style.title}>
             위코
             <BtnLink
-              title={`CMS`}
-              id={`cms`}
               // TODO: 로그인이 안되어있으면 /lg/login 로그인 되어있으면 /cms
-              href={`/lg/login`}
+              title={
+                session === null || session === undefined ? `로그인` : `cms`
+              }
+              id={session === null || session === undefined ? `logIn` : `cms`}
+              href={
+                session === null || session === undefined ? `/lg/login` : `/cms`
+              }
               size="sm"
               icoPosition={"right"}
               ico={
@@ -46,6 +56,29 @@ export const Footer = ({}: FooterProps) => {
               }
               hover={true}
             />
+            {session === null || session === undefined ? (
+              <></>
+            ) : (
+              <Btn
+                type={"button"}
+                title={"로그아웃"}
+                id={"logOut"}
+                btnType={"text"}
+                hover={false}
+                btnSize={"sm"}
+                btnBg={"transparent"}
+                btnStyle={{ border: "1px solid var(--white)" }}
+                onClick={() => {
+                  signOut({
+                    callbackUrl: "http://localhost:3000/",
+                    // callbackUrl: process.env.NEXT_PUBLIC_HOST,
+                    redirect: false,
+                  }).then();
+                }}
+              >
+                로그아웃
+              </Btn>
+            )}
           </p>
           <span className={footer_style.adress}>
             위코(WIKO) <br />

@@ -1,14 +1,21 @@
 "use client";
 
-import { ChangeEventHandler, Ref, forwardRef } from "react";
+import {
+  ChangeEventHandler,
+  KeyboardEventHandler,
+  Ref,
+  forwardRef,
+} from "react";
 import style from "./input.module.scss";
+import { TextField } from "@mui/material";
 interface InputProps {
   size?: "sm" | "md" | "xlg";
   onChange?: ChangeEventHandler<HTMLInputElement>;
+  onKeyUp?: KeyboardEventHandler<HTMLInputElement>;
   // 웹접근성
   id: string;
   labelNm: string;
-  type: string;
+  type: "text" | "password";
   value?: string;
   name: string;
 }
@@ -38,8 +45,9 @@ const Input = forwardRef(
       labelNm,
       type,
       value,
-      onChange,
       name,
+      onChange,
+      onKeyUp,
       ...props
     }: InputProps & React.InputHTMLAttributes<HTMLInputElement>,
     ref: Ref<HTMLInputElement>
@@ -52,11 +60,18 @@ const Input = forwardRef(
         <input
           ref={ref}
           type={type}
-          value={value}
+          name={name}
           id={id}
           className={`${style.input} ${size ? style[size] : style.lg}`}
+          value={value}
           onChange={onChange}
-          name={name}
+          onKeyUp={onKeyUp}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+            }
+          }}
+          autoComplete={"off"}
           {...props}
         />
       </>

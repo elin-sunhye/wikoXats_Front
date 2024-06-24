@@ -85,6 +85,11 @@ export const Btn = ({
         color: btnColor ? btnColor : "var(--white)",
         ...btnStyle,
       }}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+        }
+      }}
       {...props}
     >
       {btnType === "all" ? (

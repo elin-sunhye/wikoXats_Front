@@ -75,7 +75,6 @@ export const Gnb = ({ scroll }: GnbProps) => {
     setMoMenuSeq(0);
 
     // 링크와 같은 메뉴 액티브
-    // console.log('pathName', pathName.split('/'));
   }, [pathName]);
 
   return (
@@ -91,7 +90,11 @@ export const Gnb = ({ scroll }: GnbProps) => {
                       type={"button"}
                       // href={menu.url}
                       title={menu.title}
-                      className={`${pathName === menu.url ? style.active : ""}`}
+                      className={`${
+                        pathName === menu.url || pathName?.includes(menu.url)
+                          ? style.active
+                          : ""
+                      }`}
                     >
                       <p>{menu.menu}</p>
                     </button>
