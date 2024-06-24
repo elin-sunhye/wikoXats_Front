@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import SectionMoreInfo from '@/component/common/SectionMoreInfo/SectionMoreInfo';
-import SectionPartners from '@/component/sub/story/SectionPartners/SectionPartners';
-import SectionPoint from '@/component/sub/story/SectionPoint/SectionPoint';
-import SectionServe from '@/component/sub/story/SectionServe/SectionServe';
-import SectionSimpleIntro from '@/component/sub/story/SectionSimpleIntro/SectionSimpleIntro';
-import SectionStrong from '@/component/sub/story/SectionStrong/SectionStrong';
-import StorySubVisual from '@/component/sub/story/StorySubVisual/StorySubVisual';
+import SectionMoreInfo from "@/component/common/SectionMoreInfo/SectionMoreInfo";
+import SectionPartners from "@/component/sub/story/SectionPartners/SectionPartners";
+import SectionPoint from "@/component/sub/story/SectionPoint/SectionPoint";
+import SectionServe from "@/component/sub/story/SectionServe/SectionServe";
+import SectionSimpleIntro from "@/component/sub/story/SectionSimpleIntro/SectionSimpleIntro";
+import SectionStrong from "@/component/sub/story/SectionStrong/SectionStrong";
+import StorySubVisual from "@/component/sub/story/StorySubVisual/StorySubVisual";
 
 export default function PartnersClient() {
   return (
@@ -30,7 +30,7 @@ export default function PartnersClient() {
       <SectionPartners />
 
       {/* 문의하기 */}
-      <SectionMoreInfo />
+      {/* <SectionMoreInfo /> */}
     </>
   );
 }

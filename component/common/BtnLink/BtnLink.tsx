@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import style from './btnLink.module.scss';
+import Link from "next/link";
+import style from "./btnLink.module.scss";
 
 interface BtnLinkProps {
   title: string;
   id: string;
   href: string;
-  size?: 'sm' | 'md' | 'xlg';
-  colorStyle?: React.CSSProperties;
+  size?: "sm" | "md" | "xlg";
+  // colorstyle?: React.CSSProperties;
   ico?: JSX.Element;
-  icoPosition?: 'left' | 'right';
+  icoPosition?: "left" | "right";
   hover: boolean;
 }
 
@@ -46,12 +46,12 @@ export const BtnLink = ({
       href={href}
       title={title}
       id={id}
-      className={`flex_center ${style.link_btn} ${hover ? style.hover : ''} ${
+      className={`flex_center ${style.link_btn} ${hover ? style.hover : ""} ${
         size ? style[size] : style.lg
       }`}
       {...props}
     >
-      {icoPosition === 'left' ? (
+      {icoPosition === "left" ? (
         <>
           <span
             className={`flex_center ${style.ico_link_btn} ${style.mg_right}`}
@@ -60,7 +60,7 @@ export const BtnLink = ({
           </span>
           {title}
         </>
-      ) : icoPosition === 'right' ? (
+      ) : icoPosition === "right" ? (
         <>
           {title}
           <span className={`flex_center ${style.ico_link_btn}`}>{ico}</span>

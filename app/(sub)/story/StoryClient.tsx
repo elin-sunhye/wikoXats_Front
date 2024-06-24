@@ -60,9 +60,9 @@ export default function StoryClient() {
         <div className={`${style.boss_box}`}>
           {/* <span className={`${style.img_box}`}></span> */}
           <div className={`${style.paragraph}`}>
-            <p>안녕하십니까? 저희 위코주식회사를 방문해 주셔서 감사합니다.</p>
+            <p>안녕하십니까</p>
             <p>
-              저희 &#39;위코주식회사&#39;는 1999년 부산에서 설립된
+              &#39;위코주식회사&#39;는 1999년 부산에서 설립된
               &#39;코리아캐스트&#39;를 기반으로, 2009년 ‘위코주식회사’로 법인
               전환 하였습니다.
             </p>
@@ -71,6 +71,8 @@ export default function StoryClient() {
           <div className={`${style.paragraph}`}>
             <p>
               저희는 향상된 기술 서비스와 안정적인 품질의 제품들을 기반으로,
+            </p>
+            <p>
               단순한 제품 판매를 벗어나 기술력까지 서비스하는 회사가 되기 위해
               노력하고 있습니다.
             </p>
@@ -78,8 +80,11 @@ export default function StoryClient() {
           <div className={`${style.paragraph}`}>
             <p>
               바쁘신 와중에도 저희 &#39;위코주식회사&#39;를 방문해 주신 여러분께
-              진심으로 감사드리며, 앞으로 고객 여러분께 좋은 제품, 기술 서비스를
-              제공하는 기업이 될 수 있도록 많은 격려 부탁드립니다.
+              진심으로 감사드리며,
+            </p>
+            <p>
+              앞으로 고객 여러분께 좋은 제품, 기술 서비스를 제공하는 기업이 될
+              수 있도록 많은 격려 부탁드립니다.
             </p>
             <p>오늘 하루도 행복한 하루 되십시오.</p>
           </div>

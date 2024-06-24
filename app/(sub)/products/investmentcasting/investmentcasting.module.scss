@@ -1,10 +1,19 @@
 // desc_section ------------------------------
 .desc_section {
-  .img_box {
+  .img_process_box {
     display: inline-block;
     width: 100%;
-    aspect-ratio: 1 / 0.2;
+    // aspect-ratio: 1 / 0.2;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: var(--br-10);
     background-color: var(--white);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 
@@ -40,73 +49,64 @@
     // border-radius: 0 0 1rem 1rem;
     border-radius: var(--br-10);
 
-    // .title_box {
-    //   width: 100%;
-    //   padding: 3rem;
-    //   box-sizing: border-box;
-    //   border-radius: var(--br-10);
-    //   background-color: var(--main-green-1);
-    // }
+    .title_box {
+      width: 100%;
+      display: none;
+
+      &.active {
+        display: flex;
+      }
+
+      .img_wax_tree_box {
+        width: auto;
+        height: 13rem;
+        border-radius: var(--br-10);
+        overflow: hidden;
+
+        img {
+          width: auto;
+          height: 100%;
+        }
+      }
+    }
 
     .list_box {
-      gap: 2rem;
-      flex-wrap: wrap;
-      align-content: flex-start;
-      align-items: flex-start;
-
-      & > div {
-        width: calc((100% - 2rem) / 2);
-        background-color: var(--gray-1);
-        padding: 2rem;
-        box-sizing: border-box;
-        border-radius: var(--br-10);
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        align-content: space-between;
+      // 각 탭 제품의 종류
+      .type_inner {
         gap: 2rem;
-
-        &:first-of-type {
-          width: 100%;
-
-          background-color: var(--sub-yellow-1);
-          color: var(--black);
-
-          // .img_box {
-          //   background-color: var(--white);
-          // }
-
-          & > div {
-            height: auto;
-          }
-        }
-
-        .img_box,
-        & > div {
-          display: inline-block;
-          width: 100%;
-        }
-
-        // .img_box {
-        //   height: 25rem;
-        //   background-color: var(--main-green-1);
-        //   border-radius: var(--br-10);
-        //   overflow: hidden;
-        // }
+        flex-wrap: wrap;
+        align-content: flex-start;
+        align-items: flex-start;
 
         & > div {
-          height: 18rem;
+          width: calc((100% - 2rem) / 2);
+          // height: 23.5rem;
+          background-color: var(--gray-1);
+          padding: 2rem;
+          box-sizing: border-box;
+          border-radius: var(--br-10);
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
           align-items: flex-start;
-          align-content: flex-start;
-          gap: 1.5rem;
+          align-content: space-between;
 
+          &.important_item {
+            width: 100%;
+
+            background-color: var(--sub-yellow-1);
+            color: var(--black);
+          }
           .title {
             font-size: var(--fs-20);
             font-weight: bold;
+          }
+          .desc {
+            height: 10.8rem;
+            margin: 1rem 0;
+          }
+          .used {
+            height: 4.3rem;
           }
         }
       }

@@ -137,7 +137,7 @@ export default function SectionProdect() {
       btnYn={true}
       btnTitle={`제품 더 보기`}
       btnId={`viewMore`}
-      btnHref={`/contact`}
+      btnHref={`/products/rawmaterials`}
       btnIcoPosition={`right`}
       btnIco={<FiArrowRight role={`img`} aria-label={`오른쪽 화살표 아이콘`} />}
       btnColorStyle={{
@@ -164,7 +164,6 @@ export default function SectionProdect() {
                   style={{ opacity: "1" }}
                 >
                   <Card
-                    key={index}
                     title={item.title}
                     desc={item.desc}
                     cardBg="var(--white)"

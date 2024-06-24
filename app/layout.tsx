@@ -1,9 +1,10 @@
 import AutoAlert from "@/component/common/AutoAlert/AutoAlert";
 import { Footer } from "@/component/common/Footer/Footer";
 import { Header } from "@/component/common/Header/Header";
-import ReactQueryProvider from "@/component/common/ReactQueryProvider";
-import RecoilRootProvider from "@/component/common/RecoilRootProvider";
 import SubTop from "@/component/common/Sub/SubTop/SubTop";
+import NextAuthProvider from "@/providers/NextAuthProvider";
+import ReactQueryProvider from "@/providers/ReactQueryProvider";
+import RecoilRootProvider from "@/providers/RecoilRootProvider";
 import "@/style/globals.scss";
 import localFont from "next/font/local";
 
@@ -95,24 +96,26 @@ export default function RootLayout({
         />
       </head>
       <body className={`${pretendard.variable} ${Gmarket.variable}`}>
-        <RecoilRootProvider>
-          {/* header */}
-          <Header />
+        <NextAuthProvider>
+          <RecoilRootProvider>
+            {/* header */}
+            <Header />
 
-          {/* content */}
-          <ReactQueryProvider>
-            <div style={{ position: "relative", zIndex: "999" }}>
-              <SubTop />
-              {children}
-            </div>
-            {/* <div className="wrap"></div> */}
+            {/* content */}
+            <ReactQueryProvider>
+              <div style={{ position: "relative", zIndex: "999" }}>
+                <SubTop />
+                {children}
+              </div>
+              {/* <div className="wrap"></div> */}
 
-            {/* autoAlert */}
-            <AutoAlert />
-          </ReactQueryProvider>
-          {/* footer */}
-          <Footer />
-        </RecoilRootProvider>
+              {/* autoAlert */}
+              <AutoAlert />
+            </ReactQueryProvider>
+            {/* footer */}
+            <Footer />
+          </RecoilRootProvider>
+        </NextAuthProvider>
       </body>
     </html>
   );

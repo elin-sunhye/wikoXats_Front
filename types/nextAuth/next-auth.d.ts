@@ -1,5 +1,5 @@
-import NextAuth from 'next-auth';
-import { EnterpriseInfoResponse } from '../lg/RegisterType';
+import NextAuth from "next-auth";
+import { EnterpriseInfoResponse } from "../lg/RegisterType";
 
 interface AuthListType {
   authrtSeq: number;
@@ -9,7 +9,7 @@ interface AuthListType {
 }
 
 // TODO : 타입 수정 (01.11)
-declare module 'next-auth' {
+declare module "next-auth" {
   interface User {
     /**
      * @userSeq: 사용자 시퀀스
@@ -28,10 +28,6 @@ declare module 'next-auth' {
      */
     userTelno: string;
     /**
-     * @userSxdcEnu: 성별
-     */
-    userSxdcEnu: string | null;
-    /**
      * @userId: 아이디
      */
     userId: string;
@@ -40,44 +36,17 @@ declare module 'next-auth' {
      */
     userEmail: string;
     /**
-     * @userTypeEnu: 유형
-     */
-    userTypeEnu: {
-      type: 'NORMAL' | 'ADMIN';
-      name: string;
-    };
-    /**
      * @authList: 권한리스트
      */
-    authList: AuthListType[];
+    auth: string;
     /**
      * @jwtAuthToken: Auth 토큰
      */
-    jwtAuthToken: string;
+    jwtAuthToken?: string;
     /**
      * @jwtRefreshToken: Refresh 토큰
      */
-    jwtRefreshToken: string;
-    /**
-     * @joinApprovalYn: 가입 승인 여부
-     */
-    joinApprovalYn: 'Y' | 'N';
-    /**
-     * @entInfoSeq: 기업정보 시퀀스
-     */
-    entInfoSeq: number;
-    /**
-     * 부서
-     */
-    userDept: string;
-    /**
-     * 직급
-     */
-    userJbgd: string;
-    /**
-     * 기업정보
-     */
-    enterpriseInfoResponse: EnterpriseInfoResponse;
+    jwtRefreshToken?: string;
 
     // 오류메시지: 오류일때만 내용이 담겨서 옴
     code?: string;
@@ -90,7 +59,7 @@ declare module 'next-auth' {
   }
 }
 
-declare module 'next-auth/jwt' {
+declare module "next-auth/jwt" {
   interface JWT {
     user: User;
   }
