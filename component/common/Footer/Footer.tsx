@@ -70,9 +70,8 @@ export const Footer = ({}: FooterProps) => {
                 btnStyle={{ border: "1px solid var(--white)" }}
                 onClick={() => {
                   signOut({
-                    callbackUrl: "/",
-                    // callbackUrl: process.env.NEXT_PUBLIC_HOST,
-                    redirect: false,
+                    callbackUrl: process.env.NEXT_PUBLIC_HOST,
+                    redirect: true,
                   }).then();
                 }}
               >
