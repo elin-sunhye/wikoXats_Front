@@ -110,6 +110,21 @@
           }
         }
       }
+
+      // sec_box
+      .sec_box {
+        .type_inner {
+          & > div {
+            &:first-of-type {
+              width: 100%;
+            }
+
+            .used {
+              height: 2.2rem;
+            }
+          }
+        }
+      }
     }
   }
 }
