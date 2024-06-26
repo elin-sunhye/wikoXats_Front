@@ -56,7 +56,7 @@ export default function ScrollSection({ tab, children }: ScrollSectionProps) {
         <div className={`${style.left} ${scroll ? style.active : ""}`}>
           {tab.map((item: itemArrayType) => {
             return (
-              <Link
+              <a
                 key={`item_${item.item}`}
                 to={item.tab}
                 activeClass={style.active}
@@ -71,7 +71,7 @@ export default function ScrollSection({ tab, children }: ScrollSectionProps) {
                 }}
               >
                 <SectionTitle title={item.item} desc={item.desc} />
-              </Link>
+              </a>
             );
           })}
         </div>
