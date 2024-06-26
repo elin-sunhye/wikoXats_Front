@@ -1,5 +1,5 @@
-import SectionCount from '@/component/main/SectionCount/SectionCount';
-import FaqScroll from '@/component/sub/faq/FaqScroll/FaqScroll';
+import SectionCount from "@/component/portal/main/SectionCount/SectionCount";
+import FaqScroll from "@/component/portal/sub/faq/FaqScroll/FaqScroll";
 
 export default function FaqClient() {
   return (

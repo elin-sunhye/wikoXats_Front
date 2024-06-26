@@ -5,7 +5,7 @@ import style from "./mainVisual.module.scss";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { BtnLink } from "@/component/common/BtnLink/BtnLink";
 import { HiMiniChevronDoubleRight } from "react-icons/hi2";
-import { Btn } from "../common/Btn/Btn";
+import { Btn } from "../../common/Btn/Btn";
 
 // aos
 import AOS from "aos";

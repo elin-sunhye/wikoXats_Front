@@ -1,8 +1,8 @@
-import MainVisual from '@/component/main/MainVisual';
-import SectionCount from '@/component/main/SectionCount/SectionCount';
-import SectionPartners from '@/component/main/SectionPartners';
-import SectionProduct from '@/component/main/SectionProduct';
-import SectionService from '@/component/main/SectionService';
+import MainVisual from "@/component/portal/main/MainVisual";
+import SectionCount from "@/component/portal/main/SectionCount/SectionCount";
+import SectionPartners from "@/component/portal/main/SectionPartners";
+import SectionProduct from "@/component/portal/main/SectionProduct";
+import SectionService from "@/component/portal/main/SectionService";
 
 export default function MainClient() {
   return (
