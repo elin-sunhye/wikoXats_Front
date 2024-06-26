@@ -121,13 +121,13 @@ export const Gnb = ({ scroll }: GnbProps) => {
               } else {
                 return (
                   <li key={menu.seq}>
-                    <Link
+                    <a
                       href={menu.url}
                       title={menu.title}
                       className={`${pathName === menu.url ? style.active : ""}`}
                     >
                       <p>{menu.menu}</p>
-                    </Link>
+                    </a>
                   </li>
                 );
               }
@@ -145,7 +145,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
             if (menu.level === 1 && menu.type === "sub") {
               return (
                 <li key={menu.seq}>
-                  <Link
+                  <a
                     href={menu.url}
                     title={menu.title}
                     className={`${pathName === menu.url ? style.active : ""}`}
@@ -170,7 +170,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
                         className={style.scroll_ico}
                       />
                     )}
-                  </Link>
+                  </a>
                 </li>
               );
             }
@@ -244,9 +244,9 @@ export const Gnb = ({ scroll }: GnbProps) => {
                 } else {
                   return (
                     <li key={menu.seq}>
-                      <Link href={menu.url} title={menu.title}>
+                      <a href={menu.url} title={menu.title}>
                         <p>{menu.menu}</p>
-                      </Link>
+                      </a>
                     </li>
                   );
                 }
@@ -261,9 +261,9 @@ export const Gnb = ({ scroll }: GnbProps) => {
               if (menu.level === 1 && menu.seq >= 5 && menu.seq <= 10) {
                 return (
                   <li key={menu.seq}>
-                    <Link href={menu.url} title={menu.title}>
+                    <a href={menu.url} title={menu.title}>
                       <p>{menu.menu}</p>
-                    </Link>
+                    </a>
                   </li>
                 );
               }
