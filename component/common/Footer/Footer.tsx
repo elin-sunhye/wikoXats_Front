@@ -89,34 +89,34 @@ export const Footer = ({}: FooterProps) => {
           </span>
           <ul className={`pc_legals flex_start ${footer_style.legals}`}>
             <li>
-              <Link href={`#`} title={`서비스이용약관`}>
+              <a href={`#`} title={`서비스이용약관`}>
                 <p>서비스이용약관</p>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href={`#`} title={`WIKO 계약`}>
+              <a href={`#`} title={`WIKO 계약`}>
                 <p>WIKO 계약</p>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href={`#`} title={`개인보호정책`}>
+              <a href={`#`} title={`개인보호정책`}>
                 <p>개인보호정책</p>
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
 
         <ul className={`flex_start ${footer_style.middle}`}>
           <li>
-            <Link href={`/`} title={`홈으로가기`}>
+            <a href={`/`} title={`홈으로가기`}>
               <p>Home</p>
-            </Link>
+            </a>
           </li>
           {menus.map((menu: MenusType) => {
             if (menu.level === 1) {
               return (
                 <li key={menu.seq}>
-                  <Link
+                  <a
                     href={
                       menu.hasChild
                         ? menus.find(
@@ -128,7 +128,7 @@ export const Footer = ({}: FooterProps) => {
                     title={menu.title}
                   >
                     <p>{menu.menu}</p>
-                  </Link>
+                  </a>
                 </li>
               );
             }
@@ -140,7 +140,7 @@ export const Footer = ({}: FooterProps) => {
             <p>Keep in touch</p>
             <ul className={`flex_start`}>
               <li>
-                <Link
+                <a
                   href={`#`}
                   className={`flex_center ${footer_style.link_youtube}`}
                   title="유투브 바로가기"
@@ -150,10 +150,10 @@ export const Footer = ({}: FooterProps) => {
                     aria-label={`유튜브 아이콘`}
                     className={`${footer_style.ico_sns} ${footer_style.ico_youtube}`}
                   />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   href={`#`}
                   className={`flex_center ${footer_style.link_facebook}`}
                   title="유투브 바로가기"
@@ -163,10 +163,10 @@ export const Footer = ({}: FooterProps) => {
                     aria-label={`페이스북 아이콘`}
                     className={`${footer_style.ico_sns} ${footer_style.ico_facebook}`}
                   />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   href={`#`}
                   className={`flex_center ${footer_style.link_blog}`}
                   title="유투브 바로가기"
@@ -176,10 +176,10 @@ export const Footer = ({}: FooterProps) => {
                     aria-label={`네이버 블로그 아이콘`}
                     className={`${footer_style.ico_sns} ${footer_style.ico_blog}`}
                   />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   href={`#`}
                   className={`flex_center ${footer_style.link_linkedin}`}
                   title="유투브 바로가기"
@@ -189,7 +189,7 @@ export const Footer = ({}: FooterProps) => {
                     role={`img`}
                     aria-label={`링크드인 아이콘`}
                   />
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -199,19 +199,19 @@ export const Footer = ({}: FooterProps) => {
 
           <ul className={`mo_legals flex_start ${footer_style.legals}`}>
             <li>
-              <Link href={`#`} title={`서비스이용약관`}>
+              <a href={`#`} title={`서비스이용약관`}>
                 <p>서비스이용약관</p>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href={`#`} title={`WIKO 계약`}>
+              <a href={`#`} title={`WIKO 계약`}>
                 <p>WIKO 계약</p>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href={`#`} title={`개인보호정책`}>
+              <a href={`#`} title={`개인보호정책`}>
                 <p>개인보호정책</p>
-              </Link>
+              </a>
             </li>
           </ul>
         </div>

@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import style from './sectionMoreInfo.module.scss';
-import SectionVarticalLayout from '@/component/common/SectionVarticalLayout/SectionVarticalLayout';
-import Link from 'next/link';
-import { FiArrowRight } from 'react-icons/fi';
-import { SiMicrosoftexcel } from 'react-icons/si';
-import { VscFilePdf, VscLink } from 'react-icons/vsc';
+import style from "./sectionMoreInfo.module.scss";
+import SectionVarticalLayout from "@/component/common/SectionVarticalLayout/SectionVarticalLayout";
+import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
+import { SiMicrosoftexcel } from "react-icons/si";
+import { VscFilePdf, VscLink } from "react-icons/vsc";
 
 interface SectionMoreInfoProps {
   sectionBg?: string;
@@ -35,7 +35,7 @@ export default function SectionMoreInfo({ sectionBg }: SectionMoreInfoProps) {
 
         <ul>
           <li>
-            <Link href={'#'} title={`위코 소개서`} target="_blank">
+            <a href={"#"} title={`위코 소개서`} target="_blank">
               <VscFilePdf
                 role={`img`}
                 aria-label={`pdf 파일 아이콘`}
@@ -43,10 +43,10 @@ export default function SectionMoreInfo({ sectionBg }: SectionMoreInfoProps) {
               />
               위코 소개서 &#40;PDF&#41;
               <VscLink role={`img`} aria-label={`외부 링크 아이콘`} />
-            </Link>
+            </a>
           </li>
           <li>
-            <Link href={'#'} title={`업종별 사례`} target="_blank">
+            <a href={"#"} title={`업종별 사례`} target="_blank">
               <SiMicrosoftexcel
                 role={`img`}
                 aria-label={`excel 파일 아이콘`}
@@ -54,7 +54,7 @@ export default function SectionMoreInfo({ sectionBg }: SectionMoreInfoProps) {
               />
               업종별 사례 &#40;EXCEL&#41;
               <VscLink role={`img`} aria-label={`외부 링크 아이콘`} />
-            </Link>
+            </a>
           </li>
         </ul>
       </div>

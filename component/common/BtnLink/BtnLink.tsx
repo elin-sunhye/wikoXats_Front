@@ -42,7 +42,7 @@ export const BtnLink = ({
   ...props
 }: BtnLinkProps & React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   return (
-    <Link
+    <a
       href={href}
       title={title}
       id={id}
@@ -68,6 +68,6 @@ export const BtnLink = ({
       ) : (
         title
       )}
-    </Link>
+    </a>
   );
 };

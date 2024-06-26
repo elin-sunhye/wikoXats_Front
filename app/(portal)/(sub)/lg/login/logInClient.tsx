@@ -183,13 +183,13 @@ export default function LogInClient() {
 
             {/* <ul className={`flex_center ${style.bottom}`}>
               <li>
-                <Link href={"/lg/signup"}>회원가입</Link>
+                <a href={"/lg/signup"}>회원가입</a>
               </li>
               <li>
-                <Link href={"/lg/findid"}>아이디 찾기</Link>
+                <a href={"/lg/findid"}>아이디 찾기</a>
               </li>
               <li>
-                <Link href={"/lg/findpw"}>비밀번호 찾기</Link>
+                <a href={"/lg/findpw"}>비밀번호 찾기</a>
               </li>
             </ul> */}
           </div>

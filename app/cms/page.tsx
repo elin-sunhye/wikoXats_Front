@@ -7,16 +7,15 @@ import { use } from "react";
 
 export default async function Cms() {
   // 세션
-  const session = await getServerSession(authOptions);
+  // const session = await getServerSession(authOptions);
   // const session = use(getServerSession(authOptions));
 
-  if (!session) {
-    redirect("/");
-    // console.log("로그인안됨", session);
-  }
-  // else {
-  //   console.log("로그인", session);
+  // if (!session) {
+  //   redirect("/");
+  //   // console.log("로그인안됨", session);
+  // } else {
+  //   //   console.log("로그인", session);
+  //   return <Dashboard />;
   // }
-
   return <Dashboard />;
 }
