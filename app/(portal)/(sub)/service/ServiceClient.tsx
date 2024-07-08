@@ -1,10 +1,10 @@
 "use client";
 
 import SectionMoreInfo from "@/component/common/SectionMoreInfo/SectionMoreInfo";
-import ServiceDiffer from "@/component/sub/service/ServiceDiffer/ServiceDiffer";
-import ServicePlan from "@/component/sub/service/ServicePlan/ServicePlan";
-import ServiceSubVisual from "@/component/sub/service/ServiceSubVisual/ServiceSubVisual";
-import ServiceTech from "@/component/sub/service/ServiceTech/ServiceTech";
+import ServiceDiffer from "@/component/portal/sub/service/ServiceDiffer/ServiceDiffer";
+import ServicePlan from "@/component/portal/sub/service/ServicePlan/ServicePlan";
+import ServiceSubVisual from "@/component/portal/sub/service/ServiceSubVisual/ServiceSubVisual";
+import ServiceTech from "@/component/portal/sub/service/ServiceTech/ServiceTech";
 
 export default function ServiceClient() {
   return (

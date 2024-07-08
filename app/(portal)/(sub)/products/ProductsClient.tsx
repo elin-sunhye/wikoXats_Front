@@ -1,8 +1,8 @@
 "use client";
 
-import ProductCase from "@/component/sub/products/ProductCase/ProductCase";
-import ProductPlan from "@/component/sub/products/ProductPlan/ProductPlan";
-import ProductsSubVisual from "@/component/sub/products/ProductSubVisual/ProductsSubVisual";
+import ProductCase from "@/component/portal/sub/products/ProductCase/ProductCase";
+import ProductPlan from "@/component/portal/sub/products/ProductPlan/ProductPlan";
+import ProductsSubVisual from "@/component/portal/sub/products/ProductSubVisual/ProductsSubVisual";
 import SectionMoreInfo from "@/component/common/SectionMoreInfo/SectionMoreInfo";
 
 export default function ProductsClient() {

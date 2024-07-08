@@ -1,12 +1,12 @@
 "use client";
 
 import SectionMoreInfo from "@/component/common/SectionMoreInfo/SectionMoreInfo";
-import SectionPartners from "@/component/sub/story/SectionPartners/SectionPartners";
-import SectionPoint from "@/component/sub/story/SectionPoint/SectionPoint";
-import SectionServe from "@/component/sub/story/SectionServe/SectionServe";
-import SectionSimpleIntro from "@/component/sub/story/SectionSimpleIntro/SectionSimpleIntro";
-import SectionStrong from "@/component/sub/story/SectionStrong/SectionStrong";
-import StorySubVisual from "@/component/sub/story/StorySubVisual/StorySubVisual";
+import SectionPartners from "@/component/portal/sub/story/SectionPartners/SectionPartners";
+import SectionPoint from "@/component/portal/sub/story/SectionPoint/SectionPoint";
+import SectionServe from "@/component/portal/sub/story/SectionServe/SectionServe";
+import SectionSimpleIntro from "@/component/portal/sub/story/SectionSimpleIntro/SectionSimpleIntro";
+import SectionStrong from "@/component/portal/sub/story/SectionStrong/SectionStrong";
+import StorySubVisual from "@/component/portal/sub/story/StorySubVisual/StorySubVisual";
 
 export default function PartnersClient() {
   return (

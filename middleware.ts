@@ -1,27 +1,35 @@
+import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { authOptions } from "./app/api/auth/[...nextauth]/AuthOptions";
 
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
-  const accessToken = request.cookies.get("accessToken")?.value;
+  // 세션
+  const accessToken = request.cookies.get("next-auth.session-token")?.value;
   const { pathname } = request.nextUrl;
 
   // 로그인 페이지 접근 시, 이미 로그인 되어 있다면 메인 페이지로 리다이렉트
-  if (pathname.includes("login")) {
+  if (pathname.includes("/lg/login")) {
     if (accessToken) {
       return NextResponse.redirect(new URL("/", request.url));
+    } else {
+      // 로그인 페이지는 보호되지 않은 경로이므로, accessToken이 없어도 접근 가능
+      return NextResponse.next();
     }
-    // 로그인 페이지는 보호되지 않은 경로이므로, accessToken이 없어도 접근 가능
-    return NextResponse.next();
   }
 
   // 관리자 페이지 접근 시, 로그인이 안되어 있다면 메인 페이지로 리다이렉트
-  if (pathname.includes("cms")) {
+  if (pathname.includes("/cms")) {
     if (!accessToken) {
       return NextResponse.redirect(new URL("/lg/login", request.url));
+    } else {
+      // 관리자 페이지 접근 허용
+      return NextResponse.next();
     }
-    // return NextResponse.next();
   }
+  // 기타 경로 기본 동작 유지
+  return NextResponse.next();
 }
 
 // See "Matching Paths" below to learn more
