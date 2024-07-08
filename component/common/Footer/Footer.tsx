@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import footer_style from "./footer.module.scss";
-import "./footer.scss";
-import Link from "next/link";
-import { MenusType } from "@/types/menus";
-import { AiFillYoutube } from "react-icons/ai";
-import { FaFacebookF } from "react-icons/fa";
-import { SiNaver } from "react-icons/si";
-import { FaLinkedinIn } from "react-icons/fa";
-import { BtnLink } from "../BtnLink/BtnLink";
-import { FiArrowRight } from "react-icons/fi";
-import { usePathname } from "next/navigation";
+import footer_style from './footer.module.scss';
+import './footer.scss';
+import Link from 'next/link';
+import { MenusType } from '@/types/menus';
+import { AiFillYoutube } from 'react-icons/ai';
+import { FaFacebookF } from 'react-icons/fa';
+import { SiNaver } from 'react-icons/si';
+import { FaLinkedinIn } from 'react-icons/fa';
+import { BtnLink } from '../BtnLink/BtnLink';
+import { FiArrowRight } from 'react-icons/fi';
+import { usePathname } from 'next/navigation';
 
 // dummyData
-import menus from "@/dummyData/menus.json";
-import { Btn } from "../Btn/Btn";
-import { signOut, useSession } from "next-auth/react";
-import { useEffect } from "react";
+import menus from '@/dummyData/menus.json';
+import { Btn } from '../Btn/Btn';
+import { signOut, useSession } from 'next-auth/react';
+import { useEffect } from 'react';
 
 interface FooterProps {}
 
@@ -30,7 +30,7 @@ export const Footer = ({}: FooterProps) => {
   return (
     <footer
       className={`${footer_style.footer_wrap} ${
-        path?.includes("/lg") ? "" : footer_style.sticky
+        path?.includes('/lg') ? '' : footer_style.sticky
       }`}
     >
       <div className={`wrap flex_between ${footer_style.footer_box}`}>
@@ -47,7 +47,7 @@ export const Footer = ({}: FooterProps) => {
                 session === null || session === undefined ? `/lg/login` : `/cms`
               }
               size="sm"
-              icoPosition={"right"}
+              icoPosition={'right'}
               ico={
                 <FiArrowRight
                   role={`img`}
@@ -60,17 +60,17 @@ export const Footer = ({}: FooterProps) => {
               <></>
             ) : (
               <Btn
-                type={"button"}
-                title={"로그아웃"}
-                id={"logOut"}
-                btnType={"text"}
+                type={'button'}
+                title={'로그아웃'}
+                id={'logOut'}
+                btnType={'text'}
                 hover={false}
-                btnSize={"sm"}
-                btnBg={"transparent"}
-                btnStyle={{ border: "1px solid var(--white)" }}
+                btnSize={'sm'}
+                btnBg={'transparent'}
+                btnStyle={{ border: '1px solid var(--white)' }}
                 onClick={() => {
                   signOut({
-                    // callbackUrl: "/",
+                    callbackUrl: '/',
                     redirect: true,
                   }).then();
                 }}
@@ -122,7 +122,7 @@ export const Footer = ({}: FooterProps) => {
                         ? menus.find(
                             (child: MenusType) =>
                               child.parentSeq === menu.seq && child.level === 2
-                          )?.url || ""
+                          )?.url || ''
                         : menu.url
                     }
                     title={menu.title}
