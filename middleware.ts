@@ -43,14 +43,7 @@ export default withAuth(
     callbacks: {
       authorized: ({ req, token }) => {
         if (req.url.includes("/cms")) {
-          if (
-            !token ||
-            !token.user ||
-            !token.user.authList ||
-            !token.user.authList.length ||
-            !token.user.authList[0].authrtNm ||
-            !token.user.authList[0].authrtCd.includes("ADMIN")
-          ) {
+          if (!token) {
             return false;
           } else {
             return true;
