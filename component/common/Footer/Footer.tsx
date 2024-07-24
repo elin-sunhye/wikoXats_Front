@@ -38,7 +38,6 @@ export const Footer = ({}: FooterProps) => {
           <p className={footer_style.title}>
             위코
             <BtnLink
-              // TODO: 로그인이 안되어있으면 /lg/login 로그인 되어있으면 /cms
               title={
                 session === null || session === undefined ? `로그인` : `cms`
               }
@@ -70,7 +69,7 @@ export const Footer = ({}: FooterProps) => {
                 btnStyle={{ border: "1px solid var(--white)" }}
                 onClick={() => {
                   signOut({
-                    callbackUrl: "/lg/login",
+                    callbackUrl: "lg/login",
                     redirect: true,
                   }).then();
                 }}

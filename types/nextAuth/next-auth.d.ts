@@ -8,7 +8,6 @@ interface AuthListType {
   authrtExpln: string;
 }
 
-// TODO : 타입 수정 (01.11)
 declare module "next-auth" {
   interface User {
     /**
