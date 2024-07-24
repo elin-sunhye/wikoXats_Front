@@ -70,7 +70,7 @@ export const Footer = ({}: FooterProps) => {
                 btnStyle={{ border: "1px solid var(--white)" }}
                 onClick={() => {
                   signOut({
-                    callbackUrl: "/lg/login",
+                    callbackUrl: "lg/login",
                     redirect: true,
                   }).then();
                 }}
