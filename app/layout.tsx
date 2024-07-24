@@ -7,6 +7,7 @@ import ReactQueryProvider from "@/providers/ReactQueryProvider";
 import RecoilRootProvider from "@/providers/RecoilRootProvider";
 import "@/style/globals.scss";
 import localFont from "next/font/local";
+import ErrorBoundary from "@/component/common/ErrorBoundary/ErrorBoundary";
 
 // font
 const pretendard = localFont({
@@ -96,9 +97,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`${pretendard.variable} ${Gmarket.variable}`}>
-        <NextAuthProvider>
-          <RecoilRootProvider>{children}</RecoilRootProvider>
-        </NextAuthProvider>
+        <ErrorBoundary>
+          <NextAuthProvider>
+            <RecoilRootProvider>{children}</RecoilRootProvider>
+          </NextAuthProvider>
+        </ErrorBoundary>
       </body>
     </html>
   );
