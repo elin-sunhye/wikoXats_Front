@@ -53,7 +53,7 @@
 "use client";
 
 import React from "react";
-import style from "@/components/common/ErrorBoundary/ErrorBoundary.module.scss";
+import style from "@/component/common/ErrorBoundary/ErrorBoundary.module.scss";
 import Image from "next/image";
 import { Btn } from "@/component/common/Btn/Btn";
 

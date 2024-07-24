@@ -1,5 +1,4 @@
 import { getToken } from "next-auth/jwt";
-import { getSession } from "next-auth/react";
 import { NextRequest, NextResponse } from "next/server";
 
 export const middleware = async (req: NextRequest) => {
@@ -9,6 +8,8 @@ export const middleware = async (req: NextRequest) => {
     raw: true,
   });
   const { pathname } = req.nextUrl;
+
+  console.log("token", token);
 
   if (pathname.startsWith("/cms")) {
     if (token) {
