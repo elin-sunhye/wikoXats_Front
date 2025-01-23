@@ -30,24 +30,24 @@
         width: 100%;
       }
 
-      // .bottom {
-      //   margin-top: 2rem;
-      //   gap: 1rem;
+      .bottom {
+        margin-top: 2rem;
+        gap: 1rem;
 
-      //   li {
-      //     border-right: 1px solid var(--gray-3);
-      //     padding-right: 1rem;
+        li {
+          border-right: 1px solid var(--gray-3);
+          padding-right: 1rem;
 
-      //     &:last-of-type {
-      //       border-right: 0;
-      //       padding-right: 0;
-      //     }
+          &:last-of-type {
+            border-right: 0;
+            padding-right: 0;
+          }
 
-      //     a {
-      //       color: var(--gray-4);
-      //     }
-      //   }
-      // }
+          a {
+            color: var(--gray-4);
+          }
+        }
+      }
     }
   }
 }
