@@ -107,7 +107,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
                             (depth2Seq: MenusType) =>
                               depth2Seq.parentSeq === menu.menuId
                           )
-                          .map((depth2) => {
+                          .map((depth2: MenusType) => {
                             return (
                               <li key={`depth2_${depth2.menuId}`}>
                                 <a href={depth2.url} title={depth2.title}>
@@ -229,9 +229,10 @@ export const Gnb = ({ scroll }: GnbProps) => {
                       >
                         {data?.body
                           .filter(
-                            (depth2Seq: MenusType) => depth2Seq.parentSeq === menu.menuId
+                            (depth2Seq: MenusType) =>
+                              depth2Seq.parentSeq === menu.menuId
                           )
-                          .map((depth2) => {
+                          .map((depth2: MenusType) => {
                             return (
                               <li key={`mo_depth2_${depth2.menuId}`}>
                                 <a href={depth2.url} title={depth2.title}>

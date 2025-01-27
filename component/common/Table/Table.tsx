@@ -123,7 +123,7 @@ const Table = forwardRef(
       keyboardSyncIndividEventBoolean,
       setKeyboardSyncIndividEventBoolean,
     ] = useState<boolean[]>(
-      data === null || !data.length ? [false] : data.map((item) => false)
+      data === null || !data.length ? [false] : data.map((item: T) => false)
     );
 
     useEffect(() => {
@@ -133,12 +133,12 @@ const Table = forwardRef(
 
       if (checkArray.length === data.length) {
         setKeyboardSyncAllEventBoolean(true);
-        setKeyboardSyncIndividEventBoolean(data.map((item) => true));
+        setKeyboardSyncIndividEventBoolean(data.map((item: T) => true));
       }
 
       if (checkArray.length === 0) {
         setKeyboardSyncAllEventBoolean(false);
-        setKeyboardSyncIndividEventBoolean(data.map((item) => false));
+        setKeyboardSyncIndividEventBoolean(data.map((item: T) => false));
       }
 
       if (checkArray.length < data.length) {
@@ -170,12 +170,14 @@ const Table = forwardRef(
                     <th
                       key={`thCheck_${thead.value}`}
                       className={`${
-                        pcNone?.find((num) => num === thIndex + 1) !== undefined
+                        pcNone?.find((num: number) => num === thIndex + 1) !==
+                        undefined
                           ? style.pc_none
                           : ''
                       } ${
-                        mobileNone?.find((num) => num === thIndex + 1) !==
-                        undefined
+                        mobileNone?.find(
+                          (num: number) => num === thIndex + 1
+                        ) !== undefined
                           ? style.mo_none
                           : ''
                       }`}
@@ -216,12 +218,14 @@ const Table = forwardRef(
                     <th
                       key={`thCheck_${thead.value}`}
                       className={`${
-                        pcNone?.find((num) => num === thIndex + 1) !== undefined
+                        pcNone?.find((num: number) => num === thIndex + 1) !==
+                        undefined
                           ? style.pc_none
                           : ''
                       } ${
-                        mobileNone?.find((num) => num === thIndex + 1) !==
-                        undefined
+                        mobileNone?.find(
+                          (num: number) => num === thIndex + 1
+                        ) !== undefined
                           ? style.mo_none
                           : ''
                       }`}
@@ -239,7 +243,7 @@ const Table = forwardRef(
               <td colSpan={headers.length}>데이터가 없습니다.</td>
             </tr>
           ) : (
-            data.map((tbody, trIndex) => {
+            data.map((tbody: T, trIndex: number) => {
               return (
                 <tr
                   key={`tbody_${trIndex}`}
@@ -254,13 +258,15 @@ const Table = forwardRef(
                           <td
                             key={`check_${thead.value}`}
                             className={`${
-                              pcNone?.find((num) => num === tdIndex + 1) !==
-                              undefined
+                              pcNone?.find(
+                                (num: number) => num === tdIndex + 1
+                              ) !== undefined
                                 ? style.pc_none
                                 : ''
                             } ${
-                              mobileNone?.find((num) => num === tdIndex + 1) !==
-                              undefined
+                              mobileNone?.find(
+                                (num: number) => num === tdIndex + 1
+                              ) !== undefined
                                 ? style.mo_none
                                 : ''
                             }`}
@@ -405,13 +411,15 @@ const Table = forwardRef(
                           <td
                             key={thead.value}
                             className={`${
-                              pcNone?.find((num) => num === tdIndex + 1) !==
-                              undefined
+                              pcNone?.find(
+                                (num: number) => num === tdIndex + 1
+                              ) !== undefined
                                 ? style.pc_none
                                 : ''
                             } ${
-                              mobileNone?.find((num) => num === tdIndex + 1) !==
-                              undefined
+                              mobileNone?.find(
+                                (num: number) => num === tdIndex + 1
+                              ) !== undefined
                                 ? style.mo_none
                                 : ''
                             }`}

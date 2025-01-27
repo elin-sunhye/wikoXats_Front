@@ -175,7 +175,7 @@ export default function Investmentcasting() {
       >
         <div className={`flex_start ${style.item_detail}`}>
           {/* 각 탭 제목 */}
-          {itemArray.map((item) => {
+          {itemArray.map((item: itemArrayType) => {
             return (
               <div
                 key={item.tab}

@@ -40,78 +40,106 @@ export default function FaqScroll({}: NewsSubVisualProps) {
 
   return (
     <SectionCommonLayout
-      sectionId={""}
-      title={"자주하는 질문"}
-      desc={""}
+      sectionId={''}
+      title={'자주하는 질문'}
+      desc={''}
       btnYn={false}
     >
       <div className={`wrap flex_between ${style.wrap}`}>
-        <ul className={`${style.left} ${scroll ? style.active : ""}`}>
-          {qnaList.map((group) => {
-            return (
-              <li key={group.seq}>
-                <Btn
-                  type={"button"}
-                  title={group.group}
-                  id={`qnaGroup${group.seq}`}
-                  btnType={"text"}
-                  hover={false}
-                  btnBg="transparent"
-                  btnColor={
-                    groupClick === group.seq ? "var(--black)" : "var(--gray-3)"
-                  }
-                  onClick={() => {
-                    setGroupClick(group.seq);
-                    setQnaClick(0);
-                  }}
-                />
-              </li>
-            );
-          })}
+        <ul className={`${style.left} ${scroll ? style.active : ''}`}>
+          {qnaList.map(
+            (group: {
+              seq: number;
+              group: string;
+              qnas: {
+                seq: number;
+                qna: string;
+                anw: string;
+              }[];
+            }) => {
+              return (
+                <li key={group.seq}>
+                  <Btn
+                    type={'button'}
+                    title={group.group}
+                    id={`qnaGroup${group.seq}`}
+                    btnType={'text'}
+                    hover={false}
+                    btnBg="transparent"
+                    btnColor={
+                      groupClick === group.seq
+                        ? 'var(--black)'
+                        : 'var(--gray-3)'
+                    }
+                    onClick={() => {
+                      setGroupClick(group.seq);
+                      setQnaClick(0);
+                    }}
+                  />
+                </li>
+              );
+            }
+          )}
         </ul>
 
         <div className={style.right}>
-          {qnaList.map((group) => {
-            if (group.seq === groupClick) {
-              return group.qnas.map((qna) => {
-                return (
-                  <div key={qna.qna + qna.seq}>
-                    <p
-                      className="flex_between"
-                      onClick={() => {
-                        if (qnaClick === qna.seq) {
-                          setQnaClick(0);
-                        } else {
-                          setQnaClick(qna.seq);
-                        }
-                      }}
-                    >
-                      {qna.qna}
-                      <span>
-                        <FiChevronDown
-                          role={"img"}
-                          aria-label={"다운 화살표"}
-                          style={{
-                            display: qnaClick === qna.seq ? "none" : "block",
+          {qnaList.map(
+            (group: {
+              seq: number;
+              group: string;
+              qnas: {
+                seq: number;
+                qna: string;
+                anw: string;
+              }[];
+            }) => {
+              if (group.seq === groupClick) {
+                return group.qnas.map(
+                  (qna: { seq: number; qna: string; anw: string }) => {
+                    return (
+                      <div key={qna.qna + qna.seq}>
+                        <p
+                          className="flex_between"
+                          onClick={() => {
+                            if (qnaClick === qna.seq) {
+                              setQnaClick(0);
+                            } else {
+                              setQnaClick(qna.seq);
+                            }
                           }}
-                        />
-                        <FiChevronUp
-                          role={"img"}
-                          aria-label={"업 화살표"}
-                          style={{
-                            display: qnaClick === qna.seq ? "block" : "none",
-                          }}
-                        />
-                      </span>
-                    </p>
-                    <span className={qnaClick === qna.seq ? style.open : ""}>
-                      {qna.anw}
-                    </span>
-                  </div>
+                        >
+                          {qna.qna}
+                          <span>
+                            <FiChevronDown
+                              role={'img'}
+                              aria-label={'다운 화살표'}
+                              style={{
+                                display:
+                                  qnaClick === qna.seq ? 'none' : 'block',
+                              }}
+                            />
+                            <FiChevronUp
+                              role={'img'}
+                              aria-label={'업 화살표'}
+                              style={{
+                                display:
+                                  qnaClick === qna.seq ? 'block' : 'none',
+                              }}
+                            />
+                          </span>
+                        </p>
+                        <span
+                          className={qnaClick === qna.seq ? style.open : ''}
+                        >
+                          {qna.anw}
+                        </span>
+                      </div>
+                    );
+                  }
                 );
-              });
+              }
             }
-          })}
+          )}
         </div>
       </div>
     </SectionCommonLayout>
