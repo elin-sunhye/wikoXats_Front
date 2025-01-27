@@ -8,9 +8,7 @@ import { usePathname } from "next/navigation";
 // aos
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-// dummyData
-import menus from "@/dummyData/menus.json";
+import { useGetAllMenu } from "@/hook/useGetAllMenu";
 
 interface SubTopProps {
   children?: React.ReactNode;
@@ -28,20 +26,23 @@ export default function SubTop({ children }: SubTopProps) {
 
   //
   const pathNm = usePathname();
-  const [menuNm, setMenuNm] = useState("");
+  const [menuNm, setMenuNm] = useState('');
+
+  // 메뉴 데이터
+  const { data, isLoading, error } = useGetAllMenu();
 
   useEffect(() => {
-    const array = menus.find((nm) => nm.url === pathNm);
+    const array = data?.body.find((nm) => nm.url === pathNm);
     let idx = 0;
 
     if (array) {
-      idx = array.url.split("/").length - 1;
+      idx = array.url.split('/').length - 1;
     }
 
-    setMenuNm(array ? array.url.split("/")[idx] : "");
+    setMenuNm(array ? array.url.split('/')[idx] : '');
   }, [pathNm]);
 
-  return menus.find((nm) => nm.url === pathNm)?.menu ? (
+  return data?.body.find((nm) => nm.url === pathNm)?.menu ? (
     <section
       className={`flex_center ${style.sub_top_section} ${
         // pathNm?.includes("story")
@@ -64,11 +65,11 @@ export default function SubTop({ children }: SubTopProps) {
         data-aos-duration="1500"
       >
         <SectionTitle
-          title={menus.find((nm) => nm.url === pathNm)?.menu || ""}
+          title={data?.body.find((nm) => nm.url === pathNm)?.menu || ''}
           desc={
-            pathNm?.includes("story")
-              ? "위코 주식회사는 <br />고객의 품질과 생산성 향상을 위해 끊임 없이 발전하는 기술을 제공합니다."
-              : ""
+            pathNm?.includes('story')
+              ? '위코 주식회사는 <br />고객의 품질과 생산성 향상을 위해 끊임 없이 발전하는 기술을 제공합니다.'
+              : ''
           }
           textAlign={`center`}
         />

@@ -1,21 +1,19 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import style from "./gnb.module.scss";
-import Link from "next/link";
-import { FaRegHandshake } from "react-icons/fa";
-import { MdOutlineContactSupport } from "react-icons/md";
-import { FiMail } from "react-icons/fi";
-import { MenusType } from "@/types/menus";
-import { useBodyScrollLock } from "@/hook/noScroll";
-
-// dummyData
-import menus from "@/dummyData/menus.json";
+import React, { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import style from './gnb.module.scss';
+import Link from 'next/link';
+import { FaRegHandshake } from 'react-icons/fa';
+import { MdOutlineContactSupport } from 'react-icons/md';
+import { FiMail } from 'react-icons/fi';
+import { MenusType } from '@/types/menus';
+import { useBodyScrollLock } from '@/hook/noScroll';
 
 //AOS
-import AOS from "aos";
-import "aos/dist/aos.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useGetAllMenu } from '@/hook/useGetAllMenu';
 
 interface GnbProps {
   scroll: boolean;
@@ -26,6 +24,9 @@ export const Gnb = ({ scroll }: GnbProps) => {
   useEffect(() => {
     AOS.init();
   });
+
+  // 메뉴 데이터
+  const { data, isLoading, error } = useGetAllMenu();
 
   // 모바일 gnb 열기
   /**
@@ -51,11 +52,11 @@ export const Gnb = ({ scroll }: GnbProps) => {
   // 동적으로 윈도우 사이즈 구하기
   const [innerWidth, setInnerWidth] = useState<number | null>(null);
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       const resizeListener = () => {
         setInnerWidth(window.innerWidth);
       };
-      window.addEventListener("resize", resizeListener);
+      window.addEventListener('resize', resizeListener);
     }
   }, []);
 
@@ -78,22 +79,22 @@ export const Gnb = ({ scroll }: GnbProps) => {
   }, [pathName]);
 
   return (
-    <div className={`${style.gnb_wrap} ${scroll ? style.scroll : ""}`}>
+    <div className={`${style.gnb_wrap} ${scroll ? style.scroll : ''}`}>
       <div className={`pc_gnb flex_between ${style.pc_gnb} `}>
         <ul className={`flex_start ${style.left} ${style.depth_1}`}>
-          {menus.map((menu: MenusType) => {
-            if (menu.level === 1 && menu.type === "main") {
+          {data?.body.map((menu: MenusType) => {
+            if (menu.level === 1 && menu.type === 'main') {
               if (menu.hasChild) {
                 return (
-                  <li key={menu.seq}>
+                  <li key={menu.menuId}>
                     <button
-                      type={"button"}
+                      type={'button'}
                       // href={menu.url}
                       title={menu.title}
                       className={`${
                         pathName === menu.url || pathName?.includes(menu.url)
                           ? style.active
-                          : ""
+                          : ''
                       }`}
                     >
                       <p>{menu.menu}</p>
@@ -101,13 +102,13 @@ export const Gnb = ({ scroll }: GnbProps) => {
 
                     <div className={style.depth_2_box}>
                       <ul className={`flex_start ${style.depth_2}`}>
-                        {menus
+                        {data?.body
                           .filter(
-                            (depth2Seq) => depth2Seq.parentSeq === menu.seq
+                            (depth2Seq) => depth2Seq.parentSeq === menu.menuId
                           )
                           .map((depth2) => {
                             return (
-                              <li key={`depth2_${depth2.seq}`}>
+                              <li key={`depth2_${depth2.menuId}`}>
                                 <a href={depth2.url} title={depth2.title}>
                                   {depth2.menu}
                                 </a>
@@ -120,11 +121,11 @@ export const Gnb = ({ scroll }: GnbProps) => {
                 );
               } else {
                 return (
-                  <li key={menu.seq}>
+                  <li key={menu.menuId}>
                     <a
                       href={menu.url}
                       title={menu.title}
-                      className={`${pathName === menu.url ? style.active : ""}`}
+                      className={`${pathName === menu.url ? style.active : ''}`}
                     >
                       <p>{menu.menu}</p>
                     </a>
@@ -137,27 +138,27 @@ export const Gnb = ({ scroll }: GnbProps) => {
 
         <span
           className={style.separate_bar}
-          data-aos={scroll ? "" : "zoom-in"}
+          data-aos={scroll ? '' : 'zoom-in'}
         ></span>
 
         <ul className={`flex_start ${style.right}`} data-aos="fade-left">
-          {menus.map((menu: MenusType) => {
-            if (menu.level === 1 && menu.type === "sub") {
+          {data?.body.map((menu: MenusType) => {
+            if (menu.level === 1 && menu.type === 'sub') {
               return (
-                <li key={menu.seq}>
+                <li key={menu.menuId}>
                   <a
                     href={menu.url}
                     title={menu.title}
-                    className={`${pathName === menu.url ? style.active : ""}`}
+                    className={`${pathName === menu.url ? style.active : ''}`}
                   >
                     <p>{menu.menu}</p>
-                    {menu.menu === "Partners" ? (
+                    {menu.menu === 'Partners' ? (
                       <FaRegHandshake
                         role={`img`}
                         aria-label={`악수 아이콘`}
                         className={style.scroll_ico}
                       />
-                    ) : menu.menu === "FAQ" ? (
+                    ) : menu.menu === 'FAQ' ? (
                       <MdOutlineContactSupport
                         role={`img`}
                         aria-label={`말풍선 물음표 아이콘`}
@@ -181,7 +182,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
       {/* mobile */}
       <button
         type="button"
-        title={`모바일 메뉴 ${moGnbOpen ? "열림" : "닫힘"}`}
+        title={`모바일 메뉴 ${moGnbOpen ? '열림' : '닫힘'}`}
         className={`mo_gnb_hamburger ${style.mo_gnb_hamburger} ${
           moGnbOpen ? style.mo_gnb_hamburger_open : style.mo_gnb_hamburger_close
         }`}
@@ -201,19 +202,19 @@ export const Gnb = ({ scroll }: GnbProps) => {
       >
         <div className={`wrap ${style.mo_wrap}`}>
           <ul className={style.left}>
-            {menus.map((menu: MenusType) => {
-              if (menu.level === 1 && menu.seq >= 1 && menu.seq <= 4) {
+            {data?.body.map((menu: MenusType) => {
+              if (menu.level === 1 && menu.menuId >= 1 && menu.menuId <= 4) {
                 if (menu.hasChild) {
                   return (
-                    <li key={menu.seq}>
+                    <li key={menu.menuId}>
                       <button
-                        type={"button"}
+                        type={'button'}
                         title={menu.title}
                         onClick={() => {
-                          if (moMenuSeq === menu.seq) {
+                          if (moMenuSeq === menu.menuId) {
                             setMoMenuSeq(0);
                           } else {
-                            setMoMenuSeq(menu.seq);
+                            setMoMenuSeq(menu.menuId);
                           }
                         }}
                       >
@@ -222,16 +223,16 @@ export const Gnb = ({ scroll }: GnbProps) => {
 
                       <ul
                         className={`${style.depth_2} ${
-                          moMenuSeq === menu.seq ? style.active : ""
+                          moMenuSeq === menu.menuId ? style.active : ''
                         }`}
                       >
-                        {menus
+                        {data?.body
                           .filter(
-                            (depth2Seq) => depth2Seq.parentSeq === menu.seq
+                            (depth2Seq) => depth2Seq.parentSeq === menu.menuId
                           )
                           .map((depth2) => {
                             return (
-                              <li key={`mo_depth2_${depth2.seq}`}>
+                              <li key={`mo_depth2_${depth2.menuId}`}>
                                 <a href={depth2.url} title={depth2.title}>
                                   {depth2.menu}
                                 </a>
@@ -243,7 +244,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
                   );
                 } else {
                   return (
-                    <li key={menu.seq}>
+                    <li key={menu.menuId}>
                       <a href={menu.url} title={menu.title}>
                         <p>{menu.menu}</p>
                       </a>
@@ -257,10 +258,10 @@ export const Gnb = ({ scroll }: GnbProps) => {
           <span className={style.separate_bar} data-aos="fade-left"></span>
 
           <ul className={style.right} data-aos="fade-left">
-            {menus.map((menu: MenusType) => {
-              if (menu.level === 1 && menu.seq >= 5 && menu.seq <= 10) {
+            {data?.body.map((menu: MenusType) => {
+              if (menu.level === 1 && menu.menuId >= 5 && menu.menuId <= 10) {
                 return (
-                  <li key={menu.seq}>
+                  <li key={menu.menuId}>
                     <a href={menu.url} title={menu.title}>
                       <p>{menu.menu}</p>
                     </a>

@@ -1,5 +1,5 @@
-export interface ResponseDto<T> {
-    status: number;
-    data: T;
-    msg?: string;
+export interface responseDto<T> {
+  status: number;
+  body: T;
+  message?: string;
 }

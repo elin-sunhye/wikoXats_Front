@@ -1,5 +1,5 @@
 export type MenusType = {
-  seq: number;
+  menuId: number;
   parentSeq: number;
   menu: string;
   url: string;
