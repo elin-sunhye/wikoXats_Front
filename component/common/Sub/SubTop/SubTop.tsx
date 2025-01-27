@@ -66,7 +66,7 @@ export default function SubTop({ children }: SubTopProps) {
         data-aos-duration="1500"
       >
         <SectionTitle
-          title={data?.body.find((nm) => nm.url === pathNm)?.menu || ''}
+          title={data?.body.find((nm : MenusType) => nm.url === pathNm)?.menu || ''}
           desc={
             pathNm?.includes('story')
               ? '위코 주식회사는 <br />고객의 품질과 생산성 향상을 위해 끊임 없이 발전하는 기술을 제공합니다.'
