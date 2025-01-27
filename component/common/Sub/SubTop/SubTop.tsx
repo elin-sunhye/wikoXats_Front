@@ -1,14 +1,15 @@
-"use client";
+'use client';
 
-import style from "./subTop.module.scss";
-import { SectionTitle } from "@/component/common/SectionTitle/SectionTitle";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import style from './subTop.module.scss';
+import { SectionTitle } from '@/component/common/SectionTitle/SectionTitle';
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 // aos
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useGetAllMenu } from "@/hook/useGetAllMenu";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useGetAllMenu } from '@/hook/useGetAllMenu';
+import { MenusType } from '@/types/menus';
 
 interface SubTopProps {
   children?: React.ReactNode;
@@ -32,7 +33,7 @@ export default function SubTop({ children }: SubTopProps) {
   const { data, isLoading, error } = useGetAllMenu();
 
   useEffect(() => {
-    const array = data?.body.find((nm) => nm.url === pathNm);
+    const array = data?.body.find((nm: MenusType) => nm.url === pathNm);
     let idx = 0;
 
     if (array) {
@@ -42,7 +43,7 @@ export default function SubTop({ children }: SubTopProps) {
     setMenuNm(array ? array.url.split('/')[idx] : '');
   }, [pathNm]);
 
-  return data?.body.find((nm) => nm.url === pathNm)?.menu ? (
+  return data?.body.find((nm: MenusType) => nm.url === pathNm)?.menu ? (
     <section
       className={`flex_center ${style.sub_top_section} ${
         // pathNm?.includes("story")
