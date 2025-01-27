@@ -104,7 +104,8 @@ export const Gnb = ({ scroll }: GnbProps) => {
                       <ul className={`flex_start ${style.depth_2}`}>
                         {data?.body
                           .filter(
-                            (depth2Seq) => depth2Seq.parentSeq === menu.menuId
+                            (depth2Seq: MenusType) =>
+                              depth2Seq.parentSeq === menu.menuId
                           )
                           .map((depth2) => {
                             return (
@@ -228,7 +229,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
                       >
                         {data?.body
                           .filter(
-                            (depth2Seq) => depth2Seq.parentSeq === menu.menuId
+                            (depth2Seq: MenusType) => depth2Seq.parentSeq === menu.menuId
                           )
                           .map((depth2) => {
                             return (
