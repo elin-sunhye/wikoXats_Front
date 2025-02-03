@@ -37,9 +37,7 @@ export const Footer = ({}: FooterProps) => {
           <p className={footer_style.title}>
             위코
             <BtnLink
-              title={
-                session === null || session === undefined ? `로그인` : `cms`
-              }
+              title={`괸라자`}
               id={session === null || session === undefined ? `logIn` : `cms`}
               href={
                 session === null || session === undefined ? `/lg/login` : `/cms`

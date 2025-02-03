@@ -44,50 +44,50 @@ export default function LogInClient() {
   });
 
   // 로그인 ------------------------------
-  const login = async () => {
-    const formResult = await trigger(['id', 'pw'], {
-      shouldFocus: true,
-    });
+  // const login = async () => {
+  //   const formResult = await trigger(['id', 'pw'], {
+  //     shouldFocus: true,
+  //   });
 
-    if (!formResult) {
-      if (errors.id) {
-        setError(
-          'id',
-          { type: 'focus', message: '아이디를 입력해주세요.' },
-          { shouldFocus: true }
-        );
-      } else {
-        setError(
-          'pw',
-          {
-            type: 'focus',
-            message: '비밀번호를 입력해주세요.',
-          },
-          { shouldFocus: true }
-        );
-      }
-    } else {
-      const result = await signIn('credentials', {
-        userId: watch('id'),
-        userPw: watch('pw'),
-        redirect: false,
-      });
+  //   if (!formResult) {
+  //     if (errors.id) {
+  //       setError(
+  //         'id',
+  //         { type: 'focus', message: '아이디를 입력해주세요.' },
+  //         { shouldFocus: true }
+  //       );
+  //     } else {
+  //       setError(
+  //         'pw',
+  //         {
+  //           type: 'focus',
+  //           message: '비밀번호를 입력해주세요.',
+  //         },
+  //         { shouldFocus: true }
+  //       );
+  //     }
+  //   } else {
+  //     const result = await signIn('credentials', {
+  //       userId: watch('id'),
+  //       userPw: watch('pw'),
+  //       redirect: false,
+  //     });
 
-      if (result) {
-        if (result.error) {
-          setIsChange(true);
-          setStatus('error');
-          setText(result.error);
-          if (idRef.current) {
-            idRef.current.focus();
-          }
-        } else {
-          router.replace('/cms');
-          router.refresh();
-        }
-      }
-    }
-  };
+  //     if (result) {
+  //       if (result.error) {
+  //         setIsChange(true);
+  //         setStatus('error');
+  //         setText(result.error);
+  //         if (idRef.current) {
+  //           idRef.current.focus();
+  //         }
+  //       } else {
+  //         router.replace('/cms');
+  //         router.refresh();
+  //       }
+  //     }
+  //   }
+  // };
 
   return (
     <section className={`section_padding ${style.login_section}`}>
@@ -139,15 +139,15 @@ export default function LogInClient() {
                 }}
                 name={'pw'}
                 ref={pwRef}
-                onKeyUp={(e) => {
-                  if (e.key === 'Enter') {
-                    login().then(() => {
-                      if (idRef.current) {
-                        idRef.current.focus();
-                      }
-                    });
-                  }
-                }}
+                // onKeyUp={(e) => {
+                //   if (e.key === 'Enter') {
+                //     login().then(() => {
+                //       if (idRef.current) {
+                //         idRef.current.focus();
+                //       }
+                //     });
+                //   }
+                // }}
               />
               <p className={style.message}>
                 {errors.pw ? (
@@ -166,18 +166,18 @@ export default function LogInClient() {
               btnSize={`xlg`}
               hover={false}
               onClick={() => {
-                login().then(() => {
-                  if (idRef.current) {
-                    idRef.current.focus();
-                  }
-                });
+                // login().then(() => {
+                //   if (idRef.current) {
+                //     idRef.current.focus();
+                //   }
+                // });
               }}
               onKeyUp={(e) => {
-                login().then(() => {
-                  if (idRef.current) {
-                    idRef.current.focus();
-                  }
-                });
+                // login().then(() => {
+                //   if (idRef.current) {
+                //     idRef.current.focus();
+                //   }
+                // });
               }}
             />
 
