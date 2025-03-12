@@ -5,7 +5,7 @@ export interface InputErrorMsgType {
 }
 
 // autoAlert에서 사용하는 StatusType
-export type StatusType = "success" | "warning" | "info" | "error";
+export type StatusType = 'success' | 'warning' | 'info' | 'error';
 
 // 아직 결정된 File type이 아님
 export interface FileType {

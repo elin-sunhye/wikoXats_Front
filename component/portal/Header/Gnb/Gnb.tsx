@@ -26,7 +26,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
   });
 
   // 메뉴 데이터
-  const { data, isLoading, error } = useGetAllMenu();
+  const getAllMenu = useGetAllMenu();
 
   // 모바일 gnb 열기
   /**
@@ -82,7 +82,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
     <div className={`${style.gnb_wrap} ${scroll ? style.scroll : ''}`}>
       <div className={`pc_gnb flex_between ${style.pc_gnb} `}>
         <ul className={`flex_start ${style.left} ${style.depth_1}`}>
-          {data?.body.map((menu: MenusType) => {
+          {getAllMenu.data?.data.map((menu: MenusType) => {
             if (menu.level === 1 && menu.type === 'main') {
               if (menu.hasChild) {
                 return (
@@ -102,7 +102,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
 
                     <div className={style.depth_2_box}>
                       <ul className={`flex_start ${style.depth_2}`}>
-                        {data?.body
+                        {getAllMenu.data?.data
                           .filter(
                             (depth2Seq: MenusType) =>
                               depth2Seq.parentSeq === menu.menuId
@@ -143,7 +143,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
         ></span>
 
         <ul className={`flex_start ${style.right}`} data-aos="fade-left">
-          {data?.body.map((menu: MenusType) => {
+          {getAllMenu.data?.data.map((menu: MenusType) => {
             if (menu.level === 1 && menu.type === 'sub') {
               return (
                 <li key={menu.menuId}>
@@ -203,7 +203,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
       >
         <div className={`wrap ${style.mo_wrap}`}>
           <ul className={style.left}>
-            {data?.body.map((menu: MenusType) => {
+            {getAllMenu.data?.data.map((menu: MenusType) => {
               if (menu.level === 1 && menu.menuId >= 1 && menu.menuId <= 4) {
                 if (menu.hasChild) {
                   return (
@@ -227,7 +227,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
                           moMenuSeq === menu.menuId ? style.active : ''
                         }`}
                       >
-                        {data?.body
+                        {getAllMenu.data?.data
                           .filter(
                             (depth2Seq: MenusType) =>
                               depth2Seq.parentSeq === menu.menuId
@@ -260,7 +260,7 @@ export const Gnb = ({ scroll }: GnbProps) => {
           <span className={style.separate_bar} data-aos="fade-left"></span>
 
           <ul className={style.right} data-aos="fade-left">
-            {data?.body.map((menu: MenusType) => {
+            {getAllMenu.data?.data.map((menu: MenusType) => {
               if (menu.level === 1 && menu.menuId >= 5 && menu.menuId <= 10) {
                 return (
                   <li key={menu.menuId}>

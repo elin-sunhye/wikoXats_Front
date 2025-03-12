@@ -24,7 +24,7 @@ export const Footer = ({}: FooterProps) => {
   const { data: session } = useSession();
 
   // 메뉴 데이터
-  const { data, isLoading, error } = useGetAllMenu();
+  const getAllMenu = useGetAllMenu();
 
   return (
     <footer
@@ -108,14 +108,14 @@ export const Footer = ({}: FooterProps) => {
               <p>HOME</p>
             </a>
           </li>
-          {data?.body.map((menu: MenusType) => {
+          {getAllMenu.data?.data.map((menu: MenusType) => {
             if (menu.level === 1) {
               return (
                 <li key={menu.menuId}>
                   <a
                     href={
                       menu.hasChild
-                        ? data?.body.find(
+                        ? getAllMenu.data?.data.find(
                             (child: MenusType) =>
                               child.parentSeq === menu.menuId &&
                               child.level === 2

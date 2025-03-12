@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import style from "./card.module.scss";
+import Image from 'next/image';
+import style from './card.module.scss';
 
 interface CardProps {
   title: string;
   desc: string;
   cardBg?: string;
-  imgYn?: "top" | "bottom";
+  imgYn?: 'top' | 'bottom';
   imgSrc?: string;
   imgAlt?: string;
   imgBg?: string;
@@ -35,10 +35,10 @@ export default function Card({
     <div
       className={`flex_start ${style.card}`}
       style={{
-        background: cardBg ? cardBg : "var(--gray-1)",
+        background: cardBg ? cardBg : 'var(--gray-1)',
       }}
     >
-      {imgYn === "top" ? (
+      {imgYn === 'top' ? (
         <>
           {imgSrc ? (
             <div
@@ -47,9 +47,9 @@ export default function Card({
             >
               <Image
                 src={imgSrc}
-                alt={imgAlt !== undefined ? imgAlt : "/"}
-                width={"10"}
-                height={"10"}
+                alt={imgAlt !== undefined ? imgAlt : '/'}
+                width={'10'}
+                height={'10'}
                 className={style.card_img}
               />
             </div>
@@ -59,43 +59,43 @@ export default function Card({
 
           <div className={style.card_title_box}>
             <p className={style.card_title}>
-              {title.split(`<br />`).map((text: string) => {
+              {title.split(`<br />`).map((text: string, idx: number) => {
                 return (
-                  <>
+                  <span key={`title_${idx}`}>
                     {text} <br />
-                  </>
+                  </span>
                 );
               })}
             </p>
             <span className={style.card_desc}>
-              {desc.split(`<br />`).map((text: string) => {
+              {desc.split(`<br />`).map((text: string, idx: number) => {
                 return (
-                  <>
+                  <span key={`desc_${idx}`}>
                     {text} <br />
-                  </>
+                  </span>
                 );
               })}
             </span>
           </div>
         </>
-      ) : imgYn === "bottom" ? (
+      ) : imgYn === 'bottom' ? (
         <>
           <div className={style.card_title_box}>
             <p className={style.card_title}>
-              {title.split(`<br />`).map((text: string) => {
+              {title.split(`<br />`).map((text: string, idx: number) => {
                 return (
-                  <>
+                  <span key={`title_${idx}`}>
                     {text} <br />
-                  </>
+                  </span>
                 );
               })}
             </p>
             <span className={style.card_desc}>
-              {desc.split(`<br />`).map((text: string) => {
+              {desc.split(`<br />`).map((text: string, idx: number) => {
                 return (
-                  <>
+                  <span key={`desc_${idx}`}>
                     {text} <br />
-                  </>
+                  </span>
                 );
               })}
             </span>
@@ -108,9 +108,9 @@ export default function Card({
             >
               <Image
                 src={imgSrc}
-                alt={imgAlt !== undefined ? imgAlt : ""}
-                width={"10"}
-                height={"10"}
+                alt={imgAlt !== undefined ? imgAlt : ''}
+                width={'10'}
+                height={'10'}
                 className={style.card_img}
               />
             </div>
@@ -121,20 +121,20 @@ export default function Card({
       ) : (
         <div className={style.card_title_box}>
           <p className={style.card_title}>
-            {title.split(`<br />`).map((text: string) => {
+            {title.split(`<br />`).map((text: string, idx: number) => {
               return (
-                <>
+                <span key={`title_${idx}`}>
                   {text} <br />
-                </>
+                </span>
               );
             })}
           </p>
           <span className={style.card_desc}>
-            {desc.split(`<br />`).map((text: string) => {
+            {desc.split(`<br />`).map((text: string, idx: number) => {
               return (
-                <>
+                <span key={`desc_${idx}`}>
                   {text} <br />
-                </>
+                </span>
               );
             })}
           </span>
