@@ -70,6 +70,36 @@
         "hasChild": false
     },
     {
+        "menuId": 3,
+        "parentSeq": 0,
+        "menu": "SERVICE",
+        "url": "/service",
+        "title": "서비스 바로가기",
+        "type": "main",
+        "level": 1,
+        "hasChild": false
+    },
+    {
+        "menuId": 4,
+        "parentSeq": 0,
+        "menu": "NEWS",
+        "url": "/news",
+        "title": "뉴스 바로가기",
+        "type": "main",
+        "level": 1,
+        "hasChild": false
+    },
+    {
+        "menuId": 5,
+        "parentSeq": 0,
+        "menu": "FAQ",
+        "url": "/faq",
+        "title": "자주하는 질문 바로가기",
+        "type": "sub",
+        "level": 1,
+        "hasChild": false
+    },
+    {
         "menuId": 6,
         "parentSeq": 0,
         "menu": "CONTACT",
