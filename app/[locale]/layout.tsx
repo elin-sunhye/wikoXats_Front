@@ -1,4 +1,3 @@
-import 'lenis/dist/lenis.css';
 import '@/style/globals.scss';
 import ErrorBoundary from '@/components/ErrorBoundary/ErrorBoundary';
 import ReactQueryProvider from '@/components/provider/ReactQueryProvider';
@@ -6,6 +5,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { pretendard, wantedSans } from './fonts';
 import { getMessages } from 'next-intl/server';
 import JotaiProvider from '@/components/provider/JotaiProvider';
+import LenisProvider from '@/components/provider/LenisProvider';
 import AOSProvider from '@/components/provider/AOSProvider';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
@@ -30,6 +30,7 @@ export default async function RootLayout({
           <ErrorBoundary>
             <JotaiProvider>
               <ReactQueryProvider>
+                <LenisProvider />
                 <AOSProvider />
                 <Header />
                 {children}

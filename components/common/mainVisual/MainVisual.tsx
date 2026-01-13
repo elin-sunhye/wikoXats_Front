@@ -4,9 +4,11 @@ import styles from './page.module.scss';
 export default function MainVisual({
   mainChildren,
   textChildren,
+  videoSource,
 }: {
   mainChildren: React.ReactNode;
   textChildren: React.ReactNode;
+  videoSource?: string;
 }) {
   return (
     <section id={styles.mainVisual}>
@@ -14,6 +16,9 @@ export default function MainVisual({
       <video autoPlay muted loop playsInline>
         {mainChildren}
       </video>
+      <a className="screen_out" href={videoSource}>
+        Video by Wavebreak Media on Freepik
+      </a>
       {/* </Parallax> */}
 
       {/* <Parallax speed={-15} className={styles.script} data-aos="fade-up"> */}
