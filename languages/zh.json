@@ -1,6 +1,10 @@
 {
-  "common": {
-    "title": "你好",
-    "desc": "这是中文页面"
+  "main": {
+    "title1": "超越材料",
+    "title2": "迈向创新",
+    "desc": "WIKO"
+  },
+  "header": {
+    "customer": "客户服务"
   }
 }

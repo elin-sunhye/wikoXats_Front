@@ -1,0 +1,142 @@
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100vw;
+  padding: 0 3rem;
+  background-color: transparent;
+  transition: all 1s;
+
+  *:not(.depth_2 *) {
+    color: var(--white);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .header_logo,
+  .depth_1 li p,
+  .depth_1 > li > a,
+  .util_list {
+    height: 6rem;
+    line-height: 6rem;
+  }
+
+  .header_logo {
+    width: 10.5rem;
+    height: 6rem;
+    background: url('/img/img-logo-w.svg') no-repeat 0 center / 100% auto;
+    cursor: pointer;
+  }
+
+  .nav {
+    width: 48vw;
+
+    .depth_1 {
+      display: flex;
+      justify-content: space-between;
+
+      > li {
+        width: calc(100% / 6);
+
+        p,
+        > a {
+          display: block;
+          font-size: 1.8rem;
+          font-weight: 600;
+          text-align: center;
+          border-bottom: 0.3rem solid transparent;
+          cursor: pointer;
+        }
+
+        .depth_2 {
+          height: 0rem;
+          overflow: hidden;
+
+          li {
+            width: 100%;
+
+            a {
+              display: block;
+              width: 100%;
+              font-weight: 500;
+              text-align: center;
+              padding: 1rem 0;
+              color: var(--black);
+
+              &:hover {
+                color: var(--main-b);
+              }
+            }
+          }
+        }
+
+        &:hover {
+          p {
+            border-color: var(--main-b);
+          }
+          .depth_2 {
+            background-color: var(--gray-1);
+          }
+        }
+      }
+    }
+  }
+
+  .util_list {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.3rem;
+
+    * {
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &.on {
+    background-color: var(--white);
+
+    *:not(.depth_2 *) {
+      color: var(--black);
+    }
+
+    .header_logo {
+      background: url('/img/img-logo.svg') no-repeat 0 center / 100% auto;
+    }
+
+    .nav {
+      width: 53vw;
+
+      .depth_1 {
+        li {
+          .depth_2 {
+            height: 33rem;
+          }
+        }
+      }
+    }
+  }
+
+  &.hide {
+    top: -6rem;
+  }
+
+  &.appearance {
+    background-color: var(--white);
+
+    *:not(.depth_2 *) {
+      color: var(--black);
+    }
+
+    .header_logo {
+      background: url('/img/img-logo.svg') no-repeat 0 center / 100% auto;
+    }
+  }
+}

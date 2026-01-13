@@ -1,30 +1,11 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
+import { routing } from './i18n/routing';
 
-const locales = ['ko', 'en', 'zh'];
-const defaultLocale = 'ko';
-
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-
-  if (
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/api') ||
-    pathname.includes('.')
-  ) {
-    return NextResponse.next();
-  }
-
-  const hasLocale = locales.some(
-    (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)
-  );
-  if (hasLocale) return NextResponse.next();
-
-  const url = request.nextUrl.clone();
-  url.pathname = `/${defaultLocale}${pathname}`;
-  return NextResponse.redirect(url);
-}
+export default createMiddleware(routing);
 
 export const config = {
-  matcher: ['/((?!_next|api|.*\\..*).*)'],
+  // Match only internationalized pathnames
+  matcher: ['/', '/(kr|en|zh)/:path*'],
 };
+
+// TODO: migrate middleware to proxy when stable

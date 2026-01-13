@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { LOCALE_LABEL, locales, type Locale } from '@/i18n/routing';
+import { type Locale } from '@/i18n/routing';
 
 export default function LanguageSwitcher() {
   const router = useRouter();
@@ -24,11 +24,9 @@ export default function LanguageSwitcher() {
       value={currentLocale}
       onChange={(e) => changeLocale(e.target.value as Locale)}
     >
-      {locales.map((locale) => (
-        <option key={locale} value={locale}>
-          {LOCALE_LABEL[locale]}
-        </option>
-      ))}
+      <option value="ko">KO</option>
+      <option value="en">EN</option>
+      <option value="zh">ZH</option>
     </select>
   );
 }

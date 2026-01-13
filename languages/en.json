@@ -1,6 +1,10 @@
 {
-  "common": {
-    "title": "Hello",
-    "desc": "This is the English page"
+  "main": {
+    "title1": "Beyond Materials,",
+    "title2": "Towards Innovation",
+    "desc": "WIKO"
+  },
+  "header": {
+    "customer": "Customer Service"
   }
 }

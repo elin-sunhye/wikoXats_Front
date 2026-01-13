@@ -1,0 +1,17 @@
+#footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  font-size: 1.3rem;
+  color: #6e6e6e;
+  padding: 3rem;
+  border-top: 0.1rem solid #ccc;
+
+  .footer_logo {
+    width: 10.5rem;
+    height: 2.7rem;
+    background: url('/img/img-logo.svg') no-repeat 0 center / 100% auto;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "menu": [
+    {
+      "id": "company",
+      "label": "Company",
+      "path": "/company/ceo",
+      "items": [
+        { "id": "about", "label": "About WIKO", "path": "/company/about" },
+        {
+          "id": "history",
+          "label": "History & Organization",
+          "path": "/company/history-organization"
+        },
+        {
+          "id": "key-Businesses",
+          "label": "Key Businesses",
+          "path": "/company/key-Businesses"
+        },
+        { "id": "location", "label": "Directions", "path": "/company/location" }
+      ]
+    },
+    {
+      "id": "business",
+      "label": "Business",
+      "path": "/business/system-integration",
+      "items": [
+        {
+          "id": "system-integration",
+          "label": "System Integration",
+          "path": "/business/system-integration"
+        },
+        {
+          "id": "maintenance",
+          "label": "System Maintenance",
+          "path": "/business/maintenance"
+        }
+      ]
+    },
+    {
+      "id": "solution",
+      "label": "Solutions",
+      "path": "/solution/popone",
+      "items": [
+        { "id": "popone", "label": "POPone", "path": "/solution/popone" },
+        { "id": "mesone", "label": "MESone", "path": "/solution/mesone" },
+        { "id": "eamone", "label": "EAMone", "path": "/solution/eamone" },
+        { "id": "wmsone", "label": "WMSone", "path": "/solution/wmsone" },
+        {
+          "id": "dsi-framework",
+          "label": "DSI Framework",
+          "path": "/solution/dsi-framework"
+        },
+        { "id": "decone", "label": "DECone", "path": "/solution/decone" },
+        { "id": "spcone", "label": "SPCone", "path": "/solution/spcone" },
+        { "id": "alone", "label": "Alone", "path": "/solution/alone" }
+      ]
+    },
+    {
+      "id": "product",
+      "label": "Products",
+      "path": "/product/industrial-terminal",
+      "items": [
+        {
+          "id": "industrial-terminal",
+          "label": "Industrial Terminal",
+          "path": "/product/industrial-terminal"
+        },
+        { "id": "kiosk", "label": "Kiosk", "path": "/product/kiosk" },
+        {
+          "id": "barcode-printer",
+          "label": "Barcode Printer",
+          "path": "/product/barcode-printer"
+        },
+        {
+          "id": "barcode-scanner",
+          "label": "Barcode Scanner",
+          "path": "/product/barcode-scanner"
+        },
+        {
+          "id": "industrial-pda",
+          "label": "Industrial PDA",
+          "path": "/product/industrial-pda"
+        },
+        {
+          "id": "label-ribbon",
+          "label": "Labels & Ribbons",
+          "path": "/product/label-ribbon"
+        }
+      ]
+    },
+    {
+      "id": "community",
+      "label": "Community",
+      "path": "/community/qna",
+      "items": [
+        { "id": "qna", "label": "Q&A", "path": "/community/qna" },
+        {
+          "id": "freeboard",
+          "label": "Free Board",
+          "path": "/community/freeboard"
+        },
+        { "id": "notice", "label": "Notice", "path": "/community/notice" },
+        { "id": "news", "label": "News", "path": "/community/news" }
+      ]
+    },
+    {
+      "id": "recruit",
+      "label": "Careers",
+      "path": "/recruit/carrer",
+      "items": []
+    }
+  ]
+}

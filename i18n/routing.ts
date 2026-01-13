@@ -1,11 +1,12 @@
-export const LOCALE_LABEL = {
-  ko: '한국어',
-  en: 'ENGLISH',
-  zh: '中文',
-} as const;
+import { defineRouting } from 'next-intl/routing';
+import { createNavigation } from 'next-intl/navigation';
 
-export const locales = Object.keys(LOCALE_LABEL) as Array<
-  keyof typeof LOCALE_LABEL
->;
-export type Locale = (typeof locales)[number];
-export const defaultLocale: Locale = 'ko';
+export const routing = defineRouting({
+  locales: ['en', 'zh', 'ko'],
+  defaultLocale: 'ko',
+});
+
+export type Locale = (typeof routing.locales)[number];
+
+export const { Link, redirect, usePathname, useRouter, getPathname } =
+  createNavigation(routing);

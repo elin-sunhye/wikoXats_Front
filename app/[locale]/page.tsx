@@ -1,16 +1,36 @@
 'use client';
 
-import { useT } from '@/i18n/useT';
-import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
+import MainVisual from '@/components/common/mainVisual/MainVisual';
+import { useI18n } from '@/hooks/useI18n';
 
 export default function HomePage() {
-  const t = useT();
-
+  const main = useI18n('main');
   return (
-    <div>
-      <LanguageSwitcher />
+    <main>
+      <MainVisual
+        mainChildren={
+          <source src="/video/video-main-visual.mp4" type="video/mp4" />
+        }
+        textChildren={
+          <>
+            <span>{main('desc')}</span>
+            <p>{main('title1')}</p>
+            <p>{main('title2')}</p>
+          </>
+        }
+      />
 
-      <h1>{t('title')}</h1>
-    </div>
+      <section>1</section>
+      <section>2</section>
+      <section>3</section>
+      <section>4</section>
+      <section>5</section>
+      <section>6</section>
+      <section>7</section>
+    </main>
   );
 }
+
+<a href="/free-video/male-worker-pouring-molten-metal-mold-workshop-4k_1876840#fromView=search&page=1&position=14&uuid=d93113d6-6b87-405d-8ac5-1ca5611a0ae4">
+  Image by Wavebreak Media on Freepik
+</a>;

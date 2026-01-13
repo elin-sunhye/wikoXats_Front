@@ -1,6 +1,10 @@
 {
-  "common": {
-    "title": "안녕하세요",
-    "desc": "한국어 페이지입니다"
+  "main": {
+    "title1": "Beyond Materials,",
+    "title2": "Towards Innovation",
+    "desc": "WIKO"
+  },
+  "header": {
+    "customer": "고객센터"
   }
 }
