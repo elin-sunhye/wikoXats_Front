@@ -1,0 +1,27 @@
+#horizontalSection {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+
+  .horizon_bg_wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .horizontal_track {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    z-index: 999;
+    width: fit-content;
+
+    & > div {
+      flex-shrink: 0;
+    }
+  }
+}

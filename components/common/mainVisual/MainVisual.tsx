@@ -1,4 +1,6 @@
-// import { Parallax } from "react-scroll-parallax";
+'use client';
+
+import { useLayoutEffect, useRef } from 'react';
 import styles from './page.module.scss';
 
 export default function MainVisual({

@@ -1,16 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useI18n } from '@/hooks/useI18n';
 import { useLocale } from 'next-intl';
 import { MenuGroup, MenuItem } from '@/types/menu';
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import styles from './page.module.scss';
+
 // menu JSON
 import menuKo from '@/data/menu.ko.json';
 import menuEn from '@/data/menu.en.json';
 import menuZh from '@/data/menu.zh.json';
-import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 
 export default function Header() {
   const router = useRouter();

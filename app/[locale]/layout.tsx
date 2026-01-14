@@ -9,6 +9,7 @@ import LenisProvider from '@/components/provider/LenisProvider';
 import AOSProvider from '@/components/provider/AOSProvider';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
+import GSAPProvider from '@/components/provider/GSAPProvider';
 
 export default async function RootLayout({
   children,
@@ -30,6 +31,7 @@ export default async function RootLayout({
           <ErrorBoundary>
             <JotaiProvider>
               <ReactQueryProvider>
+                <GSAPProvider />
                 <LenisProvider />
                 <AOSProvider />
                 <Header />
