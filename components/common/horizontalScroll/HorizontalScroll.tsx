@@ -5,17 +5,21 @@ import gsap from 'gsap';
 import styles from './page.module.scss';
 
 export default function HorizontalScroll({
+  title,
   bgChildren,
   children,
+  videoSource,
 }: {
+  title: string;
   bgChildren: React.ReactNode;
   children: React.ReactNode;
+  videoSource: string;
 }) {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sctionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    const section = sectionRef.current;
+    const section = sctionRef.current;
     const track = trackRef.current;
     if (!section || !track) return;
 
@@ -41,13 +45,29 @@ export default function HorizontalScroll({
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      id={styles.horizontalSection}
-      className={styles.horizontal_section}
-    >
-      <div className={styles.horizon_bg_wrap}>{bgChildren}</div>
-      <div ref={trackRef} className={styles.horizontal_track}>
+    <section ref={sctionRef} id={styles.horizontalSection}>
+      {title && (
+        <h6 className={`section_title ${styles.section_title}`}>{title}</h6>
+      )}
+
+      {bgChildren && (
+        <div className={styles.video_wrap}>
+          <video autoPlay loop playsInline muted preload="auto">
+            {bgChildren}
+          </video>
+
+          <a className="screen_out" href={videoSource}>
+            Video by Wavebreak Media on Freepik
+          </a>
+        </div>
+      )}
+
+      <div
+        ref={trackRef}
+        className={`${styles.horizontal_track} ${
+          title ? styles.with_title : ''
+        }`}
+      >
         {children}
       </div>
     </section>

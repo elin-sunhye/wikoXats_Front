@@ -4,19 +4,19 @@ import { useLayoutEffect, useRef } from 'react';
 import styles from './page.module.scss';
 
 export default function MainVisual({
-  mainChildren,
+  bgChildren,
   textChildren,
   videoSource,
 }: {
-  mainChildren: React.ReactNode;
+  bgChildren: React.ReactNode;
   textChildren: React.ReactNode;
   videoSource?: string;
 }) {
   return (
-    <section id={styles.mainVisual}>
+    <div className={styles.bg_wrap}>
       {/* <Parallax speed={-33} easing={"easeInOut"}> */}
       <video autoPlay muted loop playsInline>
-        {mainChildren}
+        {bgChildren}
       </video>
       <a className="screen_out" href={videoSource}>
         Video by Wavebreak Media on Freepik
@@ -26,6 +26,6 @@ export default function MainVisual({
       {/* <Parallax speed={-15} className={styles.script} data-aos="fade-up"> */}
       <div className={styles.script}>{textChildren}</div>
       {/* </Parallax> */}
-    </section>
+    </div>
   );
 }

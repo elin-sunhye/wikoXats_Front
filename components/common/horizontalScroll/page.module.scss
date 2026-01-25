@@ -1,27 +1,45 @@
 #horizontalSection {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  overflow: hidden;
+  .section_title {
+    color: var(--white);
+  }
 
-  .horizon_bg_wrap {
+  .video_wrap {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: var(--black);
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   .horizontal_track {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    position: relative;
-    z-index: 999;
-    width: fit-content;
+    gap: 50rem;
+    width: max-content;
+    padding: 0 50rem;
 
-    & > div {
-      flex-shrink: 0;
+    &.with_title {
+      height: calc(100% - 6rem);
+    }
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 0.3rem;
+      background-color: var(--white);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 }

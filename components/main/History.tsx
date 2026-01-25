@@ -19,22 +19,12 @@ export default function History() {
 
   return (
     <HorizontalScroll
-      bgChildren={
-        <div className={styles.horizon_bg_box}>
-          <video className={styles.bg_history} autoPlay muted loop playsInline>
-            {/* <source src="/video/video-earth.mp4" type="video/mp4" /> */}
-          </video>
-          <a
-            className="screen_out"
-            href="/free-video/earth-from-space-night-day_3544616#fromView=search&page=1&position=15&uuid=9e6c1f0a-1a17-4b9d-a348-41220977def8"
-          >
-            Image by BaldasaridStock on Freepik
-          </a>
-        </div>
-      }
+      title="HISTORY"
+      bgChildren={<source src="/video/video-earth.mp4" type="video/mp4" />}
+      videoSource="/free-video/earth-from-space-night-day_3544616#fromView=search&page=1&position=15&uuid=9e6c1f0a-1a17-4b9d-a348-41220977def8"
       children={historyData.map((year: historyGroup) => (
         <div key={year.label} className={styles.box}>
-          <p>{year.label}</p>
+          <p className="section_sub_title">{year.label}</p>
           {year.history.length > 0 && (
             <ul>
               {year.history.map((history: historyItem, idx: number) => (
