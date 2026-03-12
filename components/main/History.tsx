@@ -1,21 +1,10 @@
-import { useLocale } from 'next-intl';
-import HorizontalScroll from '../common/horizontalScroll/HorizontalScroll';
+import HorizontalScroll from '../horizontalScroll/HorizontalScroll';
+import { getHistoryData } from '@/hooks/useGetLocaleData';
+import { historyGroup, historyItem } from '@/types/history';
 import styles from './page.module.scss';
 
-// history JSON
-import historyKo from '@/data/history.ko.json';
-import historyEn from '@/data/history.en.json';
-import historyZh from '@/data/history.zh.json';
-import { historyGroup, historyItem } from '@/types/history';
-
-export default function History() {
-  const locale = useLocale();
-  const historyData: historyGroup[] =
-    locale === 'ko'
-      ? historyKo.history
-      : locale === 'en'
-      ? historyEn.history
-      : historyZh.history;
+export default function History({ lacale }: { lacale: string }) {
+  const historyData: historyGroup[] = getHistoryData(lacale);
 
   return (
     <HorizontalScroll
@@ -23,7 +12,7 @@ export default function History() {
       bgChildren={<source src="/video/video-earth.mp4" type="video/mp4" />}
       videoSource="/free-video/earth-from-space-night-day_3544616#fromView=search&page=1&position=15&uuid=9e6c1f0a-1a17-4b9d-a348-41220977def8"
       children={historyData.map((year: historyGroup) => (
-        <div key={year.label} className={styles.box}>
+        <div key={year.label} className={`${styles.history} ${styles.box}`}>
           <p className="section_sub_title">{year.label}</p>
           {year.history.length > 0 && (
             <ul>

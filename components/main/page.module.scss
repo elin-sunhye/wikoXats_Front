@@ -6,7 +6,7 @@
 }
 
 // history section
-.box {
+.history.box {
   display: flex;
   flex-direction: column;
   color: var(--white);
@@ -18,18 +18,15 @@
   }
 
   p {
-    position: relative;
     align-items: flex-end;
     padding: 10rem 0;
 
     &::before {
       content: '';
-      position: absolute;
-      left: -1rem;
-      top: 50%;
-      transform: translateY(-50%);
       width: 1rem;
       aspect-ratio: 1 / 1;
+      margin-right: 1.3rem;
+      margin-bottom: 2.2rem;
       border-radius: 50%;
       background-color: var(--white);
     }
@@ -43,11 +40,34 @@
 
   &:nth-of-type(odd) {
     flex-direction: column-reverse;
+
     p {
       align-items: flex-start;
+
+      &::before {
+        margin-top: 2.2rem;
+        margin-bottom: 0;
+      }
     }
+
     ul {
       justify-content: flex-end;
+    }
+  }
+}
+
+// business section
+#business {
+  height: max-content;
+  .box {
+    display: flex;
+    justify-content: space-between;
+
+    .left {
+      width: 40%;
+    }
+    .right {
+      width: 55%;
     }
   }
 }

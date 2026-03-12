@@ -1,11 +1,14 @@
 'use client';
 
-import MainVisual from '@/components/common/mainVisual/MainVisual';
+import MainVisual from '@/components/mainVisual/MainVisual';
 import { useI18n } from '@/hooks/useI18n';
-import styles from '@/components/main/page.module.scss';
+import { useLocale } from 'next-intl';
 import History from '@/components/main/History';
+import Products from '@/components/main/Business';
+import styles from '@/components/main/page.module.scss';
 
 export default function HomePage() {
+  const locale = useLocale();
   const main = useI18n('main');
 
   return (
@@ -26,10 +29,10 @@ export default function HomePage() {
         />
       </section>
 
-      <History />
+      <History lacale={locale} />
 
-      <section>2</section>
-      <section>3</section>
+      <Products lacale={locale} />
+
       <section>4</section>
       <section>5</section>
       <section>6</section>
