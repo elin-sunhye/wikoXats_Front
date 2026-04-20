@@ -2,23 +2,21 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useI18n } from '@/hooks/useI18n';
 import { useLocale } from 'next-intl';
+import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
+import { useI18n } from '@/hooks/useI18n';
 import { MenuGroup, MenuItem } from '@/types/menu';
-import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
-import styles from './page.module.scss';
+import { Locale } from '@/types/common';
+import styles from '@/components/header/page.module.scss';
 
 // menu JSON
-import menuKo from '@/data/menu.ko.json';
-import menuEn from '@/data/menu.en.json';
-import menuZh from '@/data/menu.zh.json';
+import menu from '@/data/menu.json';
 
 export default function Header() {
   const router = useRouter();
   const header = useI18n('header');
-  const locale = useLocale();
-  const menuData: MenuGroup[] =
-    locale === 'ko' ? menuKo.menu : locale === 'en' ? menuEn.menu : menuZh.menu;
+  const locale = useLocale() as Locale;
+  const menuData: MenuGroup[] = menu.menu;
 
   const [menuHover, setMenuHover] = useState<boolean>(false);
   const [hidden, setHidden] = useState<boolean>(false);
@@ -81,17 +79,19 @@ export default function Header() {
             <li key={depth1.id} className={styles.item}>
               {depth1.items.length > 0 ? (
                 <>
-                  <p>{depth1.label}</p>
+                  <p>{depth1.label[locale]}</p>
                   <ul className={styles.depth_2}>
                     {depth1.items.map((depth2: MenuItem) => (
                       <li key={depth2.id} className={styles.item}>
-                        <a href={`/${locale}/${depth2.path}`}>{depth2.label}</a>
+                        <a href={`/${locale}/${depth2.path}`}>
+                          {depth2.label[locale]}
+                        </a>
                       </li>
                     ))}
                   </ul>
                 </>
               ) : (
-                <a href={depth1.path}>{depth1.label}</a>
+                <a href={depth1.path}>{depth1.label[locale]}</a>
               )}
             </li>
           ))}

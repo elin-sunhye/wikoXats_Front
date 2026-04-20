@@ -14,6 +14,17 @@ pnpm dev
 bun dev
 ```
 
+https://www.ktng.com/
+
+<!-- 기본 화면 규칙 -->
+<section id={styles.partnersSection}>
+  <h6 className="section_title">섹션 제목</h6>
+  <div className={styles.wrap}>
+    <div className={styles.box}></div>
+    <div className={styles.box}></div>
+  </div>
+</section>
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.

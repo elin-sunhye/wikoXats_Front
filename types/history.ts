@@ -1,8 +1,10 @@
+import { LocaleType } from '@/types/common';
+
 export interface historyItem {
-    text: string
+  text: LocaleType;
 }
 
 export interface historyGroup {
-    label: string,
-    history: historyItem[]
+  label: string;
+  history: historyItem[];
 }

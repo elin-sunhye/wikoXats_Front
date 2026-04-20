@@ -11,6 +11,24 @@ import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
 import GSAPProvider from '@/components/provider/GSAPProvider';
 
+// 메타 데이터 설정
+export const metadata = {
+  title: 'WIKO',
+  description: 'WIKO',
+  openGraph: {
+    type: 'website',
+    title: 'WIKO',
+    description: 'WIKO',
+    images: '',
+    // url: "https://WIKO.com",
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
+  keywords: 'WIKO, wiko, ats, ATS, Wiko, Ats',
+  viewport: { width: 'device-width', initialScale: 1.0 },
+};
+
 export default async function RootLayout({
   children,
   params,

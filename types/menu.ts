@@ -1,12 +1,14 @@
+import { LocaleType } from '@/types/common';
+
 export interface MenuItem {
-  id: string
-  label: string
-  path: string
+  id: string;
+  label: LocaleType;
+  path: string;
 }
 
 export interface MenuGroup {
-  id: string
-  label: string
-  path: string
-  items: MenuItem[]
+  id: string;
+  label: LocaleType;
+  path: string;
+  items: MenuItem[];
 }

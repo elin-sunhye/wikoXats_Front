@@ -1,0 +1,40 @@
+{
+  "business": [
+    {
+      "title": {
+        "ko": "Robot Coating System",
+        "en": "Robot Coating System",
+        "zh": "机器人涂层系统"
+      },
+      "description": {
+        "ko": "세계 최고의 로봇 시스템 회사 'VA-Tech'. 최첨단 로봇 & 공조 시스템과 효율적인 디자인을 통한 생산성 향상을 경험하실 수 있습니다.",
+        "en": "Experience enhanced productivity through advanced robotic and HVAC systems, combined with efficient design, from VA-Tech, a world-leading robotics system company.",
+        "zh": "来自全球领先的机器人系统公司 VA-Tech，通过先进的机器人与空调系统及高效设计，实现生产效率的提升。"
+      }
+    },
+    {
+      "title": {
+        "ko": "불량률 감소를 위한 분석 시스템",
+        "en": "Defect Reduction Analysis System",
+        "zh": "降低不良率的分析系统"
+      },
+      "description": {
+        "ko": "150년의 유서 깊은 미국 기업, “Ransom & Randolph”의 다양한 경험과 전문적인 지식을 바탕으로 한 Slurry의 분석 시스템을 활용하여, 불량 원인을 찾고 개선해 보세요.",
+        "en": "Utilize slurry analysis systems based on the extensive experience and expertise of Ransom & Randolph, a historic American company with over 150 years of heritage, to identify and improve the root causes of defects.",
+        "zh": "基于拥有150多年历史的美国企业 Ransom & Randolph 的丰富经验与专业知识，通过浆料分析系统找出不良原因并进行改善。"
+      }
+    },
+    {
+      "title": {
+        "ko": "세계적인 광물 회사 IMERYS",
+        "en": "Global Mineral Company IMERYS",
+        "zh": "全球矿业公司 IMERYS"
+      },
+      "description": {
+        "ko": "각 국에 위치한 광산에서 채취한 광물을 고온의 공정을 통해 불순물을 제거하고 내화도를 높여, 높은 품질의 제품을 제공합니다.",
+        "en": "Minerals sourced from global mines are refined through high-temperature processes to remove impurities and enhance refractoriness, delivering high-quality products.",
+        "zh": "从全球矿山采集的矿物通过高温工艺去除杂质并提高耐火性能，从而提供高品质产品。"
+      }
+    }
+  ]
+}

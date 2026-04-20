@@ -2,22 +2,20 @@
   height: max-content;
   background-color: var(--white);
   overflow: unset;
-  // padding-top: 0;
-  background: url('/img/img-bg-factory-blur-1.png') no-repeat 0 center / 100%
-    auto;
 
   .wrap {
     width: 100%;
     height: auto;
+    min-height: 100vh;
     gap: 2rem;
     align-items: flex-start;
 
     .left {
       width: 30%;
 
-      &.active {
+      &.sticky {
         position: sticky;
-        top: 5rem;
+        top: 7rem;
         left: 0;
       }
 
@@ -35,17 +33,20 @@
       & > div {
         padding-top: 15rem;
 
-        &:first-of-type {
-          padding-top: 0;
-        }
-
         & > div {
           width: 100%;
           padding: 3rem;
-          // border-bottom: 0.1rem solid var(--main-green-1);
-          background-color: var(--gray-1);
           margin-top: 2rem;
           border-radius: var(--br-10);
+        }
+
+        &:first-of-type {
+          padding-top: 0;
+
+          & > div:first-of-type {
+            padding-top: 0;
+            margin-top: 0;
+          }
         }
       }
     }

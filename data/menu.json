@@ -1,0 +1,185 @@
+{
+  "menu": [
+    {
+      "id": "company",
+      "label": {
+        "ko": "회사소개",
+        "en": "Company",
+        "zh": "公司介绍"
+      },
+      "path": "/company/about",
+      "items": [
+        {
+          "id": "about",
+          "label": {
+            "ko": "WIKO 소개",
+            "en": "About WIKO",
+            "zh": "WIKO简介"
+          },
+          "path": "/company/about"
+        },
+        {
+          "id": "historyOrganization",
+          "label": {
+            "ko": "연혁 & 조직",
+            "en": "History & Organization",
+            "zh": "发展历程与组织架构"
+          },
+          "path": "/company/history-organization"
+        },
+        {
+          "id": "keyBusinesses",
+          "label": {
+            "ko": "주요사업",
+            "en": "Key Businesses",
+            "zh": "主要业务"
+          },
+          "path": "/company/key-businesses"
+        },
+        {
+          "id": "location",
+          "label": {
+            "ko": "찾아오시는길",
+            "en": "Location",
+            "zh": "联系我们 / 公司地址"
+          },
+          "path": "/company/location"
+        }
+      ]
+    },
+    {
+      "id": "business",
+      "label": {
+        "ko": "사업분야",
+        "en": "Business Areas",
+        "zh": "业务领域"
+      },
+      "path": "/business/system-integration",
+      "items": [
+        {
+          "id": "systemIntegration",
+          "label": {
+            "ko": "시스템통합",
+            "en": "System Integration",
+            "zh": "系统集成"
+          },
+          "path": "/business/system-integration"
+        },
+        {
+          "id": "maintenance",
+          "label": {
+            "ko": "시스템유지보수",
+            "en": "System Maintenance",
+            "zh": "系统维护"
+          },
+          "path": "/business/maintenance"
+        }
+      ]
+    },
+    {
+      "id": "products",
+      "label": {
+        "ko": "제품",
+        "en": "Products",
+        "zh": "产品"
+      },
+      "path": "/products/investment-casting-equipment",
+      "items": [
+        {
+          "id": "investmentCastingEquipment",
+          "label": {
+            "ko": "정밀주조 전용 장비",
+            "en": "Investment Casting Equipment",
+            "zh": "精密铸造专用设备"
+          },
+          "path": "/products/investment-casting-equipment"
+        },
+        {
+          "id": "investmentCastingWax",
+          "label": {
+            "ko": "정밀주조 왁스",
+            "en": "Investment Casting Wax",
+            "zh": "精密铸造蜡"
+          },
+          "path": "/products/investment-casting-wax"
+        },
+        {
+          "id": "shellCoatingMaterials",
+          "label": {
+            "ko": "쉘코팅 자재",
+            "en": "Shell Coating Materials",
+            "zh": "型壳涂层材料"
+          },
+          "path": "/products/shell-coating-materials"
+        }
+      ]
+    },
+    {
+      "id": "technicalSupport",
+      "label": {
+        "ko": "기술지원",
+        "en": "Technical Support",
+        "zh": "技术支持"
+      },
+      "path": "/technical-support",
+      "items": []
+    },
+    {
+      "id": "community",
+      "label": {
+        "ko": "커뮤니티",
+        "en": "Community",
+        "zh": "社区"
+      },
+      "path": "/community/qna",
+      "items": [
+        {
+          "id": "qna",
+          "label": {
+            "ko": "Q&A",
+            "en": "Q&A",
+            "zh": "问答"
+          },
+          "path": "/community/qna"
+        },
+        {
+          "id": "freeboard",
+          "label": {
+            "ko": "자유게시판",
+            "en": "Forum",
+            "zh": "自由讨论区"
+          },
+          "path": "/community/freeboard"
+        },
+        {
+          "id": "notice",
+          "label": {
+            "ko": "공지사항",
+            "en": "Notices",
+            "zh": "公告"
+          },
+          "path": "/community/notice"
+        },
+        {
+          "id": "news",
+          "label": {
+            "ko": "뉴스",
+            "en": "News",
+            "zh": "新闻"
+          },
+          "path": "/community/news"
+        }
+      ]
+    },
+    {
+      "id": "recruit",
+      "label": {
+        "ko": "채용정보",
+        "en": "Careers",
+        "zh": "招聘信息"
+      },
+      "path": "/recruit/career",
+      "items": []
+    }
+  ]
+}

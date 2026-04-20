@@ -8,12 +8,12 @@ export default function HorizontalScroll({
   title,
   bgChildren,
   children,
-  videoSource,
+  contentsSource,
 }: {
   title: string;
   bgChildren: React.ReactNode;
   children: React.ReactNode;
-  videoSource: string;
+  contentsSource: string;
 }) {
   const sctionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -56,7 +56,7 @@ export default function HorizontalScroll({
             {bgChildren}
           </video>
 
-          <a className="screen_out" href={videoSource}>
+          <a className="screen_out" href={contentsSource}>
             Video by Wavebreak Media on Freepik
           </a>
         </div>

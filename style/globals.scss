@@ -17,10 +17,10 @@
 
 :root {
   // font fam
-  --font-ko: var(--font-pretendard), var(--font-wanted-sans), system-ui,
-    sans-serif;
-  --font-en: var(--font-wanted-sans), var(--font-pretendard), system-ui,
-    sans-serif;
+  --font-ko:
+    var(--font-pretendard), var(--font-wanted-sans), system-ui, sans-serif;
+  --font-en:
+    var(--font-wanted-sans), var(--font-pretendard), system-ui, sans-serif;
 
   // gray scale
   --white: #fff;
@@ -68,6 +68,18 @@
 
   // blur
   --blur-1: blur(1rem);
+
+  // radius
+  --br-5: 0.5rem;
+  --br-10: 1rem;
+
+  // transition
+  --transition-01: all 0.1s ease-in-out;
+  --transition-02: all 0.2s ease-in-out;
+  --transition-03: all 0.3s ease-in-out;
+  --transition-04: all 0.4s ease-in-out;
+  --transition-05: all 0.5s ease-in-out;
+  --transition-10: all 1s ease-in-out;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -141,18 +153,18 @@ body {
   font-family: var(--font-en);
 }
 
-.wrap {
-  max-width: 120rem;
-  width: 100%;
-  padding: 0 5rem;
-  margin: 0 auto;
-  // transition: var(--transition-03);
-}
+// .wrap {
+//   max-width: 120rem;
+//   width: 100%;
+//   padding: 0 5rem;
+//   margin: 0 auto;
+//   transition: var(--transition-03);
+// }
 
 section {
   width: 100vw;
   height: 100vh;
-  padding: 5rem;
+  padding: 7rem 5rem;
   overflow: hidden;
 }
 
